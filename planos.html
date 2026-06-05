@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Conheça os 6 planos de saúde Klini — do Ambulatorial ao 600. Todos com telemedicina 24h e medicina preventiva. Solicite sua cotação gratuita." />
+  <title>Planos de Saúde | Klini Saúde</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Merriweather:ital,wght@0,300;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons@7.0.0/primeicons.css" />
+  <style>
+:root{--ink:#06090F;--ink2:#0C1422;--teal:#259591;--teal-dim:rgba(37,149,145,.18);--sea:#6AA7AE;--orange:#CD7925;--white:#fff;--off:#F5F9FF;--text:#1E2D3D;--muted:#637585;--bd-l:rgba(10,20,40,.08);--bd-d:rgba(255,255,255,.08);--r:14px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:#fff}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--teal);border-radius:2px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.sec{padding:80px 0}
+.sec--off{background:var(--off)}
+.sec--dark{background:var(--ink);color:#fff}
+.h1{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3.2rem);line-height:1.1;letter-spacing:-.03em}
+.h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(1.5rem,3vw,2.2rem);line-height:1.15;letter-spacing:-.025em}
+.h3{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:1.1rem}
+.eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:10px}
+.grad{background:linear-gradient(105deg,var(--teal),var(--sea));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:10px;font-weight:700;font-size:.92rem;cursor:pointer;transition:all .2s;text-decoration:none;border:none;font-family:'Plus Jakarta Sans',sans-serif;white-space:nowrap}
+.btn-orange{background:var(--orange);color:#fff}
+.btn-orange:hover{background:#b8641a;transform:translateY(-2px);box-shadow:0 10px 26px rgba(205,121,37,.38)}
+.btn-outline{border:1.5px solid var(--bd-l);color:var(--teal);background:transparent}
+.btn-outline:hover{border-color:var(--teal);background:rgba(37,149,145,.06)}
+.nav{position:sticky;top:0;z-index:900;background:rgba(6,9,15,.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.06);padding:13px 0}
+.nav__inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.nav__logo img{height:28px}
+.nav__links{display:flex;align-items:center;gap:2px;list-style:none}
+.nav__links a{font-size:.84rem;font-weight:500;color:rgba(255,255,255,.55);transition:color .2s;padding:7px 13px;border-radius:8px;white-space:nowrap}
+.nav__links a:hover{color:rgba(255,255,255,.9);background:rgba(255,255,255,.07)}
+.nav__links .active{color:var(--teal)!important}
+.nav__links .nav__cta{background:var(--orange);color:#fff!important;font-weight:700}
+.nav__links .nav__cta:hover{background:#b8641a}
+@media(max-width:900px){.nav__links .nav-hide{display:none}}
+@media(max-width:600px){.nav__links .nav-hide2{display:none}}
+.page-hero{background:var(--ink);padding:80px 0 72px;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(var(--teal-dim),transparent 70%);top:-200px;right:-100px;pointer-events:none}
+.page-hero .wrap{position:relative;z-index:1}
+.page-hero h1{color:#fff;margin-top:6px;margin-bottom:16px}
+.page-hero p{font-family:'Merriweather',serif;font-weight:300;font-style:italic;color:rgba(255,255,255,.58);font-size:.98rem;line-height:1.85;max-width:580px}
+/* PLANOS GRID */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.pc{background:#fff;border:1.5px solid var(--bd-l);border-radius:var(--r);padding:28px;transition:all .3s;position:relative;overflow:hidden}
+.pc::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(37,149,145,.07),transparent);opacity:0;transition:opacity .3s;pointer-events:none}
+.pc:hover{border-color:var(--teal);transform:translateY(-5px);box-shadow:0 24px 48px rgba(37,149,145,.1)}
+.pc:hover::before{opacity:1}
+.pc--feat{background:linear-gradient(150deg,var(--ink2),#0A2040);border-color:rgba(37,149,145,.4);color:#fff}
+.pc--feat:hover{box-shadow:0 24px 48px rgba(37,149,145,.22)}
+.pc__hot{position:absolute;top:14px;right:14px;background:var(--orange);color:#fff;font-size:.63rem;font-weight:800;padding:3px 10px;border-radius:50px;letter-spacing:.04em;text-transform:uppercase}
+.pc__img{height:68px;object-fit:contain;margin-bottom:16px}
+.pc__name{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.15rem;margin-bottom:4px}
+.pc--feat .pc__name{color:#fff}
+.pc__tag{font-size:.82rem;color:var(--muted);margin-bottom:16px;line-height:1.55}
+.pc--feat .pc__tag{color:rgba(255,255,255,.5)}
+.pc__list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:22px}
+.pc__list li{display:flex;align-items:center;gap:8px;font-size:.83rem}
+.pc--feat .pc__list li{color:rgba(255,255,255,.8)}
+.pc__ck{width:18px;height:18px;background:rgba(37,149,145,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:.58rem;flex-shrink:0}
+.pc__btn{width:100%;justify-content:center;padding:11px;border-radius:10px;font-size:.86rem}
+.pc__btn-feat{background:var(--orange);color:#fff;border:none}
+.pc__btn-out{border:1.5px solid var(--bd-l);background:transparent;color:var(--teal)}
+.pc--feat .pc__btn-out{border-color:rgba(255,255,255,.2);color:#fff}
+/* DIFERENCIAIS */
+.diffs{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:52px}
+.diff{background:#fff;border:1.5px solid var(--bd-l);border-radius:var(--r);padding:28px;transition:all .3s}
+.diff:hover{border-color:var(--teal);transform:translateY(-3px);box-shadow:0 16px 32px rgba(37,149,145,.08)}
+.diff__ico{width:44px;height:44px;border-radius:12px;background:rgba(37,149,145,.1);border:1px solid rgba(37,149,145,.2);display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--teal);margin-bottom:14px}
+.diff h4{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:.95rem;margin-bottom:7px}
+.diff p{font-size:.84rem;color:var(--muted);line-height:1.65}
+/* FAQ */
+.faq__list{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+.faq__item{background:var(--off);border:1.5px solid var(--bd-l);border-radius:12px;overflow:hidden;transition:border-color .2s}
+.faq__item.open{border-color:var(--teal)}
+.faq__q{width:100%;background:none;border:none;padding:18px 20px;text-align:left;font-size:.94rem;font-weight:600;color:var(--text);cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.faq__ico{width:26px;height:26px;background:var(--bd-l);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--teal);flex-shrink:0;transition:transform .3s,background .2s}
+.faq__item.open .faq__ico{transform:rotate(45deg);background:var(--teal);color:#fff}
+.faq__a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .2s;padding:0 20px}
+.faq__a.open{max-height:180px;padding:0 20px 16px}
+.faq__a p{font-size:.9rem;line-height:1.75;color:var(--muted)}
+footer{background:#030508;color:rgba(255,255,255,.35);padding:40px 0 24px}
+.foot__top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:22px}
+.foot__logo img{height:24px;filter:brightness(2) saturate(0)}
+.foot__links{display:flex;gap:18px;flex-wrap:wrap}
+.foot__links a{font-size:.78rem;color:rgba(255,255,255,.3);transition:color .2s}
+.foot__links a:hover{color:var(--teal)}
+.foot__socials{display:flex;gap:8px}
+.soc{width:32px;height:32px;background:rgba(255,255,255,.06);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:1rem;color:rgba(255,255,255,.45);transition:all .2s;text-decoration:none}
+.soc:hover{background:var(--teal);color:#fff}
+.foot__bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.74rem}
+.seals{display:flex;gap:8px}
+.seal{background:rgba(255,255,255,.05);border-radius:6px;padding:4px 10px;font-size:.67rem;font-weight:700;letter-spacing:.04em}
+.wa-f{position:fixed;bottom:24px;right:24px;z-index:950}
+.wa-btn{width:54px;height:54px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(37,211,102,.44);text-decoration:none;animation:wab 3s ease-in-out infinite}
+@keyframes wab{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.wa-btn:hover{background:#1da851;animation:none!important;transform:scale(1.12)}
+@media(max-width:900px){.plans{grid-template-columns:1fr 1fr}.diffs{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.plans{grid-template-columns:1fr}.diffs{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a href="index.html" class="nav__logo">
+      <img src="https://klinisaude.com.br/wp-content/uploads/2023/01/logo-header.webp" alt="Klini Saúde" />
+    </a>
+    <ul class="nav__links">
+      <li class="nav-hide"><a href="planos.html" class="active">Planos</a></li>
+      <li class="nav-hide"><a href="teleconsulta.html">Teleconsulta</a></li>
+      <li class="nav-hide2"><a href="sobre.html">Sobre</a></li>
+      <li><a href="index.html#cotacao" class="nav__cta">Cotação Gratuita</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <span class="eyebrow" style="color:var(--sea)">planos klini</span>
+    <h1 class="h1">O plano certo para cada<br><span class="grad">momento da vida</span></h1>
+    <p>Do atendimento ambulatorial à cobertura total premium — todos os planos Klini incluem telemedicina 24h e medicina preventiva.</p>
+  </div>
+</section>
+
+<!-- PLANOS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="plans">
+
+      <div class="pc">
+        <img src="https://klinisaude.com.br/wp-content/uploads/2024/05/klini-ambulatorial_logo.svg" alt="Klini Ambulatorial" class="pc__img" />
+        <div class="pc__name">Ambulatorial</div>
+        <p class="pc__tag">O seu plano acessível. Ideal para quem busca cobertura essencial com atendimento ágil.</p>
+        <ul class="pc__list">
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Cobertura ambulatorial completa</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Consultas e exames</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Teleconsulta 24h inclusa</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Desconto em farmácias</li>
+        </ul>
+        <a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Ambulatorial." class="btn pc__btn pc__btn-out" target="_blank" rel="noopener">Solicitar Cotação</a>
+      </div>
+
+      <div class="pc">
+        <img src="https://klinisaude.com.br/wp-content/uploads/2025/09/Klini-200-webp-1.webp" alt="Klini 200" class="pc__img" />
+        <div class="pc__name">Klini 200</div>
+        <p class="pc__tag">A porta de entrada para proteção ampla com custo equilibrado.</p>
+        <ul class="pc__list">
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Ambulatorial + Hospitalar</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Obstetrícia inclusa</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Rede regional RJ</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Teleconsulta 24h</li>
+        </ul>
+        <a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20200." class="btn pc__btn pc__btn-out" target="_blank" rel="noopener">Solicitar Cotação</a>
+      </div>
+
+      <div class="pc">
+        <div class="pc__name">Klini 350</div>
+        <p class="pc__tag" style="margin-top:8px">O plano que acompanha o crescimento da sua família com rede mais ampla.</p>
+        <ul class="pc__list">
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Ambulatorial + Hospitalar</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Rede credenciada ampliada</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Obstetrícia completa</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Telemedicina especializada</li>
+        </ul>
+        <a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20350." class="btn pc__btn pc__btn-out" target="_blank" rel="noopener">Solicitar Cotação</a>
+      </div>
+
+      <div class="pc pc--feat">
+        <div class="pc__hot">Mais Escolhido</div>
+        <img src="https://klinisaude.com.br/wp-content/uploads/2025/09/Klini-400-webp-1.webp" alt="Klini 400" class="pc__img" style="filter:brightness(1.2)" />
+        <div class="pc__name">Klini 400</div>
+        <p class="pc__tag">Rede ampliada com Linhas de Cuidados — a melhor relação custo-benefício da Klini.</p>
+        <ul class="pc__list">
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Ambulatorial + Hospitalar</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Obstetrícia inclusa</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Rede ampliada premium</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Linhas de Cuidados (LCA)</li>
+        </ul>
+        <a href="https://wa.me/552130550790?text=Olá!%20Quero%20simular%20o%20Klini%20400." class="btn pc__btn pc__btn-feat" target="_blank" rel="noopener">Simular Agora <i class="pi pi-arrow-right"></i></a>
+      </div>
+
+      <div class="pc">
+        <img src="https://klinisaude.com.br/wp-content/uploads/2025/09/Klini-600-webp-1.webp" alt="Klini 600" class="pc__img" />
+        <div class="pc__name">Klini 600</div>
+        <p class="pc__tag">O mais completo da Klini — máximo conforto, maior rede e cobertura total.</p>
+        <ul class="pc__list">
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Hospitais de excelência</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Alto valor de reembolso</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Maior rede credenciada</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Linhas de Cuidados ao extremo</li>
+        </ul>
+        <a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20600." class="btn pc__btn pc__btn-out" target="_blank" rel="noopener">Solicitar Cotação</a>
+      </div>
+
+      <div class="pc">
+        <div class="pc__name" style="margin-top:4px">Klini Sênior</div>
+        <p class="pc__tag" style="margin-top:8px">Central exclusiva e cuidado especializado para o perfil 60+.</p>
+        <ul class="pc__list">
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Central de atendimento 60+</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Ambulatorial + Hospitalar</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Teleconsulta inclusa</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Linhas de Cuidados (LCA)</li>
+        </ul>
+        <a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Sênior." class="btn pc__btn pc__btn-out" target="_blank" rel="noopener">Solicitar Cotação</a>
+      </div>
+
+    </div>
+
+    <div style="background:var(--off);border-radius:var(--r);padding:32px;margin-top:40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px">
+      <div>
+        <p style="font-weight:700;font-size:1rem;margin-bottom:6px">Não sabe qual plano escolher?</p>
+        <p style="color:var(--muted);font-size:.9rem">Fale com um especialista — ele encontra o melhor plano para o seu perfil e orçamento, sem compromisso.</p>
+      </div>
+      <a href="index.html#cotacao" class="btn btn-orange"><i class="pi pi-arrow-right"></i> Cotação Gratuita</a>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section class="sec sec--off">
+  <div class="wrap">
+    <div style="margin-bottom:8px;text-align:center">
+      <span class="eyebrow">incluso em todos os planos</span>
+      <h2 class="h2">O que você sempre<br>vai ter com a Klini</h2>
+    </div>
+    <div class="diffs">
+      <div class="diff"><div class="diff__ico"><i class="pi pi-video"></i></div><h4>Teleconsulta 24h</h4><p>Consultas online em diversas especialidades, sem sair de casa — disponível em todos os planos.</p></div>
+      <div class="diff"><div class="diff__ico"><i class="pi pi-tag"></i></div><h4>Desconto em Farmácias</h4><p>Rede conveniada com descontos reais em medicamentos nas maiores farmácias do Brasil.</p></div>
+      <div class="diff"><div class="diff__ico"><i class="pi pi-heart"></i></div><h4>Medicina Preventiva</h4><p>Programas de acompanhamento e promoção de saúde com o Núcleo Mais Vida.</p></div>
+      <div class="diff"><div class="diff__ico"><i class="pi pi-map-marker"></i></div><h4>Rede Própria no RJ</h4><p>15 unidades próprias em 3 regiões — Rio de Janeiro, Baixada Fluminense e Costa Verde.</p></div>
+      <div class="diff"><div class="diff__ico"><i class="pi pi-mobile"></i></div><h4>App com Carteirinha Digital</h4><p>Token digital, agendamentos, resultados de exames e busca de rede — tudo no app Klini.</p></div>
+      <div class="diff"><div class="diff__ico"><i class="pi pi-phone"></i></div><h4>SAC 24h</h4><p>Atendimento pelo WhatsApp, SAC e canais exclusivos. Seg–Sex 8h–17h com fila prioritária.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:48px">
+      <span class="eyebrow">dúvidas sobre os planos</span>
+      <h2 class="h2">Perguntas frequentes</h2>
+    </div>
+    <div class="faq__list">
+      <div class="faq__item">
+        <button class="faq__q" onclick="toggleFaq(this)">Como escolher o plano ideal para mim?<span class="faq__ico">+</span></button>
+        <div class="faq__a"><p>O ideal é conversar com um de nossos especialistas. Eles avaliam seu perfil, histórico médico e orçamento para indicar o plano mais adequado — sem compromisso.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" onclick="toggleFaq(this)">Qual a diferença entre os planos 200, 400 e 600?<span class="faq__ico">+</span></button>
+        <div class="faq__a"><p>O Klini 200 é a porta de entrada com rede regional. O 400 tem rede ampliada e Linhas de Cuidados — é o mais escolhido. O 600 é o plano mais completo com os hospitais mais renomados e maior reembolso.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" onclick="toggleFaq(this)">Como funciona a carência dos planos Klini?<span class="faq__ico">+</span></button>
+        <div class="faq__a"><p>Seguindo a ANS: urgência/emergência em 24h, consultas e exames em 30 dias, internações em 180 dias e partos em 300 dias. Em promoções especiais, as carências podem ser reduzidas.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" onclick="toggleFaq(this)">Existe plano especial para idosos?<span class="faq__ico">+</span></button>
+        <div class="faq__a"><p>Sim. O Klini Sênior é específico para o perfil 60+ — com central de atendimento exclusiva, Linhas de Cuidados e serviços adaptados para esta fase da vida.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" onclick="toggleFaq(this)">Como contratar um plano Klini?<span class="faq__ico">+</span></button>
+        <div class="faq__a"><p>Preencha o formulário de cotação, fale com nossa equipe pelo WhatsApp (21) 3055-0790 ou ligue para o 0800 021 0320. Um especialista vai guiar todo o processo.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot__top">
+      <a href="index.html"><img src="https://klinisaude.com.br/wp-content/uploads/2023/02/logo_klini-br.png" alt="Klini Saúde" class="foot__logo" /></a>
+      <nav class="foot__links">
+        <a href="sobre.html">Sobre</a><a href="planos.html">Planos</a><a href="teleconsulta.html">Teleconsulta</a>
+        <a href="rede-credenciada.html">Rede Credenciada</a><a href="ouvidoria.html">Ouvidoria</a><a href="politica-de-privacidade.html">Privacidade</a>
+      </nav>
+      <div class="foot__socials">
+        <a href="https://www.instagram.com/klinisaude/" class="soc" target="_blank" rel="noopener" aria-label="Instagram"><i class="pi pi-instagram"></i></a>
+        <a href="https://www.facebook.com/klinisaudematriz" class="soc" target="_blank" rel="noopener" aria-label="Facebook"><i class="pi pi-facebook"></i></a>
+        <a href="https://br.linkedin.com/company/klinisaude" class="soc" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="pi pi-linkedin"></i></a>
+        <a href="https://www.youtube.com/@KliniSaude" class="soc" target="_blank" rel="noopener" aria-label="YouTube"><i class="pi pi-youtube"></i></a>
+      </div>
+    </div>
+    <div class="foot__bottom">
+      <p>© 2020–2026 Klini Planos de Saúde Ltda. · CNPJ 34.539.000/0001-86 · Barra da Tijuca, Rio de Janeiro, RJ</p>
+      <div class="seals"><span class="seal">ANS Reg. 42.000.2085</span><span class="seal">LGPD</span></div>
+    </div>
+  </div>
+</footer>
+
+<div class="wa-f">
+  <a href="https://wa.me/552130550790?text=Olá!%20Quero%20conhecer%20os%20planos%20Klini." class="wa-btn" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <i class="pi pi-whatsapp" style="font-size:1.4rem;color:#fff;line-height:1"></i>
+  </a>
+</div>
+
+<script>
+function toggleFaq(btn) {
+  const it = btn.closest('.faq__item'), ans = it.querySelector('.faq__a');
+  const isOpen = it.classList.contains('open');
+  document.querySelectorAll('.faq__item.open').forEach(el => { el.classList.remove('open'); el.querySelector('.faq__a').classList.remove('open'); });
+  if (!isOpen) { it.classList.add('open'); ans.classList.add('open'); }
+}
+</script>
+</body>
+</html>

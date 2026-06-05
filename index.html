@@ -691,8 +691,8 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
 </div>
 
 <!-- ══ GSAP ═══════════════════════════════════════════════════════ -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 
 <!-- ══ THREE.JS PARTICLE BACKGROUND ══════════════════════════════ -->
 <script type="module">
@@ -829,16 +829,18 @@ window.addEventListener('scroll', () =>
   bar.classList.toggle('solid', scrollY > 50), { passive: true });
 
 /* ── GSAP + ScrollTrigger ────────────────────────────── */
+if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
 window.addEventListener('load', () => {
   if (typeof gsap === 'undefined') return;
-  gsap.registerPlugin(ScrollTrigger);
 
   // Hero entrance (stagger)
-  gsap.to('.hero__copy .gs', {
-    opacity: 1, y: 0,
-    stagger: .18, duration: 1.1, ease: 'power3.out', delay: .4,
-    from: { y: 56, opacity: 0 }
-  });
+  gsap.fromTo('.hero__copy .gs',
+    { y: 56, opacity: 0 },
+    { opacity: 1, y: 0, stagger: .18, duration: 1.1, ease: 'power3.out', delay: .4 }
+  );
   gsap.fromTo('.hero__card.gs',
     { opacity: 0, x: 70 },
     { opacity: 1, x: 0, duration: 1.1, ease: 'power3.out', delay: .55 }

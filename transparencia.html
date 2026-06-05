@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Transparência Klini Saúde — acesso a informações regulatórias, demonstrativos e portal ANS de dados abertos." />
+  <title>Transparência | Klini Saúde</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons@7.0.0/primeicons.css" />
+  <style>
+:root{--teal:#259591;--orange:#CD7925;--ink:#06090F;--off:#F5F9FF;--text:#1E2D3D;--muted:#637585;--bd-l:rgba(10,20,40,.08)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:#fff}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:900px;margin:0 auto;padding:0 24px}
+.nav{background:rgba(6,9,15,.97);padding:13px 0}
+.nav__inner{display:flex;align-items:center;justify-content:space-between}
+.nav__cta{background:var(--orange);color:#fff;padding:8px 18px;border-radius:8px;font-size:.84rem;font-weight:700}
+.page-hero{background:var(--ink);padding:64px 0 52px;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;top:-60px;left:-60px;width:360px;height:360px;background:radial-gradient(circle,rgba(37,149,145,.15) 0%,transparent 70%);pointer-events:none}
+.eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:8px}
+.page-hero h1{font-weight:800;font-size:clamp(1.8rem,3.5vw,2.8rem);letter-spacing:-.03em;color:#fff;margin-bottom:12px}
+.page-hero p{color:rgba(255,255,255,.55);font-size:.96rem;line-height:1.75;max-width:560px}
+.content{padding:64px 0}
+.section-title{font-weight:800;font-size:1.2rem;letter-spacing:-.02em;margin-bottom:20px}
+.doc-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:48px}
+.doc-card{border:1.5px solid var(--bd-l);border-radius:12px;padding:22px;display:flex;align-items:flex-start;gap:14px;transition:all .25s}
+.doc-card:hover{border-color:var(--teal);box-shadow:0 8px 24px rgba(37,149,145,.07)}
+.doc-card__ico{font-size:1.3rem;color:var(--teal);flex-shrink:0;margin-top:2px}
+.doc-card strong{display:block;font-size:.9rem;font-weight:700;margin-bottom:4px}
+.doc-card p{font-size:.82rem;color:var(--muted);line-height:1.6;margin-bottom:10px}
+.doc-card a{font-size:.8rem;font-weight:600;color:var(--teal);display:inline-flex;align-items:center;gap:5px;transition:opacity .2s}
+.doc-card a:hover{opacity:.75}
+.ans-banner{background:var(--off);border-radius:14px;padding:32px;display:flex;gap:20px;align-items:flex-start;margin-top:8px}
+.ans-banner__ico{font-size:1.8rem;color:var(--teal);flex-shrink:0}
+.ans-banner h3{font-weight:700;font-size:1rem;margin-bottom:6px}
+.ans-banner p{font-size:.86rem;color:var(--muted);line-height:1.7;margin-bottom:14px}
+.btn-sm{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:8px;font-size:.82rem;font-weight:700;background:var(--teal);color:#fff;transition:background .2s}
+.btn-sm:hover{background:#1e7d7a}
+footer{background:#030508;color:rgba(255,255,255,.35);padding:32px 0 20px;margin-top:64px}
+.foot__inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:18px}
+.foot__links{display:flex;gap:16px;flex-wrap:wrap}
+.foot__links a{font-size:.77rem;color:rgba(255,255,255,.3);transition:color .2s}
+.foot__links a:hover{color:var(--teal)}
+.foot__bottom{font-size:.73rem}
+.seal{background:rgba(255,255,255,.05);border-radius:6px;padding:3px 9px;font-size:.66rem;font-weight:700;margin-left:8px}
+@media(max-width:600px){.doc-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a href="index.html"><img src="https://klinisaude.com.br/wp-content/uploads/2023/01/logo-header.webp" alt="Klini Saúde" style="height:28px" /></a>
+    <a href="index.html#cotacao" class="nav__cta">Cotação Gratuita</a>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <span class="eyebrow">transparência</span>
+    <h1>Informação clara<br>para você decidir</h1>
+    <p>A Klini Saúde disponibiliza os documentos regulatórios e dados institucionais exigidos pela Agência Nacional de Saúde Suplementar (ANS).</p>
+  </div>
+</section>
+
+<section class="content">
+  <div class="wrap">
+
+    <h2 class="section-title">Documentos e publicações</h2>
+    <div class="doc-grid">
+      <div class="doc-card">
+        <div class="doc-card__ico"><i class="pi pi-file-pdf"></i></div>
+        <div>
+          <strong>Contrato e Regulamento</strong>
+          <p>Condições gerais, cobertura, carências e exclusões do plano.</p>
+          <a href="https://klinisaude.com.br" target="_blank" rel="noopener">Acessar <i class="pi pi-external-link"></i></a>
+        </div>
+      </div>
+      <div class="doc-card">
+        <div class="doc-card__ico"><i class="pi pi-chart-line"></i></div>
+        <div>
+          <strong>Demonstrativos Financeiros</strong>
+          <p>Balanços e demonstrações de resultado publicados anualmente.</p>
+          <a href="https://klinisaude.com.br" target="_blank" rel="noopener">Acessar <i class="pi pi-external-link"></i></a>
+        </div>
+      </div>
+      <div class="doc-card">
+        <div class="doc-card__ico"><i class="pi pi-shield"></i></div>
+        <div>
+          <strong>Nota Técnica ANS</strong>
+          <p>Índices de reajuste autorizados e notas técnicas de produto.</p>
+          <a href="https://klinisaude.com.br" target="_blank" rel="noopener">Acessar <i class="pi pi-external-link"></i></a>
+        </div>
+      </div>
+      <div class="doc-card">
+        <div class="doc-card__ico"><i class="pi pi-list"></i></div>
+        <div>
+          <strong>Rol de Procedimentos</strong>
+          <p>Cobertura mínima obrigatória conforme resolução normativa ANS.</p>
+          <a href="https://www.ans.gov.br/planos-de-saude-e-operadoras/espaco-do-consumidor/rol-de-procedimentos-e-eventos-em-saude" target="_blank" rel="noopener">Ver no site ANS <i class="pi pi-external-link"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="ans-banner">
+      <div class="ans-banner__ico"><i class="pi pi-database"></i></div>
+      <div>
+        <h3>Portal ANS — Dados Abertos</h3>
+        <p>O portal de dados abertos da ANS reúne informações públicas sobre todas as operadoras de saúde do Brasil, incluindo índices de satisfação, reclamações e rankings. O registro da Klini Saúde é <strong>42.000.2085</strong>.</p>
+        <a href="https://dados.ans.gov.br" target="_blank" rel="noopener" class="btn-sm"><i class="pi pi-external-link"></i> Acessar dados.ans.gov.br</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot__inner">
+      <a href="index.html"><img src="https://klinisaude.com.br/wp-content/uploads/2023/02/logo_klini-br.png" alt="Klini Saúde" style="height:20px;filter:brightness(2) saturate(0)" /></a>
+      <nav class="foot__links">
+        <a href="sobre.html">Sobre</a><a href="planos.html">Planos</a><a href="ouvidoria.html">Ouvidoria</a>
+        <a href="rede-credenciada.html">Rede</a><a href="politica-de-privacidade.html">Privacidade</a>
+      </nav>
+    </div>
+    <div class="foot__bottom">
+      © 2020–2026 Klini Planos de Saúde Ltda. · CNPJ 34.539.000/0001-86
+      <span class="seal">ANS Reg. 42.000.2085</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

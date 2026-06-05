@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Teleconsulta Klini — atendimento médico 24h onde você estiver. Pronto atendimento imediato ou agendado, receitas e atestados digitais com validade legal." />
+  <title>Teleconsulta | Klini Saúde</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Merriweather:ital,wght@0,300;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons@7.0.0/primeicons.css" />
+  <style>
+:root{--ink:#06090F;--ink2:#0C1422;--teal:#259591;--teal-dim:rgba(37,149,145,.18);--sea:#6AA7AE;--orange:#CD7925;--white:#fff;--off:#F5F9FF;--text:#1E2D3D;--muted:#637585;--bd-l:rgba(10,20,40,.08);--bd-d:rgba(255,255,255,.08);--r:14px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:#fff}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--teal);border-radius:2px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.sec{padding:80px 0}
+.sec--off{background:var(--off)}
+.sec--dark{background:var(--ink);color:#fff}
+.h1{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3.2rem);line-height:1.1;letter-spacing:-.03em}
+.h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(1.5rem,3vw,2.2rem);line-height:1.15;letter-spacing:-.025em}
+.h3{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:1.1rem}
+.eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:10px}
+.grad{background:linear-gradient(105deg,var(--teal),var(--sea));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:10px;font-weight:700;font-size:.92rem;cursor:pointer;transition:all .2s;text-decoration:none;border:none;font-family:'Plus Jakarta Sans',sans-serif;white-space:nowrap}
+.btn-orange{background:var(--orange);color:#fff}
+.btn-orange:hover{background:#b8641a;transform:translateY(-2px);box-shadow:0 10px 26px rgba(205,121,37,.38)}
+.btn-outline{border:1.5px solid var(--bd-l);color:var(--teal);background:transparent}
+.btn-outline:hover{border-color:var(--teal);background:rgba(37,149,145,.06)}
+.nav{position:sticky;top:0;z-index:900;background:rgba(6,9,15,.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.06);padding:13px 0}
+.nav__inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.nav__logo img{height:28px}
+.nav__links{display:flex;align-items:center;gap:2px;list-style:none}
+.nav__links a{font-size:.84rem;font-weight:500;color:rgba(255,255,255,.55);transition:color .2s;padding:7px 13px;border-radius:8px;white-space:nowrap}
+.nav__links a:hover{color:rgba(255,255,255,.9);background:rgba(255,255,255,.07)}
+.nav__links .active{color:var(--teal)!important}
+.nav__links .nav__cta{background:var(--orange);color:#fff!important;font-weight:700}
+.nav__links .nav__cta:hover{background:#b8641a}
+@media(max-width:900px){.nav__links .nav-hide{display:none}}
+@media(max-width:600px){.nav__links .nav-hide2{display:none}}
+.page-hero{background:var(--ink);padding:80px 0 72px;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(var(--teal-dim),transparent 70%);top:-200px;right:-100px;pointer-events:none}
+.page-hero .wrap{position:relative;z-index:1}
+.page-hero h1{color:#fff;margin-top:6px;margin-bottom:16px}
+.page-hero p{font-family:'Merriweather',serif;font-weight:300;font-style:italic;color:rgba(255,255,255,.58);font-size:.98rem;line-height:1.85;max-width:560px}
+/* FEATURES */
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.feat{background:#fff;border:1.5px solid var(--bd-l);border-radius:var(--r);padding:32px;transition:all .3s;position:relative;overflow:hidden}
+.feat::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(37,149,145,.08),transparent);opacity:0;transition:opacity .3s;pointer-events:none}
+.feat:hover{border-color:var(--teal);transform:translateY(-4px);box-shadow:0 20px 40px rgba(37,149,145,.1)}
+.feat:hover::before{opacity:1}
+.feat__ico{width:52px;height:52px;border-radius:14px;background:rgba(37,149,145,.1);border:1px solid rgba(37,149,145,.2);display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:var(--teal);margin-bottom:18px;position:relative;z-index:1}
+.feat h3{margin-bottom:10px;position:relative;z-index:1}
+.feat p{font-size:.87rem;color:var(--muted);line-height:1.7;position:relative;z-index:1}
+/* COMO FUNCIONA */
+.como{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.steps{display:flex;flex-direction:column;gap:28px;margin-top:32px}
+.step{display:flex;gap:18px;align-items:flex-start}
+.step__num{width:48px;height:48px;border-radius:12px;background:rgba(37,149,145,.1);border:1px solid rgba(37,149,145,.25);display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1rem;color:var(--teal);flex-shrink:0}
+.step strong{display:block;font-size:.95rem;font-weight:600;color:#fff;margin-bottom:4px}
+.step span{font-size:.84rem;color:rgba(255,255,255,.48)}
+/* ESPECIALIDADES */
+.espec__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px}
+.espec__tag{background:#fff;border:1.5px solid var(--bd-l);border-radius:12px;padding:16px 14px;display:flex;align-items:center;gap:10px;font-size:.86rem;font-weight:600;transition:all .25s}
+.espec__tag:hover{border-color:var(--teal);background:rgba(37,149,145,.04);transform:scale(1.02)}
+.espec__tag i{color:var(--teal);font-size:1rem;flex-shrink:0}
+/* APP */
+.app__btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+.app__btns img{height:44px}
+/* FAQ */
+.faq__list{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+.faq__item{background:var(--off);border:1.5px solid var(--bd-l);border-radius:12px;overflow:hidden;transition:border-color .2s}
+.faq__item.open{border-color:var(--teal)}
+.faq__q{width:100%;background:none;border:none;padding:18px 20px;text-align:left;font-size:.94rem;font-weight:600;color:var(--text);cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.faq__ico{width:26px;height:26px;background:var(--bd-l);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--teal);flex-shrink:0;transition:transform .3s,background .2s}
+.faq__item.open .faq__ico{transform:rotate(45deg);background:var(--teal);color:#fff}
+.faq__a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .2s;padding:0 20px}
+.faq__a.open{max-height:160px;padding:0 20px 16px}
+.faq__a p{font-size:.9rem;line-height:1.75;color:var(--muted)}
+footer{background:#030508;color:rgba(255,255,255,.35);padding:40px 0 24px}
+.foot__top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:22px}
+.foot__logo img{height:24px;filter:brightness(2) saturate(0)}
+.foot__links{display:flex;gap:18px;flex-wrap:wrap}
+.foot__links a{font-size:.78rem;color:rgba(255,255,255,.3);transition:color .2s}
+.foot__links a:hover{color:var(--teal)}
+.foot__socials{display:flex;gap:8px}
+.soc{width:32px;height:32px;background:rgba(255,255,255,.06);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:1rem;color:rgba(255,255,255,.45);transition:all .2s;text-decoration:none}
+.soc:hover{background:var(--teal);color:#fff}
+.foot__bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.74rem}
+.seals{display:flex;gap:8px}
+.seal{background:rgba(255,255,255,.05);border-radius:6px;padding:4px 10px;font-size:.67rem;font-weight:700;letter-spacing:.04em}
+.wa-f{position:fixed;bottom:24px;right:24px;z-index:950}
+.wa-btn{width:54px;height:54px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(37,211,102,.44);text-decoration:none;animation:wab 3s ease-in-out infinite}
+@keyframes wab{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.wa-btn:hover{background:#1da851;animation:none!important;transform:scale(1.12)}
+@media(max-width:900px){.features{grid-template-columns:1fr 1fr}.como{grid-template-columns:1fr;gap:40px}.espec__grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.features{grid-template-columns:1fr}.espec__grid{grid-template-columns:1fr 1fr}}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a href="index.html" class="nav__logo">
+      <img src="https://klinisaude.com.br/wp-content/uploads/2023/01/logo-header.webp" alt="Klini Saúde" />
+    </a>
+    <ul class="nav__links">
+      <li class="nav-hide"><a href="planos.html">Planos</a></li>
+      <li class="nav-hide"><a href="teleconsulta.html" class="active">Teleconsulta</a></li>
+      <li class="nav-hide2"><a href="sobre.html">Sobre</a></li>
+      <li><a href="index.html#cotacao" class="nav__cta">Cotação Gratuita</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <span class="eyebrow" style="color:var(--sea)">teleconsulta klini</span>
+    <h1 class="h1">Atendimento médico<br><span class="grad">onde você estiver</span></h1>
+    <p>Consulte médicos especializados sem sair de casa. Pronto atendimento 24h ou consulta agendada — tudo integrado ao seu plano Klini.</p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:32px">
+      <a href="https://apps.apple.com/br/app/klini-saude/id6447484649" target="_blank" rel="noopener"><img src="https://klinisaude.com.br/wp-content/uploads/2023/12/1689885951botao_app-store.png" alt="App Store" style="height:44px" /></a>
+      <a href="https://play.google.com/store/apps/details?id=br.com.klinisaude.klini_app" target="_blank" rel="noopener"><img src="https://klinisaude.com.br/wp-content/uploads/2023/12/1689885814botao_google-play.png" alt="Google Play" style="height:44px" /></a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="sec">
+  <div class="wrap">
+    <div style="margin-bottom:52px;text-align:center">
+      <span class="eyebrow">o que você tem acesso</span>
+      <h2 class="h2">Muito mais que<br>uma consulta</h2>
+    </div>
+    <div class="features">
+      <div class="feat">
+        <div class="feat__ico"><i class="pi pi-clock"></i></div>
+        <h3 class="h3">Pronto Atendimento 24h</h3>
+        <p>Médicos disponíveis a qualquer hora do dia ou da noite, todos os dias da semana — incluindo feriados. Sem fila, sem espera.</p>
+      </div>
+      <div class="feat">
+        <div class="feat__ico"><i class="pi pi-calendar"></i></div>
+        <h3 class="h3">Consulta Agendada</h3>
+        <p>Escolha o médico, a especialidade e o horário que melhor se encaixa na sua rotina. Com ou sem urgência.</p>
+      </div>
+      <div class="feat">
+        <div class="feat__ico"><i class="pi pi-file-text"></i></div>
+        <h3 class="h3">Documentos Digitais</h3>
+        <p>Receitas, atestados e pedidos de exame emitidos com assinatura digital e plena validade legal — entregues por e-mail.</p>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:22px;max-width:720px">
+      <div style="background:var(--off);border-radius:12px;padding:16px 18px;display:flex;gap:10px;align-items:center"><i class="pi pi-search" style="color:var(--teal)"></i><span style="font-size:.87rem">Pedidos de exames laboratoriais e de imagem</span></div>
+      <div style="background:var(--off);border-radius:12px;padding:16px 18px;display:flex;gap:10px;align-items:center"><i class="pi pi-send" style="color:var(--teal)"></i><span style="font-size:.87rem">Encaminhamento para especialistas</span></div>
+      <div style="background:var(--off);border-radius:12px;padding:16px 18px;display:flex;gap:10px;align-items:center"><i class="pi pi-check-circle" style="color:var(--teal)"></i><span style="font-size:.87rem">Atestados médicos com validade legal</span></div>
+      <div style="background:var(--off);border-radius:12px;padding:16px 18px;display:flex;gap:10px;align-items:center"><i class="pi pi-tablet" style="color:var(--teal)"></i><span style="font-size:.87rem">Receitas com assinatura digital</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="sec sec--dark">
+  <div class="wrap">
+    <div class="como">
+      <div>
+        <span class="eyebrow" style="color:var(--sea)">simples do início ao fim</span>
+        <h2 class="h2" style="color:#fff;margin-top:6px">Como funciona</h2>
+        <p style="color:rgba(255,255,255,.5);font-size:.95rem;line-height:1.75;margin-top:12px">Em 3 passos você já está em consulta com um médico da Klini — sem papelada, sem deslocamento.</p>
+        <div class="steps">
+          <div class="step">
+            <div class="step__num">1</div>
+            <div>
+              <strong>Baixe o app ou acesse pelo navegador</strong>
+              <span>Disponível gratuitamente para iOS, Android ou pelo navegador em app.klinisaude.com.br</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__num">2</div>
+            <div>
+              <strong>Escolha a especialidade e o tipo de consulta</strong>
+              <span>Pronto atendimento imediato ou agende com o especialista de sua preferência</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step__num">3</div>
+            <div>
+              <strong>Inicie a consulta e receba seus documentos</strong>
+              <span>Videoconsulta segura — receitas e atestados enviados digitalmente ao final</span>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:36px;display:flex;gap:14px;flex-wrap:wrap">
+          <a href="https://apps.apple.com/br/app/klini-saude/id6447484649" target="_blank" rel="noopener"><img src="https://klinisaude.com.br/wp-content/uploads/2023/12/1689885951botao_app-store.png" alt="App Store" style="height:42px" /></a>
+          <a href="https://play.google.com/store/apps/details?id=br.com.klinisaude.klini_app" target="_blank" rel="noopener"><img src="https://klinisaude.com.br/wp-content/uploads/2023/12/1689885814botao_google-play.png" alt="Google Play" style="height:42px" /></a>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:center;align-items:center;position:relative">
+        <div style="position:absolute;width:360px;height:360px;background:radial-gradient(rgba(37,149,145,.18),transparent 70%);pointer-events:none"></div>
+        <img src="https://klinisaude.com.br/wp-content/uploads/2025/09/BG_5050925-768x893.webp" alt="App Klini" style="width:280px;border-radius:24px;box-shadow:0 40px 80px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.07);position:relative;z-index:1" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESPECIALIDADES -->
+<section class="sec sec--off">
+  <div class="wrap">
+    <div style="margin-bottom:8px">
+      <span class="eyebrow">especialidades disponíveis</span>
+      <h2 class="h2">Com quem você<br>pode consultar</h2>
+    </div>
+    <div class="espec__grid">
+      <div class="espec__tag"><i class="pi pi-heart"></i> Clínica Geral</div>
+      <div class="espec__tag"><i class="pi pi-heart"></i> Pediatria</div>
+      <div class="espec__tag"><i class="pi pi-heart"></i> Ginecologia</div>
+      <div class="espec__tag"><i class="pi pi-heart"></i> Psiquiatria</div>
+      <div class="espec__tag"><i class="pi pi-heart"></i> Dermatologia</div>
+      <div class="espec__tag"><i class="pi pi-heart"></i> Cardiologia</div>
+      <div class="espec__tag"><i class="pi pi-heart"></i> Ortopedia</div>
+      <div class="espec__tag"><i class="pi pi-heart"></i> Neurologia</div>
+      <div class="espec__tag"><i class="pi pi-heart"></i> + especialidades</div>
+    </div>
+    <div style="margin-top:48px;background:#fff;border:1.5px solid var(--bd-l);border-radius:var(--r);padding:32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px">
+      <div>
+        <p style="font-weight:700;font-size:1rem;margin-bottom:6px">Ainda não tem um plano Klini?</p>
+        <p style="color:var(--muted);font-size:.88rem">Faça sua cotação gratuita e tenha acesso à teleconsulta já na contratação.</p>
+      </div>
+      <a href="index.html#cotacao" class="btn btn-orange"><i class="pi pi-arrow-right"></i> Solicitar Cotação</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:48px">
+      <span class="eyebrow">dúvidas frequentes</span>
+      <h2 class="h2">Respondemos<br>suas perguntas</h2>
+    </div>
+    <div class="faq__list">
+      <div class="faq__item">
+        <button class="faq__q" onclick="toggleFaq(this)">A teleconsulta está disponível para qual plano?<span class="faq__ico">+</span></button>
+        <div class="faq__a"><p>A Teleconsulta Klini está disponível em todos os planos que incluam esse benefício. Consulte as condições do seu plano ou fale com nossa equipe para confirmar.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" onclick="toggleFaq(this)">Preciso baixar algum aplicativo?<span class="faq__ico">+</span></button>
+        <div class="faq__a"><p>Não obrigatoriamente. Você pode usar o app Klini Saúde (iOS e Android) ou acessar diretamente pelo navegador em app.klinisaude.com.br — sem instalação.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" onclick="toggleFaq(this)">O pronto atendimento é realmente 24 horas?<span class="faq__ico">+</span></button>
+        <div class="faq__a"><p>Sim. Disponível 24 horas por dia, 7 dias por semana, incluindo finais de semana e feriados. Médico sempre disponível quando você precisar.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" onclick="toggleFaq(this)">A receita emitida na teleconsulta tem validade?<span class="faq__ico">+</span></button>
+        <div class="faq__a"><p>Sim. As receitas possuem assinatura digital qualificada e têm plena validade legal em farmácias, clínicas e laboratórios de todo o Brasil.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" onclick="toggleFaq(this)">Posso agendar consulta com médico específico?<span class="faq__ico">+</span></button>
+        <div class="faq__a"><p>Sim. Na modalidade de consulta agendada você pode escolher o médico, a especialidade e o horário mais conveniente para você.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot__top">
+      <a href="index.html"><img src="https://klinisaude.com.br/wp-content/uploads/2023/02/logo_klini-br.png" alt="Klini Saúde" class="foot__logo" /></a>
+      <nav class="foot__links">
+        <a href="sobre.html">Sobre</a><a href="planos.html">Planos</a><a href="teleconsulta.html">Teleconsulta</a>
+        <a href="rede-credenciada.html">Rede Credenciada</a><a href="ouvidoria.html">Ouvidoria</a><a href="politica-de-privacidade.html">Privacidade</a>
+      </nav>
+      <div class="foot__socials">
+        <a href="https://www.instagram.com/klinisaude/" class="soc" target="_blank" rel="noopener" aria-label="Instagram"><i class="pi pi-instagram"></i></a>
+        <a href="https://www.facebook.com/klinisaudematriz" class="soc" target="_blank" rel="noopener" aria-label="Facebook"><i class="pi pi-facebook"></i></a>
+        <a href="https://br.linkedin.com/company/klinisaude" class="soc" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="pi pi-linkedin"></i></a>
+        <a href="https://www.youtube.com/@KliniSaude" class="soc" target="_blank" rel="noopener" aria-label="YouTube"><i class="pi pi-youtube"></i></a>
+      </div>
+    </div>
+    <div class="foot__bottom">
+      <p>© 2020–2026 Klini Planos de Saúde Ltda. · CNPJ 34.539.000/0001-86 · Barra da Tijuca, Rio de Janeiro, RJ</p>
+      <div class="seals"><span class="seal">ANS Reg. 42.000.2085</span><span class="seal">LGPD</span></div>
+    </div>
+  </div>
+</footer>
+
+<div class="wa-f">
+  <a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20a%20Teleconsulta%20Klini." class="wa-btn" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <i class="pi pi-whatsapp" style="font-size:1.4rem;color:#fff;line-height:1"></i>
+  </a>
+</div>
+
+<script>
+function toggleFaq(btn) {
+  const it = btn.closest('.faq__item'), ans = it.querySelector('.faq__a');
+  const isOpen = it.classList.contains('open');
+  document.querySelectorAll('.faq__item.open').forEach(el => { el.classList.remove('open'); el.querySelector('.faq__a').classList.remove('open'); });
+  if (!isOpen) { it.classList.add('open'); ans.classList.add('open'); }
+}
+</script>
+</body>
+</html>
