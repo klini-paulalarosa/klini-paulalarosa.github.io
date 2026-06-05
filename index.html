@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Klini Saúde — Planos de saúde individuais, familiares e empresariais no Rio de Janeiro. Cobertura completa, rede própria e telemedicina 24h. Regulamentado pela ANS." />
+  <meta name="keywords" content="plano de saúde Rio de Janeiro, plano de saúde individual, plano de saúde familiar, Klini Saúde, plano de saúde RJ, plano de saúde acessível, plano de saúde barato RJ" />
+  <title>Klini Saúde | Plano de Saúde com Qualidade e Preço Justo no RJ</title>
+
+  <meta property="og:title" content="Klini Saúde | Plano de Saúde completo no Rio de Janeiro" />
+  <meta property="og:description" content="Cuide de você e da sua família com rede própria, telemedicina 24h e medicina preventiva. Regulamentado pela ANS." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── RESET & TOKENS ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:        #0A5F8A;
+      --blue-dark:   #064A6D;
+      --blue-light:  #1A7FB5;
+      --teal:        #00C7B7;
+      --teal-dark:   #009E91;
+      --orange:      #FF6B35;
+      --orange-dark: #E55A25;
+      --wa:          #25D366;
+      --wa-dark:     #1DA851;
+      --text:        #1C2B3A;
+      --muted:       #5A7184;
+      --bg:          #F0F7FF;
+      --border:      #DDE8F0;
+      --white:       #ffffff;
+      --shadow:      0 4px 24px rgba(10,95,138,.12);
+      --shadow-lg:   0 12px 48px rgba(10,95,138,.18);
+      --r:           16px;
+    }
+
+    html  { scroll-behavior: smooth; }
+    body  { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; overflow-x: hidden; }
+
+    h1,h2,h3,h4 { font-family: 'Poppins', sans-serif; line-height: 1.2; }
+    h1 { font-size: clamp(2rem,5vw,3.5rem); font-weight: 800; }
+    h2 { font-size: clamp(1.6rem,4vw,2.6rem); font-weight: 700; }
+    h3 { font-size: clamp(1.05rem,2vw,1.3rem); font-weight: 600; }
+    p  { color: var(--muted); }
+
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+    .label {
+      display: inline-block; font-size: .78rem; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase; color: var(--teal); margin-bottom: 12px;
+    }
+
+    /* ─── BUTTONS ────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px; border-radius: 50px; font-weight: 700; font-size: 1rem;
+      cursor: pointer; transition: all .25s ease; text-decoration: none;
+      border: 2px solid transparent; white-space: nowrap;
+    }
+    .btn-orange  { background: var(--orange); color: #fff; }
+    .btn-orange:hover  { background: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,107,53,.4); }
+    .btn-wa      { background: var(--wa); color: #fff; }
+    .btn-wa:hover      { background: var(--wa-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,.4); }
+    .btn-ghost   { background: transparent; border-color: rgba(255,255,255,.6); color: #fff; }
+    .btn-ghost:hover   { background: rgba(255,255,255,.12); transform: translateY(-2px); }
+    .btn-outline { background: transparent; border-color: var(--blue); color: var(--blue); }
+    .btn-outline:hover { background: var(--blue); color: #fff; transform: translateY(-2px); }
+    .btn-blue    { background: linear-gradient(90deg,var(--blue),var(--blue-light)); color: #fff; }
+    .btn-blue:hover    { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(10,95,138,.35); }
+
+    /* ─── NAVBAR ─────────────────────────────────────────────── */
+    .nav {
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      padding: 18px 0; transition: all .3s ease;
+    }
+    .nav.solid {
+      background: var(--white); padding: 10px 0;
+      box-shadow: 0 2px 20px rgba(10,95,138,.1);
+    }
+    .nav__inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav__logo  { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav__ico   {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: linear-gradient(135deg,var(--blue),var(--teal));
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-weight: 800; font-size: 1.1rem; font-family: 'Poppins',sans-serif;
+    }
+    .nav__name  { font-family: 'Poppins',sans-serif; font-weight: 800; font-size: 1.3rem; color: #fff; transition: color .3s; }
+    .nav.solid .nav__name { color: var(--blue); }
+    .nav__links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav__links a { text-decoration: none; font-weight: 500; font-size: .95rem; color: rgba(255,255,255,.88); transition: color .2s; }
+    .nav.solid .nav__links a { color: var(--muted); }
+    .nav__links a:hover { color: var(--teal); }
+    .nav__actions { display: flex; gap: 10px; }
+    .nav__hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
+    .nav__hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: all .3s; }
+    .nav.solid .nav__hamburger span { background: var(--text); }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--white); z-index: 999; flex-direction: column;
+      align-items: center; justify-content: center; gap: 32px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: 'Poppins',sans-serif; font-weight: 700; font-size: 1.4rem; color: var(--text); text-decoration: none; }
+    .mobile-menu a:hover { color: var(--blue); }
+    .mobile-close { position: absolute; top: 24px; right: 24px; background: none; border: none; font-size: 1.8rem; cursor: pointer; color: var(--muted); }
+
+    /* ─── HERO ───────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh; padding: 110px 0 70px;
+      background: linear-gradient(135deg, #062E45 0%, var(--blue) 45%, #0A8A7A 100%);
+      display: flex; align-items: center; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 15% 60%, rgba(0,199,183,.22) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 25%, rgba(255,107,53,.12) 0%, transparent 50%);
+    }
+    /* floating orbs */
+    .orbs { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+    .orbs span {
+      position: absolute; background: rgba(255,255,255,.05);
+      border-radius: 50%; animation: orb 9s ease-in-out infinite;
+    }
+    .orbs span:nth-child(1){ width:100px;height:100px;left:8%;top:18%;animation-delay:0s }
+    .orbs span:nth-child(2){ width:160px;height:160px;right:12%;top:8%;animation-delay:2.5s }
+    .orbs span:nth-child(3){ width:70px;height:70px;left:28%;bottom:18%;animation-delay:4s }
+    .orbs span:nth-child(4){ width:120px;height:120px;right:28%;bottom:12%;animation-delay:1s }
+    .orbs span:nth-child(5){ width:50px;height:50px;left:55%;top:25%;animation-delay:3s }
+    @keyframes orb { 0%,100%{transform:translateY(0) scale(1);opacity:.4} 50%{transform:translateY(-18px) scale(1.08);opacity:.8} }
+
+    .hero__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; position: relative; z-index: 2; }
+
+    .hero__live {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.1); backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,.18); border-radius: 50px;
+      padding: 6px 18px; font-size: .82rem; color: rgba(255,255,255,.88); margin-bottom: 20px;
+    }
+    .hero__live::before {
+      content: ''; width: 8px; height: 8px; background: var(--teal);
+      border-radius: 50%; animation: blink 2s infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.6;transform:scale(1.4)} }
+
+    .hero h1 { color: #fff; margin-bottom: 20px; }
+    .hero h1 em { font-style: normal; color: var(--teal); }
+    .hero__sub { color: rgba(255,255,255,.78); font-size: 1.1rem; margin-bottom: 36px; line-height: 1.75; }
+    .hero__ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 52px; }
+
+    .hero__nums { display: flex; gap: 36px; flex-wrap: wrap; }
+    .hero__num strong { display: block; font-family: 'Poppins',sans-serif; font-weight: 800; font-size: 1.9rem; color: #fff; line-height: 1; }
+    .hero__num strong em { font-style: normal; color: var(--teal); }
+    .hero__num small { font-size: .78rem; color: rgba(255,255,255,.6); margin-top: 4px; display: block; }
+
+    /* Hero Card */
+    .hero__card {
+      position: relative; display: flex; justify-content: center;
+    }
+    .card-float {
+      background: rgba(255,255,255,.1); backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,.2); border-radius: 24px;
+      padding: 32px; width: 100%; max-width: 360px;
+      animation: cfloat 4s ease-in-out infinite;
+    }
+    @keyframes cfloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+
+    .cf__header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+    .cf__avatar {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: linear-gradient(135deg,var(--teal),var(--blue-light));
+      display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
+    }
+    .cf__title  { font-weight: 700; color: #fff; font-size: .95rem; }
+    .cf__sub    { font-size: .78rem; color: rgba(255,255,255,.6); }
+
+    .cf__badge {
+      background: linear-gradient(90deg,var(--teal-dark),var(--blue-light));
+      border-radius: 14px; padding: 20px; margin-bottom: 20px;
+    }
+    .cf__plan   { font-family: 'Poppins',sans-serif; font-weight: 700; color: #fff; font-size: 1.1rem; margin-bottom: 8px; }
+    .cf__from   { font-size: .78rem; color: rgba(255,255,255,.7); }
+    .cf__price  { font-family: 'Poppins',sans-serif; font-weight: 800; font-size: 1.7rem; color: #fff; }
+
+    .cf__list   { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .cf__list li { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,.85); font-size: .88rem; }
+    .cf__check  {
+      width: 20px; height: 20px; background: rgba(0,199,183,.3); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--teal); font-size: .68rem; flex-shrink: 0;
+    }
+
+    .cf__pip {
+      position: absolute; background: #fff; border-radius: 14px; padding: 10px 16px;
+      box-shadow: 0 8px 28px rgba(10,95,138,.22); display: flex; align-items: center;
+      gap: 9px; font-size: .8rem; font-weight: 600; color: var(--text); white-space: nowrap;
+    }
+    .cf__pip.p1 { top: -16px; right: -16px; }
+    .cf__pip.p2 { bottom: -16px; left: -16px; }
+    .pip-dot { width: 10px; height: 10px; background: var(--teal); border-radius: 50%; flex-shrink: 0; }
+
+    /* ─── TRUST STRIP ────────────────────────────────────────── */
+    .trust { background: var(--white); border-bottom: 1px solid var(--border); padding: 28px 0; }
+    .trust__inner { display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap; gap: 24px; }
+    .trust__item  { display: flex; align-items: center; gap: 12px; }
+    .trust__ico   {
+      width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
+      background: linear-gradient(135deg,var(--blue),var(--teal));
+      display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.25rem;
+    }
+    .trust__num   { display: block; font-family: 'Poppins',sans-serif; font-weight: 800; font-size: 1.2rem; color: var(--blue); line-height: 1; }
+    .trust__lbl   { font-size: .78rem; color: var(--muted); }
+
+    /* ─── SECTIONS ───────────────────────────────────────────── */
+    .section     { padding: 90px 0; }
+    .section-alt { background: var(--bg); }
+    .sec-hd      { text-align: center; margin-bottom: 60px; }
+    .sec-hd p    { font-size: 1.05rem; max-width: 540px; margin: 14px auto 0; }
+
+    /* ─── PLANS ──────────────────────────────────────────────── */
+    .plans { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; align-items: start; }
+    .plan  {
+      background: var(--white); border: 2px solid var(--border); border-radius: var(--r);
+      padding: 32px; transition: all .3s ease; position: relative; overflow: hidden;
+    }
+    .plan:hover { border-color: var(--blue-light); transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .plan--feat {
+      border-color: var(--blue); box-shadow: var(--shadow-lg);
+      transform: scale(1.04); background: linear-gradient(180deg,#EAF4FC 0%,var(--white) 60%);
+    }
+    .plan--feat:hover { transform: scale(1.04) translateY(-4px); }
+    .plan__hot {
+      position: absolute; top: 20px; right: 20px;
+      background: linear-gradient(90deg,var(--orange),#FF9055);
+      color: #fff; font-size: .7rem; font-weight: 800;
+      padding: 4px 12px; border-radius: 50px; letter-spacing: .5px; text-transform: uppercase;
+    }
+    .plan__ico  { width: 54px; height: 54px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.55rem; margin-bottom: 18px; }
+    .plan__ico.c1 { background: #E8F4FD; }
+    .plan__ico.c2 { background: #E0FAF7; }
+    .plan__ico.c3 { background: #E8FDF5; }
+    .plan__name  { font-family: 'Poppins',sans-serif; font-weight: 700; font-size: 1.25rem; color: var(--text); margin-bottom: 4px; }
+    .plan__tag   { font-size: .85rem; color: var(--muted); margin-bottom: 22px; }
+
+    .plan__price-block { margin-bottom: 22px; padding-bottom: 22px; border-bottom: 1px solid var(--border); }
+    .plan__from  { font-size: .78rem; color: var(--muted); margin-bottom: 4px; }
+    .plan__price { display: flex; align-items: baseline; gap: 3px; }
+    .plan__curr  { font-size: .95rem; font-weight: 600; color: var(--blue); }
+    .plan__val   { font-family: 'Poppins',sans-serif; font-size: 2.1rem; font-weight: 800; color: var(--blue); line-height: 1; }
+    .plan__mo    { font-size: .82rem; color: var(--muted); }
+    .plan__note  { font-size: .76rem; color: var(--muted); margin-top: 4px; }
+
+    .plan__feats { list-style: none; display: flex; flex-direction: column; gap: 11px; margin-bottom: 26px; }
+    .plan__feats li { display: flex; align-items: center; gap: 10px; font-size: .88rem; color: var(--text); }
+    .fi { width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .65rem; flex-shrink: 0; }
+    .fi.yes { background: #E0FAF7; color: var(--teal-dark); }
+    .fi.no  { background: #FFF0EB; color: var(--orange); }
+
+    .plan__btn { width: 100%; justify-content: center; padding: 14px; }
+
+    /* ─── DIFERENCIAIS ───────────────────────────────────────── */
+    .diffs { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+    .diff  {
+      background: var(--white); border-radius: var(--r); padding: 28px;
+      border: 1px solid var(--border); transition: all .3s ease;
+    }
+    .diff:hover { border-color: var(--teal); transform: translateY(-4px); box-shadow: var(--shadow); }
+    .diff__ico { width: 54px; height: 54px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.45rem; margin-bottom: 16px; }
+    .diff__ico.d1 { background: linear-gradient(135deg,#E8F4FD,#C8E6FA); }
+    .diff__ico.d2 { background: linear-gradient(135deg,#E0FAF7,#B3F2EE); }
+    .diff__ico.d3 { background: linear-gradient(135deg,#FFF0EB,#FFD6C4); }
+    .diff__ico.d4 { background: linear-gradient(135deg,#E8FDF5,#B8F5E0); }
+    .diff__ico.d5 { background: linear-gradient(135deg,#F0EEFF,#D5CCFF); }
+    .diff__ico.d6 { background: linear-gradient(135deg,#FFF5F5,#FFCDD2); }
+    .diff h3 { margin-bottom: 8px; }
+    .diff p  { font-size: .87rem; line-height: 1.65; }
+
+    /* ─── COMO FUNCIONA ──────────────────────────────────────── */
+    .steps   { display: grid; grid-template-columns: repeat(3,1fr); gap: 40px; position: relative; }
+    .steps::before {
+      content: ''; position: absolute; top: 36px;
+      left: calc(16.66% + 28px); right: calc(16.66% + 28px);
+      height: 2px; background: linear-gradient(90deg,var(--teal),var(--blue)); z-index: 0;
+    }
+    .step    { text-align: center; position: relative; z-index: 1; }
+    .step__n {
+      width: 72px; height: 72px; margin: 0 auto 24px;
+      background: linear-gradient(135deg,var(--blue),var(--teal));
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-family: 'Poppins',sans-serif; font-weight: 800; font-size: 1.5rem; color: #fff;
+      box-shadow: 0 8px 24px rgba(10,95,138,.3);
+    }
+    .step h3 { margin-bottom: 12px; }
+    .step p  { font-size: .88rem; }
+
+    /* ─── APP ────────────────────────────────────────────────── */
+    .app-sec {
+      background: linear-gradient(135deg,var(--blue-dark),var(--blue));
+      padding: 90px 0; overflow: hidden;
+    }
+    .app-sec__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .app-sec__label { color: var(--teal); }
+    .app-sec h2 { color: #fff; margin-bottom: 16px; }
+    .app-sec > .container > .app-sec__grid > .app-sec__copy > p { color: rgba(255,255,255,.75); font-size: 1.05rem; margin-bottom: 32px; }
+
+    .app-feats { list-style: none; display: flex; flex-direction: column; gap: 16px; margin-bottom: 36px; }
+    .app-feats li { display: flex; align-items: center; gap: 12px; color: rgba(255,255,255,.9); font-size: .92rem; }
+    .af-ico {
+      width: 36px; height: 36px; background: rgba(255,255,255,.14);
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0;
+    }
+    .app-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .app-btn  {
+      display: flex; align-items: center; gap: 8px; padding: 10px 20px;
+      background: rgba(255,255,255,.12); backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,.2); border-radius: 12px;
+      color: #fff; text-decoration: none; font-size: .88rem; font-weight: 600; transition: all .2s;
+    }
+    .app-btn:hover { background: rgba(255,255,255,.22); transform: translateY(-2px); }
+
+    /* Phone Mockup */
+    .phone-wrap { display: flex; justify-content: center; position: relative; }
+    .phone {
+      width: 255px; background: #fff; border-radius: 38px; padding: 18px;
+      box-shadow: 0 40px 80px rgba(0,0,0,.28); animation: cfloat 4s ease-in-out infinite;
+    }
+    .phone__screen { background: var(--bg); border-radius: 26px; overflow: hidden; padding: 18px; }
+    .phone__hd  { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+    .phone__av  {
+      width: 32px; height: 32px; background: linear-gradient(135deg,var(--blue),var(--teal));
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      color: #fff; font-weight: 700; font-size: .78rem; flex-shrink: 0;
+    }
+    .phone__hi strong { display: block; font-size: .83rem; color: var(--text); font-weight: 700; }
+    .phone__hi span   { font-size: .72rem; color: var(--muted); }
+    .phone__card {
+      background: linear-gradient(135deg,var(--blue),var(--blue-light));
+      border-radius: 16px; padding: 16px; color: #fff; margin-bottom: 12px;
+    }
+    .phone__card-lbl  { font-size: .67rem; opacity: .72; margin-bottom: 3px; text-transform: uppercase; letter-spacing: .5px; }
+    .phone__card-name { font-weight: 700; font-size: .92rem; }
+    .phone__card-num  { font-size: .72rem; opacity: .65; letter-spacing: 2px; margin-top: 12px; }
+    .phone__menu { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+    .phone__mi  {
+      background: #fff; border-radius: 11px; padding: 9px;
+      display: flex; flex-direction: column; align-items: center; gap: 5px;
+      font-size: .68rem; color: var(--muted); text-align: center;
+    }
+    .pf {
+      position: absolute; background: #fff; border-radius: 13px; padding: 9px 14px;
+      box-shadow: 0 8px 24px rgba(10,95,138,.2); display: flex; align-items: center;
+      gap: 8px; font-size: .77rem; font-weight: 600; color: var(--text);
+    }
+    .pf.pf1 { left: -55px; top: 80px; }
+    .pf.pf2 { right: -50px; bottom: 80px; }
+    .pf-dot { width: 9px; height: 9px; background: var(--teal); border-radius: 50%; flex-shrink: 0; }
+
+    /* ─── TESTIMONIALS ───────────────────────────────────────── */
+    .depos { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+    .depo  {
+      background: var(--white); border-radius: var(--r); padding: 28px;
+      border: 1px solid var(--border); transition: all .3s ease;
+    }
+    .depo:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .depo__q    { font-size: 2.4rem; color: var(--teal); line-height: 1; margin-bottom: 10px; font-family: 'Poppins',sans-serif; }
+    .depo__txt  { font-size: .93rem; color: var(--text); line-height: 1.75; margin-bottom: 20px; }
+    .depo__foot { display: flex; align-items: center; gap: 12px; padding-top: 18px; border-top: 1px solid var(--border); }
+    .depo__av   { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #fff; font-size: .95rem; flex-shrink: 0; }
+    .depo__name { font-weight: 700; font-size: .92rem; color: var(--text); }
+    .depo__role { font-size: .77rem; color: var(--muted); }
+    .stars      { color: #FFB800; font-size: .82rem; letter-spacing: 1px; }
+
+    /* ─── FAQ ────────────────────────────────────────────────── */
+    .faq-list   { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 11px; }
+    .faq-it     { background: var(--white); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; transition: border-color .2s; }
+    .faq-it.open{ border-color: var(--blue-light); }
+    .faq-q      {
+      width: 100%; background: none; border: none; padding: 19px 22px;
+      text-align: left; font-family: 'Inter',sans-serif; font-weight: 600; font-size: .97rem;
+      color: var(--text); cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 14px;
+    }
+    .faq-q:hover { color: var(--blue); }
+    .faq-ico {
+      width: 28px; height: 28px; background: var(--bg); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--blue); font-size: 1.15rem; flex-shrink: 0; transition: transform .3s, background .2s;
+    }
+    .faq-it.open .faq-ico { transform: rotate(45deg); background: var(--blue); color: #fff; }
+    .faq-a  { max-height: 0; overflow: hidden; transition: max-height .35s ease, padding .2s; padding: 0 22px; }
+    .faq-a.open { max-height: 220px; padding: 0 22px 18px; }
+    .faq-a p{ font-size: .93rem; line-height: 1.7; }
+
+    /* ─── CTA FINAL ──────────────────────────────────────────── */
+    .cta-final {
+      background: linear-gradient(135deg,var(--blue-dark),var(--blue),#0A8A7A);
+      padding: 90px 0; text-align: center; position: relative; overflow: hidden;
+    }
+    .cta-final::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 30% 50%,rgba(0,199,183,.2) 0%,transparent 60%);
+    }
+    .cta-final .container { position: relative; z-index: 2; }
+    .cta-final h2 { color: #fff; margin-bottom: 14px; }
+    .cta-final > .container > p { color: rgba(255,255,255,.78); font-size: 1.08rem; max-width: 540px; margin: 0 auto 40px; }
+    .cta-btns { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 36px; }
+    .cta-contacts { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
+    .cta-contact {
+      display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,.7);
+      font-size: .88rem; text-decoration: none; transition: color .2s;
+    }
+    .cta-contact:hover { color: #fff; }
+    .cta-contact em { font-style: normal; color: var(--teal); font-size: 1.05rem; }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    footer { background: #071927; color: rgba(255,255,255,.55); padding: 60px 0 30px; }
+    .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .foot-brand .nav__name { color: #fff; font-size: 1.45rem; }
+    .foot-desc { font-size: .87rem; line-height: 1.7; margin: 14px 0 22px; }
+    .foot-socials { display: flex; gap: 10px; }
+    .soc-btn {
+      width: 36px; height: 36px; background: rgba(255,255,255,.07); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.65); text-decoration: none; font-size: .95rem; transition: all .2s;
+    }
+    .soc-btn:hover { background: var(--blue); color: #fff; transform: translateY(-2px); }
+    .foot-col h4 { font-family: 'Poppins',sans-serif; font-weight: 600; color: #fff; margin-bottom: 16px; font-size: .92rem; }
+    .foot-links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .foot-links a { text-decoration: none; color: rgba(255,255,255,.5); font-size: .85rem; transition: color .2s; }
+    .foot-links a:hover { color: var(--teal); }
+    .foot-bottom { border-top: 1px solid rgba(255,255,255,.07); padding-top: 26px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; }
+    .foot-bottom p { font-size: .8rem; }
+    .seals { display: flex; gap: 12px; flex-wrap: wrap; }
+    .seal { background: rgba(255,255,255,.07); border-radius: 8px; padding: 5px 12px; font-size: .73rem; font-weight: 600; letter-spacing: .5px; color: rgba(255,255,255,.45); }
+
+    /* ─── WHATSAPP FLOAT ─────────────────────────────────────── */
+    .wa-float { position: fixed; bottom: 28px; right: 28px; z-index: 998; display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+    .wa-tip {
+      background: #fff; border-radius: 12px; padding: 8px 16px;
+      font-size: .83rem; font-weight: 600; color: var(--text); box-shadow: var(--shadow);
+      white-space: nowrap; opacity: 0; transform: translateX(8px); transition: all .3s; pointer-events: none;
+    }
+    .wa-float:hover .wa-tip { opacity: 1; transform: translateX(0); }
+    .wa-btn {
+      width: 60px; height: 60px; background: var(--wa); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; font-size: 1.7rem;
+      box-shadow: 0 8px 24px rgba(37,211,102,.5); text-decoration: none;
+      transition: all .3s ease; animation: wapop 3s ease-in-out infinite;
+    }
+    @keyframes wapop { 0%,100%{transform:scale(1)} 50%{transform:scale(1.1)} }
+    .wa-btn:hover { background: var(--wa-dark); transform: scale(1.12) !important; box-shadow: 0 12px 32px rgba(37,211,102,.6); animation: none; }
+
+    /* ─── SCROLL REVEAL ──────────────────────────────────────── */
+    .rv { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; }
+    .rv.in { opacity: 1; transform: none; }
+    .rv.d1 { transition-delay: .1s } .rv.d2 { transition-delay: .2s }
+    .rv.d3 { transition-delay: .3s } .rv.d4 { transition-delay: .4s }
+    .rv.d5 { transition-delay: .5s }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .plans  { grid-template-columns: 1fr 1fr; }
+      .diffs  { grid-template-columns: 1fr 1fr; }
+      .depos  { grid-template-columns: 1fr 1fr; }
+      .foot-grid { grid-template-columns: 1fr 1fr; }
+      .plan--feat { transform: none; }
+      .plan--feat:hover { transform: translateY(-4px); }
+      .steps::before { display: none; }
+    }
+    @media (max-width: 768px) {
+      .hero__grid  { grid-template-columns: 1fr; gap: 40px; }
+      .hero__card  { display: none; }
+      .plans       { grid-template-columns: 1fr; }
+      .diffs       { grid-template-columns: 1fr 1fr; }
+      .depos       { grid-template-columns: 1fr; }
+      .steps       { grid-template-columns: 1fr; }
+      .app-sec__grid { grid-template-columns: 1fr; }
+      .phone-wrap  { display: none; }
+      .foot-grid   { grid-template-columns: 1fr; gap: 28px; }
+      .foot-bottom { flex-direction: column; text-align: center; }
+      .nav__links  { display: none; }
+      .nav__actions { display: none; }
+      .nav__hamburger { display: flex; }
+      .trust__inner { justify-content: center; }
+    }
+    @media (max-width: 480px) {
+      .diffs      { grid-template-columns: 1fr; }
+      .hero__ctas { flex-direction: column; }
+      .cta-btns   { flex-direction: column; align-items: center; }
+      .depos      { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══════════════════════════════════════════════════ -->
+<nav class="nav" id="nav">
+  <div class="container nav__inner">
+    <a href="#" class="nav__logo">
+      <div class="nav__ico">K</div>
+      <span class="nav__name">Klini Saúde</span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="#planos">Planos</a></li>
+      <li><a href="#diferenciais">Diferenciais</a></li>
+      <li><a href="#como-funciona">Como funciona</a></li>
+      <li><a href="#faq">Dúvidas</a></li>
+    </ul>
+    <div class="nav__actions">
+      <a href="https://wa.me/552130550790?text=Olá!%20Gostaria%20de%20conhecer%20os%20planos%20Klini%20Saúde." class="btn btn-wa" style="padding:9px 20px;font-size:.88rem" target="_blank" rel="noopener">💬 WhatsApp</a>
+      <a href="#planos" class="btn btn-orange" style="padding:9px 20px;font-size:.88rem">Simule seu Plano →</a>
+    </div>
+    <button class="nav__hamburger" id="hamburger" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="Fechar menu">✕</button>
+  <a href="#planos"       onclick="closeMobile()">Planos</a>
+  <a href="#diferenciais" onclick="closeMobile()">Diferenciais</a>
+  <a href="#como-funciona"onclick="closeMobile()">Como funciona</a>
+  <a href="#faq"          onclick="closeMobile()">Dúvidas</a>
+  <a href="https://wa.me/552130550790" class="btn btn-wa" target="_blank" rel="noopener">💬 Falar no WhatsApp</a>
+  <a href="#planos" class="btn btn-orange" onclick="closeMobile()">Simule seu Plano →</a>
+</div>
+
+<!-- ═══ HERO ══════════════════════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="orbs"><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="container">
+    <div class="hero__grid">
+
+      <!-- Copy -->
+      <div class="hero__copy">
+        <div class="hero__live">✦ Regulamentado ANS · Reg. 42.000.2085</div>
+        <h1>Sua saúde e da sua família nas <em>melhores mãos</em></h1>
+        <p class="hero__sub">Planos de saúde completos com rede própria, telemedicina 24h e medicina preventiva. Preço que cabe no bolso, cuidado que você merece.</p>
+        <div class="hero__ctas">
+          <a href="#planos" class="btn btn-orange" style="font-size:1.05rem;padding:16px 32px">🔍 Simule seu Plano</a>
+          <a href="https://wa.me/552130550790?text=Olá!%20Quero%20conhecer%20os%20planos%20Klini%20Saúde." class="btn btn-ghost" style="font-size:1.05rem;padding:16px 32px" target="_blank" rel="noopener">💬 Falar com Especialista</a>
+        </div>
+        <div class="hero__nums">
+          <div class="hero__num">
+            <strong><span class="counter" data-target="40">0</span><em>+</em></strong>
+            <small>hospitais credenciados</small>
+          </div>
+          <div class="hero__num">
+            <strong><span class="counter" data-target="1000">0</span><em>+</em></strong>
+            <small>leitos hospitalares</small>
+          </div>
+          <div class="hero__num">
+            <strong><span class="counter" data-target="7">0</span></strong>
+            <small>centros médicos</small>
+          </div>
+          <div class="hero__num">
+            <strong><span class="counter" data-target="15">0</span><em>+</em></strong>
+            <small>especialidades</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating Card -->
+      <div class="hero__card">
+        <div class="card-float">
+          <div class="cf__header">
+            <div class="cf__avatar">🏥</div>
+            <div>
+              <div class="cf__title">Klini Saúde</div>
+              <div class="cf__sub">Plano Ativo · Rio de Janeiro</div>
+            </div>
+          </div>
+          <div class="cf__badge">
+            <div class="cf__plan">Klini Essencial — Mais Escolhido</div>
+            <div class="cf__from">Consulta a partir de</div>
+            <div class="cf__price">Solicite cotação</div>
+          </div>
+          <ul class="cf__list">
+            <li><div class="cf__check">✓</div>Consultas ilimitadas</li>
+            <li><div class="cf__check">✓</div>Internação hospitalar</li>
+            <li><div class="cf__check">✓</div>Telemedicina 24h</li>
+            <li><div class="cf__check">✓</div>Medicina preventiva</li>
+            <li><div class="cf__check">✓</div>Carteirinha digital</li>
+          </ul>
+        </div>
+        <div class="cf__pip p1">
+          <div class="pip-dot"></div>
+          Aprovado pela ANS
+        </div>
+        <div class="cf__pip p2">
+          <span>★★★★★</span>&nbsp;4.7 · 1.200+ avaliações
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TRUST STRIP ═══════════════════════════════════════════════ -->
+<div class="trust">
+  <div class="container">
+    <div class="trust__inner">
+      <div class="trust__item rv">
+        <div class="trust__ico">🏥</div>
+        <div>
+          <span class="trust__num"><span class="counter" data-target="40">0</span>+</span>
+          <span class="trust__lbl">hospitais credenciados</span>
+        </div>
+      </div>
+      <div class="trust__item rv d1">
+        <div class="trust__ico">🛏️</div>
+        <div>
+          <span class="trust__num"><span class="counter" data-target="1000">0</span>+</span>
+          <span class="trust__lbl">leitos hospitalares</span>
+        </div>
+      </div>
+      <div class="trust__item rv d2">
+        <div class="trust__ico">🏢</div>
+        <div>
+          <span class="trust__num"><span class="counter" data-target="7">0</span></span>
+          <span class="trust__lbl">centros médicos</span>
+        </div>
+      </div>
+      <div class="trust__item rv d3">
+        <div class="trust__ico">🩺</div>
+        <div>
+          <span class="trust__num"><span class="counter" data-target="15">0</span>+</span>
+          <span class="trust__lbl">especialidades</span>
+        </div>
+      </div>
+      <div class="trust__item rv d4">
+        <div class="trust__ico">📱</div>
+        <div>
+          <span class="trust__num">24h</span>
+          <span class="trust__lbl">telemedicina</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PLANOS ════════════════════════════════════════════════════ -->
+<section class="section" id="planos">
+  <div class="container">
+    <div class="sec-hd rv">
+      <span class="label">nossos planos</span>
+      <h2>Encontre o plano ideal <br>para você e sua família</h2>
+      <p>Do básico ao completo, todos os planos são regulamentados pela ANS e cobrem o Rol de Procedimentos obrigatórios.</p>
+    </div>
+    <div class="plans">
+
+      <!-- Klini Start -->
+      <div class="plan rv">
+        <div class="plan__ico c1">🌱</div>
+        <div class="plan__name">Klini Start</div>
+        <div class="plan__tag">Ideal para quem busca o essencial com qualidade</div>
+        <div class="plan__price-block">
+          <div class="plan__from">Consulta a partir de</div>
+          <div class="plan__price">
+            <span class="plan__curr">R$</span>
+            <span class="plan__val">—</span>
+          </div>
+          <div class="plan__note">Valores por faixa etária · solicite cotação gratuita</div>
+        </div>
+        <ul class="plan__feats">
+          <li><span class="fi yes">✓</span>Consultas ambulatoriais</li>
+          <li><span class="fi yes">✓</span>Urgência e emergência 24h</li>
+          <li><span class="fi yes">✓</span>Exames laboratoriais básicos</li>
+          <li><span class="fi yes">✓</span>Rede credenciada RJ</li>
+          <li><span class="fi no">✗</span>Internação hospitalar</li>
+        </ul>
+        <a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20plano%20Klini%20Start." class="btn btn-outline plan__btn" target="_blank" rel="noopener">💬 Solicitar Cotação</a>
+      </div>
+
+      <!-- Klini Essencial - FEATURED -->
+      <div class="plan plan--feat rv d2">
+        <div class="plan__hot">✦ Mais Escolhido</div>
+        <div class="plan__ico c2">⭐</div>
+        <div class="plan__name">Klini Essencial</div>
+        <div class="plan__tag">Cobertura completa para você e sua família</div>
+        <div class="plan__price-block">
+          <div class="plan__from">Consulta a partir de</div>
+          <div class="plan__price">
+            <span class="plan__curr">R$</span>
+            <span class="plan__val">—</span>
+          </div>
+          <div class="plan__note">Personalizamos o valor para o seu perfil</div>
+        </div>
+        <ul class="plan__feats">
+          <li><span class="fi yes">✓</span>Consultas ilimitadas</li>
+          <li><span class="fi yes">✓</span>Internação hospitalar</li>
+          <li><span class="fi yes">✓</span>Telemedicina 24h</li>
+          <li><span class="fi yes">✓</span>Medicina preventiva</li>
+          <li><span class="fi yes">✓</span>Cobertura obstétrica</li>
+        </ul>
+        <a href="https://wa.me/552130550790?text=Olá!%20Quero%20simular%20o%20plano%20Klini%20Essencial." class="btn btn-blue plan__btn" target="_blank" rel="noopener">🔍 Simular Agora</a>
+      </div>
+
+      <!-- Klini Rede Casa -->
+      <div class="plan rv d3">
+        <div class="plan__ico c3">🏆</div>
+        <div class="plan__name">Klini Rede Casa</div>
+        <div class="plan__tag">Acesso completo à Rede Hospitalar Casa</div>
+        <div class="plan__price-block">
+          <div class="plan__from">Consulta a partir de</div>
+          <div class="plan__price">
+            <span class="plan__curr">R$</span>
+            <span class="plan__val">—</span>
+          </div>
+          <div class="plan__note">Solicite cotação personalizada</div>
+        </div>
+        <ul class="plan__feats">
+          <li><span class="fi yes">✓</span>Rede Hospitalar Casa</li>
+          <li><span class="fi yes">✓</span>Todos os exames cobertos</li>
+          <li><span class="fi yes">✓</span>Oncologia</li>
+          <li><span class="fi yes">✓</span>Cobertura nacional</li>
+          <li><span class="fi yes">✓</span>Quarto individual</li>
+        </ul>
+        <a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20plano%20Klini%20Rede%20Casa." class="btn btn-outline plan__btn" target="_blank" rel="noopener">💬 Solicitar Cotação</a>
+      </div>
+
+    </div>
+
+    <p style="text-align:center;margin-top:30px;font-size:.84rem;color:var(--muted)">
+      💼 Planos <strong>empresariais</strong> (MEI, PME e Grandes Empresas) também disponíveis. &nbsp;
+      <a href="https://wa.me/552130550790?text=Quero%20conhecer%20os%20planos%20empresariais%20Klini." style="color:var(--blue);font-weight:700;text-decoration:none" target="_blank" rel="noopener">Solicitar cotação empresa →</a>
+    </p>
+  </div>
+</section>
+
+<!-- ═══ DIFERENCIAIS ══════════════════════════════════════════════ -->
+<section class="section section-alt" id="diferenciais">
+  <div class="container">
+    <div class="sec-hd rv">
+      <span class="label">por que escolher a klini</span>
+      <h2>Saúde de verdade, <br>perto de você</h2>
+      <p>Tecnologia, rede própria e atendimento humano para entregar o cuidado que você e sua família merecem.</p>
+    </div>
+    <div class="diffs">
+      <div class="diff rv">
+        <div class="diff__ico d1">🏥</div>
+        <h3>Rede Hospitalar Própria</h3>
+        <p>Acesso à Rede Casa com mais de 1.000 leitos, 7 centros médicos e 40+ hospitais credenciados distribuídos por todo o Rio de Janeiro.</p>
+      </div>
+      <div class="diff rv d1">
+        <div class="diff__ico d2">📱</div>
+        <h3>Telemedicina 24 horas</h3>
+        <p>Consulte médicos a qualquer hora, de onde estiver. Plataforma Conexa integrada ao seu plano, sem custo adicional para o beneficiário.</p>
+      </div>
+      <div class="diff rv d2">
+        <div class="diff__ico d3">🌿</div>
+        <h3>Medicina Preventiva</h3>
+        <p>Programa Mais Vida com acompanhamento contínuo, prevenção de doenças e promoção da qualidade de vida para toda a família.</p>
+      </div>
+      <div class="diff rv d1">
+        <div class="diff__ico d4">💊</div>
+        <h3>Desconto em Farmácias</h3>
+        <p>Rede de farmácias credenciadas com descontos exclusivos em medicamentos para beneficiários Klini em todo o Estado do Rio.</p>
+      </div>
+      <div class="diff rv d2">
+        <div class="diff__ico d5">📲</div>
+        <h3>App + Carteirinha Digital</h3>
+        <p>Gerencie tudo pelo app: carteirinha digital, agendamento online, resultados de exames e busca de rede credenciada com mapa.</p>
+      </div>
+      <div class="diff rv d3">
+        <div class="diff__ico d6">❤️</div>
+        <h3>Cobertura Obstétrica</h3>
+        <p>Todos os planos incluem cobertura completa para gestação, parto normal e cesárea. Cuide da chegada da nova vida com tranquilidade.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ COMO FUNCIONA ═════════════════════════════════════════════ -->
+<section class="section" id="como-funciona">
+  <div class="container">
+    <div class="sec-hd rv">
+      <span class="label">processo simplificado</span>
+      <h2>Em 3 passos você já tem <br>seu plano ativo</h2>
+      <p>Sem burocracia, sem enrolação. Cuidamos de tudo para você começar a usar o mais rápido possível.</p>
+    </div>
+    <div class="steps">
+      <div class="step rv">
+        <div class="step__n">1</div>
+        <h3>Simule seu Plano</h3>
+        <p>Informe seu perfil e necessidades. Em minutos receba as melhores opções de plano com preços transparentes e sem compromisso.</p>
+      </div>
+      <div class="step rv d2">
+        <div class="step__n">2</div>
+        <h3>Fale com um Especialista</h3>
+        <p>Um corretor especializado vai te guiar na escolha ideal para você e sua família — sem pressão, no seu tempo, pelo WhatsApp.</p>
+      </div>
+      <div class="step rv d4">
+        <div class="step__n">3</div>
+        <h3>Assine e Comece a Usar</h3>
+        <p>Documentação 100% digital. Receba sua carteirinha virtual e comece a usar rapidamente após a aprovação do cadastro.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ APP ════════════════════════════════════════════════════════ -->
+<section class="app-sec">
+  <div class="container">
+    <div class="app-sec__grid">
+      <div class="app-sec__copy rv">
+        <span class="label app-sec__label">klini no seu bolso</span>
+        <h2>Cuide da sua saúde <br>pelo celular</h2>
+        <p style="color:rgba(255,255,255,.75);font-size:1.05rem;margin-bottom:32px">Toda a praticidade que você precisa em um único aplicativo. Simples, rápido e sempre disponível.</p>
+        <ul class="app-feats">
+          <li><div class="af-ico">🃏</div>Carteirinha digital sempre à mão</li>
+          <li><div class="af-ico">📅</div>Agendamento online de consultas e exames</li>
+          <li><div class="af-ico">📋</div>Resultados de exames e histórico médico</li>
+          <li><div class="af-ico">🔍</div>Busca de rede credenciada com mapa</li>
+          <li><div class="af-ico">💬</div>Teleconsulta integrada disponível 24h</li>
+        </ul>
+        <div class="app-btns">
+          <a href="#" class="app-btn">🍎 App Store</a>
+          <a href="#" class="app-btn">🤖 Google Play</a>
+        </div>
+      </div>
+
+      <div class="phone-wrap rv d3">
+        <div class="phone">
+          <div class="phone__screen">
+            <div class="phone__hd">
+              <div class="phone__av">K</div>
+              <div class="phone__hi">
+                <strong>Olá, João! 👋</strong>
+                <span>Klini Essencial ativo</span>
+              </div>
+            </div>
+            <div class="phone__card">
+              <div class="phone__card-lbl">CARTEIRINHA DIGITAL</div>
+              <div class="phone__card-name">João Silva</div>
+              <div class="phone__card-num">4239 •••• •••• 8821</div>
+            </div>
+            <div class="phone__menu">
+              <div class="phone__mi"><span>📅</span>Agendar</div>
+              <div class="phone__mi"><span>💬</span>Teleconsulta</div>
+              <div class="phone__mi"><span>📋</span>Exames</div>
+              <div class="phone__mi"><span>🔍</span>Rede</div>
+            </div>
+          </div>
+        </div>
+        <div class="pf pf1"><div class="pf-dot"></div>Teleconsulta disponível</div>
+        <div class="pf pf2"><div class="pf-dot"></div>Consulta agendada ✓</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DEPOIMENTOS ═══════════════════════════════════════════════ -->
+<section class="section" id="depoimentos">
+  <div class="container">
+    <div class="sec-hd rv">
+      <span class="label">o que dizem sobre nós</span>
+      <h2>Histórias de quem cuida <br>da saúde com a Klini</h2>
+      <p>Famílias cariocas que escolheram a Klini Saúde e vivem a diferença no dia a dia.</p>
+    </div>
+    <div class="depos">
+      <div class="depo rv">
+        <div class="depo__q">"</div>
+        <p class="depo__txt">Fiz a contratação pelo WhatsApp em menos de 20 minutos. Três dias depois já tinha a carteirinha digital e consegui agendar a primeira consulta pelo app. Atendimento incrível!</p>
+        <div class="depo__foot">
+          <div class="depo__av" style="background:linear-gradient(135deg,#0A5F8A,#00C7B7)">AM</div>
+          <div>
+            <div class="depo__name">Ana Maria S.</div>
+            <div class="depo__role">Professora · Barra da Tijuca, RJ</div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="depo rv d2">
+        <div class="depo__q">"</div>
+        <p class="depo__txt">Tinha um plano caro que não cobria quase nada. Migrei para a Klini e pago menos com cobertura muito melhor. A telemedicina 24h já me salvou várias vezes com meus filhos.</p>
+        <div class="depo__foot">
+          <div class="depo__av" style="background:linear-gradient(135deg,#FF6B35,#FFB800)">RC</div>
+          <div>
+            <div class="depo__name">Roberto C.</div>
+            <div class="depo__role">Empresário · Jacarepaguá, RJ</div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="depo rv d4">
+        <div class="depo__q">"</div>
+        <p class="depo__txt">Contratei o plano empresarial para minha equipe. O processo foi super rápido e o atendimento do corretor foi excelente. Todos os colaboradores adoraram os benefícios.</p>
+        <div class="depo__foot">
+          <div class="depo__av" style="background:linear-gradient(135deg,#009E91,#00C7B7)">MF</div>
+          <div>
+            <div class="depo__name">Mariana F.</div>
+            <div class="depo__role">Diretora · Leblon, RJ</div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ════════════════════════════════════════════════════════ -->
+<section class="section section-alt" id="faq">
+  <div class="container">
+    <div class="sec-hd rv">
+      <span class="label">dúvidas frequentes</span>
+      <h2>Suas perguntas, <br>respondidas</h2>
+      <p>Não encontrou o que precisa? Fale com um especialista agora no WhatsApp.</p>
+    </div>
+    <div class="faq-list rv">
+
+      <div class="faq-it">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Quais são as carências dos planos Klini?
+          <span class="faq-ico">+</span>
+        </button>
+        <div class="faq-a">
+          <p>As carências seguem a regulamentação da ANS: urgência e emergência disponível após 24h de contratação, consultas e exames após 30 dias, internações após 180 dias e partos após 300 dias. Em promoções especiais, as carências podem ser reduzidas. Consulte um especialista para saber as condições atuais.</p>
+        </div>
+      </div>
+
+      <div class="faq-it">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Posso incluir dependentes no meu plano?
+          <span class="faq-ico">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Sim! Você pode incluir cônjuge, filhos e outros dependentes. Cada dependente paga um valor proporcional conforme a faixa etária. Fale com nosso corretor para simular o valor total da sua família — sem compromisso.</p>
+        </div>
+      </div>
+
+      <div class="faq-it">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          O plano cobre consultas, exames e cirurgias?
+          <span class="faq-ico">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Sim. Todos os planos Klini cobrem o Rol de Procedimentos da ANS: consultas médicas, exames laboratoriais e de imagem, procedimentos cirúrgicos e internações. A abrangência varia conforme o plano (ambulatorial, hospitalar ou ambos).</p>
+        </div>
+      </div>
+
+      <div class="faq-it">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Como funciona a rede credenciada?
+          <span class="faq-ico">+</span>
+        </button>
+        <div class="faq-a">
+          <p>A Klini conta com mais de 40 hospitais credenciados e 7 centros médicos no RJ, além da Rede Hospitalar Casa com mais de 1.000 leitos. Você consulta toda a rede pelo app ou pelo portal do beneficiário, com mapa e filtro por especialidade.</p>
+        </div>
+      </div>
+
+      <div class="faq-it">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Posso contratar como pessoa física (individual)?
+          <span class="faq-ico">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Sim! A Klini oferece planos individuais, familiares e por adesão para pessoas físicas, além de planos empresariais para MEI, PME e grandes empresas. Fale com um corretor para encontrar a melhor opção para o seu perfil e orçamento.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA FINAL ══════════════════════════════════════════════════ -->
+<section class="cta-final">
+  <div class="container">
+    <span class="label">pronto para começar?</span>
+    <h2>Proteja sua saúde e da sua <br>família ainda hoje</h2>
+    <p>Famílias cariocas já confiam na Klini Saúde. Junte-se a elas com um plano que realmente funciona — sem burocracia.</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/552130550790?text=Olá!%20Gostaria%20de%20simular%20um%20plano%20Klini%20Saúde." class="btn btn-wa" style="font-size:1.05rem;padding:16px 32px" target="_blank" rel="noopener">💬 Simular pelo WhatsApp</a>
+      <a href="tel:08000210320" class="btn btn-ghost" style="font-size:1.05rem;padding:16px 32px">📞 0800 021 0320 (gratuito)</a>
+    </div>
+    <div class="cta-contacts">
+      <a href="tel:08000210320" class="cta-contact"><em>📞</em> SAC 24h · 0800 021 0320</a>
+      <a href="https://wa.me/552130550790" class="cta-contact" target="_blank" rel="noopener"><em>💬</em> WhatsApp · (21) 3055-0790</a>
+      <span class="cta-contact"><em>🕐</em> Seg–Sex · 8h às 17h</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═════════════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#" class="nav__logo" style="display:inline-flex">
+          <div class="nav__ico">K</div>
+          <span class="nav__name">Klini Saúde</span>
+        </a>
+        <p class="foot-desc">Operadora de planos de saúde regulamentada pela ANS. Fundada em 2020 para oferecer saúde acessível e humanizada a todos os cariocas.</p>
+        <div class="foot-socials">
+          <a href="#" class="soc-btn" aria-label="Instagram">📸</a>
+          <a href="#" class="soc-btn" aria-label="Facebook">👥</a>
+          <a href="#" class="soc-btn" aria-label="LinkedIn">💼</a>
+          <a href="#" class="soc-btn" aria-label="YouTube">▶️</a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Planos</h4>
+        <ul class="foot-links">
+          <li><a href="#planos">Klini Start</a></li>
+          <li><a href="#planos">Klini Essencial</a></li>
+          <li><a href="#planos">Klini Rede Casa</a></li>
+          <li><a href="#">Plano Empresarial</a></li>
+          <li><a href="#">Plano MEI</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Serviços</h4>
+        <ul class="foot-links">
+          <li><a href="#">Rede Credenciada</a></li>
+          <li><a href="#">Portal do Beneficiário</a></li>
+          <li><a href="#">Teleconsulta</a></li>
+          <li><a href="#">Medicina Preventiva</a></li>
+          <li><a href="#">Portal de Transparência</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Contato</h4>
+        <ul class="foot-links">
+          <li><a href="tel:2130550790">(21) 3055-0790</a></li>
+          <li><a href="tel:08000210320">SAC: 0800 021 0320</a></li>
+          <li><a href="#">Ouvidoria</a></li>
+          <li><a href="#">Barra da Tijuca, RJ</a></li>
+          <li><a href="#">Seg–Sex: 8h às 17h</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2024 Klini Saúde · CNPJ 34.539.000/0001-86 · Todos os direitos reservados · <a href="#" style="color:rgba(255,255,255,.4);text-decoration:none">Política de Privacidade</a></p>
+      <div class="seals">
+        <span class="seal">ANS Reg. 42.000.2085</span>
+        <span class="seal">SSL Seguro</span>
+        <span class="seal">LGPD</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ WHATSAPP FLOAT ════════════════════════════════════════════ -->
+<div class="wa-float">
+  <span class="wa-tip">Falar com especialista</span>
+  <a href="https://wa.me/552130550790?text=Olá!%20Gostaria%20de%20conhecer%20os%20planos%20Klini%20Saúde." class="wa-btn" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+</div>
+
+<!-- ═══ JAVASCRIPT ═════════════════════════════════════════════════ -->
+<script>
+  /* Navbar scroll */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('solid', scrollY > 50), { passive: true });
+
+  /* Mobile menu */
+  const menu = document.getElementById('mobileMenu');
+  document.getElementById('hamburger').onclick = () => menu.classList.add('open');
+  document.getElementById('mobileClose').onclick = closeMobile;
+  function closeMobile() { menu.classList.remove('open'); }
+
+  /* FAQ accordion */
+  function toggleFaq(btn) {
+    const it = btn.closest('.faq-it');
+    const ans = it.querySelector('.faq-a');
+    const open = it.classList.contains('open');
+    document.querySelectorAll('.faq-it.open').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.faq-a').classList.remove('open');
+    });
+    if (!open) { it.classList.add('open'); ans.classList.add('open'); }
+  }
+
+  /* Scroll reveal */
+  const rvObs = new IntersectionObserver(
+    es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); }),
+    { threshold: .1, rootMargin: '0px 0px -40px 0px' }
+  );
+  document.querySelectorAll('.rv').forEach(el => rvObs.observe(el));
+
+  /* Counter animation */
+  const ctObs = new IntersectionObserver(es => {
+    es.forEach(e => {
+      if (!e.isIntersecting) return;
+      const target = +e.target.dataset.target;
+      const dur = 1800;
+      const step = target / (dur / 16);
+      let cur = 0;
+      const t = setInterval(() => {
+        cur = Math.min(cur + step, target);
+        e.target.textContent = Math.floor(cur).toLocaleString('pt-BR');
+        if (cur >= target) clearInterval(t);
+      }, 16);
+      ctObs.unobserve(e.target);
+    });
+  }, { threshold: .5 });
+  document.querySelectorAll('.counter').forEach(el => ctObs.observe(el));
+
+  /* Smooth scroll anchors */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      if (id === '#') return;
+      e.preventDefault();
+      const el = document.querySelector(id);
+      if (el) window.scrollTo({ top: el.offsetTop - 78, behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>
