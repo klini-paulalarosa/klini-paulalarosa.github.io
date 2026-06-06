@@ -7,13 +7,17 @@
   <title>Sobre a Klini | Klini Saúde</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Merriweather:ital,wght@0,300;1,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;1,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons@7.0.0/primeicons.css" />
   <style>
+@font-face{font-family:'Objective';src:url('https://brenosousaf13.github.io/klini/fonts/Objective/Objective_Woff2/Objective-Regular.woff2')format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Objective';src:url('https://brenosousaf13.github.io/klini/fonts/Objective/Objective_Woff2/Objective-Medium.woff2')format('woff2');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Objective';src:url('https://brenosousaf13.github.io/klini/fonts/Objective/Objective_Woff2/Objective-Bold.woff2')format('woff2');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Objective';src:url('https://brenosousaf13.github.io/klini/fonts/Objective/Objective_Woff2/Objective-ExtraBold.woff2')format('woff2');font-weight:800;font-style:normal;font-display:swap}
 :root{--ink:#06090F;--ink2:#0C1422;--teal:#259591;--teal-dim:rgba(37,149,145,.18);--sea:#6AA7AE;--orange:#CD7925;--white:#fff;--off:#F5F9FF;--text:#1E2D3D;--muted:#637585;--bd-l:rgba(10,20,40,.08);--bd-d:rgba(255,255,255,.08);--r:14px}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--text);background:#fff}
+body{font-family:'Objective',sans-serif;color:var(--text);background:#fff}
 img{display:block;max-width:100%}
 a{text-decoration:none;color:inherit}
 ::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--teal);border-radius:2px}
@@ -21,12 +25,12 @@ a{text-decoration:none;color:inherit}
 .sec{padding:80px 0}
 .sec--off{background:var(--off)}
 .sec--dark{background:var(--ink);color:#fff}
-.h1{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3.2rem);line-height:1.1;letter-spacing:-.03em}
-.h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(1.5rem,3vw,2.2rem);line-height:1.15;letter-spacing:-.025em}
-.h3{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:1.1rem}
+.h1{font-family:'Objective',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3.2rem);line-height:1.1;letter-spacing:-.03em}
+.h2{font-family:'Objective',sans-serif;font-weight:800;font-size:clamp(1.5rem,3vw,2.2rem);line-height:1.15;letter-spacing:-.025em}
+.h3{font-family:'Objective',sans-serif;font-weight:700;font-size:1.1rem}
 .eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:10px}
 .grad{background:linear-gradient(105deg,var(--teal),var(--sea));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:10px;font-weight:700;font-size:.92rem;cursor:pointer;transition:all .2s;text-decoration:none;border:none;font-family:'Plus Jakarta Sans',sans-serif;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:10px;font-weight:700;font-size:.92rem;cursor:pointer;transition:all .2s;text-decoration:none;border:none;font-family:'Objective',sans-serif;white-space:nowrap}
 .btn-orange{background:var(--orange);color:#fff}
 .btn-orange:hover{background:#b8641a;transform:translateY(-2px);box-shadow:0 10px 26px rgba(205,121,37,.38)}
 .btn-outline{border:1.5px solid var(--bd-l);color:var(--teal);background:transparent}
@@ -69,7 +73,7 @@ a{text-decoration:none;color:inherit}
 /* STATS */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--bd-l)}
 .stat{background:var(--off);padding:36px 24px;text-align:center}
-.stat__n{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:2.4rem;line-height:1;background:linear-gradient(135deg,var(--teal),var(--sea));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
+.stat__n{font-family:'Objective',sans-serif;font-weight:800;font-size:2.4rem;line-height:1;background:linear-gradient(135deg,var(--teal),var(--sea));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
 .stat__lbl{font-size:.82rem;color:var(--muted);line-height:1.5}
 /* REDE CASA */
 .casa{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
@@ -213,12 +217,12 @@ footer{background:#030508;color:rgba(255,255,255,.35);padding:40px 0 24px}
         <p style="color:rgba(255,255,255,.55);font-size:.9rem;line-height:1.75">A Klini conta com o suporte da Rede Casa Hospitalar — uma das principais redes hospitalares do Rio de Janeiro — para garantir que nossos beneficiários tenham acesso a internações, cirurgias complexas e emergências com infraestrutura de ponta.</p>
         <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:32px">
           <div style="text-align:center">
-            <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:2rem;color:var(--teal)">+1.000</div>
+            <div style="font-family:'Objective',sans-serif;font-weight:800;font-size:2rem;color:var(--teal)">+1.000</div>
             <div style="font-size:.82rem;color:rgba(255,255,255,.45)">leitos disponíveis</div>
           </div>
           <div style="width:1px;background:rgba(255,255,255,.08)"></div>
           <div style="text-align:center">
-            <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:2rem;color:var(--teal)">RJ</div>
+            <div style="font-family:'Objective',sans-serif;font-weight:800;font-size:2rem;color:var(--teal)">RJ</div>
             <div style="font-size:.82rem;color:rgba(255,255,255,.45)">todo o estado</div>
           </div>
         </div>
