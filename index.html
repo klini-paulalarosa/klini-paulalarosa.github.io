@@ -390,6 +390,27 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
 /* Conteúdo SEMPRE visível — sem hide-then-reveal (robusto em qualquer ambiente) */
 .gs{opacity:1}
 
+/* ── TEXTURA: grão sutil global (tira o ar "flat de template") ── */
+body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;opacity:.045;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ── DIVISOR EM ARCO (hero → próxima seção) ── */
+.hero__divider{position:absolute;left:0;right:0;bottom:-1px;width:100%;line-height:0;z-index:4;pointer-events:none}
+.hero__divider svg{display:block;width:100%;height:clamp(40px,6vw,78px)}
+
+/* ── MARQUEE (faixa de hospitais — viva no navegador real, estática no preview) ── */
+.marquee{overflow:hidden;padding:18px 0;border-top:1px solid var(--bd-l);border-bottom:1px solid var(--bd-l);-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.marquee__track{display:inline-flex;align-items:center;gap:30px;white-space:nowrap;animation:marquee-scroll 34s linear infinite}
+.marquee:hover .marquee__track{animation-play-state:paused}
+.marquee__item{font-family:'Objective',sans-serif;font-weight:700;font-size:1.02rem;color:var(--teal-d);letter-spacing:-.01em}
+.marquee__dot{color:var(--orange);font-size:.7rem}
+@keyframes marquee-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── TAP TARGETS ≥40px (mobile/acessibilidade) ── */
+.soc{width:40px;height:40px}
+.foot__links a{display:inline-block;padding:5px 2px}
+.casa-dot{box-sizing:content-box;padding:9px;background-clip:content-box}
+@media(prefers-reduced-motion:reduce){.marquee__track{animation:none}}
+
 /* ── RESPONSIVE ──────────────────────────────────────────────── */
 @media(max-width:1024px){
   .hero__sub{font-size:1.05rem}
@@ -505,6 +526,13 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
           </a>
         </div>
       </div>
+  </div>
+
+  <!-- Divisor em arco: o verde do hero desce numa curva suave para a próxima seção -->
+  <div class="hero__divider">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M0,80 L0,42 C 420,86 1020,86 1440,42 L1440,80 Z" fill="#fff"/>
+    </svg>
   </div>
 </section>
 
@@ -712,15 +740,15 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
         </p>
         <div class="casa__stats">
           <div>
-            <div class="casa__stat-n">9</div>
+            <div class="casa__stat-n" data-count="9">9</div>
             <div class="casa__stat-l">hospitais<br>Rede Casa</div>
           </div>
           <div>
-            <div class="casa__stat-n">10</div>
+            <div class="casa__stat-n" data-count="10">10</div>
             <div class="casa__stat-l">centros médicos<br>Klini</div>
           </div>
           <div>
-            <div class="casa__stat-n">+1.000</div>
+            <div class="casa__stat-n" data-count="1000" data-prefix="+" data-sep="1">+1.000</div>
             <div class="casa__stat-l">leitos disponíveis<br>no estado do RJ</div>
           </div>
         </div>
@@ -879,6 +907,33 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
         <div class="casa-carousel__dots" id="casaDots"></div>
       </div>
 
+    </div>
+
+    <!-- Marquee dos hospitais da Rede Casa -->
+    <div class="marquee" style="margin-top:48px">
+      <div class="marquee__track">
+        <span class="marquee__item">Hospital Casa Câncer</span><span class="marquee__dot">●</span>
+        <span class="marquee__item">Casa Laranjeiras</span><span class="marquee__dot">●</span>
+        <span class="marquee__item">Casa Menssana</span><span class="marquee__dot">●</span>
+        <span class="marquee__item">Casa de Portugal</span><span class="marquee__dot">●</span>
+        <span class="marquee__item">Casa São Bernardo</span><span class="marquee__dot">●</span>
+        <span class="marquee__item">Casa Ilha do Governador</span><span class="marquee__dot">●</span>
+        <span class="marquee__item">Casa Premium</span><span class="marquee__dot">●</span>
+        <span class="marquee__item">Casa Santa Cruz</span><span class="marquee__dot">●</span>
+        <span class="marquee__item">Casa Evangélico</span><span class="marquee__dot">●</span>
+        <span class="marquee__item">Oftalmocasa</span><span class="marquee__dot">●</span>
+        <!-- duplicado p/ loop contínuo -->
+        <span class="marquee__item">Hospital Casa Câncer</span><span class="marquee__dot">●</span>
+        <span class="marquee__item">Casa Laranjeiras</span><span class="marquee__dot">●</span>
+        <span class="marquee__item">Casa Menssana</span><span class="marquee__dot">●</span>
+        <span class="marquee__item">Casa de Portugal</span><span class="marquee__dot">●</span>
+        <span class="marquee__item">Casa São Bernardo</span><span class="marquee__dot">●</span>
+        <span class="marquee__item">Casa Ilha do Governador</span><span class="marquee__dot">●</span>
+        <span class="marquee__item">Casa Premium</span><span class="marquee__dot">●</span>
+        <span class="marquee__item">Casa Santa Cruz</span><span class="marquee__dot">●</span>
+        <span class="marquee__item">Casa Evangélico</span><span class="marquee__dot">●</span>
+        <span class="marquee__item">Oftalmocasa</span><span class="marquee__dot">●</span>
+      </div>
     </div>
   </div>
 </section>
@@ -1213,22 +1268,35 @@ if (barHamb && barNav) {
   });
 })();
 
-/* ── Counter animation ───────────────────────────────── */
-const cObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (!e.isIntersecting) return;
-    const el = e.target, target = +el.dataset.t;
-    const step = target / (1400 / 16);
-    let cur = 0;
-    const t = setInterval(() => {
-      cur = Math.min(cur + step, target);
-      el.textContent = Math.floor(cur);
-      if (cur >= target) clearInterval(t);
-    }, 16);
-    cObs.unobserve(el);
-  });
-}, { threshold: .5 });
-document.querySelectorAll('.ct').forEach(el => cObs.observe(el));
+/* ── Counters [data-count] — animam ao entrar na tela; valor final no HTML
+   serve de fallback (nunca mostra 0 se o ambiente não animar) ── */
+(function () {
+  const els = Array.prototype.slice.call(document.querySelectorAll('[data-count]'));
+  if (!els.length) return;
+  function fmt(el, n) {
+    n = Math.round(n);
+    const pre = el.dataset.prefix || '', suf = el.dataset.suffix || '';
+    return pre + (el.dataset.sep === '1' ? n.toLocaleString('pt-BR') : String(n)) + suf;
+  }
+  function animate(el) {
+    if (el._done) return; el._done = true;
+    const target = parseFloat(el.dataset.count); let cur = 0; const step = target / 42;
+    const iv = setInterval(() => {
+      cur = Math.min(cur + step, target); el.textContent = fmt(el, cur);
+      if (cur >= target) { clearInterval(iv); el.textContent = fmt(el, target); }
+    }, 22);
+  }
+  function check() {
+    els.forEach(el => {
+      const r = el.getBoundingClientRect();
+      if (!el._done && r.top < (window.innerHeight || 800) * 0.88 && r.bottom > 0) animate(el);
+    });
+  }
+  window.addEventListener('scroll', check, { passive: true });
+  // não chamamos check() no load (evitaria reset p/ 0 em ambiente sem animação)
+  // salvaguarda: após 2,5s garante o valor final formatado, sem animar
+  setTimeout(() => els.forEach(el => { el.textContent = fmt(el, parseFloat(el.dataset.count)); }), 2500);
+})();
 
 
 /* ── Hospital Carousel ────────────────────────────────── */
