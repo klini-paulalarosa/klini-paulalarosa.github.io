@@ -51,7 +51,7 @@ a{text-decoration:none;color:inherit}
 .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
 .sec{padding:100px 0}
 .sec--dark{background:var(--ink);color:#fff}
-.sec--ink2{background:var(--ink2);color:#fff}
+.sec--ink2{background:#fff;color:var(--text)}
 .sec--off{background-color:var(--off);background-image:radial-gradient(rgba(37,149,145,.08) 1.1px,transparent 1.1px);background-size:26px 26px}
 
 /* ── BUTTONS ─────────────────────────────────────────────────── */
@@ -137,8 +137,8 @@ a{text-decoration:none;color:inherit}
 .pc::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--teal-dim),transparent);opacity:0;transition:opacity .3s}
 .pc:hover{border-color:var(--teal);transform:translateY(-6px);box-shadow:0 24px 48px rgba(37,149,145,.1)}
 .pc:hover::before{opacity:1}
-.pc--feat{background:linear-gradient(150deg,var(--ink2),#122E2B);border-color:rgba(37,149,145,.4);color:#fff}
-.pc--feat:hover{box-shadow:0 24px 48px rgba(37,149,145,.2)}
+.pc--feat{background:linear-gradient(150deg,var(--teal) 0%,#1a7a77 100%);border-color:rgba(37,149,145,.4);color:#fff}
+.pc--feat:hover{box-shadow:0 24px 48px rgba(37,149,145,.3)}
 .pc__hot{position:absolute;top:16px;right:16px;background:linear-gradient(90deg,var(--teal),var(--sea));color:#fff;font-size:.65rem;font-weight:800;padding:3px 10px;border-radius:50px;letter-spacing:.04em;text-transform:uppercase}
 .pc__img{height:76px;object-fit:contain;margin-bottom:18px}
 .pc__name{font-family:'Objective',sans-serif;font-weight:800;font-size:1.15rem;color:var(--text);margin-bottom:4px}
@@ -167,7 +167,7 @@ a{text-decoration:none;color:inherit}
 .tele__step span{font-size:.82rem;color:var(--muted)}
 .tele__side{position:relative;display:flex;justify-content:flex-end}
 .tele__glow{position:absolute;width:320px;height:320px;background:radial-gradient(var(--teal-dim),transparent 70%);top:-80px;right:-60px;pointer-events:none}
-.tele__img{width:300px;border-radius:26px;box-shadow:0 40px 80px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.07);position:relative;z-index:1}
+.tele__img{width:300px;position:relative;z-index:1;display:block;filter:drop-shadow(0 24px 56px rgba(37,149,145,.22))}
 .tele__app-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
 .tele__app-btns img{height:42px}
 
@@ -209,35 +209,35 @@ a{text-decoration:none;color:inherit}
 /* ── CTA FINAL ───────────────────────────────────────────────── */
 
 /* ── CTA FINAL ───────────────────────────────────────────────── */
-.cta-sec{background:var(--ink);padding:100px 0;text-align:center;position:relative;overflow:hidden}
-.cta-sec::before{content:'';position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(ellipse,rgba(37,149,145,.18),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.cta-sec{background:linear-gradient(140deg,var(--teal) 0%,#1d7470 55%,var(--sea) 100%);padding:100px 0;text-align:center;position:relative;overflow:hidden}
+.cta-sec::before{content:'';position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(ellipse,rgba(255,255,255,.08),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
 .cta-sec .wrap{position:relative;z-index:2}
 .cta-sec h2{color:#fff;margin-bottom:14px}
-.cta-sec > .wrap > p{color:rgba(255,255,255,.5);font-size:1.05rem;max-width:480px;margin:0 auto 48px}
+.cta-sec > .wrap > p{color:rgba(255,255,255,.75);font-size:1.05rem;max-width:480px;margin:0 auto 48px}
 .cta-action{margin:0 auto 8px}
-.cta-main-btn{display:inline-flex;align-items:center;gap:10px;background:var(--orange);color:#fff;font-weight:800;font-size:1.05rem;padding:16px 38px;border-radius:50px;text-decoration:none;transition:all .25s;font-family:'Objective',sans-serif;letter-spacing:-.01em}
-.cta-main-btn:hover{background:#b86e1f;transform:translateY(-3px);box-shadow:0 18px 44px rgba(205,121,37,.5)}
+.cta-main-btn{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--teal);font-weight:800;font-size:1.05rem;padding:16px 38px;border-radius:50px;text-decoration:none;transition:all .25s;font-family:'Objective',sans-serif;letter-spacing:-.01em}
+.cta-main-btn:hover{background:rgba(255,255,255,.92);transform:translateY(-3px);box-shadow:0 18px 44px rgba(0,0,0,.18)}
 .cta-contacts{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin-top:32px}
-.cta-contacts a{display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.45);font-size:.86rem;transition:color .2s}
-.cta-contacts a:hover{color:var(--teal)}
+.cta-contacts a{display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.65);font-size:.86rem;transition:color .2s}
+.cta-contacts a:hover{color:#fff}
 
 /* ── FOOTER ──────────────────────────────────────────────────── */
-footer{background:#0A0A0A;color:rgba(255,255,255,.38);padding:48px 0 28px}
-.foot__top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:28px}
-.foot__logo img{height:26px;filter:brightness(2) saturate(0)}
+footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px solid var(--bd-l)}
+.foot__top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;padding-bottom:28px;border-bottom:1px solid var(--bd-l);margin-bottom:28px}
+.foot__logo img{height:26px;filter:none}
 .foot__links{display:flex;gap:22px;flex-wrap:wrap}
-.foot__links a{font-size:.8rem;color:rgba(255,255,255,.32);transition:color .2s}
+.foot__links a{font-size:.8rem;color:var(--muted);transition:color .2s}
 .foot__links a:hover{color:var(--teal)}
 .foot__socials{display:flex;gap:9px}
 .foot__apps{display:flex;gap:8px;align-items:center;margin-top:10px}
-.foot__app-btn{height:30px;opacity:.55;transition:opacity .2s;display:block}
+.foot__app-btn{height:30px;opacity:.7;transition:opacity .2s;display:block}
 .foot__app-btn:hover{opacity:1}
-.soc{width:33px;height:33px;background:rgba(255,255,255,.06);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:all .2s;color:rgba(255,255,255,.45);text-decoration:none}
+.soc{width:33px;height:33px;background:var(--off);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:all .2s;color:var(--muted);text-decoration:none}
 .soc:hover{background:var(--teal);color:#fff;transform:translateY(-2px)}
-.foot__bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.75rem}
+.foot__bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.75rem;color:var(--muted)}
 .seals{display:flex;gap:8px}
-.seal{background:rgba(255,255,255,.05);border-radius:6px;padding:4px 10px;font-size:.68rem;font-weight:700;letter-spacing:.04em}
-.ans-badge{background:#000;color:#fff;border:1.5px solid #333;font-weight:800;letter-spacing:.03em;font-size:.67rem}
+.seal{background:var(--off);border-radius:6px;padding:4px 10px;font-size:.68rem;font-weight:700;letter-spacing:.04em;color:var(--text)}
+.ans-badge{background:var(--teal);color:#fff;border:none;font-weight:800;letter-spacing:.03em;font-size:.67rem}
 
 /* ── WA FLOAT ────────────────────────────────────────────────── */
 .wa-f{position:fixed;bottom:28px;right:28px;z-index:950;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
@@ -269,14 +269,14 @@ footer{background:#0A0A0A;color:rgba(255,255,255,.38);padding:48px 0 28px}
 .casa__hospital:hover img{filter:brightness(.97)}
 .casa__hospital-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.74));padding:22px 14px 12px;font-size:.77rem;font-weight:700;color:#fff;letter-spacing:.02em}
 .casa__hospital:first-child img{height:220px}
-.casa__hosp-txt{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:6px;transition:border-color .25s}
-.casa__hosp-txt:hover{border-color:rgba(37,149,145,.28)}
-.casa__hosp-txt strong{color:#fff;font-size:.94rem;font-weight:700;display:block}
-.casa__hosp-txt span{color:rgba(255,255,255,.4);font-size:.8rem;line-height:1.5}
-.casa-tag{display:inline-flex;align-items:center;gap:7px;background:rgba(37,149,145,.12);border:1px solid rgba(37,149,145,.24);border-radius:50px;padding:5px 16px;font-size:.74rem;font-weight:600;color:var(--teal);margin-bottom:20px;letter-spacing:.04em}
-.casa__stats{display:flex;gap:32px;flex-wrap:wrap;margin-top:36px;padding-top:32px;border-top:1px solid rgba(255,255,255,.07)}
+.casa__hosp-txt{background:#fff;border:1.5px solid var(--bd-l);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:6px;transition:border-color .25s}
+.casa__hosp-txt:hover{border-color:var(--teal)}
+.casa__hosp-txt strong{color:var(--text);font-size:.94rem;font-weight:700;display:block}
+.casa__hosp-txt span{color:var(--muted);font-size:.8rem;line-height:1.5}
+.casa-tag{display:inline-flex;align-items:center;gap:7px;background:rgba(37,149,145,.1);border:1px solid rgba(37,149,145,.22);border-radius:50px;padding:5px 16px;font-size:.74rem;font-weight:600;color:var(--teal);margin-bottom:20px;letter-spacing:.04em}
+.casa__stats{display:flex;gap:32px;flex-wrap:wrap;margin-top:36px;padding-top:32px;border-top:1px solid var(--bd-l)}
 .casa__stat-n{font-family:'Objective',sans-serif;font-weight:800;font-size:2.1rem;background:linear-gradient(135deg,var(--teal),var(--sea));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:4px}
-.casa__stat-l{font-size:.76rem;color:rgba(255,255,255,.42);line-height:1.5}
+.casa__stat-l{font-size:.76rem;color:var(--muted);line-height:1.5}
 
 /* ── HOSPITAL CAROUSEL ───────────────────────────────────────── */
 .casa-carousel{position:relative;border-radius:20px;overflow:hidden;width:100%;user-select:none}
@@ -285,11 +285,11 @@ footer{background:#0A0A0A;color:rgba(255,255,255,.38);padding:48px 0 28px}
 .casa-carousel__slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.68);transition:transform .7s ease}
 .casa-carousel__slide:hover img{transform:scale(1.04)}
 .casa-slide-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-.casa-slide-info{position:absolute;bottom:0;left:0;right:0;padding:32px 22px 20px;background:linear-gradient(transparent,rgba(6,25,23,.88))}
+.casa-slide-info{position:absolute;bottom:0;left:0;right:0;padding:32px 22px 20px;background:linear-gradient(transparent,rgba(0,0,0,.82))}
 .casa-slide-tag{display:inline-flex;align-items:center;gap:5px;background:rgba(37,149,145,.2);border:1px solid rgba(37,149,145,.35);border-radius:30px;padding:3px 11px;font-size:.61rem;font-weight:700;color:var(--teal);letter-spacing:.04em;margin-bottom:7px;text-transform:uppercase}
 .casa-slide-name{font-weight:800;font-size:1.05rem;color:#fff;letter-spacing:-.01em}
 .casa-slide-addr{font-size:.73rem;color:rgba(255,255,255,.52);margin-top:5px;display:flex;align-items:center;gap:5px}
-.casa-carousel__prev,.casa-carousel__next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(12,43,40,.62);border:1px solid rgba(255,255,255,.12);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.9rem;cursor:pointer;transition:all .22s;z-index:10;backdrop-filter:blur(8px);padding:0;outline:none;line-height:1}
+.casa-carousel__prev,.casa-carousel__next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.38);border:1px solid rgba(255,255,255,.2);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.9rem;cursor:pointer;transition:all .22s;z-index:10;backdrop-filter:blur(8px);padding:0;outline:none;line-height:1}
 .casa-carousel__prev:hover,.casa-carousel__next:hover{background:var(--teal);border-color:var(--teal)}
 .casa-carousel__prev{left:12px}
 .casa-carousel__next{right:12px}
@@ -306,9 +306,9 @@ footer{background:#0A0A0A;color:rgba(255,255,255,.38);padding:48px 0 28px}
 @keyframes live-blink{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(224,87,89,.6)}50%{opacity:.55;box-shadow:0 0 0 6px rgba(224,87,89,0)}}
 
 /* ── PLAN CARD IMAGE WRAPPER ──────────────────────────────────── */
-.pc__img-wrap{background:linear-gradient(150deg,var(--ink2) 0%,#122B28 100%);border-radius:var(--r) var(--r) 0 0;margin:-26px -26px 20px;padding:24px 20px 20px;display:flex;align-items:center;justify-content:center;min-height:94px}
+.pc__img-wrap{background:linear-gradient(135deg,var(--teal),var(--sea));border-radius:var(--r) var(--r) 0 0;margin:-26px -26px 20px;padding:24px 20px 20px;display:flex;align-items:center;justify-content:center;min-height:94px}
 .pc__img{height:58px;object-fit:contain;margin:0}
-.pc--feat .pc__img-wrap{background:transparent;border-radius:0;margin:0 0 18px;padding:0;min-height:auto}
+.pc--feat .pc__img-wrap{background:rgba(255,255,255,.08);border-radius:12px;margin:0 0 18px;padding:16px 12px;min-height:80px}
 
 @media(max-width:1024px){.casa-grid{grid-template-columns:1fr;gap:40px}}
 @media(max-width:600px){.casa__hospitals{grid-template-columns:1fr}.casa__hospital:last-child{grid-column:span 1}}
@@ -363,6 +363,33 @@ footer{background:#0A0A0A;color:rgba(255,255,255,.38);padding:48px 0 28px}
 .proof__author strong{display:block;font-size:.88rem;font-weight:700;color:var(--text)}
 .proof__author span{font-size:.78rem;color:var(--muted)}
 @media(max-width:1024px){.proof__stats{grid-template-columns:1fr 1fr}.proof__cards{grid-template-columns:1fr}}
+
+/* ── FARMÁCIA BENTO ──────────────────────────────────────────── */
+.farm-bento{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.farm-bento__info{grid-column:1/3;grid-row:1/3;background:#fff;border:1.5px solid var(--bd-l);border-radius:20px;padding:36px;display:flex;flex-direction:column;justify-content:center;gap:0}
+.farm-logo--far{grid-column:span 2}
+@media(max-width:900px){.farm-bento{grid-template-columns:1fr 1fr}.farm-bento__info{grid-column:1/3;grid-row:auto}}
+@media(max-width:540px){.farm-bento{grid-template-columns:1fr 1fr}.farm-bento__info{grid-column:1/3}}
+
+/* ── CANAIS BENTO ─────────────────────────────────────────────── */
+.canais-bento{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:56px}
+.canal--wa{grid-column:1/4;grid-row:1/3}
+.canal--pres{grid-column:4/7}
+.canal--sac{grid-column:4/6}
+.canal--deaf{grid-column:6/7}
+.canal--ouv{grid-column:1/4}
+.canal--imp{grid-column:4/7}
+.canal--wa .canal__head{margin-bottom:24px}
+.canal--wa .canal__ico{width:56px;height:56px;font-size:1.4rem}
+.canal--wa .canal__name{font-size:1.2rem}
+.canal--wa .canal__info{font-size:1.1rem}
+.canal--wa .canal__desc{font-size:.9rem;margin-bottom:20px}
+@media(max-width:1024px){.canais-bento{grid-template-columns:repeat(4,1fr)}.canal--wa{grid-column:1/3;grid-row:1/3}.canal--pres{grid-column:3/5}.canal--sac{grid-column:1/3}.canal--deaf{grid-column:3/5}.canal--ouv{grid-column:1/3}.canal--imp{grid-column:3/5}}
+@media(max-width:640px){.canais-bento{grid-template-columns:1fr 1fr}.canal--wa{grid-column:1/3;grid-row:auto}.canal--pres,.canal--sac,.canal--ouv,.canal--imp{grid-column:1/3}.canal--deaf{grid-column:1/3}}
+
+/* ── TELECONSULTA ZOOM ────────────────────────────────────────── */
+#teleconsulta{overflow:hidden}
+.tele__img-wrap{transform-origin:center top}
 
 /* ── REVEAL ──────────────────────────────────────────────────── */
 .reveal{clip-path:inset(0 0 100% 0)}
@@ -727,8 +754,8 @@ footer{background:#0A0A0A;color:rgba(255,255,255,.38);padding:48px 0 28px}
       <!-- Texto -->
       <div class="gs">
         <div class="casa-tag"><i class="pi pi-building"></i> Parceria estratégica</div>
-        <h2 class="h2" style="color:#fff">Klini + Rede Casa<br>— um único time</h2>
-        <p style="color:rgba(255,255,255,.55);font-size:1.05rem;margin-top:18px;line-height:1.8;max-width:430px">
+        <h2 class="h2 gs" style="color:var(--text)">Klini + Rede Casa<br>— um único time</h2>
+        <p style="color:var(--muted);font-size:1.05rem;margin-top:18px;line-height:1.8;max-width:430px">
           Nós somos um único time focado no seu cuidado. A Rede Casa amplia nossa capacidade hospitalar com unidades de excelência para internações, cirurgias complexas e UTI — tudo coberto pelo seu plano.
         </p>
         <div class="casa__stats">
@@ -949,76 +976,102 @@ footer{background:#0A0A0A;color:rgba(255,255,255,.38);padding:48px 0 28px}
 </section>
 
 <!-- ══ FARMÁCIA ════════════════════════════════════════════════════ -->
-<section class="sec" id="farmacia">
+<section class="sec sec--off" id="farmacia">
   <div class="wrap">
-    <div class="farm">
-      <div class="gs">
-        <p class="eyebrow">desconto em farmácias</p>
-        <h2 class="h2" style="margin-top:10px">Economize em<br>medicamentos</h2>
-        <p style="color:var(--muted);font-size:1.05rem;margin-top:12px">Descontos especiais nas principais redes do Brasil para beneficiários e dependentes — sem cadastro adicional.</p>
+    <div style="text-align:center;margin-bottom:56px">
+      <p class="eyebrow gs">desconto em farmácias</p>
+      <h2 class="h2 gs">Economize em<br>medicamentos</h2>
+      <p class="gs" style="color:var(--muted);margin-top:12px;font-size:1.05rem">Descontos especiais nas principais redes do Brasil — sem cadastro adicional.</p>
+    </div>
+    <div class="farm-bento">
+
+      <!-- Card info: col 1-2, row 1-2 -->
+      <div class="farm-bento__info gs">
+        <p class="eyebrow" style="margin-bottom:10px">como usar</p>
+        <h3 class="h3" style="margin-bottom:22px;color:var(--text)">3 passos simples</h3>
         <div class="farm__steps">
-          <div class="farm__step"><div class="farm__ico"><i class="pi pi-map-marker"></i></div><div><strong>Vá a uma farmácia parceira</strong><span>7 redes em todo o Brasil para você escolher</span></div></div>
-          <div class="farm__step"><div class="farm__ico"><i class="pi pi-id-card"></i></div><div><strong>Apresente CPF ou carteirinha digital</strong><span>Acesse pelo app Klini — sem papelada</span></div></div>
-          <div class="farm__step"><div class="farm__ico"><i class="pi pi-tag"></i></div><div><strong>Desconto automático no caixa</strong><span>Redução instantânea, sem etapas extras</span></div></div>
+          <div class="farm__step"><div class="farm__ico"><i class="pi pi-map-marker"></i></div><div><strong>Vá a uma farmácia parceira</strong><span>7 redes em todo o Brasil</span></div></div>
+          <div class="farm__step"><div class="farm__ico"><i class="pi pi-id-card"></i></div><div><strong>Apresente CPF ou carteirinha</strong><span>Acesse pelo app Klini</span></div></div>
+          <div class="farm__step"><div class="farm__ico"><i class="pi pi-tag"></i></div><div><strong>Desconto automático no caixa</strong><span>Instantâneo, sem etapas extras</span></div></div>
         </div>
       </div>
-      <div class="farm__logo-grid">
 
-        <a class="farm__logo-card gs" href="https://www.drogasil.com.br" target="_blank" rel="noopener" aria-label="Drogasil">
-          <svg class="farm__svg" viewBox="0 0 240 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Drogasil">
-            <rect x="14" y="12" width="40" height="40" rx="7" transform="rotate(45 34 32)" fill="#C8102E"/>
-            <rect x="31" y="18" width="6" height="28" fill="#fff"/><rect x="20" y="29" width="28" height="6" fill="#fff"/>
-            <text x="72" y="43" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="29" letter-spacing="0.5" fill="#C8102E">DROGASIL</text>
-          </svg>
-        </a>
+      <!-- Drogasil (col 3, row 1) -->
+      <a class="farm__logo-card gs" href="https://www.drogasil.com.br" target="_blank" rel="noopener" aria-label="Drogasil">
+        <svg class="farm__svg" viewBox="0 0 220 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Drogasil">
+          <rect x="11" y="10" width="36" height="36" rx="6" transform="rotate(45 29 28)" fill="#C8102E"/>
+          <rect x="26" y="14" width="6" height="28" fill="#fff"/>
+          <rect x="15" y="25" width="28" height="6" fill="#fff"/>
+          <text x="64" y="40" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="26" letter-spacing="0.3" fill="#C8102E">DROGASIL</text>
+        </svg>
+      </a>
 
-        <a class="farm__logo-card gs" href="https://www.raia.com.br" target="_blank" rel="noopener" aria-label="Raia">
-          <svg class="farm__svg" viewBox="0 0 200 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Raia">
-            <path d="M32 8 C34 26 38 30 56 32 C38 34 34 38 32 56 C30 38 26 34 8 32 C26 30 30 26 32 8 Z" fill="#7AB800"/>
-            <text x="70" y="44" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="33" fill="#00838F">Raia</text>
-          </svg>
-        </a>
+      <!-- Raia (col 4, row 1) -->
+      <a class="farm__logo-card gs" href="https://www.raia.com.br" target="_blank" rel="noopener" aria-label="Raia">
+        <svg class="farm__svg" viewBox="0 0 180 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Raia">
+          <g transform="translate(28,30)">
+            <line x1="0" y1="-17" x2="0" y2="17" stroke="#7AB800" stroke-width="6.5" stroke-linecap="round"/>
+            <line x1="-17" y1="0" x2="17" y2="0" stroke="#7AB800" stroke-width="6.5" stroke-linecap="round"/>
+            <line x1="-11" y1="-11" x2="11" y2="11" stroke="#7AB800" stroke-width="4.5" stroke-linecap="round"/>
+            <line x1="11" y1="-11" x2="-11" y2="11" stroke="#7AB800" stroke-width="4.5" stroke-linecap="round"/>
+          </g>
+          <text x="54" y="40" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="30" fill="#007F8E">Raia</text>
+        </svg>
+      </a>
 
-        <a class="farm__logo-card gs" href="https://www.drogariaspacheco.com.br" target="_blank" rel="noopener" aria-label="Drogarias Pacheco">
-          <svg class="farm__svg" viewBox="0 0 240 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Drogarias Pacheco">
-            <g fill="#29ABE2"><rect x="25" y="10" width="14" height="44" rx="7"/><rect x="10" y="25" width="44" height="14" rx="7"/></g>
-            <text x="66" y="26" font-family="Arial,Helvetica,sans-serif" font-weight="500" font-size="12.5" letter-spacing="2" fill="#ED1C24">drogarias</text>
-            <text x="65" y="50" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="27" fill="#ED1C24">Pacheco</text>
-          </svg>
-        </a>
+      <!-- Pacheco (col 3, row 2) -->
+      <a class="farm__logo-card gs" href="https://www.drogariaspacheco.com.br" target="_blank" rel="noopener" aria-label="Drogarias Pacheco">
+        <svg class="farm__svg" viewBox="0 0 230 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Drogarias Pacheco">
+          <g fill="#29ABE2">
+            <rect x="22" y="8" width="13" height="42" rx="6.5"/>
+            <rect x="8" y="22" width="42" height="13" rx="6.5"/>
+          </g>
+          <text x="62" y="23" font-family="Arial,Helvetica,sans-serif" font-weight="500" font-size="12" letter-spacing="2" fill="#ED1C24">drogarias</text>
+          <text x="61" y="47" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="25" fill="#ED1C24">Pacheco</text>
+        </svg>
+      </a>
 
-        <a class="farm__logo-card gs" href="https://www.drogariasaopaulo.com.br" target="_blank" rel="noopener" aria-label="Drogaria São Paulo">
-          <svg class="farm__svg" viewBox="0 0 250 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Drogaria São Paulo">
-            <path d="M12 12 H42 V24 H26 V40 H42 V52 H12 Z" fill="#D31E25"/>
-            <path d="M74 12 H44 V24 H60 V40 H44 V52 H74 Z" fill="#8DC9D6"/>
-            <text x="88" y="28" font-family="Arial,Helvetica,sans-serif" font-weight="600" font-size="13" letter-spacing="0.5" fill="#1A1A1A">Drogaria</text>
-            <text x="88" y="50" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="22" fill="#1A1A1A">São Paulo</text>
-          </svg>
-        </a>
+      <!-- Drogaria São Paulo (col 4, row 2) -->
+      <a class="farm__logo-card gs" href="https://www.drogariasaopaulo.com.br" target="_blank" rel="noopener" aria-label="Drogaria São Paulo">
+        <svg class="farm__svg" viewBox="0 0 230 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Drogaria São Paulo">
+          <rect x="8" y="20" width="34" height="10" rx="2" fill="#0072BC"/>
+          <rect x="16" y="10" width="10" height="38" rx="2" fill="#0072BC"/>
+          <rect x="8" y="20" width="10" height="10" rx="2" fill="#ED1C24"/>
+          <text x="52" y="24" font-family="Arial,Helvetica,sans-serif" font-weight="500" font-size="11" letter-spacing="1.5" fill="#0072BC">DROGARIA</text>
+          <text x="52" y="46" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="19" fill="#0072BC">São Paulo</text>
+        </svg>
+      </a>
 
-        <a class="farm__logo-card gs" href="https://www.drogariavenancio.com.br" target="_blank" rel="noopener" aria-label="Drogaria Venâncio">
-          <svg class="farm__svg" viewBox="0 0 240 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Drogaria Venâncio">
-            <path d="M10 12 H58 L34 58 Z" fill="#E4002B"/>
-            <rect x="30" y="18" width="8" height="26" fill="#fff"/><rect x="22" y="26" width="24" height="8" fill="#fff"/>
-            <text x="74" y="43" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="27" letter-spacing="1" fill="#E4002B">VENANCIO</text>
-          </svg>
-        </a>
+      <!-- Venâncio (col 1, row 3) -->
+      <a class="farm__logo-card gs" href="https://www.drogariavenancio.com.br" target="_blank" rel="noopener" aria-label="Venâncio">
+        <svg class="farm__svg" viewBox="0 0 210 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Venâncio">
+          <rect x="8" y="10" width="28" height="13" rx="3" fill="#E4002B"/>
+          <rect x="8" y="26" width="28" height="13" rx="3" fill="#003087"/>
+          <text x="46" y="36" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="20" letter-spacing="0.5" fill="#1A1A1A">VENANCIO</text>
+        </svg>
+      </a>
 
-        <a class="farm__logo-card gs" href="https://www.drogasmil.com.br" target="_blank" rel="noopener" aria-label="Drogasmil">
-          <svg class="farm__svg" viewBox="0 0 240 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Drogasmil">
-            <circle cx="32" cy="32" r="19" fill="none" stroke="#9E1B53" stroke-width="6"/>
-            <rect x="29" y="18" width="6" height="28" fill="#9E1B53"/><rect x="18" y="29" width="28" height="6" fill="#9E1B53"/>
-            <text x="62" y="43" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="27" fill="#9E1B53">drogasmil</text>
-          </svg>
-        </a>
+      <!-- Drogasmil (col 2, row 3) -->
+      <a class="farm__logo-card gs" href="https://www.drogasmil.com.br" target="_blank" rel="noopener" aria-label="Drogasmil">
+        <svg class="farm__svg" viewBox="0 0 220 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Drogasmil">
+          <circle cx="30" cy="30" r="18" fill="none" stroke="#9E1B53" stroke-width="5.5"/>
+          <rect x="27" y="17" width="6" height="26" fill="#9E1B53"/>
+          <rect x="17" y="27" width="26" height="6" fill="#9E1B53"/>
+          <text x="56" y="38" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="22" fill="#9E1B53">drogasmil</text>
+        </svg>
+      </a>
 
-        <a class="farm__logo-card gs" href="https://www.farmalife.com.br" target="_blank" rel="noopener" aria-label="Farmalife" style="grid-column:span 3;max-width:calc(33.33% - 9px);margin:0 auto">
-          <svg class="farm__svg" viewBox="0 0 240 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Farmalife">
-            <text x="38" y="43" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="30" letter-spacing="1.5" fill="#2B2B2B">FARMA<tspan fill="#F26522">LIFE</tspan></text>
-          </svg>
-        </a>
+      <!-- Farmalife (col 3-4, row 3 — span 2) -->
+      <a class="farm__logo-card farm-logo--far gs" href="https://www.farmalife.com.br" target="_blank" rel="noopener" aria-label="Farmalife">
+        <svg class="farm__svg" viewBox="0 0 260 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Farmalife">
+          <rect x="8" y="12" width="36" height="36" rx="8" fill="#F26522" opacity=".15"/>
+          <rect x="16" y="20" width="6" height="22" fill="#F26522"/>
+          <rect x="16" y="20" width="20" height="6" fill="#F26522"/>
+          <rect x="16" y="30" width="14" height="5" fill="#F26522"/>
+          <text x="56" y="40" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="26" letter-spacing="1" fill="#2B2B2B">FARMA<tspan fill="#F26522">LIFE</tspan></text>
+        </svg>
+      </a>
 
-      </div>
     </div>
   </div>
 </section>
@@ -1159,33 +1212,37 @@ footer{background:#0A0A0A;color:rgba(255,255,255,.38);padding:48px 0 28px}
 <!-- ══ CANAIS DE ATENDIMENTO ══════════════════════════════════════ -->
 <section class="canais" id="canais-atendimento">
   <div class="wrap">
-    <div style="text-align:center;margin-bottom:56px">
+    <div style="text-align:center;margin-bottom:8px">
       <p class="eyebrow gs">fale com a gente</p>
       <h2 class="h2 gs">Canais de atendimento</h2>
-      <p class="gs" style="color:var(--muted);margin-top:12px;font-size:1.05rem">Estamos aqui para ajudar. Escolha o canal mais conveniente para você.</p>
+      <p class="gs" style="color:var(--muted);margin-top:12px;font-size:1.05rem">Escolha o canal mais conveniente para você.</p>
     </div>
-    <div class="canais__grid">
+    <div class="canais-bento">
 
-      <div class="canal gs">
+      <!-- WhatsApp: grande (col 1-3, row 1-2) -->
+      <div class="canal canal--wa gs">
         <div class="canal__head">
           <div class="canal__ico" style="background:rgba(37,211,102,.12);color:#1da851"><i class="pi pi-whatsapp"></i></div>
           <span class="canal__name">WhatsApp</span>
         </div>
         <a href="https://wa.me/552130550790" target="_blank" rel="noopener" class="canal__info">(21) 3055-0790</a>
-        <p class="canal__desc">Atendimento rápido e prático pelo WhatsApp.</p>
-        <span class="canal__badge canal__badge--green"><i class="pi pi-circle-fill" style="font-size:.45rem"></i> Disponível 24h</span>
+        <p class="canal__desc">Canal principal — resposta imediata por WhatsApp, 24 horas por dia, todos os dias.</p>
+        <span class="canal__badge canal__badge--green" style="margin-bottom:18px"><i class="pi pi-circle-fill" style="font-size:.45rem"></i> Disponível 24h</span>
+        <a href="https://wa.me/552130550790?text=Olá!%20Gostaria%20de%20conhecer%20os%20planos%20Klini%20Saúde." target="_blank" rel="noopener" class="btn btn-teal" style="display:inline-flex;width:fit-content;font-size:.85rem;padding:11px 24px;margin-top:auto"><i class="pi pi-whatsapp"></i> Falar agora</a>
       </div>
 
-      <div class="canal gs">
+      <!-- Presencial (col 4-6, row 1) -->
+      <div class="canal canal--pres gs">
         <div class="canal__head">
           <div class="canal__ico" style="background:rgba(37,149,145,.1);color:var(--teal)"><i class="pi pi-map-marker"></i></div>
           <span class="canal__name">Atendimento Presencial</span>
         </div>
-        <p class="canal__addr">Av. das Américas, 3200 – Sala 114<br>Barra da Tijuca, Rio de Janeiro – RJ<br>22640-102</p>
-        <span class="canal__badge canal__badge--orange"><i class="pi pi-clock"></i> SEG a SEX, das 8h às 17h</span>
+        <p class="canal__addr">Av. das Américas, 3200 – Sala 114<br>Barra da Tijuca, Rio de Janeiro – RJ</p>
+        <span class="canal__badge canal__badge--orange"><i class="pi pi-clock"></i> SEG a SEX, 8h às 17h</span>
       </div>
 
-      <div class="canal gs">
+      <!-- SAC (col 4-5, row 2) -->
+      <div class="canal canal--sac gs">
         <div class="canal__head">
           <div class="canal__ico" style="background:rgba(106,167,174,.12);color:var(--sea)"><i class="pi pi-phone"></i></div>
           <span class="canal__name">SAC</span>
@@ -1193,32 +1250,34 @@ footer{background:#0A0A0A;color:rgba(255,255,255,.38);padding:48px 0 28px}
         <a href="tel:02130550790" class="canal__info">(21) 3055-0790</a>
         <p class="canal__desc">Capitais e regiões metropolitanas</p>
         <a href="tel:08000210320" class="canal__info">0800 021 0320</a>
-        <p class="canal__desc">Demais regiões</p>
-        <span class="canal__badge canal__badge--green"><i class="pi pi-circle-fill" style="font-size:.45rem"></i> Disponível 24h</span>
+        <p class="canal__desc" style="margin-bottom:0">Demais regiões</p>
+        <span class="canal__badge canal__badge--green" style="margin-top:10px"><i class="pi pi-circle-fill" style="font-size:.45rem"></i> Disponível 24h</span>
       </div>
 
-      <div class="canal gs">
-        <div class="canal__head">
+      <!-- Def. Auditivo (col 6, row 2) -->
+      <div class="canal canal--deaf gs">
+        <div class="canal__head" style="flex-direction:column;align-items:flex-start;gap:9px">
           <div class="canal__ico" style="background:rgba(205,121,37,.1);color:var(--orange)"><i class="pi pi-phone"></i></div>
-          <span class="canal__name">Deficiente Auditivo</span>
+          <span class="canal__name" style="font-size:.88rem">Def. Auditivo</span>
         </div>
-        <a href="tel:08009419601" class="canal__info">0800 941 9601</a>
-        <p class="canal__desc">Canal exclusivo para atendimento a deficientes auditivos.</p>
-        <span class="canal__badge canal__badge--green"><i class="pi pi-circle-fill" style="font-size:.45rem"></i> Disponível 24h</span>
+        <a href="tel:08009419601" class="canal__info" style="font-size:.8rem">0800 941 9601</a>
+        <span class="canal__badge canal__badge--green" style="margin-top:8px"><i class="pi pi-circle-fill" style="font-size:.45rem"></i> 24h</span>
       </div>
 
-      <div class="canal gs">
+      <!-- Ouvidoria (col 1-3, row 3) -->
+      <div class="canal canal--ouv gs">
         <div class="canal__head">
           <div class="canal__ico" style="background:rgba(224,87,89,.1);color:var(--coral)"><i class="pi pi-flag"></i></div>
           <span class="canal__name">Ouvidoria</span>
         </div>
         <a href="ouvidoria.html" class="canal__info">Acessar Ouvidoria <i class="pi pi-arrow-right" style="font-size:.75rem"></i></a>
-        <p class="canal__desc">Para demandas não resolvidas pelos canais regulares de atendimento.</p>
+        <p class="canal__desc" style="margin-bottom:0">Para demandas não resolvidas pelos canais regulares de atendimento.</p>
       </div>
 
-      <div class="canal gs">
+      <!-- Imprensa (col 4-6, row 3) -->
+      <div class="canal canal--imp gs">
         <div class="canal__head">
-          <div class="canal__ico" style="background:rgba(4,42,38,.07);color:var(--muted)"><i class="pi pi-send"></i></div>
+          <div class="canal__ico" style="background:var(--off);color:var(--muted)"><i class="pi pi-send"></i></div>
           <span class="canal__name">Imprensa</span>
         </div>
         <span class="canal__info" style="color:var(--text);font-weight:600">Lorena Vazquez</span>
@@ -1235,7 +1294,7 @@ footer{background:#0A0A0A;color:rgba(255,255,255,.38);padding:48px 0 28px}
   <div class="wrap">
     <div class="foot__top">
       <div class="foot__brand">
-        <a href="#"><img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/03/logo_klini-br.png" alt="Klini Saúde" /></a>
+        <a href="index.html"><img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/logo-header.webp" alt="Klini Saúde" style="height:28px" /></a>
         <p style="font-size:.82rem;color:rgba(255,255,255,.4);margin-top:10px;max-width:240px;line-height:1.6">Saúde com rede própria, telemedicina 24h e cuidado humano no Rio de Janeiro.</p>
       </div>
       <nav class="foot__links">
@@ -1394,11 +1453,18 @@ window.addEventListener('load', () => {
     }
   );
 
-  // Tele image parallax (scrub)
+  // Teleconsulta — scroll-pin "entrar na tela do app"
+  ScrollTrigger.create({
+    trigger: '#teleconsulta',
+    start: 'top top',
+    end: '+=560',
+    pin: true,
+    pinSpacing: true
+  });
   gsap.fromTo('.tele__img',
-    { y: 36 },
-    { y: -36, ease: 'none',
-      scrollTrigger: { trigger: '.tele', start: 'top bottom', end: 'bottom top', scrub: 1 }
+    { scale: 1, transformOrigin: '50% 26%' },
+    { scale: 4.8, ease: 'none',
+      scrollTrigger: { trigger: '#teleconsulta', start: 'top top', end: '+=560', scrub: 1.8 }
     }
   );
 
@@ -1410,13 +1476,7 @@ window.addEventListener('load', () => {
     }
   );
 
-  // Phone mockup: zoom entrance — scale only (opacity via container .gs)
-  gsap.fromTo('.tele__img',
-    { scale: .72 },
-    { scale: 1, duration: 1.2, ease: 'power4.out',
-      scrollTrigger: { trigger: '#teleconsulta', start: 'top 68%', once: true }
-    }
-  );
+  // (teleconsulta zoom: handled by scroll-pin above)
 });
 
 /* ── Counter animation ───────────────────────────────── */
