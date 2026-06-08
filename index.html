@@ -20,7 +20,7 @@
 
 /* ── TOKENS — alinhado ao @klini-saude/ds v2 ─────────────────── */
 :root{
-  --ink:#061917;  --ink2:#0C2B28;                       /* fundos escuros — teal profundo */
+  --ink:#111111;  --ink2:#1C1C1E;                       /* fundos escuros — neutro */
   --teal:#259591; --teal-dim:rgba(37,149,145,.22);     /* kln-color-teal-500  PANTONE 2461C */
   --sea:#6AA7AE;  --sea-dim:rgba(106,167,174,.22);     /* kln-color-sea-500   PANTONE 549C  */
   --orange:#CD7925;                                     /* kln-color-orange-500 PANTONE 7565C */
@@ -105,7 +105,7 @@ a{text-decoration:none;color:inherit}
 }
 
 /* ── HERO ────────────────────────────────────────────────────── */
-.hero{position:relative;min-height:100vh;background:linear-gradient(140deg,var(--ink) 0%,#0C2520 55%,var(--ink) 100%);display:flex;align-items:center;padding:120px 0 80px;overflow:hidden}
+.hero{position:relative;min-height:100vh;background:linear-gradient(140deg,var(--ink) 0%,#181818 55%,var(--ink) 100%);display:flex;align-items:center;padding:120px 0 80px;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-15%;right:-8%;width:700px;height:700px;border-radius:50%;background:radial-gradient(ellipse,rgba(37,149,145,.16) 0%,transparent 62%);animation:hero-float 14s ease-in-out infinite;pointer-events:none}
 .hero::after{content:'';position:absolute;bottom:-22%;left:-6%;width:560px;height:560px;border-radius:50%;background:radial-gradient(ellipse,rgba(106,167,174,.09) 0%,transparent 60%);animation:hero-float 20s ease-in-out infinite reverse;pointer-events:none}
 @keyframes hero-float{0%,100%{transform:translate(0,0)}33%{transform:translate(28px,-38px)}66%{transform:translate(-18px,22px)}}
@@ -225,7 +225,7 @@ a{text-decoration:none;color:inherit}
 .cta-contacts a:hover{color:var(--teal)}
 
 /* ── FOOTER ──────────────────────────────────────────────────── */
-footer{background:#030F0E;color:rgba(255,255,255,.38);padding:48px 0 28px}
+footer{background:#0A0A0A;color:rgba(255,255,255,.38);padding:48px 0 28px}
 .foot__top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:28px}
 .foot__logo img{height:26px;filter:brightness(2) saturate(0)}
 .foot__links{display:flex;gap:22px;flex-wrap:wrap}
@@ -744,8 +744,8 @@ footer{background:#030F0E;color:rgba(255,255,255,.38);padding:48px 0 28px}
             <div class="casa-carousel__slide">
               <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Unidades-Hospitais-Premium.png"
                    alt="Hospital Premium" loading="lazy"
-                   onerror="this.style.display='none'" />
-              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#082040,#0D2A44)">
+                   onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=900&q=70'}else{this.style.display='none'}" />
+              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#111111,#1a1a1a)">
                 <i class="pi pi-building" style="font-size:3.5rem;color:rgba(37,149,145,.3)"></i>
               </div>
               <div class="casa-slide-info">
@@ -759,8 +759,8 @@ footer{background:#030F0E;color:rgba(255,255,255,.38);padding:48px 0 28px}
             <div class="casa-carousel__slide">
               <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Unidades-Hospitais-Evangelico.png"
                    alt="HC Evangélico" loading="lazy"
-                   onerror="this.style.display='none'" />
-              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#122A28,#163330)">
+                   onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=900&q=70'}else{this.style.display='none'}" />
+              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#111111,#1a1a1a)">
                 <i class="pi pi-building" style="font-size:3.5rem;color:rgba(37,149,145,.28)"></i>
               </div>
               <div class="casa-slide-info">
@@ -774,8 +774,8 @@ footer{background:#030F0E;color:rgba(255,255,255,.38);padding:48px 0 28px}
             <div class="casa-carousel__slide">
               <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Unidades-Hospitais-de-Portugal.png"
                    alt="HC de Portugal" loading="lazy"
-                   onerror="this.style.display='none'" />
-              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#082040,#0C1E38)">
+                   onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=70'}else{this.style.display='none'}" />
+              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#111111,#1a1a1a)">
                 <i class="pi pi-building" style="font-size:3.5rem;color:rgba(106,167,174,.28)"></i>
               </div>
               <div class="casa-slide-info">
@@ -789,8 +789,8 @@ footer{background:#030F0E;color:rgba(255,255,255,.38);padding:48px 0 28px}
             <div class="casa-carousel__slide">
               <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Unidades-Hospitais-Santa-Cruz.png"
                    alt="HC Santa Cruz" loading="lazy"
-                   onerror="this.style.display='none'" />
-              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#0A2030,#0E2C40)">
+                   onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&w=900&q=70'}else{this.style.display='none'}" />
+              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#111111,#1a1a1a)">
                 <i class="pi pi-building" style="font-size:3.5rem;color:rgba(37,149,145,.28)"></i>
               </div>
               <div class="casa-slide-info">
@@ -804,8 +804,8 @@ footer{background:#030F0E;color:rgba(255,255,255,.38);padding:48px 0 28px}
             <div class="casa-carousel__slide">
               <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Unidades-Hospitais-Ilha-do-Governador.png"
                    alt="HC Ilha do Governador" loading="lazy"
-                   onerror="this.style.display='none'" />
-              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#122A28,#0D2420)">
+                   onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=900&q=70'}else{this.style.display='none'}" />
+              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#111111,#1a1a1a)">
                 <i class="pi pi-building" style="font-size:3.5rem;color:rgba(106,167,174,.3)"></i>
               </div>
               <div class="casa-slide-info">
@@ -819,8 +819,8 @@ footer{background:#030F0E;color:rgba(255,255,255,.38);padding:48px 0 28px}
             <div class="casa-carousel__slide">
               <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Unidades-Hospitais-Menssana.png"
                    alt="HC Menssana" loading="lazy"
-                   onerror="this.style.display='none'" />
-              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#082040,#0B2442)">
+                   onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=900&q=70'}else{this.style.display='none'}" />
+              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#111111,#1a1a1a)">
                 <i class="pi pi-building" style="font-size:3.5rem;color:rgba(37,149,145,.28)"></i>
               </div>
               <div class="casa-slide-info">
@@ -834,8 +834,8 @@ footer{background:#030F0E;color:rgba(255,255,255,.38);padding:48px 0 28px}
             <div class="casa-carousel__slide">
               <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Unidades-Hospitais-Rio-Laranjeiras.png"
                    alt="HC Rio Laranjeiras" loading="lazy"
-                   onerror="this.style.display='none'" />
-              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#0A2030,#062238)">
+                   onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=900&q=70'}else{this.style.display='none'}" />
+              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#111111,#1a1a1a)">
                 <i class="pi pi-building" style="font-size:3.5rem;color:rgba(37,149,145,.28)"></i>
               </div>
               <div class="casa-slide-info">
@@ -849,8 +849,8 @@ footer{background:#030F0E;color:rgba(255,255,255,.38);padding:48px 0 28px}
             <div class="casa-carousel__slide">
               <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Unidades-Hospitais-Sao-Bernardo.png"
                    alt="HC São Bernardo" loading="lazy"
-                   onerror="this.style.display='none'" />
-              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#122A28,#153530)">
+                   onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=900&q=70'}else{this.style.display='none'}" />
+              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#111111,#1a1a1a)">
                 <i class="pi pi-building" style="font-size:3.5rem;color:rgba(106,167,174,.28)"></i>
               </div>
               <div class="casa-slide-info">
@@ -864,8 +864,8 @@ footer{background:#030F0E;color:rgba(255,255,255,.38);padding:48px 0 28px}
             <div class="casa-carousel__slide">
               <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Unidades-Hospitais-Oftalmocasa.png"
                    alt="Oftalmocasa" loading="lazy"
-                   onerror="this.style.display='none'" />
-              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#082040,#0A2236)">
+                   onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=70'}else{this.style.display='none'}" />
+              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#111111,#1a1a1a)">
                 <i class="pi pi-eye" style="font-size:3.5rem;color:rgba(37,149,145,.3)"></i>
               </div>
               <div class="casa-slide-info">
@@ -952,47 +952,47 @@ footer{background:#030F0E;color:rgba(255,255,255,.38);padding:48px 0 28px}
       <div class="farm__logo-grid">
 
         <a class="farm__logo-card gs" href="https://www.drogasil.com.br" target="_blank" rel="noopener" aria-label="Drogasil">
-          <img class="farm__logo-img" id="logo-drogasil"
-               src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Drogasil.svg"
+          <img class="farm__logo-img"
+               src="https://logo.clearbit.com/drogasil.com.br"
                alt="Drogasil" loading="lazy"
-               onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://logo.clearbit.com/drogasil.com.br'}else{this.style.display='none';this.nextElementSibling.style.display='flex'}" />
-          <div class="farm__logo-fallback">Drogasil</div>
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+          <div class="farm__logo-fallback" style="background:#BF0D26">DROGASIL</div>
           <div class="farm__logo-visit"><i class="pi pi-external-link"></i> Ver site</div>
         </a>
 
-        <a class="farm__logo-card gs" href="https://www.drogaraia.com.br" target="_blank" rel="noopener" aria-label="Droga Raia">
+        <a class="farm__logo-card gs" href="https://www.raia.com.br" target="_blank" rel="noopener" aria-label="Raia">
           <img class="farm__logo-img"
-               src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Droga_Raia_logo.svg"
-               alt="Droga Raia" loading="lazy"
-               onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://logo.clearbit.com/drogaraia.com.br'}else{this.style.display='none';this.nextElementSibling.style.display='flex'}" />
-          <div class="farm__logo-fallback">Droga Raia</div>
+               src="https://logo.clearbit.com/raia.com.br"
+               alt="Raia" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+          <div class="farm__logo-fallback" style="background:#006E8C">Raia</div>
           <div class="farm__logo-visit"><i class="pi pi-external-link"></i> Ver site</div>
         </a>
 
         <a class="farm__logo-card gs" href="https://www.drogariaspacheco.com.br" target="_blank" rel="noopener" aria-label="Drogarias Pacheco">
           <img class="farm__logo-img"
-               src="https://upload.wikimedia.org/wikipedia/pt/a/a5/Drogarias_Pacheco.svg"
+               src="https://logo.clearbit.com/drogariaspacheco.com.br"
                alt="Drogarias Pacheco" loading="lazy"
-               onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://logo.clearbit.com/drogariaspacheco.com.br'}else{this.style.display='none';this.nextElementSibling.style.display='flex'}" />
-          <div class="farm__logo-fallback">Pacheco</div>
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+          <div class="farm__logo-fallback" style="background:#E8392D">PACHECO</div>
           <div class="farm__logo-visit"><i class="pi pi-external-link"></i> Ver site</div>
         </a>
 
         <a class="farm__logo-card gs" href="https://www.drogariasaopaulo.com.br" target="_blank" rel="noopener" aria-label="Drogaria São Paulo">
           <img class="farm__logo-img"
-               src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Drogaria_S%C3%A3o_Paulo_logo.svg"
+               src="https://logo.clearbit.com/drogariasaopaulo.com.br"
                alt="Drogaria São Paulo" loading="lazy"
-               onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://logo.clearbit.com/drogariasaopaulo.com.br'}else{this.style.display='none';this.nextElementSibling.style.display='flex'}" />
-          <div class="farm__logo-fallback">Drg. São Paulo</div>
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+          <div class="farm__logo-fallback" style="background:#1A1A1A">SÃO PAULO</div>
           <div class="farm__logo-visit"><i class="pi pi-external-link"></i> Ver site</div>
         </a>
 
-        <a class="farm__logo-card gs" href="https://www.drogariavenancio.com.br" target="_blank" rel="noopener" aria-label="Drogarias Venâncio">
+        <a class="farm__logo-card gs" href="https://www.drogariavenancio.com.br" target="_blank" rel="noopener" aria-label="Drogaria Venâncio">
           <img class="farm__logo-img"
-               src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Logotipo_da_Drogaria_Venancio.svg/500px-Logotipo_da_Drogaria_Venancio.svg.png"
-               alt="Drogarias Venâncio" loading="lazy"
-               onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://logo.clearbit.com/drogariavenancio.com.br'}else{this.style.display='none';this.nextElementSibling.style.display='flex'}" />
-          <div class="farm__logo-fallback">Venâncio</div>
+               src="https://logo.clearbit.com/drogariavenancio.com.br"
+               alt="Drogaria Venâncio" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+          <div class="farm__logo-fallback" style="background:#CC0000">VENANCIO</div>
           <div class="farm__logo-visit"><i class="pi pi-external-link"></i> Ver site</div>
         </a>
 
@@ -1001,7 +1001,7 @@ footer{background:#030F0E;color:rgba(255,255,255,.38);padding:48px 0 28px}
                src="https://logo.clearbit.com/drogasmil.com.br"
                alt="Drogasmil" loading="lazy"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-          <div class="farm__logo-fallback">Drogasmil</div>
+          <div class="farm__logo-fallback" style="background:#00934C">DROGASMIL</div>
           <div class="farm__logo-visit"><i class="pi pi-external-link"></i> Ver site</div>
         </a>
 
@@ -1010,7 +1010,7 @@ footer{background:#030F0E;color:rgba(255,255,255,.38);padding:48px 0 28px}
                src="https://logo.clearbit.com/farmalife.com.br"
                alt="Farmalife" loading="lazy"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-          <div class="farm__logo-fallback">Farmalife</div>
+          <div class="farm__logo-fallback" style="background:linear-gradient(135deg,var(--teal),var(--sea))">FARMALIFE</div>
           <div class="farm__logo-visit"><i class="pi pi-external-link"></i> Ver site</div>
         </a>
 
