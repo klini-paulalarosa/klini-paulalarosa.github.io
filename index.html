@@ -347,22 +347,6 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
 @media(max-width:1024px){.acess__grid{grid-template-columns:repeat(3,1fr)}.canais__grid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.acess__grid{grid-template-columns:1fr 1fr}.canais__grid{grid-template-columns:1fr}}
 
-/* ── PROVA SOCIAL ────────────────────────────────────────────── */
-.proof{padding:100px 0;background:#fff}
-.proof__stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:64px}
-.proof__stat{text-align:center;padding:24px 16px;border-radius:18px;background:var(--off);border:1px solid var(--bd-l)}
-.proof__stat-n{font-family:'Objective',sans-serif;font-weight:800;font-size:2.6rem;line-height:1;background:linear-gradient(135deg,var(--teal),var(--sea));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
-.proof__stat-l{font-size:.84rem;color:var(--muted);line-height:1.5}
-.proof__cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.proof__card{background:#fff;border:1.5px solid var(--bd-l);border-radius:20px;padding:30px;display:flex;flex-direction:column;gap:16px;transition:all .3s}
-.proof__card:hover{border-color:var(--teal);box-shadow:0 16px 40px rgba(37,149,145,.1);transform:translateY(-4px)}
-.proof__stars{color:var(--orange);font-size:.9rem;letter-spacing:2px}
-.proof__quote{font-size:.95rem;color:var(--text);line-height:1.7;flex:1}
-.proof__author{display:flex;align-items:center;gap:12px}
-.proof__avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--sea));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:1rem;flex-shrink:0}
-.proof__author strong{display:block;font-size:.88rem;font-weight:700;color:var(--text)}
-.proof__author span{font-size:.78rem;color:var(--muted)}
-@media(max-width:1024px){.proof__stats{grid-template-columns:1fr 1fr}.proof__cards{grid-template-columns:1fr}}
 
 /* ── FARMÁCIA BENTO ──────────────────────────────────────────── */
 .farm-bento{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
@@ -395,6 +379,12 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
 .reveal{clip-path:inset(0 0 100% 0)}
 
 /* ── INVISIBLE INITIAL STATE (GSAP targets) ─────────────────── */
+/* ── BRAND ARC ROTATION ──────────────────────────────────── */
+@keyframes kln-arc-cw  { to { transform: rotate( 360deg); } }
+@keyframes kln-arc-ccw { to { transform: rotate(-360deg); } }
+.arc-cw  { transform-box: view-box; animation: kln-arc-cw  linear infinite; will-change: transform; }
+.arc-ccw { transform-box: view-box; animation: kln-arc-ccw linear infinite; will-change: transform; }
+
 .gs{opacity:0}
 
 /* ── RESPONSIVE ──────────────────────────────────────────────── */
@@ -486,12 +476,16 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
         <stop offset="100%" stop-color="#6AA7AE" stop-opacity="0.02"/>
       </linearGradient>
     </defs>
-    <!-- C-arc coral grande — centro (230,270), r=190 → top(230,80) bottom(230,460) -->
-    <path d="M 230 80 A 190 190 0 0 0 230 460"
-          fill="none" stroke="url(#kln-h1)" stroke-width="42" stroke-linecap="square"/>
-    <!-- C-arc teal menor — centro (230,270), r=118 → top(230,152) bottom(230,388) -->
-    <path d="M 230 152 A 118 118 0 0 0 230 388"
-          fill="none" stroke="url(#kln-h2)" stroke-width="26" stroke-linecap="square"/>
+    <!-- C-arc coral grande — gira CW 20s -->
+    <g class="arc-cw" style="transform-origin:230px 270px;animation-duration:20s">
+      <path d="M 230 80 A 190 190 0 0 0 230 460"
+            fill="none" stroke="url(#kln-h1)" stroke-width="42" stroke-linecap="square"/>
+    </g>
+    <!-- C-arc teal menor — gira CCW 30s -->
+    <g class="arc-ccw" style="transform-origin:230px 270px;animation-duration:30s">
+      <path d="M 230 152 A 118 118 0 0 0 230 388"
+            fill="none" stroke="url(#kln-h2)" stroke-width="26" stroke-linecap="square"/>
+    </g>
   </svg>
 
   <div class="wrap">
@@ -739,13 +733,16 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
         <stop offset="100%" stop-color="#259591" stop-opacity="0.01"/>
       </linearGradient>
     </defs>
-    <!-- C-arc teal abertura para a ESQUERDA (mirror): sweep=1 = CW = vai pelo lado direito -->
-    <!-- Centro (170,250), r=185 → top(170,65) bottom(170,435) -->
-    <path d="M 170 65 A 185 185 0 0 1 170 435"
-          fill="none" stroke="url(#kln-c1)" stroke-width="38" stroke-linecap="square"/>
-    <!-- C-arc menor — r=108 → top(170,142) bottom(170,358) -->
-    <path d="M 170 142 A 108 108 0 0 1 170 358"
-          fill="none" stroke="url(#kln-c2)" stroke-width="22" stroke-linecap="square"/>
+    <!-- C-arc teal grande — gira CCW 22s -->
+    <g class="arc-ccw" style="transform-origin:170px 250px;animation-duration:22s">
+      <path d="M 170 65 A 185 185 0 0 1 170 435"
+            fill="none" stroke="url(#kln-c1)" stroke-width="38" stroke-linecap="square"/>
+    </g>
+    <!-- C-arc teal menor — gira CW 34s -->
+    <g class="arc-cw" style="transform-origin:170px 250px;animation-duration:34s">
+      <path d="M 170 142 A 108 108 0 0 1 170 358"
+            fill="none" stroke="url(#kln-c2)" stroke-width="22" stroke-linecap="square"/>
+    </g>
   </svg>
 
   <div class="wrap" style="position:relative;z-index:1">
@@ -1128,42 +1125,6 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
 </section>
 
 
-<!-- ══ PROVA SOCIAL ════════════════════════════════════════════ -->
-<section class="proof" id="prova-social">
-  <div class="wrap">
-    <div style="text-align:center;margin-bottom:56px">
-      <p class="eyebrow gs">confiança de quem cuida</p>
-      <h2 class="h2 gs">Saúde que entrega<br>de verdade</h2>
-    </div>
-
-    <div class="proof__stats">
-      <div class="proof__stat gs"><div class="proof__stat-n">15</div><div class="proof__stat-l">unidades próprias<br>no Rio de Janeiro</div></div>
-      <div class="proof__stat gs"><div class="proof__stat-n">+1.000</div><div class="proof__stat-l">leitos na<br>Rede Hospitalar Casa</div></div>
-      <div class="proof__stat gs"><div class="proof__stat-n">24h</div><div class="proof__stat-l">telemedicina<br>todos os dias</div></div>
-      <div class="proof__stat gs"><div class="proof__stat-n">7</div><div class="proof__stat-l">redes de farmácias<br>parceiras</div></div>
-    </div>
-
-    <!-- DEPOIMENTOS: substituir por depoimentos reais aprovados antes da publicação pública -->
-    <div class="proof__cards">
-      <div class="proof__card gs">
-        <div class="proof__stars">★★★★★</div>
-        <p class="proof__quote">"Marquei teleconsulta de madrugada quando meu filho teve febre. Em minutos um pediatra me atendeu e já saí com a receita. Sem sair de casa."</p>
-        <div class="proof__author"><div class="proof__avatar">A</div><div><strong>Ana Paula M.</strong><span>Beneficiária · Klini 400</span></div></div>
-      </div>
-      <div class="proof__card gs">
-        <div class="proof__stars">★★★★★</div>
-        <p class="proof__quote">"A rede própria faz toda a diferença. Consultas, exames e fisioterapia no mesmo lugar, com horário marcado de verdade. Atendimento humano."</p>
-        <div class="proof__author"><div class="proof__avatar">R</div><div><strong>Roberto S.</strong><span>Beneficiário · Klini 200</span></div></div>
-      </div>
-      <div class="proof__card gs">
-        <div class="proof__stars">★★★★★</div>
-        <p class="proof__quote">"Migrei a equipe da minha empresa para a Klini e o suporte ao RH foi impecável. Carteirinhas digitais e onboarding rápido para todos."</p>
-        <div class="proof__author"><div class="proof__avatar">C</div><div><strong>Carla T.</strong><span>RH · Plano Empresarial</span></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ══ CTA FINAL ════════════════════════════════════════════════════ -->
 <section class="cta-sec" id="cta">
 
@@ -1180,12 +1141,16 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
         <stop offset="100%" stop-color="#CD7925" stop-opacity="0.01"/>
       </linearGradient>
     </defs>
-    <!-- C-arc coral maior — centro (200,240), r=178 → top(200,62) bottom(200,418) -->
-    <path d="M 200 62 A 178 178 0 0 0 200 418"
-          fill="none" stroke="url(#kln-cta1)" stroke-width="40" stroke-linecap="square"/>
-    <!-- C-arc coral menor — r=106 → top(200,134) bottom(200,346) -->
-    <path d="M 200 134 A 106 106 0 0 0 200 346"
-          fill="none" stroke="url(#kln-cta2)" stroke-width="22" stroke-linecap="square"/>
+    <!-- C-arc coral grande — gira CW 18s -->
+    <g class="arc-cw" style="transform-origin:200px 240px;animation-duration:18s">
+      <path d="M 200 62 A 178 178 0 0 0 200 418"
+            fill="none" stroke="url(#kln-cta1)" stroke-width="40" stroke-linecap="square"/>
+    </g>
+    <!-- C-arc coral menor — gira CCW 26s -->
+    <g class="arc-ccw" style="transform-origin:200px 240px;animation-duration:26s">
+      <path d="M 200 134 A 106 106 0 0 0 200 346"
+            fill="none" stroke="url(#kln-cta2)" stroke-width="22" stroke-linecap="square"/>
+    </g>
   </svg>
 
   <div class="wrap">
@@ -1420,20 +1385,6 @@ window.addEventListener('load', () => {
     { opacity: 0, y: 30 },
     { opacity: 1, y: 0, duration: .7, ease: 'power3.out',
       scrollTrigger: { trigger: '.ldc__entry', start: 'top 88%', once: true }
-    }
-  );
-
-  // Prova social stats + cards
-  gsap.fromTo('.proof__stat.gs',
-    { opacity: 0, y: 34, scale: .92 },
-    { opacity: 1, y: 0, scale: 1, stagger: .08, duration: .7, ease: 'back.out(1.4)',
-      scrollTrigger: { trigger: '.proof__stats', start: 'top 84%', once: true }
-    }
-  );
-  gsap.fromTo('.proof__card.gs',
-    { opacity: 0, y: 40 },
-    { opacity: 1, y: 0, stagger: .1, duration: .8, ease: 'power3.out',
-      scrollTrigger: { trigger: '.proof__cards', start: 'top 84%', once: true }
     }
   );
 
