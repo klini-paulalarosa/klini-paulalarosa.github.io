@@ -6,9 +6,6 @@
   <meta name="description" content="Klini Saúde — Cotação gratuita em 2 minutos. 15 unidades próprias no RJ, telemedicina 24h, planos individuais, familiares e empresariais. Regulamentado pela ANS." />
   <title>Klini Saúde | Cotação Gratuita em 2 Minutos</title>
 
-  <!-- Three.js importmap — deve vir antes de qualquer type="module" -->
-  <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js"}}</script>
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
@@ -23,14 +20,14 @@
 
 /* ── TOKENS — alinhado ao @klini-saude/ds v2 ─────────────────── */
 :root{
-  --ink:#06090F; --ink2:#0C1422;
+  --ink:#061917;  --ink2:#0C2B28;                       /* fundos escuros — teal profundo */
   --teal:#259591; --teal-dim:rgba(37,149,145,.22);     /* kln-color-teal-500  PANTONE 2461C */
   --sea:#6AA7AE;  --sea-dim:rgba(106,167,174,.22);     /* kln-color-sea-500   PANTONE 549C  */
   --orange:#CD7925;                                     /* kln-color-orange-500 PANTONE 7565C */
   --coral:#E05759;                                      /* kln-color-coral-500  PANTONE 7625C */
   --white:#fff; --off:#F5F9FF;
-  --text:#1E2D3D; --muted:#637585;
-  --bd-d:rgba(255,255,255,.08); --bd-l:rgba(10,20,40,.08);
+  --text:#1C2E2C; --muted:#5C7B78;
+  --bd-d:rgba(255,255,255,.08); --bd-l:rgba(4,42,38,.08);
   --r:16px; --r-s:10px;
 }
 
@@ -68,7 +65,7 @@ a{text-decoration:none;color:inherit}
 
 /* ── TOP BAR ─────────────────────────────────────────────────── */
 .bar{position:fixed;top:0;width:100%;z-index:900;padding:16px 0;transition:padding .3s,background .3s,box-shadow .3s}
-.bar.solid{background:rgba(6,9,15,.95);backdrop-filter:blur(20px);padding:10px 0;box-shadow:0 1px 0 var(--bd-d)}
+.bar.solid{background:rgba(6,25,23,.96);backdrop-filter:blur(20px);padding:10px 0;box-shadow:0 1px 0 var(--bd-d)}
 .bar__inner{display:flex;align-items:center;justify-content:space-between}
 .bar__logo img{height:30px;width:auto;display:block}
 .bar__right{display:flex;align-items:center;gap:16px}
@@ -77,13 +74,11 @@ a{text-decoration:none;color:inherit}
 .bar__phone a:hover{color:var(--teal)}
 
 /* ── HERO ────────────────────────────────────────────────────── */
-.hero{position:relative;min-height:100vh;background:var(--ink);display:flex;align-items:center;padding:120px 0 80px;overflow:hidden}
-#hero-canvas{position:absolute;inset:0;width:100%;height:100%}
-.hero__fog{position:absolute;inset:0;background:
-  radial-gradient(ellipse 55% 65% at 75% 50%,rgba(37,149,145,.18) 0%,transparent 70%),
-  radial-gradient(ellipse 40% 50% at 15% 70%,rgba(106,167,174,.12) 0%,transparent 60%),
-  linear-gradient(to bottom,transparent 55%,var(--ink) 100%);
-  pointer-events:none;z-index:1}
+.hero{position:relative;min-height:100vh;background:linear-gradient(140deg,var(--ink) 0%,#0C2520 55%,var(--ink) 100%);display:flex;align-items:center;padding:120px 0 80px;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-15%;right:-8%;width:700px;height:700px;border-radius:50%;background:radial-gradient(ellipse,rgba(37,149,145,.16) 0%,transparent 62%);animation:hero-float 14s ease-in-out infinite;pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-22%;left:-6%;width:560px;height:560px;border-radius:50%;background:radial-gradient(ellipse,rgba(106,167,174,.09) 0%,transparent 60%);animation:hero-float 20s ease-in-out infinite reverse;pointer-events:none}
+@keyframes hero-float{0%,100%{transform:translate(0,0)}33%{transform:translate(28px,-38px)}66%{transform:translate(-18px,22px)}}
+.hero__fog{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,var(--ink) 100%);pointer-events:none;z-index:1}
 .hero__grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:2}
 .hero__pill{display:inline-flex;align-items:center;gap:8px;background:rgba(37,149,145,.1);border:1px solid rgba(37,149,145,.22);border-radius:50px;padding:5px 14px;font-size:.74rem;font-weight:600;color:var(--teal);margin-bottom:22px;letter-spacing:.06em}
 .hero__pill-dot{width:7px;height:7px;background:var(--teal);border-radius:50%;animation:pulse 2s infinite}
@@ -123,9 +118,9 @@ a{text-decoration:none;color:inherit}
 .plans__track::-webkit-scrollbar-thumb{background:var(--teal);border-radius:2px}
 .pc{background:#fff;border:1.5px solid var(--bd-l);border-radius:var(--r);padding:26px;scroll-snap-align:start;flex-shrink:0;position:relative;overflow:hidden;transition:all .3s ease}
 .pc::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--teal-dim),transparent);opacity:0;transition:opacity .3s}
-.pc:hover{border-color:var(--teal);transform:translateY(-6px);box-shadow:0 24px 48px rgba(0,102,204,.1)}
+.pc:hover{border-color:var(--teal);transform:translateY(-6px);box-shadow:0 24px 48px rgba(37,149,145,.1)}
 .pc:hover::before{opacity:1}
-.pc--feat{background:linear-gradient(150deg,var(--ink2),#0A2040);border-color:rgba(37,149,145,.4);color:#fff}
+.pc--feat{background:linear-gradient(150deg,var(--ink2),#122E2B);border-color:rgba(37,149,145,.4);color:#fff}
 .pc--feat:hover{box-shadow:0 24px 48px rgba(37,149,145,.2)}
 .pc__hot{position:absolute;top:16px;right:16px;background:linear-gradient(90deg,var(--teal),var(--sea));color:#fff;font-size:.65rem;font-weight:800;padding:3px 10px;border-radius:50px;letter-spacing:.04em;text-transform:uppercase}
 .pc__img{height:76px;object-fit:contain;margin-bottom:18px}
@@ -166,6 +161,7 @@ a{text-decoration:none;color:inherit}
 .tele__app-btns img{height:42px}
 
 /* ── FARMÁCIA ────────────────────────────────────────────────── */
+/* Logo fallback — badge teal quando imagem falha */
 .farm{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
 .farm__logo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
 .farm__logo-card{background:#fff;border:1.5px solid rgba(10,20,40,.07);border-radius:16px;padding:22px 12px 15px;display:flex;flex-direction:column;align-items:center;gap:9px;text-decoration:none;transition:transform .3s,box-shadow .32s,border-color .28s;position:relative;overflow:hidden}
@@ -173,7 +169,7 @@ a{text-decoration:none;color:inherit}
 .farm__logo-card:hover{border-color:var(--teal);transform:translateY(-5px) scale(1.03);box-shadow:0 18px 44px rgba(37,149,145,.12)}
 .farm__logo-card:hover::after{opacity:1}
 .farm__logo-img{height:44px;width:100%;object-fit:contain;padding:0 4px;transition:transform .28s;filter:grayscale(10%)}
-.farm__logo-fallback{height:44px;width:100%;display:none;align-items:center;justify-content:center;font-size:.76rem;font-weight:800;color:var(--text);text-align:center;letter-spacing:-.01em}
+.farm__logo-fallback{height:44px;width:100%;display:none;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--teal),var(--sea));border-radius:10px;color:#fff;font-size:.72rem;font-weight:800;text-align:center;letter-spacing:.04em;padding:0 10px;text-transform:uppercase}
 .farm__logo-card:hover .farm__logo-img{transform:scale(1.06);filter:none}
 .farm__logo-name{font-size:.64rem;font-weight:700;color:var(--muted);text-align:center;line-height:1.3}
 .farm__logo-visit{font-size:.6rem;color:var(--teal);display:flex;align-items:center;gap:3px;font-weight:600;opacity:0;transform:translateY(5px);transition:all .25s}
@@ -185,7 +181,7 @@ a{text-decoration:none;color:inherit}
 .farm__step span{font-size:.82rem;color:var(--muted)}
 
 /* ── LINHAS DE CUIDADO ───────────────────────────────────────── */
-.mv{background:linear-gradient(145deg,var(--ink2),#091A30);padding:100px 0;color:#fff}
+.mv{background:linear-gradient(145deg,var(--ink2),#091F1D);padding:100px 0;color:#fff}
 .mv__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:56px}
 .mv__card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:28px;text-align:center;transition:all .3s}
 .mv__card:hover{background:rgba(37,149,145,.07);border-color:rgba(37,149,145,.28);transform:translateY(-4px)}
@@ -216,7 +212,7 @@ a{text-decoration:none;color:inherit}
 .cta-contacts a:hover{color:var(--teal)}
 
 /* ── FOOTER ──────────────────────────────────────────────────── */
-footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
+footer{background:#030F0E;color:rgba(255,255,255,.38);padding:48px 0 28px}
 .foot__top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:28px}
 .foot__logo img{height:26px;filter:brightness(2) saturate(0)}
 .foot__links{display:flex;gap:22px;flex-wrap:wrap}
@@ -293,11 +289,11 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
 .casa-carousel__slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.68);transition:transform .7s ease}
 .casa-carousel__slide:hover img{transform:scale(1.04)}
 .casa-slide-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-.casa-slide-info{position:absolute;bottom:0;left:0;right:0;padding:32px 22px 20px;background:linear-gradient(transparent,rgba(6,9,15,.88))}
+.casa-slide-info{position:absolute;bottom:0;left:0;right:0;padding:32px 22px 20px;background:linear-gradient(transparent,rgba(6,25,23,.88))}
 .casa-slide-tag{display:inline-flex;align-items:center;gap:5px;background:rgba(37,149,145,.2);border:1px solid rgba(37,149,145,.35);border-radius:30px;padding:3px 11px;font-size:.61rem;font-weight:700;color:var(--teal);letter-spacing:.04em;margin-bottom:7px;text-transform:uppercase}
 .casa-slide-name{font-weight:800;font-size:1.05rem;color:#fff;letter-spacing:-.01em}
 .casa-slide-addr{font-size:.73rem;color:rgba(255,255,255,.52);margin-top:5px;display:flex;align-items:center;gap:5px}
-.casa-carousel__prev,.casa-carousel__next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(12,20,34,.62);border:1px solid rgba(255,255,255,.12);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.9rem;cursor:pointer;transition:all .22s;z-index:10;backdrop-filter:blur(8px);padding:0;outline:none;line-height:1}
+.casa-carousel__prev,.casa-carousel__next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(12,43,40,.62);border:1px solid rgba(255,255,255,.12);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.9rem;cursor:pointer;transition:all .22s;z-index:10;backdrop-filter:blur(8px);padding:0;outline:none;line-height:1}
 .casa-carousel__prev:hover,.casa-carousel__next:hover{background:var(--teal);border-color:var(--teal)}
 .casa-carousel__prev{left:12px}
 .casa-carousel__next{right:12px}
@@ -311,7 +307,7 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
 @keyframes tele-pulse{0%,100%{opacity:.6;transform:translateX(-50%) scale(1)}50%{opacity:1;transform:translateX(-50%) scale(1.08)}}
 
 /* ── PLAN CARD IMAGE WRAPPER ──────────────────────────────────── */
-.pc__img-wrap{background:linear-gradient(150deg,#0C1422 0%,#0A1E38 100%);border-radius:var(--r) var(--r) 0 0;margin:-26px -26px 20px;padding:24px 20px 20px;display:flex;align-items:center;justify-content:center;min-height:94px}
+.pc__img-wrap{background:linear-gradient(150deg,var(--ink2) 0%,#122B28 100%);border-radius:var(--r) var(--r) 0 0;margin:-26px -26px 20px;padding:24px 20px 20px;display:flex;align-items:center;justify-content:center;min-height:94px}
 .pc__img{height:58px;object-fit:contain;margin:0}
 .pc--feat .pc__img-wrap{background:transparent;border-radius:0;margin:0 0 18px;padding:0;min-height:auto}
 
@@ -377,7 +373,6 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
 
 <!-- ══ HERO ═══════════════════════════════════════════════════════ -->
 <section class="hero" id="hero">
-  <canvas id="hero-canvas"></canvas>
   <div class="hero__fog"></div>
 
   <!-- Semicírculos do guia de marca Klini — C-shapes espessos com linecap round -->
@@ -546,6 +541,15 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
       </div>
 
       <div class="pc gs">
+        <div class="pc__img-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 82" class="pc__img" aria-label="Klini 350">
+            <text font-family="Objective,Arial,sans-serif" font-weight="800" font-size="40" fill="#ffffff" x="8" y="44">klini</text>
+            <rect x="8" y="51" width="92" height="3.5" rx="1.75" fill="rgba(255,255,255,0.55)"/>
+            <text font-family="Objective,Arial,sans-serif" font-weight="800" font-size="30" x="100" y="76">
+              <tspan fill="#8CB4C2">3</tspan><tspan fill="#CD7925">5</tspan><tspan fill="#E05759">0</tspan>
+            </text>
+          </svg>
+        </div>
         <div class="pc__name">Klini 350</div>
         <p class="pc__tag">O plano que acompanha o crescimento da sua família</p>
         <ul class="pc__list">
@@ -587,6 +591,13 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
       </div>
 
       <div class="pc gs">
+        <div class="pc__img-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 82" class="pc__img" aria-label="Klini Sênior">
+            <text font-family="Objective,Arial,sans-serif" font-weight="800" font-size="40" fill="#ffffff" x="8" y="44">klini</text>
+            <rect x="8" y="51" width="92" height="3.5" rx="1.75" fill="rgba(255,255,255,0.55)"/>
+            <text font-family="Objective,Arial,sans-serif" font-weight="700" font-size="21" fill="#6AA7AE" x="8" y="76">sênior</text>
+          </svg>
+        </div>
         <div class="pc__name">Klini Sênior</div>
         <p class="pc__tag">Central exclusiva e cuidado especializado para o perfil 60+</p>
         <ul class="pc__list">
@@ -711,7 +722,7 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
               <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Unidades-Hospitais-Evangelico.png"
                    alt="HC Evangélico" loading="lazy"
                    onerror="this.style.display='none'" />
-              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#0A1E38,#0E2B4A)">
+              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#122A28,#163330)">
                 <i class="pi pi-building" style="font-size:3.5rem;color:rgba(37,149,145,.28)"></i>
               </div>
               <div class="casa-slide-info">
@@ -756,7 +767,7 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
               <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Unidades-Hospitais-Ilha-do-Governador.png"
                    alt="HC Ilha do Governador" loading="lazy"
                    onerror="this.style.display='none'" />
-              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#0A1E38,#062030)">
+              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#122A28,#0D2420)">
                 <i class="pi pi-building" style="font-size:3.5rem;color:rgba(106,167,174,.3)"></i>
               </div>
               <div class="casa-slide-info">
@@ -801,7 +812,7 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
               <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Unidades-Hospitais-Sao-Bernardo.png"
                    alt="HC São Bernardo" loading="lazy"
                    onerror="this.style.display='none'" />
-              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#0A1E38,#0D2840)">
+              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#122A28,#153530)">
                 <i class="pi pi-building" style="font-size:3.5rem;color:rgba(106,167,174,.28)"></i>
               </div>
               <div class="casa-slide-info">
@@ -938,60 +949,65 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
       <div class="farm__logo-grid">
 
         <a class="farm__logo-card gs" href="https://www.drogasil.com.br" target="_blank" rel="noopener" aria-label="Drogasil">
-          <img class="farm__logo-img" src="https://logo.clearbit.com/drogasil.com.br" alt="Drogasil"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy" />
+          <img class="farm__logo-img" id="logo-drogasil"
+               src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Drogasil.svg"
+               alt="Drogasil" loading="lazy"
+               onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://logo.clearbit.com/drogasil.com.br'}else{this.style.display='none';this.nextElementSibling.style.display='flex'}" />
           <div class="farm__logo-fallback">Drogasil</div>
-          <div class="farm__logo-name">Drogasil</div>
           <div class="farm__logo-visit"><i class="pi pi-external-link"></i> Ver site</div>
         </a>
 
         <a class="farm__logo-card gs" href="https://www.drogaraia.com.br" target="_blank" rel="noopener" aria-label="Droga Raia">
-          <img class="farm__logo-img" src="https://logo.clearbit.com/drogaraia.com.br" alt="Droga Raia"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy" />
+          <img class="farm__logo-img"
+               src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Droga_Raia_logo.svg"
+               alt="Droga Raia" loading="lazy"
+               onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://logo.clearbit.com/drogaraia.com.br'}else{this.style.display='none';this.nextElementSibling.style.display='flex'}" />
           <div class="farm__logo-fallback">Droga Raia</div>
-          <div class="farm__logo-name">Droga Raia</div>
           <div class="farm__logo-visit"><i class="pi pi-external-link"></i> Ver site</div>
         </a>
 
         <a class="farm__logo-card gs" href="https://www.drogariaspacheco.com.br" target="_blank" rel="noopener" aria-label="Drogarias Pacheco">
-          <img class="farm__logo-img" src="https://logo.clearbit.com/drogariaspacheco.com.br" alt="Drogarias Pacheco"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy" />
-          <div class="farm__logo-fallback">Drogarias Pacheco</div>
-          <div class="farm__logo-name">Drogarias Pacheco</div>
+          <img class="farm__logo-img"
+               src="https://upload.wikimedia.org/wikipedia/pt/a/a5/Drogarias_Pacheco.svg"
+               alt="Drogarias Pacheco" loading="lazy"
+               onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://logo.clearbit.com/drogariaspacheco.com.br'}else{this.style.display='none';this.nextElementSibling.style.display='flex'}" />
+          <div class="farm__logo-fallback">Pacheco</div>
           <div class="farm__logo-visit"><i class="pi pi-external-link"></i> Ver site</div>
         </a>
 
         <a class="farm__logo-card gs" href="https://www.drogariasaopaulo.com.br" target="_blank" rel="noopener" aria-label="Drogaria São Paulo">
-          <img class="farm__logo-img" src="https://logo.clearbit.com/drogariasaopaulo.com.br" alt="Drogaria São Paulo"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy" />
-          <div class="farm__logo-fallback">Drogaria São Paulo</div>
-          <div class="farm__logo-name">Drogaria São Paulo</div>
+          <img class="farm__logo-img"
+               src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Drogaria_S%C3%A3o_Paulo_logo.svg"
+               alt="Drogaria São Paulo" loading="lazy"
+               onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://logo.clearbit.com/drogariasaopaulo.com.br'}else{this.style.display='none';this.nextElementSibling.style.display='flex'}" />
+          <div class="farm__logo-fallback">Drg. São Paulo</div>
           <div class="farm__logo-visit"><i class="pi pi-external-link"></i> Ver site</div>
         </a>
 
         <a class="farm__logo-card gs" href="https://www.drogariavenancio.com.br" target="_blank" rel="noopener" aria-label="Drogarias Venâncio">
           <img class="farm__logo-img"
                src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Logotipo_da_Drogaria_Venancio.svg/500px-Logotipo_da_Drogaria_Venancio.svg.png"
-               alt="Drogarias Venâncio"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy" />
+               alt="Drogarias Venâncio" loading="lazy"
+               onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://logo.clearbit.com/drogariavenancio.com.br'}else{this.style.display='none';this.nextElementSibling.style.display='flex'}" />
           <div class="farm__logo-fallback">Venâncio</div>
-          <div class="farm__logo-name">Drogarias Venâncio</div>
           <div class="farm__logo-visit"><i class="pi pi-external-link"></i> Ver site</div>
         </a>
 
         <a class="farm__logo-card gs" href="https://www.drogasmil.com.br" target="_blank" rel="noopener" aria-label="Drogasmil">
-          <img class="farm__logo-img" src="https://logo.clearbit.com/drogasmil.com.br" alt="Drogasmil"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy" />
+          <img class="farm__logo-img"
+               src="https://logo.clearbit.com/drogasmil.com.br"
+               alt="Drogasmil" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
           <div class="farm__logo-fallback">Drogasmil</div>
-          <div class="farm__logo-name">Drogasmil</div>
           <div class="farm__logo-visit"><i class="pi pi-external-link"></i> Ver site</div>
         </a>
 
         <a class="farm__logo-card gs" href="https://www.farmalife.com.br" target="_blank" rel="noopener" aria-label="Farmalife" style="grid-column:span 3;max-width:calc(33.33% - 4px);margin:0 auto">
-          <img class="farm__logo-img" src="https://logo.clearbit.com/farmalife.com.br" alt="Farmalife"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy" />
+          <img class="farm__logo-img"
+               src="https://logo.clearbit.com/farmalife.com.br"
+               alt="Farmalife" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
           <div class="farm__logo-fallback">Farmalife</div>
-          <div class="farm__logo-name">Farmalife</div>
           <div class="farm__logo-visit"><i class="pi pi-external-link"></i> Ver site</div>
         </a>
 
@@ -1146,133 +1162,6 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
 <!-- ══ GSAP ═══════════════════════════════════════════════════════ -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-
-<!-- ══ THREE.JS PARTICLE BACKGROUND ══════════════════════════════ -->
-<script type="module">
-import * as THREE from 'three';
-
-const canvas = document.getElementById('hero-canvas');
-if (!canvas) throw new Error('no canvas');
-
-const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false });
-renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
-
-const scene = new THREE.Scene();
-const W = () => canvas.offsetWidth, H = () => canvas.offsetHeight;
-const camera = new THREE.PerspectiveCamera(65, W() / H(), 0.1, 80);
-camera.position.z = 6;
-
-renderer.setSize(W(), H());
-
-// Particle count based on device
-const COUNT = window.innerWidth < 768 ? 55 : 130;
-
-const geo = new THREE.BufferGeometry();
-const pos = new Float32Array(COUNT * 3);
-const vel = new Float32Array(COUNT * 3);
-const sz  = new Float32Array(COUNT);
-
-for (let i = 0; i < COUNT; i++) {
-  pos[i*3]   = (Math.random() - .5) * 14;
-  pos[i*3+1] = (Math.random() - .5) * 10;
-  pos[i*3+2] = (Math.random() - .5) * 3;
-  vel[i*3]   = (Math.random() - .5) * .003;
-  vel[i*3+1] = Math.random() * .006 + .002;
-  sz[i]      = Math.random() * .7 + .4;
-}
-geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-geo.setAttribute('scale',    new THREE.BufferAttribute(sz, 1));
-
-// Glow shader
-const ptMat = new THREE.ShaderMaterial({
-  transparent: true, depthWrite: false,
-  vertexShader: `
-    attribute float scale;
-    void main() {
-      vec4 mv = modelViewMatrix * vec4(position, 1.0);
-      gl_PointSize = scale * 3.2 * (280.0 / -mv.z);
-      gl_Position  = projectionMatrix * mv;
-    }
-  `,
-  fragmentShader: `
-    void main() {
-      float d = distance(gl_PointCoord, vec2(.5));
-      if (d > .5) discard;
-      float a = smoothstep(.5, .05, d) * .75;
-      gl_FragColor = vec4(0.145, 0.584, 0.569, a);
-    }
-  `,
-});
-const pts = new THREE.Points(geo, ptMat);
-scene.add(pts);
-
-// Line connections
-const lineMat = new THREE.LineBasicMaterial({ color: 0x259591, transparent: true, opacity: .09 });
-const lGeo    = new THREE.BufferGeometry();
-const MAX_L   = 280;
-const lPos    = new Float32Array(MAX_L * 6);
-lGeo.setAttribute('position', new THREE.BufferAttribute(lPos, 3));
-lGeo.setDrawRange(0, 0);
-const lines = new THREE.LineSegments(lGeo, lineMat);
-scene.add(lines);
-
-// Mouse
-const mouse = { x: 0, y: 0 };
-window.addEventListener('mousemove', e => {
-  mouse.x = (e.clientX / innerWidth - .5) * 2;
-  mouse.y = -(e.clientY / innerHeight - .5) * 2;
-}, { passive: true });
-
-// Resize
-const onResize = () => {
-  renderer.setSize(W(), H());
-  camera.aspect = W() / H();
-  camera.updateProjectionMatrix();
-};
-window.addEventListener('resize', onResize);
-
-const THRESH = 2.6;
-let frame = 0;
-
-(function tick() {
-  requestAnimationFrame(tick);
-  frame++;
-  const p = pts.geometry.attributes.position.array;
-
-  for (let i = 0; i < COUNT; i++) {
-    p[i*3+1] += vel[i*3+1];
-    p[i*3]   += vel[i*3] + mouse.x * .0005;
-    if (p[i*3+1] > 5.5)  p[i*3+1] = -5.5;
-    if (p[i*3]   >  8)   p[i*3]   = -8;
-    if (p[i*3]   < -8)   p[i*3]   =  8;
-  }
-  pts.geometry.attributes.position.needsUpdate = true;
-
-  // Lines every 3rd frame (perf)
-  if (frame % 3 === 0) {
-    let li = 0;
-    const lp = lines.geometry.attributes.position.array;
-    for (let i = 0; i < COUNT && li < MAX_L - 1; i++) {
-      for (let j = i + 1; j < COUNT && li < MAX_L - 1; j++) {
-        const dx = p[i*3] - p[j*3], dy = p[i*3+1] - p[j*3+1];
-        if (Math.sqrt(dx*dx + dy*dy) < THRESH) {
-          lp[li*6]   = p[i*3];   lp[li*6+1] = p[i*3+1]; lp[li*6+2] = p[i*3+2];
-          lp[li*6+3] = p[j*3];   lp[li*6+4] = p[j*3+1]; lp[li*6+5] = p[j*3+2];
-          li++;
-        }
-      }
-    }
-    lines.geometry.attributes.position.needsUpdate = true;
-    lines.geometry.setDrawRange(0, li * 2);
-  }
-
-  // Camera gentle parallax
-  camera.position.x += (mouse.x * .25 - camera.position.x) * .04;
-  camera.position.y += (mouse.y * .12 - camera.position.y) * .04;
-
-  renderer.render(scene, camera);
-})();
-</script>
 
 <!-- ══ PAGE INTERACTIONS ═══════════════════════════════════════════ -->
 <script>
