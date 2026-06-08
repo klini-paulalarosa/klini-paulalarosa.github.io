@@ -260,6 +260,35 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
 .compare__col--good li i{color:var(--teal);margin-top:3px;flex-shrink:0;font-size:.82rem}
 .compare__vs{text-align:center;font-weight:800;font-size:1.3rem;color:var(--muted);opacity:.3;letter-spacing:.05em}
 
+/* ── BRAND ARCS — Semicírculos do guia de marca Klini ──────── */
+.kln-arcs{position:absolute;top:0;right:0;height:100%;width:auto;pointer-events:none;z-index:1}
+
+/* ── REDE CASA ────────────────────────────────────────────────── */
+.casa-sec{overflow:hidden;position:relative}
+.casa-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.casa__hospitals{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.casa__hospital{border-radius:14px;overflow:hidden;position:relative;box-shadow:0 8px 28px rgba(0,0,0,.32)}
+.casa__hospital img{width:100%;height:176px;object-fit:cover;filter:brightness(.8);transition:filter .4s}
+.casa__hospital:hover img{filter:brightness(.97)}
+.casa__hospital-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.74));padding:22px 14px 12px;font-size:.77rem;font-weight:700;color:#fff;letter-spacing:.02em}
+.casa__hospital:first-child img{height:220px}
+.casa__hosp-txt{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:6px;transition:border-color .25s}
+.casa__hosp-txt:hover{border-color:rgba(37,149,145,.28)}
+.casa__hosp-txt strong{color:#fff;font-size:.94rem;font-weight:700;display:block}
+.casa__hosp-txt span{color:rgba(255,255,255,.4);font-size:.8rem;line-height:1.5}
+.casa-tag{display:inline-flex;align-items:center;gap:7px;background:rgba(37,149,145,.12);border:1px solid rgba(37,149,145,.24);border-radius:50px;padding:5px 16px;font-size:.74rem;font-weight:600;color:var(--teal);margin-bottom:20px;letter-spacing:.04em}
+.casa__stats{display:flex;gap:32px;flex-wrap:wrap;margin-top:36px;padding-top:32px;border-top:1px solid rgba(255,255,255,.07)}
+.casa__stat-n{font-family:'Objective',sans-serif;font-weight:800;font-size:2.1rem;background:linear-gradient(135deg,var(--teal),var(--sea));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:4px}
+.casa__stat-l{font-size:.76rem;color:rgba(255,255,255,.42);line-height:1.5}
+
+/* ── PLAN CARD IMAGE WRAPPER ──────────────────────────────────── */
+.pc__img-wrap{background:linear-gradient(150deg,#0C1422 0%,#0A1E38 100%);border-radius:var(--r) var(--r) 0 0;margin:-26px -26px 20px;padding:24px 20px 20px;display:flex;align-items:center;justify-content:center;min-height:94px}
+.pc__img{height:58px;object-fit:contain;margin:0}
+.pc--feat .pc__img-wrap{background:transparent;border-radius:0;margin:0 0 18px;padding:0;min-height:auto}
+
+@media(max-width:1024px){.casa-grid{grid-template-columns:1fr;gap:40px}}
+@media(max-width:600px){.casa__hospitals{grid-template-columns:1fr}.casa__hospital:last-child{grid-column:span 1}}
+
 /* ── INVISIBLE INITIAL STATE (GSAP targets) ─────────────────── */
 .gs{opacity:0}
 
@@ -302,7 +331,7 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
 <header class="bar" id="bar">
   <div class="wrap bar__inner">
     <a href="#" class="bar__logo">
-      <img src="https://klinisaude.com.br/wp-content/uploads/2023/01/logo-header.webp" alt="Klini Saúde" loading="eager" />
+      <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/logo-header.webp" alt="Klini Saúde" loading="eager" />
     </a>
     <div class="bar__right">
       <div class="bar__phone">
@@ -320,6 +349,32 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
 <section class="hero" id="hero">
   <canvas id="hero-canvas"></canvas>
   <div class="hero__fog"></div>
+
+  <!-- Semicírculos — elementos gráficos do guia de marca Klini -->
+  <svg class="kln-arcs" aria-hidden="true" viewBox="0 0 560 800"
+       xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
+    <defs>
+      <linearGradient id="kg1" x1="0%" y1="0%" x2="80%" y2="100%">
+        <stop offset="0%" stop-color="#259591" stop-opacity="0.55"/>
+        <stop offset="60%" stop-color="#6AA7AE" stop-opacity="0.18"/>
+        <stop offset="100%" stop-color="#6AA7AE" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="kg2" x1="0%" y1="0%" x2="80%" y2="100%">
+        <stop offset="0%" stop-color="#259591" stop-opacity="0.28"/>
+        <stop offset="100%" stop-color="#6AA7AE" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="kg3" x1="0%" y1="20%" x2="100%" y2="80%">
+        <stop offset="0%" stop-color="#6AA7AE" stop-opacity="0.2"/>
+        <stop offset="100%" stop-color="#259591" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <!-- Arco externo — semicírculo esquerdo visível, centro em x=560 y=400 r=270 -->
+    <path d="M 560 130 A 270 270 0 0 0 560 670" stroke="url(#kg1)" stroke-width="2" fill="none"/>
+    <!-- Arco médio — r=190 -->
+    <path d="M 560 210 A 190 190 0 0 0 560 590" stroke="url(#kg2)" stroke-width="1.5" fill="none"/>
+    <!-- Arco interno — r=118 -->
+    <path d="M 560 282 A 118 118 0 0 0 560 518" stroke="url(#kg3)" stroke-width="1.5" fill="none"/>
+  </svg>
 
   <div class="wrap">
     <div class="hero__grid">
@@ -450,7 +505,9 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
     <div class="plans__track">
 
       <div class="pc gs">
-        <img src="https://klinisaude.com.br/wp-content/uploads/2024/05/klini-ambulatorial_logo.svg" alt="Klini Ambulatorial" class="pc__img" />
+        <div class="pc__img-wrap">
+          <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/klini-ambulatorial-branco.webp" alt="Klini Ambulatorial" class="pc__img" />
+        </div>
         <div class="pc__name">Ambulatorial</div>
         <p class="pc__tag">O seu plano acessível. Ideal para quem busca cobertura essencial</p>
         <ul class="pc__list">
@@ -463,7 +520,9 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
       </div>
 
       <div class="pc gs">
-        <img src="https://klinisaude.com.br/wp-content/uploads/2025/09/Klini-200-webp-1.webp" alt="Klini 200" class="pc__img" />
+        <div class="pc__img-wrap">
+          <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Klini-200-branco.webp" alt="Klini 200" class="pc__img" />
+        </div>
         <div class="pc__name">Klini 200</div>
         <p class="pc__tag">A porta de entrada para proteção ampla com custo equilibrado</p>
         <ul class="pc__list">
@@ -489,7 +548,7 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
 
       <div class="pc pc--feat gs">
         <div class="pc__hot">✦ Mais Escolhido</div>
-        <img src="https://klinisaude.com.br/wp-content/uploads/2025/09/Klini-400-webp-1.webp" alt="Klini 400" class="pc__img" style="filter:brightness(1.2)" />
+        <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Klini-400-branco.webp" alt="Klini 400" class="pc__img" />
         <div class="pc__name">Klini 400</div>
         <p class="pc__tag">Rede ampliada com Linhas de Cuidados para acompanhamento completo</p>
         <ul class="pc__list">
@@ -502,7 +561,9 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
       </div>
 
       <div class="pc gs">
-        <img src="https://klinisaude.com.br/wp-content/uploads/2025/09/Klini-600-webp-1.webp" alt="Klini 600" class="pc__img" />
+        <div class="pc__img-wrap">
+          <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Klini-600-branco.webp" alt="Klini 600" class="pc__img" />
+        </div>
         <div class="pc__name">Klini 600</div>
         <p class="pc__tag">Cobertura total, tranquilidade completa</p>
         <ul class="pc__list">
@@ -531,20 +592,105 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
 </section>
 
 <!-- ══ DIFERENCIAIS ════════════════════════════════════════════════ -->
-<section class="sec sec--off" id="diferenciais">
+<section class="sec sec--off" id="diferenciais" style="position:relative;overflow:hidden">
   <div class="wrap">
-    <div style="margin-bottom:60px">
+  <!-- Arcos de marca — fundo off-white, altíssima transparência -->
+  <svg aria-hidden="true" viewBox="0 0 560 800" xmlns="http://www.w3.org/2000/svg"
+       style="position:absolute;top:0;right:0;height:100%;width:auto;pointer-events:none;z-index:0;overflow:visible">
+    <defs>
+      <linearGradient id="kg-off1" x1="0%" y1="0%" x2="80%" y2="100%">
+        <stop offset="0%" stop-color="#259591" stop-opacity="0.12"/>
+        <stop offset="100%" stop-color="#6AA7AE" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <path d="M 560 130 A 270 270 0 0 0 560 670" stroke="url(#kg-off1)" stroke-width="1.5" fill="none"/>
+    <path d="M 560 240 A 160 160 0 0 0 560 560" stroke="url(#kg-off1)" stroke-width="1" fill="none"/>
+  </svg>
+
+    <div style="margin-bottom:60px;position:relative;z-index:1">
       <p class="eyebrow gs">por que escolher a klini</p>
       <h2 class="h2 gs">Estrutura própria.<br>Cuidado humano.</h2>
       <p class="gs" style="color:var(--muted);margin-top:12px;font-size:1.05rem;max-width:480px">Sem depender de terceiros para entregar o que você e sua família precisam.</p>
     </div>
-    <div class="diffs">
+    <div class="diffs" style="position:relative;z-index:1">
       <div class="diff gs"><div class="diff__big">15</div><h3 class="h3">Unidades Próprias no RJ</h3><p>Distribuídas em 3 regiões do estado: Rio de Janeiro, Baixada Fluminense e Costa Verde. Centros médicos, fisioterapia e terapias integradas.</p></div>
       <div class="diff gs"><div class="diff__big">24h</div><h3 class="h3">Telemedicina Sempre Disponível</h3><p>Consulte especialistas a qualquer hora, inclusive feriados. Plataforma integrada ao plano — clínica geral, pediatria, ginecologia, psiquiatria e mais.</p></div>
       <div class="diff gs"><div class="diff__big">7</div><h3 class="h3">Redes de Farmácias Parceiras</h3><p>Drogasil, Droga Raia, Drogarias Pacheco, Drogaria São Paulo, Drogaria Venâncio, Drogasmil e Farmalife. Desconto automático só com CPF.</p></div>
       <div class="diff gs"><div class="diff__big">✦</div><h3 class="h3">Rede Hospitalar Casa</h3><p>Parceria com a Rede Casa para internações e cirurgias complexas. Mais de 1.000 leitos disponíveis em todo o estado do Rio de Janeiro.</p></div>
       <div class="diff gs"><div class="diff__big">✦</div><h3 class="h3">Medicina Preventiva Mais Vida</h3><p>Acompanhamento contínuo multiprofissional, programas de prevenção e promoção de qualidade de vida — incluso em todos os planos.</p></div>
       <div class="diff gs"><div class="diff__big">✦</div><h3 class="h3">App com Token Digital</h3><p>Carteirinha digital, agendamento online, resultados de exames, busca de rede e token de autenticação — tudo no aplicativo Klini Saúde.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ REDE CASA ════════════════════════════════════════════════════ -->
+<section class="sec sec--ink2 casa-sec" id="rede-casa">
+
+  <!-- Arcos de marca — espelhados (lado esquerdo) -->
+  <svg aria-hidden="true" viewBox="0 0 560 800"
+       xmlns="http://www.w3.org/2000/svg"
+       style="position:absolute;top:0;left:0;height:100%;width:auto;pointer-events:none;z-index:0;overflow:visible;transform:scaleX(-1)">
+    <defs>
+      <linearGradient id="kg-l1" x1="0%" y1="0%" x2="80%" y2="100%">
+        <stop offset="0%" stop-color="#6AA7AE" stop-opacity="0.22"/>
+        <stop offset="100%" stop-color="#259591" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="kg-l2" x1="0%" y1="0%" x2="80%" y2="100%">
+        <stop offset="0%" stop-color="#259591" stop-opacity="0.12"/>
+        <stop offset="100%" stop-color="#6AA7AE" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <path d="M 560 130 A 270 270 0 0 0 560 670" stroke="url(#kg-l1)" stroke-width="1.5" fill="none"/>
+    <path d="M 560 230 A 170 170 0 0 0 560 570" stroke="url(#kg-l2)" stroke-width="1" fill="none"/>
+  </svg>
+
+  <div class="wrap" style="position:relative;z-index:1">
+    <div class="casa-grid">
+
+      <!-- Texto -->
+      <div class="gs">
+        <div class="casa-tag"><i class="pi pi-building"></i> Parceria estratégica</div>
+        <h2 class="h2" style="color:#fff">Klini + Rede Casa<br>— um único time</h2>
+        <p style="color:rgba(255,255,255,.55);font-size:1.05rem;margin-top:18px;line-height:1.8;max-width:430px">
+          Nós somos um único time focado no seu cuidado. A Rede Casa amplia nossa capacidade hospitalar com unidades de excelência para internações, cirurgias complexas e UTI — tudo coberto pelo seu plano.
+        </p>
+        <div class="casa__stats">
+          <div>
+            <div class="casa__stat-n">+1.000</div>
+            <div class="casa__stat-l">leitos disponíveis<br>no estado do RJ</div>
+          </div>
+          <div>
+            <div class="casa__stat-n">15</div>
+            <div class="casa__stat-l">unidades próprias<br>da Klini</div>
+          </div>
+          <div>
+            <div class="casa__stat-n">24h</div>
+            <div class="casa__stat-l">pronto atendimento<br>sempre disponível</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Unidades hospitalares da Rede Casa -->
+      <div class="casa__hospitals gs">
+        <!-- Foto real do Hospital Premium (site-dev 2026) -->
+        <div class="casa__hospital" style="grid-column:span 2">
+          <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Unidades-Hospitais-Premium.png"
+               alt="Hospital Premium — Rede Casa" loading="lazy" />
+          <div class="casa__hospital-label" style="font-size:.85rem">Hospital Premium · Rede Casa</div>
+        </div>
+        <!-- Cards textuais para os demais hospitais -->
+        <div class="casa__hosp-txt">
+          <i class="pi pi-building" style="color:var(--teal);font-size:1.3rem;margin-bottom:10px;display:block"></i>
+          <strong>Hospital Evangélico</strong>
+          <span>Internações e cirurgias de alta complexidade</span>
+        </div>
+        <div class="casa__hosp-txt">
+          <i class="pi pi-building" style="color:var(--teal);font-size:1.3rem;margin-bottom:10px;display:block"></i>
+          <strong>Hospital São Bernardo</strong>
+          <span>UTI especializada e procedimentos complexos</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -618,7 +764,7 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
       </div>
       <div class="tele__side gs">
         <div class="tele__glow"></div>
-        <img src="https://klinisaude.com.br/wp-content/uploads/2025/09/BG_5050925-768x893.webp" alt="App Klini Saúde" class="tele__img" loading="lazy" />
+        <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/03/BG_5050925-768x893-2.webp" alt="App Klini Saúde" class="tele__img" loading="lazy" />
       </div>
     </div>
   </div>
@@ -660,22 +806,22 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
     <p class="gs" style="color:rgba(255,255,255,.5);margin-top:12px;font-size:1.05rem;max-width:500px">Acompanhamento contínuo para você viver mais e melhor, com qualidade de vida em todas as fases.</p>
     <div class="mv__grid">
       <div class="mv__card gs">
-        <img src="https://klinisaude.com.br/wp-content/uploads/2024/05/1-MAISVIDA.svg" alt="Acompanhamento" loading="lazy" />
+        <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/1-MAISVIDA.svg" alt="Acompanhamento" loading="lazy" />
         <h4>Acompanhamento</h4>
         <p>Monitoramento contínuo da sua saúde por equipe multiprofissional dedicada.</p>
       </div>
       <div class="mv__card gs">
-        <img src="https://klinisaude.com.br/wp-content/uploads/2024/05/2-MAISVIDA.svg" alt="Prevenção" loading="lazy" />
+        <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/2-MAISVIDA.svg" alt="Prevenção" loading="lazy" />
         <h4>Prevenção</h4>
         <p>Programas preventivos para evitar doenças crônicas e detectar problemas cedo.</p>
       </div>
       <div class="mv__card gs">
-        <img src="https://klinisaude.com.br/wp-content/uploads/2024/05/3-MAISVIDA.svg" alt="Qualidade de Vida" loading="lazy" />
+        <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/3-MAISVIDA.svg" alt="Qualidade de Vida" loading="lazy" />
         <h4>Qualidade de Vida</h4>
         <p>Apoio nutricional, psicológico e de bem-estar para uma vida equilibrada.</p>
       </div>
       <div class="mv__card gs">
-        <img src="https://klinisaude.com.br/wp-content/uploads/2024/05/5-MAISVIDA.svg" alt="Cuidado Humanizado" loading="lazy" />
+        <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/5-MAISVIDA.svg" alt="Cuidado Humanizado" loading="lazy" />
         <h4>Cuidado Humanizado</h4>
         <p>Atendimento que coloca você no centro — respeito, empatia e escuta ativa.</p>
       </div>
@@ -717,6 +863,25 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
 
 <!-- ══ CTA FINAL ════════════════════════════════════════════════════ -->
 <section class="cta-sec" id="cta">
+
+  <!-- Arcos de marca na CTA — gradiente laranja/teal -->
+  <svg aria-hidden="true" viewBox="0 0 560 700" xmlns="http://www.w3.org/2000/svg"
+       style="position:absolute;top:0;right:0;height:100%;width:auto;pointer-events:none;z-index:1;overflow:visible">
+    <defs>
+      <linearGradient id="kg-cta1" x1="0%" y1="0%" x2="80%" y2="100%">
+        <stop offset="0%" stop-color="#CD7925" stop-opacity="0.25"/>
+        <stop offset="60%" stop-color="#259591" stop-opacity="0.1"/>
+        <stop offset="100%" stop-color="#6AA7AE" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="kg-cta2" x1="0%" y1="0%" x2="80%" y2="100%">
+        <stop offset="0%" stop-color="#CD7925" stop-opacity="0.12"/>
+        <stop offset="100%" stop-color="#259591" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <path d="M 560 100 A 250 250 0 0 0 560 600" stroke="url(#kg-cta1)" stroke-width="2" fill="none"/>
+    <path d="M 560 185 A 165 165 0 0 0 560 515" stroke="url(#kg-cta2)" stroke-width="1.5" fill="none"/>
+  </svg>
+
   <div class="wrap">
     <p class="eyebrow gs">pronto para começar?</p>
     <h2 class="h2 gs">Proteja sua saúde e<br>da sua família hoje</h2>
@@ -749,7 +914,7 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
 <footer>
   <div class="wrap">
     <div class="foot__top">
-      <a href="#"><img src="https://klinisaude.com.br/wp-content/uploads/2023/02/logo_klini-br.png" alt="Klini Saúde" /></a>
+      <a href="#"><img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/03/logo_klini-br.png" alt="Klini Saúde" /></a>
       <nav class="foot__links">
         <a href="sobre.html">Sobre a Klini</a>
         <a href="planos.html">Planos</a>
