@@ -350,30 +350,27 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
   <canvas id="hero-canvas"></canvas>
   <div class="hero__fog"></div>
 
-  <!-- Semicírculos — elementos gráficos do guia de marca Klini -->
-  <svg class="kln-arcs" aria-hidden="true" viewBox="0 0 560 800"
-       xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
+  <!-- Semicírculos do guia de marca Klini — C-shapes espessos com linecap round -->
+  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+       style="position:absolute;top:-60px;right:-90px;width:460px;height:580px;pointer-events:none;z-index:1">
     <defs>
-      <linearGradient id="kg1" x1="0%" y1="0%" x2="80%" y2="100%">
-        <stop offset="0%" stop-color="#259591" stop-opacity="0.55"/>
-        <stop offset="60%" stop-color="#6AA7AE" stop-opacity="0.18"/>
-        <stop offset="100%" stop-color="#6AA7AE" stop-opacity="0"/>
+      <!-- Coral/laranja → #CD7925 to #E05759 -->
+      <linearGradient id="kln-h1" x1="50%" y1="0%" x2="50%" y2="100%">
+        <stop offset="0%"   stop-color="#CD7925" stop-opacity="0.40"/>
+        <stop offset="100%" stop-color="#E05759" stop-opacity="0.05"/>
       </linearGradient>
-      <linearGradient id="kg2" x1="0%" y1="0%" x2="80%" y2="100%">
-        <stop offset="0%" stop-color="#259591" stop-opacity="0.28"/>
-        <stop offset="100%" stop-color="#6AA7AE" stop-opacity="0"/>
-      </linearGradient>
-      <linearGradient id="kg3" x1="0%" y1="20%" x2="100%" y2="80%">
-        <stop offset="0%" stop-color="#6AA7AE" stop-opacity="0.2"/>
-        <stop offset="100%" stop-color="#259591" stop-opacity="0"/>
+      <!-- Teal/sea → #259591 to #6AA7AE -->
+      <linearGradient id="kln-h2" x1="50%" y1="0%" x2="50%" y2="100%">
+        <stop offset="0%"   stop-color="#259591" stop-opacity="0.22"/>
+        <stop offset="100%" stop-color="#6AA7AE" stop-opacity="0.02"/>
       </linearGradient>
     </defs>
-    <!-- Arco externo — semicírculo esquerdo visível, centro em x=560 y=400 r=270 -->
-    <path d="M 560 130 A 270 270 0 0 0 560 670" stroke="url(#kg1)" stroke-width="2" fill="none"/>
-    <!-- Arco médio — r=190 -->
-    <path d="M 560 210 A 190 190 0 0 0 560 590" stroke="url(#kg2)" stroke-width="1.5" fill="none"/>
-    <!-- Arco interno — r=118 -->
-    <path d="M 560 282 A 118 118 0 0 0 560 518" stroke="url(#kg3)" stroke-width="1.5" fill="none"/>
+    <!-- C-arc coral grande — centro (230,270), r=190 → top(230,80) bottom(230,460) -->
+    <path d="M 230 80 A 190 190 0 0 0 230 460"
+          fill="none" stroke="url(#kln-h1)" stroke-width="42" stroke-linecap="round"/>
+    <!-- C-arc teal menor — centro (230,270), r=118 → top(230,152) bottom(230,388) -->
+    <path d="M 230 152 A 118 118 0 0 0 230 388"
+          fill="none" stroke="url(#kln-h2)" stroke-width="26" stroke-linecap="round"/>
   </svg>
 
   <div class="wrap">
@@ -594,17 +591,18 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
 <!-- ══ DIFERENCIAIS ════════════════════════════════════════════════ -->
 <section class="sec sec--off" id="diferenciais" style="position:relative;overflow:hidden">
   <div class="wrap">
-  <!-- Arcos de marca — fundo off-white, altíssima transparência -->
-  <svg aria-hidden="true" viewBox="0 0 560 800" xmlns="http://www.w3.org/2000/svg"
-       style="position:absolute;top:0;right:0;height:100%;width:auto;pointer-events:none;z-index:0;overflow:visible">
+  <!-- C-arc teal, fundo off-white — sutil, só stroke espesso bem transparente -->
+  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+       style="position:absolute;bottom:-80px;right:-80px;width:340px;height:420px;pointer-events:none;z-index:0">
     <defs>
-      <linearGradient id="kg-off1" x1="0%" y1="0%" x2="80%" y2="100%">
-        <stop offset="0%" stop-color="#259591" stop-opacity="0.12"/>
-        <stop offset="100%" stop-color="#6AA7AE" stop-opacity="0"/>
+      <linearGradient id="kln-d1" x1="50%" y1="0%" x2="50%" y2="100%">
+        <stop offset="0%"   stop-color="#259591" stop-opacity="0.10"/>
+        <stop offset="100%" stop-color="#6AA7AE" stop-opacity="0.01"/>
       </linearGradient>
     </defs>
-    <path d="M 560 130 A 270 270 0 0 0 560 670" stroke="url(#kg-off1)" stroke-width="1.5" fill="none"/>
-    <path d="M 560 240 A 160 160 0 0 0 560 560" stroke="url(#kg-off1)" stroke-width="1" fill="none"/>
+    <!-- C-arc teal — centro (170,200), r=155 → top(170,45) bottom(170,355) -->
+    <path d="M 170 45 A 155 155 0 0 0 170 355"
+          fill="none" stroke="url(#kln-d1)" stroke-width="34" stroke-linecap="round"/>
   </svg>
 
     <div style="margin-bottom:60px;position:relative;z-index:1">
@@ -626,22 +624,26 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
 <!-- ══ REDE CASA ════════════════════════════════════════════════════ -->
 <section class="sec sec--ink2 casa-sec" id="rede-casa">
 
-  <!-- Arcos de marca — espelhados (lado esquerdo) -->
-  <svg aria-hidden="true" viewBox="0 0 560 800"
-       xmlns="http://www.w3.org/2000/svg"
-       style="position:absolute;top:0;left:0;height:100%;width:auto;pointer-events:none;z-index:0;overflow:visible;transform:scaleX(-1)">
+  <!-- C-arc teal espelhado lado esquerdo da seção Rede Casa -->
+  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+       style="position:absolute;top:-50px;left:-80px;width:400px;height:520px;pointer-events:none;z-index:0">
     <defs>
-      <linearGradient id="kg-l1" x1="0%" y1="0%" x2="80%" y2="100%">
-        <stop offset="0%" stop-color="#6AA7AE" stop-opacity="0.22"/>
-        <stop offset="100%" stop-color="#259591" stop-opacity="0"/>
+      <linearGradient id="kln-c1" x1="50%" y1="0%" x2="50%" y2="100%">
+        <stop offset="0%"   stop-color="#259591" stop-opacity="0.26"/>
+        <stop offset="100%" stop-color="#6AA7AE" stop-opacity="0.03"/>
       </linearGradient>
-      <linearGradient id="kg-l2" x1="0%" y1="0%" x2="80%" y2="100%">
-        <stop offset="0%" stop-color="#259591" stop-opacity="0.12"/>
-        <stop offset="100%" stop-color="#6AA7AE" stop-opacity="0"/>
+      <linearGradient id="kln-c2" x1="50%" y1="0%" x2="50%" y2="100%">
+        <stop offset="0%"   stop-color="#6AA7AE" stop-opacity="0.14"/>
+        <stop offset="100%" stop-color="#259591" stop-opacity="0.01"/>
       </linearGradient>
     </defs>
-    <path d="M 560 130 A 270 270 0 0 0 560 670" stroke="url(#kg-l1)" stroke-width="1.5" fill="none"/>
-    <path d="M 560 230 A 170 170 0 0 0 560 570" stroke="url(#kg-l2)" stroke-width="1" fill="none"/>
+    <!-- C-arc teal abertura para a ESQUERDA (mirror): sweep=1 = CW = vai pelo lado direito -->
+    <!-- Centro (170,250), r=185 → top(170,65) bottom(170,435) -->
+    <path d="M 170 65 A 185 185 0 0 1 170 435"
+          fill="none" stroke="url(#kln-c1)" stroke-width="38" stroke-linecap="round"/>
+    <!-- C-arc menor — r=108 → top(170,142) bottom(170,358) -->
+    <path d="M 170 142 A 108 108 0 0 1 170 358"
+          fill="none" stroke="url(#kln-c2)" stroke-width="22" stroke-linecap="round"/>
   </svg>
 
   <div class="wrap" style="position:relative;z-index:1">
@@ -864,22 +866,25 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
 <!-- ══ CTA FINAL ════════════════════════════════════════════════════ -->
 <section class="cta-sec" id="cta">
 
-  <!-- Arcos de marca na CTA — gradiente laranja/teal -->
-  <svg aria-hidden="true" viewBox="0 0 560 700" xmlns="http://www.w3.org/2000/svg"
-       style="position:absolute;top:0;right:0;height:100%;width:auto;pointer-events:none;z-index:1;overflow:visible">
+  <!-- C-arc coral na CTA — espesso, destaque na conversão -->
+  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+       style="position:absolute;top:-50px;right:-80px;width:400px;height:500px;pointer-events:none;z-index:1">
     <defs>
-      <linearGradient id="kg-cta1" x1="0%" y1="0%" x2="80%" y2="100%">
-        <stop offset="0%" stop-color="#CD7925" stop-opacity="0.25"/>
-        <stop offset="60%" stop-color="#259591" stop-opacity="0.1"/>
-        <stop offset="100%" stop-color="#6AA7AE" stop-opacity="0"/>
+      <linearGradient id="kln-cta1" x1="50%" y1="0%" x2="50%" y2="100%">
+        <stop offset="0%"   stop-color="#CD7925" stop-opacity="0.36"/>
+        <stop offset="100%" stop-color="#E05759" stop-opacity="0.04"/>
       </linearGradient>
-      <linearGradient id="kg-cta2" x1="0%" y1="0%" x2="80%" y2="100%">
-        <stop offset="0%" stop-color="#CD7925" stop-opacity="0.12"/>
-        <stop offset="100%" stop-color="#259591" stop-opacity="0"/>
+      <linearGradient id="kln-cta2" x1="50%" y1="0%" x2="50%" y2="100%">
+        <stop offset="0%"   stop-color="#E05759" stop-opacity="0.16"/>
+        <stop offset="100%" stop-color="#CD7925" stop-opacity="0.01"/>
       </linearGradient>
     </defs>
-    <path d="M 560 100 A 250 250 0 0 0 560 600" stroke="url(#kg-cta1)" stroke-width="2" fill="none"/>
-    <path d="M 560 185 A 165 165 0 0 0 560 515" stroke="url(#kg-cta2)" stroke-width="1.5" fill="none"/>
+    <!-- C-arc coral maior — centro (200,240), r=178 → top(200,62) bottom(200,418) -->
+    <path d="M 200 62 A 178 178 0 0 0 200 418"
+          fill="none" stroke="url(#kln-cta1)" stroke-width="40" stroke-linecap="round"/>
+    <!-- C-arc coral menor — r=106 → top(200,134) bottom(200,346) -->
+    <path d="M 200 134 A 106 106 0 0 0 200 346"
+          fill="none" stroke="url(#kln-cta2)" stroke-width="22" stroke-linecap="round"/>
   </svg>
 
   <div class="wrap">
