@@ -159,15 +159,6 @@ a{text-decoration:none;color:inherit}
 .pc__btn-out{border:1.5px solid var(--bd-l);background:transparent;color:var(--teal)}
 .pc--feat .pc__btn-out{border-color:rgba(255,255,255,.2);color:#fff}
 
-/* ── DIFERENCIAIS ────────────────────────────────────────────── */
-.diffs{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.diff{background:#fff;border:1.5px solid var(--bd-l);border-radius:var(--r);padding:32px;transition:all .3s;position:relative;overflow:hidden}
-.diff::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--teal-dim),transparent);opacity:0;transition:opacity .3s;pointer-events:none}
-.diff:hover{border-color:var(--teal);transform:translateY(-4px);box-shadow:0 20px 40px rgba(37,149,145,.1)}
-.diff:hover::after{opacity:1}
-.diff__big{font-family:'Objective',sans-serif;font-weight:800;font-size:2.8rem;background:linear-gradient(135deg,var(--teal),var(--sea));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:12px;position:relative;z-index:1}
-.diff h3{position:relative;z-index:1;margin-bottom:8px}
-.diff p{font-size:.86rem;color:var(--muted);line-height:1.65;position:relative;z-index:1}
 
 /* ── TELECONSULTA ────────────────────────────────────────────── */
 .tele{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
@@ -321,6 +312,40 @@ footer{background:#030F0E;color:rgba(255,255,255,.38);padding:48px 0 28px}
 @media(max-width:1024px){.casa-grid{grid-template-columns:1fr;gap:40px}}
 @media(max-width:600px){.casa__hospitals{grid-template-columns:1fr}.casa__hospital:last-child{grid-column:span 1}}
 
+/* ── ACESSOS RÁPIDOS ─────────────────────────────────────────── */
+.acess{padding:80px 0;background:#fff}
+.acess__grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:48px}
+.acess__card{background:#fff;border:1.5px solid var(--bd-l);border-radius:20px;padding:28px 18px 24px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px;transition:all .3s;text-decoration:none;color:inherit;position:relative;overflow:hidden}
+.acess__card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--teal-dim),transparent);opacity:0;transition:opacity .3s;pointer-events:none}
+.acess__card:hover{border-color:var(--teal);box-shadow:0 12px 32px rgba(37,149,145,.1);transform:translateY(-4px)}
+.acess__card:hover::after{opacity:1}
+.acess__ico{width:64px;height:64px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;transition:transform .3s}
+.acess__card:hover .acess__ico{transform:scale(1.08)}
+.acess__card h3{font-weight:700;font-size:.93rem;color:var(--text);line-height:1.3;margin:0}
+.acess__card p{font-size:.79rem;color:var(--muted);line-height:1.6;margin:0;flex:1}
+.acess__cta{font-size:.8rem;font-weight:700;color:var(--teal);display:inline-flex;align-items:center;gap:4px;margin-top:2px;transition:gap .2s}
+.acess__card:hover .acess__cta{gap:8px}
+
+/* ── CANAIS DE ATENDIMENTO ───────────────────────────────────── */
+.canais{padding:100px 0;background:var(--off)}
+.canais__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:56px}
+.canal{background:#fff;border:1.5px solid var(--bd-l);border-radius:20px;padding:28px;transition:all .3s;position:relative;overflow:hidden}
+.canal::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--teal-dim),transparent);opacity:0;transition:opacity .3s;pointer-events:none}
+.canal:hover{border-color:var(--teal);box-shadow:0 12px 32px rgba(37,149,145,.1);transform:translateY(-3px)}
+.canal:hover::after{opacity:1}
+.canal__head{display:flex;align-items:center;gap:13px;margin-bottom:16px;position:relative;z-index:1}
+.canal__ico{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.canal__name{font-weight:700;font-size:1rem;color:var(--text)}
+.canal__info{font-size:.9rem;font-weight:700;color:var(--teal);margin-bottom:3px;display:block;text-decoration:none;transition:opacity .2s;position:relative;z-index:1}
+.canal__info:hover{opacity:.7}
+.canal__desc{font-size:.82rem;color:var(--muted);line-height:1.65;margin-bottom:14px;position:relative;z-index:1}
+.canal__addr{font-size:.82rem;color:var(--text);line-height:1.75;margin-bottom:14px;font-weight:500;position:relative;z-index:1}
+.canal__badge{display:inline-flex;align-items:center;gap:5px;border-radius:50px;padding:4px 12px;font-size:.7rem;font-weight:700;letter-spacing:.02em;position:relative;z-index:1}
+.canal__badge--green{background:rgba(37,149,145,.1);color:var(--teal);border:1px solid rgba(37,149,145,.2)}
+.canal__badge--orange{background:rgba(205,121,37,.1);color:var(--orange);border:1px solid rgba(205,121,37,.2)}
+@media(max-width:1024px){.acess__grid{grid-template-columns:repeat(3,1fr)}.canais__grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.acess__grid{grid-template-columns:1fr 1fr}.canais__grid{grid-template-columns:1fr}}
+
 /* ── INVISIBLE INITIAL STATE (GSAP targets) ─────────────────── */
 .gs{opacity:0}
 
@@ -331,13 +356,11 @@ footer{background:#030F0E;color:rgba(255,255,255,.38);padding:48px 0 28px}
   .tele{grid-template-columns:1fr;gap:40px}
   .tele__side{justify-content:center}
   .farm{grid-template-columns:1fr;gap:40px}
-  .diffs{grid-template-columns:1fr 1fr}
   .mv__grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:768px){
   .bar__phone,.bar__right .btn-ghost{display:none}
   .sec{padding:70px 0}
-  .diffs{grid-template-columns:1fr}
   .tele__img{width:240px}
   .foot__top{flex-direction:column;gap:18px;text-align:center}
   .foot__links{justify-content:center}
@@ -499,6 +522,55 @@ footer{background:#030F0E;color:rgba(255,255,255,.38);padding:48px 0 28px}
   </div>
 </section>
 
+<!-- ══ ACESSOS RÁPIDOS ════════════════════════════════════════════ -->
+<section class="acess" id="acessos">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:48px">
+      <p class="eyebrow gs">acesso rápido</p>
+      <h2 class="h2 gs">O que você precisa,<br>quando precisa</h2>
+      <p class="gs" style="color:var(--muted);margin-top:12px;font-size:1rem">Serviços e portais disponíveis para beneficiários e parceiros Klini.</p>
+    </div>
+    <div class="acess__grid">
+
+      <a class="acess__card gs" href="rede-credenciada.html">
+        <div class="acess__ico" style="background:rgba(37,149,145,.1);color:var(--teal)"><i class="pi pi-search"></i></div>
+        <h3>Busca de Rede</h3>
+        <p>Encontre a rede de atendimento do seu plano de um jeito prático.</p>
+        <span class="acess__cta">Acessar <i class="pi pi-arrow-right"></i></span>
+      </a>
+
+      <a class="acess__card gs" href="https://app.klinisaude.com.br" target="_blank" rel="noopener">
+        <div class="acess__ico" style="background:rgba(205,121,37,.1);color:var(--orange)"><i class="pi pi-user"></i></div>
+        <h3>Portal do Beneficiário</h3>
+        <p>Acesse os dados do seu contrato, acompanhe autorizações e mais.</p>
+        <span class="acess__cta">Acessar <i class="pi pi-arrow-right"></i></span>
+      </a>
+
+      <a class="acess__card gs" href="transparencia.html">
+        <div class="acess__ico" style="background:rgba(106,167,174,.12);color:var(--sea)"><i class="pi pi-file"></i></div>
+        <h3>Portal da Transparência</h3>
+        <p>Tudo sobre a Klini de forma clara e transparente.</p>
+        <span class="acess__cta">Acessar <i class="pi pi-arrow-right"></i></span>
+      </a>
+
+      <a class="acess__card gs" href="teleconsulta.html">
+        <div class="acess__ico" style="background:rgba(224,87,89,.1);color:var(--coral)"><i class="pi pi-video"></i></div>
+        <h3>Teleconsulta</h3>
+        <p>Consultas online 24h com médicos capacitados.</p>
+        <span class="acess__cta">Acessar <i class="pi pi-arrow-right"></i></span>
+      </a>
+
+      <a class="acess__card gs" href="https://app.klinisaude.com.br" target="_blank" rel="noopener">
+        <div class="acess__ico" style="background:rgba(205,121,37,.08);color:var(--orange)"><i class="pi pi-key"></i></div>
+        <h3>Token Digital</h3>
+        <p>Gere o seu token digital de maneira rápida e prática pelo app.</p>
+        <span class="acess__cta">Acessar <i class="pi pi-arrow-right"></i></span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
 <!-- ══ PLANOS ══════════════════════════════════════════════════════ -->
 <section class="sec" id="planos">
   <div class="wrap">
@@ -608,39 +680,6 @@ footer{background:#030F0E;color:rgba(255,255,255,.38);padding:48px 0 28px}
         <a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Sênior." class="btn pc__btn pc__btn-out" target="_blank" rel="noopener">Solicitar Cotação</a>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- ══ DIFERENCIAIS ════════════════════════════════════════════════ -->
-<section class="sec sec--off" id="diferenciais" style="position:relative;overflow:hidden">
-  <div class="wrap">
-  <!-- C-arc teal, fundo off-white — sutil, só stroke espesso bem transparente -->
-  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-       style="position:absolute;bottom:-80px;right:-80px;width:340px;height:420px;pointer-events:none;z-index:0">
-    <defs>
-      <linearGradient id="kln-d1" x1="50%" y1="0%" x2="50%" y2="100%">
-        <stop offset="0%"   stop-color="#259591" stop-opacity="0.10"/>
-        <stop offset="100%" stop-color="#6AA7AE" stop-opacity="0.01"/>
-      </linearGradient>
-    </defs>
-    <!-- C-arc teal — centro (170,200), r=155 → top(170,45) bottom(170,355) -->
-    <path d="M 170 45 A 155 155 0 0 0 170 355"
-          fill="none" stroke="url(#kln-d1)" stroke-width="34" stroke-linecap="square"/>
-  </svg>
-
-    <div style="margin-bottom:60px;position:relative;z-index:1">
-      <p class="eyebrow gs">por que escolher a klini</p>
-      <h2 class="h2 gs">Estrutura própria.<br>Cuidado humano.</h2>
-      <p class="gs" style="color:var(--muted);margin-top:12px;font-size:1.05rem;max-width:480px">Sem depender de terceiros para entregar o que você e sua família precisam.</p>
-    </div>
-    <div class="diffs" style="position:relative;z-index:1">
-      <div class="diff gs"><div class="diff__big">15</div><h3 class="h3">Unidades Próprias no RJ</h3><p>Distribuídas em 3 regiões do estado: Rio de Janeiro, Baixada Fluminense e Costa Verde. Centros médicos, fisioterapia e terapias integradas.</p></div>
-      <div class="diff gs"><div class="diff__big">24h</div><h3 class="h3">Telemedicina Sempre Disponível</h3><p>Consulte especialistas a qualquer hora, inclusive feriados. Plataforma integrada ao plano — clínica geral, pediatria, ginecologia, psiquiatria e mais.</p></div>
-      <div class="diff gs"><div class="diff__big">7</div><h3 class="h3">Redes de Farmácias Parceiras</h3><p>Drogasil, Droga Raia, Drogarias Pacheco, Drogaria São Paulo, Drogaria Venâncio, Drogasmil e Farmalife. Desconto automático só com CPF.</p></div>
-      <div class="diff gs"><div class="diff__big">✦</div><h3 class="h3">Rede Hospitalar Casa</h3><p>Parceria com a Rede Casa para internações e cirurgias complexas. Mais de 1.000 leitos disponíveis em todo o estado do Rio de Janeiro.</p></div>
-      <div class="diff gs"><div class="diff__big">✦</div><h3 class="h3">Linhas de Cuidado</h3><p>Programas estruturados para crônicos, gestantes, puericultura e oncologia — com enfermagem especializada e coordenação contínua.</p></div>
-      <div class="diff gs"><div class="diff__big">✦</div><h3 class="h3">App com Token Digital</h3><p>Carteirinha digital, agendamento online, resultados de exames, busca de rede e token de autenticação — tudo no aplicativo Klini Saúde.</p></div>
     </div>
   </div>
 </section>
@@ -1077,6 +1116,80 @@ footer{background:#030F0E;color:rgba(255,255,255,.38);padding:48px 0 28px}
   </div>
 </section>
 
+<!-- ══ CANAIS DE ATENDIMENTO ══════════════════════════════════════ -->
+<section class="canais" id="canais-atendimento">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:56px">
+      <p class="eyebrow gs">fale com a gente</p>
+      <h2 class="h2 gs">Canais de atendimento</h2>
+      <p class="gs" style="color:var(--muted);margin-top:12px;font-size:1.05rem">Estamos aqui para ajudar. Escolha o canal mais conveniente para você.</p>
+    </div>
+    <div class="canais__grid">
+
+      <div class="canal gs">
+        <div class="canal__head">
+          <div class="canal__ico" style="background:rgba(37,211,102,.12);color:#1da851"><i class="pi pi-whatsapp"></i></div>
+          <span class="canal__name">WhatsApp</span>
+        </div>
+        <a href="https://wa.me/552130550790" target="_blank" rel="noopener" class="canal__info">(21) 3055-0790</a>
+        <p class="canal__desc">Atendimento rápido e prático pelo WhatsApp.</p>
+        <span class="canal__badge canal__badge--green"><i class="pi pi-circle-fill" style="font-size:.45rem"></i> Disponível 24h</span>
+      </div>
+
+      <div class="canal gs">
+        <div class="canal__head">
+          <div class="canal__ico" style="background:rgba(37,149,145,.1);color:var(--teal)"><i class="pi pi-map-marker"></i></div>
+          <span class="canal__name">Atendimento Presencial</span>
+        </div>
+        <p class="canal__addr">Av. das Américas, 3200 – Sala 114<br>Barra da Tijuca, Rio de Janeiro – RJ<br>22640-102</p>
+        <span class="canal__badge canal__badge--orange"><i class="pi pi-clock"></i> SEG a SEX, das 8h às 17h</span>
+      </div>
+
+      <div class="canal gs">
+        <div class="canal__head">
+          <div class="canal__ico" style="background:rgba(106,167,174,.12);color:var(--sea)"><i class="pi pi-phone"></i></div>
+          <span class="canal__name">SAC</span>
+        </div>
+        <a href="tel:02130550790" class="canal__info">(21) 3055-0790</a>
+        <p class="canal__desc">Capitais e regiões metropolitanas</p>
+        <a href="tel:08000210320" class="canal__info">0800 021 0320</a>
+        <p class="canal__desc">Demais regiões</p>
+        <span class="canal__badge canal__badge--green"><i class="pi pi-circle-fill" style="font-size:.45rem"></i> Disponível 24h</span>
+      </div>
+
+      <div class="canal gs">
+        <div class="canal__head">
+          <div class="canal__ico" style="background:rgba(205,121,37,.1);color:var(--orange)"><i class="pi pi-phone"></i></div>
+          <span class="canal__name">Deficiente Auditivo</span>
+        </div>
+        <a href="tel:08009419601" class="canal__info">0800 941 9601</a>
+        <p class="canal__desc">Canal exclusivo para atendimento a deficientes auditivos.</p>
+        <span class="canal__badge canal__badge--green"><i class="pi pi-circle-fill" style="font-size:.45rem"></i> Disponível 24h</span>
+      </div>
+
+      <div class="canal gs">
+        <div class="canal__head">
+          <div class="canal__ico" style="background:rgba(224,87,89,.1);color:var(--coral)"><i class="pi pi-flag"></i></div>
+          <span class="canal__name">Ouvidoria</span>
+        </div>
+        <a href="ouvidoria.html" class="canal__info">Acessar Ouvidoria <i class="pi pi-arrow-right" style="font-size:.75rem"></i></a>
+        <p class="canal__desc">Para demandas não resolvidas pelos canais regulares de atendimento.</p>
+      </div>
+
+      <div class="canal gs">
+        <div class="canal__head">
+          <div class="canal__ico" style="background:rgba(4,42,38,.07);color:var(--muted)"><i class="pi pi-send"></i></div>
+          <span class="canal__name">Imprensa</span>
+        </div>
+        <span class="canal__info" style="color:var(--text);font-weight:600">Lorena Vazquez</span>
+        <a href="tel:02199358-4032" class="canal__info">(21) 99358-4032</a>
+        <a href="mailto:lorena.vazquez@klinisaude.com.br" class="canal__info" style="font-size:.78rem;word-break:break-all">lorena.vazquez@klinisaude.com.br</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ══ FOOTER ════════════════════════════════════════════════════════ -->
 <footer>
   <div class="wrap">
@@ -1181,14 +1294,6 @@ window.addEventListener('load', () => {
     }
   );
 
-  // Diff cards stagger
-  gsap.fromTo('.diff.gs',
-    { opacity: 0, y: 50 },
-    { opacity: 1, y: 0, stagger: .1, duration: .85, ease: 'power3.out',
-      scrollTrigger: { trigger: '.diffs', start: 'top 82%', once: true }
-    }
-  );
-
   // Linhas de Cuidado cards
   gsap.fromTo('.mv__card.gs',
     { opacity: 0, y: 40, scale: .9 },
@@ -1201,6 +1306,22 @@ window.addEventListener('load', () => {
     { opacity: 0, y: 30 },
     { opacity: 1, y: 0, duration: .7, ease: 'power3.out',
       scrollTrigger: { trigger: '.ldc__entry', start: 'top 88%', once: true }
+    }
+  );
+
+  // Acessos cards stagger
+  gsap.fromTo('.acess__card.gs',
+    { opacity: 0, y: 30, scale: .95 },
+    { opacity: 1, y: 0, scale: 1, stagger: .07, duration: .7, ease: 'back.out(1.3)',
+      scrollTrigger: { trigger: '.acess__grid', start: 'top 82%', once: true }
+    }
+  );
+
+  // Canais cards stagger
+  gsap.fromTo('.canal.gs',
+    { opacity: 0, y: 40 },
+    { opacity: 1, y: 0, stagger: .08, duration: .8, ease: 'power3.out',
+      scrollTrigger: { trigger: '.canais__grid', start: 'top 82%', once: true }
     }
   );
 
