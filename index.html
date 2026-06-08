@@ -167,7 +167,7 @@ a{text-decoration:none;color:inherit}
 .tele__step span{font-size:.82rem;color:var(--muted)}
 .tele__side{position:relative;display:flex;justify-content:flex-end}
 .tele__glow{position:absolute;width:320px;height:320px;background:radial-gradient(var(--teal-dim),transparent 70%);top:-80px;right:-60px;pointer-events:none}
-.tele__img{width:300px;position:relative;z-index:1;display:block;filter:drop-shadow(0 24px 56px rgba(37,149,145,.22))}
+.tele__img{width:380px;max-width:100%;position:relative;z-index:1;display:block;filter:drop-shadow(0 24px 56px rgba(37,149,145,.22))}
 .tele__app-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
 .tele__app-btns img{height:42px}
 
@@ -363,15 +363,17 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
 .tele__side{position:relative}
 .tele__img{transform-origin:50% 42%}
 /* balões que surgem como se alguém estivesse usando o app */
-.tele__notif{position:absolute;left:-6px;display:flex;align-items:center;gap:11px;background:#fff;border:1px solid var(--bd-l);border-radius:14px;padding:10px 15px 10px 11px;box-shadow:0 16px 40px rgba(4,42,38,.16);z-index:4;min-width:188px}
-.tele__notif strong{display:block;font-size:.82rem;font-weight:700;color:var(--text);line-height:1.25}
-.tele__notif span{font-size:.71rem;color:var(--muted)}
-.tele__notif-ico{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
-.tele__notif--1{top:12%}
-.tele__notif--2{top:43%;left:-28px}
-.tele__notif--3{top:73%}
-@media(max-width:1024px){.tele__notif{min-width:160px}.tele__notif--2{left:-6px}}
-@media(max-width:560px){.tele__notif--1{top:6%}.tele__notif--3{top:80%}}
+.tele__notif{position:absolute;display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--bd-l);border-radius:12px;padding:7px 12px 7px 8px;box-shadow:0 12px 30px rgba(4,42,38,.14);z-index:4;min-width:140px;opacity:0;transform:translateY(14px) scale(.96);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)}
+.tele__notif.show{opacity:1;transform:none}
+.tele__notif strong{display:block;font-size:.74rem;font-weight:700;color:var(--text);line-height:1.2}
+.tele__notif span{font-size:.63rem;color:var(--muted)}
+.tele__notif-ico{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.78rem;flex-shrink:0}
+/* posicionados na borda esquerda do mockup, com pouca sobreposição */
+.tele__notif--1{top:9%;left:-6px}
+.tele__notif--2{top:45%;left:-24px}
+.tele__notif--3{top:80%;left:-6px}
+@media(max-width:1024px){.tele__notif{min-width:126px}.tele__notif--2{left:-8px}}
+@media(max-width:560px){.tele__notif{min-width:118px}.tele__notif--1{top:3%;left:0}.tele__notif--2{top:47%;left:0}.tele__notif--3{top:85%;left:0}}
 
 /* ── REVEAL ──────────────────────────────────────────────────── */
 .reveal{clip-path:inset(0 0 100% 0)}
@@ -399,7 +401,7 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
 @media(max-width:768px){
   .bar__phone,.bar__right .btn-ghost{display:none}
   .sec{padding:70px 0}
-  .tele__img{width:240px}
+  .tele__img{width:280px}
   .foot__top{flex-direction:column;gap:18px;text-align:center}
   .foot__links{justify-content:center}
   .foot__bottom{flex-direction:column;text-align:center}
@@ -920,15 +922,15 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
           <div class="tele__screen-glow"></div>
 
           <!-- Balões de notificação — surgem em sequência simulando uso do app -->
-          <div class="tele__notif tele__notif--1 gs" style="transition-delay:.25s">
+          <div class="tele__notif tele__notif--1">
             <span class="tele__notif-ico" style="background:rgba(37,149,145,.12);color:var(--teal)"><i class="pi pi-check"></i></span>
             <div><strong>Consulta confirmada</strong><span>Clínico geral · agora</span></div>
           </div>
-          <div class="tele__notif tele__notif--2 gs" style="transition-delay:.6s">
+          <div class="tele__notif tele__notif--2">
             <span class="tele__notif-ico" style="background:rgba(106,167,174,.16);color:var(--sea)"><i class="pi pi-file"></i></span>
             <div><strong>Receita enviada</strong><span>PDF com validade legal</span></div>
           </div>
-          <div class="tele__notif tele__notif--3 gs" style="transition-delay:.95s">
+          <div class="tele__notif tele__notif--3">
             <span class="tele__notif-ico" style="background:rgba(205,121,37,.14);color:var(--orange)"><i class="pi pi-verified"></i></span>
             <div><strong>Atestado pronto</strong><span>Disponível no app</span></div>
           </div>
@@ -1258,6 +1260,32 @@ document.querySelectorAll('.ct').forEach(el => cObs.observe(el));
     var dx = e.changedTouches[0].clientX - sx;
     if (Math.abs(dx) > 40) window.slideCasa(dx > 0 ? -1 : 1);
   },{passive:true});
+})();
+
+/* ── Teleconsulta: zoom leve ligado ao scroll + balões em sequência ── */
+(function () {
+  const sec = document.getElementById('teleconsulta');
+  if (!sec) return;
+  const phone = sec.querySelector('.tele__img');
+  const notifs = Array.prototype.slice.call(sec.querySelectorAll('.tele__notif'));
+  let shown = false;
+  function reveal() {
+    if (shown) return; shown = true;
+    notifs.forEach((n, i) => setTimeout(() => n.classList.add('show'), 150 + i * 480));
+  }
+  function onScroll() {
+    const r = sec.getBoundingClientRect(), vh = window.innerHeight || 800;
+    const prog = Math.min(Math.max((vh - r.top) / (vh + r.height), 0), 1);
+    if (phone) phone.style.transform = 'scale(' + (1 + prog * 0.07).toFixed(3) + ')';
+    if (r.top < vh * 0.72 && r.bottom > 0) reveal();
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  onScroll();
+  // salvaguarda: garante os balões visíveis mesmo sem eventos de scroll (preview)
+  setTimeout(() => {
+    if (!shown) { notifs.forEach(n => { n.style.transition = 'none'; n.classList.add('show'); }); shown = true; }
+  }, 2200);
 })();
 
 /* ── Spotlight que segue o cursor nos cards de acesso rápido ── */
