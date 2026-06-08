@@ -22,6 +22,7 @@
 :root{
   --ink:#111111;  --ink2:#1C1C1E;                       /* fundos escuros — neutro */
   --teal:#259591; --teal-dim:rgba(37,149,145,.22);     /* kln-color-teal-500  PANTONE 2461C */
+  --teal-d:#1C7470;                                     /* verde profundo p/ títulos */
   --sea:#6AA7AE;  --sea-dim:rgba(106,167,174,.22);     /* kln-color-sea-500   PANTONE 549C  */
   --orange:#CD7925;                                     /* kln-color-orange-500 PANTONE 7565C */
   --coral:#E05759;                                      /* kln-color-coral-500  PANTONE 7625C */
@@ -42,7 +43,7 @@ a{text-decoration:none;color:inherit}
 
 /* ── TYPE ────────────────────────────────────────────────────── */
 .h1{font-family:'Objective',sans-serif;font-weight:800;font-size:clamp(3rem,6.8vw,5.8rem);line-height:.98;letter-spacing:-.045em}
-.h2{font-family:'Objective',sans-serif;font-weight:800;font-size:clamp(2.2rem,4.8vw,3.8rem);line-height:1.04;letter-spacing:-.035em}
+.h2{font-family:'Objective',sans-serif;font-weight:800;font-size:clamp(2.2rem,4.8vw,3.8rem);line-height:1.04;letter-spacing:-.035em;color:var(--teal-d)}
 .h3{font-family:'Objective',sans-serif;font-weight:700;font-size:clamp(1.1rem,2vw,1.35rem)}
 .eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal)}
 .grad{background:linear-gradient(105deg,var(--teal),var(--sea));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -68,7 +69,8 @@ a{text-decoration:none;color:inherit}
 .bar.solid{background:#fff;box-shadow:0 1px 0 var(--bd-l)}
 .bar__inner{display:flex;align-items:center;gap:20px;max-width:1200px;margin:0 auto;padding:0 24px}
 .bar__logo{flex-shrink:0}
-.bar__logo img{height:32px;width:auto;display:block}
+.bar__logo img{height:32px;width:auto;display:block;transition:filter .3s}
+.bar:not(.solid) .bar__logo img{filter:brightness(0) invert(1)}
 /* Nav */
 .bar__nav{display:flex;align-items:center;gap:2px;flex:1;justify-content:center}
 .nav__item{position:relative}
@@ -105,16 +107,17 @@ a{text-decoration:none;color:inherit}
 }
 
 /* ── HERO ────────────────────────────────────────────────────── */
-.hero{position:relative;min-height:100vh;background:linear-gradient(140deg,var(--ink) 0%,#181818 55%,var(--ink) 100%);display:flex;align-items:center;padding:120px 0 80px;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-15%;right:-8%;width:700px;height:700px;border-radius:50%;background:radial-gradient(ellipse,rgba(37,149,145,.16) 0%,transparent 62%);animation:hero-float 14s ease-in-out infinite;pointer-events:none}
-.hero::after{content:'';position:absolute;bottom:-22%;left:-6%;width:560px;height:560px;border-radius:50%;background:radial-gradient(ellipse,rgba(106,167,174,.09) 0%,transparent 60%);animation:hero-float 20s ease-in-out infinite reverse;pointer-events:none}
+.hero{position:relative;min-height:84vh;background:linear-gradient(140deg,var(--teal) 0%,#1d7470 55%,var(--sea) 100%);display:flex;align-items:center;padding:150px 0 110px;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-15%;right:-8%;width:760px;height:760px;border-radius:50%;background:radial-gradient(ellipse,rgba(255,255,255,.14) 0%,transparent 62%);animation:hero-float 14s ease-in-out infinite;pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-22%;left:-6%;width:560px;height:560px;border-radius:50%;background:radial-gradient(ellipse,rgba(255,255,255,.08) 0%,transparent 60%);animation:hero-float 20s ease-in-out infinite reverse;pointer-events:none}
 @keyframes hero-float{0%,100%{transform:translate(0,0)}33%{transform:translate(28px,-38px)}66%{transform:translate(-18px,22px)}}
-.hero__fog{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,var(--ink) 100%);pointer-events:none;z-index:1}
+.hero__fog{display:none}
 .hero__inner{max-width:880px;margin:0 auto;text-align:center;position:relative;z-index:2;display:flex;flex-direction:column;align-items:center}
 .hero__pill{display:inline-flex;align-items:center;gap:8px;background:rgba(37,149,145,.1);border:1px solid rgba(37,149,145,.22);border-radius:50px;padding:5px 14px;font-size:.74rem;font-weight:600;color:var(--teal);margin-bottom:22px;letter-spacing:.06em}
 .hero__pill-dot{width:7px;height:7px;background:var(--teal);border-radius:50%;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.5)}}
-.hero__title{color:#fff;margin:8px 0 26px}
+.hero__title{color:#fff;margin:0 0 38px}
+.hero__accent{color:#FFE0B5}
 .hero__sub{font-family:'Merriweather',serif;font-weight:300;font-style:italic;color:rgba(255,255,255,.68);font-size:1.18rem;line-height:1.8;max-width:600px;margin:0 auto 38px}
 .hero__actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-bottom:42px}
 .hero__btn-primary{display:inline-flex;align-items:center;gap:9px;background:var(--orange);color:#fff;font-weight:700;font-size:1rem;padding:16px 32px;border-radius:50px;transition:all .25s;font-family:'Objective',sans-serif;letter-spacing:-.01em}
@@ -130,23 +133,20 @@ a{text-decoration:none;color:inherit}
 
 
 /* ── PLANS ───────────────────────────────────────────────────── */
-.plans__track{display:grid;grid-template-columns:repeat(6,276px);gap:18px;overflow-x:auto;padding-bottom:18px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--teal) var(--off)}
+.plans__track{display:grid;grid-template-columns:repeat(6,276px);gap:18px;overflow-x:auto;overflow-y:visible;padding:20px 2px 18px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--teal) var(--off)}
 .plans__track::-webkit-scrollbar{height:3px}
 .plans__track::-webkit-scrollbar-thumb{background:var(--teal);border-radius:2px}
 .pc{background:#fff;border:1.5px solid var(--bd-l);border-radius:var(--r);padding:26px;scroll-snap-align:start;flex-shrink:0;position:relative;overflow:hidden;transition:all .3s ease}
 .pc::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--teal-dim),transparent);opacity:0;transition:opacity .3s}
 .pc:hover{border-color:var(--teal);transform:translateY(-6px);box-shadow:0 24px 48px rgba(37,149,145,.1)}
 .pc:hover::before{opacity:1}
-.pc--feat{background:linear-gradient(150deg,var(--teal) 0%,#1a7a77 100%);border-color:rgba(37,149,145,.4);color:#fff}
+.pc--feat{background:linear-gradient(150deg,var(--teal) 0%,#1a7a77 100%);border-color:rgba(37,149,145,.4);color:#fff;overflow:visible}
 .pc--feat:hover{box-shadow:0 24px 48px rgba(37,149,145,.3)}
-.pc__hot{position:absolute;top:16px;right:16px;background:linear-gradient(90deg,var(--teal),var(--sea));color:#fff;font-size:.65rem;font-weight:800;padding:3px 10px;border-radius:50px;letter-spacing:.04em;text-transform:uppercase}
+.pc__hot{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--orange);color:#fff;font-size:.66rem;font-weight:800;padding:5px 15px;border-radius:50px;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;box-shadow:0 8px 20px rgba(205,121,37,.42);z-index:5}
 .pc__img{height:76px;object-fit:contain;margin-bottom:18px}
 .pc__name{font-family:'Objective',sans-serif;font-weight:800;font-size:1.15rem;color:var(--text);margin-bottom:4px}
 .pc--feat .pc__name{color:#fff}
 .pc__tag{font-size:.8rem;color:var(--muted);margin-bottom:16px;line-height:1.5}
-.pc__price{display:flex;align-items:center;gap:7px;font-size:.78rem;font-weight:600;color:var(--teal);background:rgba(37,149,145,.08);border:1px solid rgba(37,149,145,.16);border-radius:8px;padding:8px 11px;margin-bottom:16px}
-.pc--feat .pc__price{color:#fff;background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.18)}
-.pc__price i{font-size:.82rem}
 .pc--feat .pc__tag{color:rgba(255,255,255,.5)}
 .pc__list{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:22px}
 .pc__list li{display:flex;align-items:center;gap:8px;font-size:.81rem;color:var(--text)}
@@ -182,7 +182,9 @@ a{text-decoration:none;color:inherit}
 .farm__logo-card:hover::after{opacity:1}
 .farm__logo-card:hover::before{animation:farm-shine .9s ease}
 @keyframes farm-shine{0%{left:-120%}100%{left:150%}}
-.farm__svg{width:100%;max-height:52px;height:auto;display:block;transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+.farm__svg{max-width:72%;max-height:52px;width:auto;height:auto;display:block;margin:0 auto;object-fit:contain;transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+/* marcas compactas (Drogasmil/Farmalife, ~1.5:1) usam mais altura p/ igualar o peso visual */
+.farm-logo--dml .farm__svg,.farm-logo--fml .farm__svg{max-width:58%;max-height:62px}
 .farm__logo-card:hover .farm__svg{transform:scale(1.14)}
 .farm__steps{display:flex;flex-direction:column;gap:20px;margin-top:32px}
 .farm__step{display:flex;gap:14px;align-items:flex-start}
@@ -205,22 +207,6 @@ a{text-decoration:none;color:inherit}
 .ldc__entry h4{font-family:'Objective',sans-serif;font-weight:700;font-size:.96rem;color:var(--text);margin-bottom:6px}
 .ldc__entry p{font-size:.83rem;color:var(--muted);line-height:1.7;margin:0}
 
-/* ── FAQ ─────────────────────────────────────────────────────── */
-/* ── CTA FINAL ───────────────────────────────────────────────── */
-
-/* ── CTA FINAL ───────────────────────────────────────────────── */
-.cta-sec{background:linear-gradient(140deg,var(--teal) 0%,#1d7470 55%,var(--sea) 100%);padding:100px 0;text-align:center;position:relative;overflow:hidden}
-.cta-sec::before{content:'';position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(ellipse,rgba(255,255,255,.08),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
-.cta-sec .wrap{position:relative;z-index:2}
-.cta-sec h2{color:#fff;margin-bottom:14px}
-.cta-sec > .wrap > p{color:rgba(255,255,255,.75);font-size:1.05rem;max-width:480px;margin:0 auto 48px}
-.cta-action{margin:0 auto 8px}
-.cta-main-btn{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--teal);font-weight:800;font-size:1.05rem;padding:16px 38px;border-radius:50px;text-decoration:none;transition:all .25s;font-family:'Objective',sans-serif;letter-spacing:-.01em}
-.cta-main-btn:hover{background:rgba(255,255,255,.92);transform:translateY(-3px);box-shadow:0 18px 44px rgba(0,0,0,.18)}
-.cta-contacts{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin-top:32px}
-.cta-contacts a{display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.65);font-size:.86rem;transition:color .2s}
-.cta-contacts a:hover{color:#fff}
-
 /* ── FOOTER ──────────────────────────────────────────────────── */
 footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px solid var(--bd-l)}
 .foot__top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;padding-bottom:28px;border-bottom:1px solid var(--bd-l);margin-bottom:28px}
@@ -237,7 +223,7 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
 .foot__bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.75rem;color:var(--muted)}
 .seals{display:flex;gap:8px}
 .seal{background:var(--off);border-radius:6px;padding:4px 10px;font-size:.68rem;font-weight:700;letter-spacing:.04em;color:var(--text)}
-.ans-badge{background:var(--teal);color:#fff;border:none;font-weight:800;letter-spacing:.03em;font-size:.67rem}
+.ans-badge{background:#0A0A0A;color:#fff;border:1px solid #2A2A2A;font-weight:800;letter-spacing:.03em;font-size:.67rem}
 
 /* ── WA FLOAT ────────────────────────────────────────────────── */
 .wa-f{position:fixed;bottom:28px;right:28px;z-index:950;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
@@ -246,16 +232,6 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
 .wa-btn{width:57px;height:57px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;box-shadow:0 8px 24px rgba(37,211,102,.44);text-decoration:none;animation:wab 3s ease-in-out infinite}
 @keyframes wab{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
 .wa-btn:hover{background:#1da851;animation:none;transform:scale(1.12)!important;box-shadow:0 12px 32px rgba(37,211,102,.6)}
-
-/* ── COMO FUNCIONA ───────────────────────────────────────────── */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;position:relative;margin-top:16px}
-.steps::before{content:'';position:absolute;top:31px;left:calc(100%/6);right:calc(100%/6);height:2px;background:var(--bd-l);pointer-events:none}
-.steps__line{position:absolute;top:31px;left:calc(100%/6);height:2px;background:linear-gradient(90deg,var(--teal),var(--sea));pointer-events:none;transform-origin:left center;transform:scaleX(0);width:calc(100% - 100%/3)}
-.step{text-align:center;padding:0 8px}
-.step__num{width:62px;height:62px;border-radius:16px;background:linear-gradient(135deg,var(--teal),var(--sea));color:#fff;font-weight:800;font-size:1.25rem;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;position:relative;z-index:1;box-shadow:0 12px 28px rgba(37,149,145,.26)}
-.step h3{font-size:1.05rem;font-weight:700;margin-bottom:10px}
-.step p{font-size:.88rem;color:var(--muted);line-height:1.75}
-
 
 /* ── BRAND ARCS — Semicírculos do guia de marca Klini ──────── */
 .kln-arcs{position:absolute;top:0;right:0;height:100%;width:auto;pointer-events:none;z-index:1}
@@ -308,29 +284,39 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
 /* ── PLAN CARD IMAGE WRAPPER ──────────────────────────────────── */
 .pc__img-wrap{background:linear-gradient(135deg,var(--teal),var(--sea));border-radius:var(--r) var(--r) 0 0;margin:-26px -26px 20px;padding:24px 20px 20px;display:flex;align-items:center;justify-content:center;min-height:94px}
 .pc__img{height:58px;object-fit:contain;margin:0}
-.pc--feat .pc__img-wrap{background:rgba(255,255,255,.08);border-radius:12px;margin:0 0 18px;padding:16px 12px;min-height:80px}
+.pc--feat .pc__img-wrap{background:rgba(255,255,255,.12);border-radius:var(--r) var(--r) 0 0;margin:-26px -26px 20px;padding:24px 20px 20px;min-height:94px}
 
 @media(max-width:1024px){.casa-grid{grid-template-columns:1fr;gap:40px}}
 @media(max-width:600px){.casa__hospitals{grid-template-columns:1fr}.casa__hospital:last-child{grid-column:span 1}}
 
 /* ── ACESSOS RÁPIDOS ─────────────────────────────────────────── */
-.acess{padding:80px 0;background-color:#fff;background-image:radial-gradient(rgba(37,149,145,.06) 1.1px,transparent 1.1px);background-size:26px 26px}
-.acess__grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:48px}
-.acess__card{background:#fff;border:1.5px solid var(--bd-l);border-radius:20px;padding:28px 18px 24px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px;transition:all .3s;text-decoration:none;color:inherit;position:relative;overflow:hidden}
-.acess__card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--teal-dim),transparent);opacity:0;transition:opacity .3s;pointer-events:none}
-.acess__card:hover{border-color:var(--teal);box-shadow:0 12px 32px rgba(37,149,145,.1);transform:translateY(-4px)}
+.acess{padding:88px 0;background-color:#fff;background-image:radial-gradient(rgba(37,149,145,.06) 1.1px,transparent 1.1px);background-size:26px 26px}
+.acess__grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:48px}
+.acess__card{--mx:50%;--my:50%;background:#fff;border:1.5px solid var(--bd-l);border-radius:22px;padding:30px 20px 26px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:13px;transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s,border-color .3s;text-decoration:none;color:inherit;position:relative;overflow:hidden;isolation:isolate}
+/* barra de acento que cresce no topo */
+.acess__card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--sea));transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.22,1,.36,1);z-index:2}
+/* spotlight que segue o cursor */
+.acess__card::after{content:'';position:absolute;inset:0;background:radial-gradient(220px circle at var(--mx) var(--my),rgba(37,149,145,.16),transparent 62%);opacity:0;transition:opacity .35s;pointer-events:none;z-index:0}
+.acess__card>*{position:relative;z-index:1}
+.acess__card:hover{border-color:rgba(37,149,145,.5);box-shadow:0 18px 44px rgba(37,149,145,.14);transform:translateY(-6px)}
+.acess__card:hover::before{transform:scaleX(1)}
 .acess__card:hover::after{opacity:1}
-.acess__ico{width:64px;height:64px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;transition:transform .3s}
-.acess__card:hover .acess__ico{transform:scale(1.08)}
-.acess__card h3{font-weight:700;font-size:.93rem;color:var(--text);line-height:1.3;margin:0}
+.acess__ico{width:66px;height:66px;border-radius:19px;display:flex;align-items:center;justify-content:center;font-size:1.55rem;flex-shrink:0;transition:transform .4s cubic-bezier(.34,1.56,.64,1);animation:acess-float 5s ease-in-out infinite}
+.acess__card:nth-child(2) .acess__ico{animation-delay:-1s}
+.acess__card:nth-child(3) .acess__ico{animation-delay:-2s}
+.acess__card:nth-child(4) .acess__ico{animation-delay:-3s}
+.acess__card:nth-child(5) .acess__ico{animation-delay:-4s}
+@keyframes acess-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.acess__card:hover .acess__ico{transform:scale(1.14) rotate(-4deg)}
+.acess__card h3{font-weight:700;font-size:.95rem;color:var(--teal-d);line-height:1.3;margin:0}
 .acess__card p{font-size:.79rem;color:var(--muted);line-height:1.6;margin:0;flex:1}
-.acess__cta{font-size:.8rem;font-weight:700;color:var(--teal);display:inline-flex;align-items:center;gap:4px;margin-top:2px;transition:gap .2s}
-.acess__card:hover .acess__cta{gap:8px}
+.acess__cta{font-size:.8rem;font-weight:700;color:var(--teal);display:inline-flex;align-items:center;gap:4px;margin-top:2px;transition:gap .25s}
+.acess__card:hover .acess__cta{gap:9px}
 
 /* ── CANAIS DE ATENDIMENTO ───────────────────────────────────── */
 .canais{padding:100px 0;background-color:var(--off);background-image:radial-gradient(rgba(37,149,145,.07) 1.1px,transparent 1.1px);background-size:26px 26px}
 .canais__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:56px}
-.canal{background:#fff;border:1.5px solid var(--bd-l);border-radius:20px;padding:28px;transition:all .3s;position:relative;overflow:hidden}
+.canal{background:#fff;border:1.5px solid var(--bd-l);border-radius:18px;padding:20px 22px;transition:all .3s;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
 .canal::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--teal-dim),transparent);opacity:0;transition:opacity .3s;pointer-events:none}
 .canal:hover{border-color:var(--teal);box-shadow:0 12px 32px rgba(37,149,145,.1);transform:translateY(-3px)}
 .canal:hover::after{opacity:1}
@@ -356,24 +342,36 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
 @media(max-width:540px){.farm-bento{grid-template-columns:1fr 1fr}.farm-bento__info{grid-column:1/3}}
 
 /* ── CANAIS BENTO ─────────────────────────────────────────────── */
-.canais-bento{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:56px}
-.canal--wa{grid-column:1/4;grid-row:1/3}
+.canais-bento{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:auto;gap:12px;margin-top:48px}
+.canal--wa{grid-column:1/4;grid-row:1/3;justify-content:flex-start}
 .canal--pres{grid-column:4/7}
 .canal--sac{grid-column:4/6}
 .canal--deaf{grid-column:6/7}
 .canal--ouv{grid-column:1/4}
 .canal--imp{grid-column:4/7}
-.canal--wa .canal__head{margin-bottom:24px}
-.canal--wa .canal__ico{width:56px;height:56px;font-size:1.4rem}
-.canal--wa .canal__name{font-size:1.2rem}
-.canal--wa .canal__info{font-size:1.1rem}
-.canal--wa .canal__desc{font-size:.9rem;margin-bottom:20px}
+.canal--wa .canal__head{margin-bottom:14px}
+.canal--wa .canal__ico{width:52px;height:52px;font-size:1.3rem}
+.canal--wa .canal__name{font-size:1.15rem}
+.canal--wa .canal__info{font-size:1.05rem}
+.canal--wa .canal__desc{font-size:.88rem;margin-bottom:14px}
+.canal__head{margin-bottom:12px}
 @media(max-width:1024px){.canais-bento{grid-template-columns:repeat(4,1fr)}.canal--wa{grid-column:1/3;grid-row:1/3}.canal--pres{grid-column:3/5}.canal--sac{grid-column:1/3}.canal--deaf{grid-column:3/5}.canal--ouv{grid-column:1/3}.canal--imp{grid-column:3/5}}
 @media(max-width:640px){.canais-bento{grid-template-columns:1fr 1fr}.canal--wa{grid-column:1/3;grid-row:auto}.canal--pres,.canal--sac,.canal--ouv,.canal--imp{grid-column:1/3}.canal--deaf{grid-column:1/3}}
 
-/* ── TELECONSULTA ZOOM ────────────────────────────────────────── */
+/* ── TELECONSULTA — zoom sutil + balões de notificação ───────── */
 #teleconsulta{overflow:hidden}
-.tele__img-wrap{transform-origin:center top}
+.tele__side{position:relative}
+.tele__img{transform-origin:50% 42%}
+/* balões que surgem como se alguém estivesse usando o app */
+.tele__notif{position:absolute;left:-6px;display:flex;align-items:center;gap:11px;background:#fff;border:1px solid var(--bd-l);border-radius:14px;padding:10px 15px 10px 11px;box-shadow:0 16px 40px rgba(4,42,38,.16);z-index:4;min-width:188px}
+.tele__notif strong{display:block;font-size:.82rem;font-weight:700;color:var(--text);line-height:1.25}
+.tele__notif span{font-size:.71rem;color:var(--muted)}
+.tele__notif-ico{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
+.tele__notif--1{top:12%}
+.tele__notif--2{top:43%;left:-28px}
+.tele__notif--3{top:73%}
+@media(max-width:1024px){.tele__notif{min-width:160px}.tele__notif--2{left:-6px}}
+@media(max-width:560px){.tele__notif--1{top:6%}.tele__notif--3{top:80%}}
 
 /* ── REVEAL ──────────────────────────────────────────────────── */
 .reveal{clip-path:inset(0 0 100% 0)}
@@ -382,10 +380,12 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
 /* ── BRAND ARC ROTATION ──────────────────────────────────── */
 @keyframes kln-arc-cw  { to { transform: rotate( 360deg); } }
 @keyframes kln-arc-ccw { to { transform: rotate(-360deg); } }
-.arc-cw  { transform-box: view-box; animation: kln-arc-cw  linear infinite; will-change: transform; }
-.arc-ccw { transform-box: view-box; animation: kln-arc-ccw linear infinite; will-change: transform; }
+.arc-cw  { transform-box: view-box; animation: kln-arc-cw  linear infinite; }
+.arc-ccw { transform-box: view-box; animation: kln-arc-ccw linear infinite; }
+@media(prefers-reduced-motion:reduce){.arc-cw,.arc-ccw{animation:none}}
 
-.gs{opacity:0}
+/* Conteúdo SEMPRE visível — sem hide-then-reveal (robusto em qualquer ambiente) */
+.gs{opacity:1}
 
 /* ── RESPONSIVE ──────────────────────────────────────────────── */
 @media(max-width:1024px){
@@ -465,15 +465,15 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
   <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
        style="position:absolute;top:-120px;right:-160px;width:720px;height:860px;pointer-events:none;z-index:1">
     <defs>
-      <!-- Coral/laranja → #CD7925 to #E05759 -->
+      <!-- Arco claro 1 — branco/creme sobre o verde -->
       <linearGradient id="kln-h1" x1="50%" y1="0%" x2="50%" y2="100%">
-        <stop offset="0%"   stop-color="#CD7925" stop-opacity="0.40"/>
-        <stop offset="100%" stop-color="#E05759" stop-opacity="0.05"/>
+        <stop offset="0%"   stop-color="#FFFFFF" stop-opacity="0.40"/>
+        <stop offset="100%" stop-color="#FFE0B5" stop-opacity="0.06"/>
       </linearGradient>
-      <!-- Teal/sea → #259591 to #6AA7AE -->
+      <!-- Arco claro 2 — branco translúcido -->
       <linearGradient id="kln-h2" x1="50%" y1="0%" x2="50%" y2="100%">
-        <stop offset="0%"   stop-color="#259591" stop-opacity="0.22"/>
-        <stop offset="100%" stop-color="#6AA7AE" stop-opacity="0.02"/>
+        <stop offset="0%"   stop-color="#FFFFFF" stop-opacity="0.26"/>
+        <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.03"/>
       </linearGradient>
     </defs>
     <!-- C-arc coral grande — gira CW 20s -->
@@ -490,17 +490,9 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
 
   <div class="wrap">
       <div class="hero__inner">
-        <div class="hero__pill gs">
-          <span class="hero__pill-dot"></span>
-          Plano de saúde com rede própria no Rio de Janeiro
-        </div>
         <h1 class="h1 hero__title gs">
-          Saúde completa<br>com <span class="grad">rede própria</span>
+          Saúde completa<br>com <span class="hero__accent">rede própria</span>
         </h1>
-        <p class="hero__sub gs">
-          Telemedicina 24h, 15 unidades no Rio de Janeiro e 6 planos para cada
-          momento da vida. Simule grátis em 2 minutos.
-        </p>
         <div class="hero__actions gs">
           <a href="https://site-dev.klinisaude.com.br/planos/#cotacao" class="hero__btn-primary" target="_blank" rel="noopener">
             Simular planos gratuitamente <i class="pi pi-arrow-right"></i>
@@ -509,45 +501,10 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
             <i class="pi pi-user"></i> Acesse sua área
           </a>
         </div>
-        <div class="hero__proof gs">
-          <div class="hero__badge"><i class="pi pi-star-fill" style="color:var(--orange)"></i> 15 unidades próprias no RJ</div>
-          <div class="hero__badge"><i class="pi pi-heart" style="color:var(--teal)"></i> Telemedicina 24h inclusa</div>
-          <div class="hero__badge"><i class="pi pi-building" style="color:var(--sea)"></i> Rede hospitalar própria</div>
-        </div>
-        <p class="hero__note gs"><i class="pi pi-lock"></i> Dados protegidos pela LGPD · Resposta via WhatsApp · Sem compromisso</p>
       </div>
   </div>
 </section>
 
-
-<!-- ══ COMO FUNCIONA ════════════════════════════════════════════════ -->
-<section class="sec sec--off" id="como-funciona">
-  <div class="wrap">
-    <div style="text-align:center;margin-bottom:60px">
-      <p class="eyebrow gs">processo simples</p>
-      <h2 class="h2 gs">Da simulação à saúde protegida<br>em 3 passos</h2>
-      <p class="gs" style="color:var(--muted);margin-top:12px;font-size:1.05rem">Sem burocracia, sem papelada — da proposta à carteirinha em dias.</p>
-    </div>
-    <div class="steps">
-      <div class="steps__line" id="stepsLine"></div>
-      <div class="step gs">
-        <div class="step__num">01</div>
-        <h3 class="h3">Simule o plano</h3>
-        <p>Acesse a página de planos e simule em segundos. Nosso especialista monta a proposta ideal para você, sua família ou empresa — sem compromisso.</p>
-      </div>
-      <div class="step gs">
-        <div class="step__num">02</div>
-        <h3 class="h3">A Klini cuida de tudo</h3>
-        <p>Implantamos o plano, emitimos carteirinhas digitais e garantimos onboarding completo. Para empresas, suporte dedicado ao RH.</p>
-      </div>
-      <div class="step gs">
-        <div class="step__num">03</div>
-        <h3 class="h3">Saúde no dia a dia</h3>
-        <p>App com teleconsulta 24h, rede própria na palma da mão e acompanhamento pelas Linhas de Cuidado — tudo incluso no plano.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ══ ACESSOS RÁPIDOS ════════════════════════════════════════════ -->
 <section class="acess" id="acessos">
@@ -610,27 +567,10 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
 
       <div class="pc gs">
         <div class="pc__img-wrap">
-          <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/klini-ambulatorial-branco.webp" alt="Klini Ambulatorial" class="pc__img" />
-        </div>
-        <div class="pc__name">Ambulatorial</div>
-        <p class="pc__tag">O seu plano acessível. Ideal para quem busca cobertura essencial</p>
-        <div class="pc__price"><i class="pi pi-tag"></i> Valores sob medida — cote em 2 min</div>
-        <ul class="pc__list">
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Cobertura ambulatorial completa</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Consultas e exames</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Teleconsulta 24h inclusa</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Desconto em farmácias</li>
-        </ul>
-        <a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Ambulatorial." class="btn pc__btn pc__btn-out" target="_blank" rel="noopener">Solicitar Cotação</a>
-      </div>
-
-      <div class="pc gs">
-        <div class="pc__img-wrap">
           <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Klini-200-branco.webp" alt="Klini 200" class="pc__img" />
         </div>
         <div class="pc__name">Klini 200</div>
         <p class="pc__tag">A porta de entrada para proteção ampla com custo equilibrado</p>
-        <div class="pc__price"><i class="pi pi-tag"></i> Valores sob medida — cote em 2 min</div>
         <ul class="pc__list">
           <li><span class="pc__ck"><i class="pi pi-check"></i></span>Ambulatorial + Hospitalar</li>
           <li><span class="pc__ck"><i class="pi pi-check"></i></span>Obstetrícia inclusa</li>
@@ -645,14 +585,11 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 82" class="pc__img" aria-label="Klini 350">
             <text font-family="Objective,Arial,sans-serif" font-weight="800" font-size="40" fill="#ffffff" x="8" y="44">klini</text>
             <rect x="8" y="51" width="92" height="3.5" rx="1.75" fill="rgba(255,255,255,0.55)"/>
-            <text font-family="Objective,Arial,sans-serif" font-weight="800" font-size="30" x="100" y="76">
-              <tspan fill="#8CB4C2">3</tspan><tspan fill="#CD7925">5</tspan><tspan fill="#E05759">0</tspan>
-            </text>
+            <text font-family="Objective,Arial,sans-serif" font-weight="800" font-size="30" fill="#ffffff" x="100" y="76">350</text>
           </svg>
         </div>
         <div class="pc__name">Klini 350</div>
         <p class="pc__tag">O plano que acompanha o crescimento da sua família</p>
-        <div class="pc__price"><i class="pi pi-tag"></i> Valores sob medida — cote em 2 min</div>
         <ul class="pc__list">
           <li><span class="pc__ck"><i class="pi pi-check"></i></span>Ampla rede credenciada</li>
           <li><span class="pc__ck"><i class="pi pi-check"></i></span>Hospitais de referência</li>
@@ -664,10 +601,11 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
 
       <div class="pc pc--feat gs">
         <div class="pc__hot">✦ Mais Escolhido</div>
-        <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Klini-400-branco.webp" alt="Klini 400" class="pc__img" />
+        <div class="pc__img-wrap">
+          <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Klini-400-branco.webp" alt="Klini 400" class="pc__img" />
+        </div>
         <div class="pc__name">Klini 400</div>
         <p class="pc__tag">Rede ampliada com Linhas de Cuidados para acompanhamento completo</p>
-        <div class="pc__price"><i class="pi pi-tag"></i> Valores sob medida — cote em 2 min</div>
         <ul class="pc__list">
           <li><span class="pc__ck"><i class="pi pi-check"></i></span>Ambulatorial + Hospitalar</li>
           <li><span class="pc__ck"><i class="pi pi-check"></i></span>Obstetrícia inclusa</li>
@@ -683,7 +621,6 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
         </div>
         <div class="pc__name">Klini 600</div>
         <p class="pc__tag">Cobertura total, tranquilidade completa</p>
-        <div class="pc__price"><i class="pi pi-tag"></i> Valores sob medida — cote em 2 min</div>
         <ul class="pc__list">
           <li><span class="pc__ck"><i class="pi pi-check"></i></span>Hospitais de excelência</li>
           <li><span class="pc__ck"><i class="pi pi-check"></i></span>Alto reembolso</li>
@@ -695,15 +632,30 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
 
       <div class="pc gs">
         <div class="pc__img-wrap">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 82" class="pc__img" aria-label="Klini Sênior">
+          <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/klini-ambulatorial-branco.webp" alt="Klini Ambulatorial" class="pc__img" />
+        </div>
+        <div class="pc__name">Ambulatorial</div>
+        <p class="pc__tag">O seu plano acessível. Ideal para quem busca cobertura essencial</p>
+        <ul class="pc__list">
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Cobertura ambulatorial completa</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Consultas e exames</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Teleconsulta 24h inclusa</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Desconto em farmácias</li>
+        </ul>
+        <a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Ambulatorial." class="btn pc__btn pc__btn-out" target="_blank" rel="noopener">Solicitar Cotação</a>
+      </div>
+
+      <div class="pc gs">
+        <div class="pc__img-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230 82" class="pc__img" aria-label="Klini Sênior 50+">
             <text font-family="Objective,Arial,sans-serif" font-weight="800" font-size="40" fill="#ffffff" x="8" y="44">klini</text>
             <rect x="8" y="51" width="92" height="3.5" rx="1.75" fill="rgba(255,255,255,0.55)"/>
-            <text font-family="Objective,Arial,sans-serif" font-weight="700" font-size="21" fill="#6AA7AE" x="8" y="76">sênior</text>
+            <text font-family="Objective,Arial,sans-serif" font-weight="700" font-size="18" letter-spacing="2.5" fill="#ffffff" x="9" y="74">SÊNIOR</text>
+            <text font-family="Objective,Arial,sans-serif" font-weight="800" font-size="23" fill="#ffffff" x="104" y="76">50+</text>
           </svg>
         </div>
         <div class="pc__name">Klini Sênior</div>
         <p class="pc__tag">Central exclusiva e cuidado especializado para o perfil 60+</p>
-        <div class="pc__price"><i class="pi pi-tag"></i> Valores sob medida — cote em 2 min</div>
         <ul class="pc__list">
           <li><span class="pc__ck"><i class="pi pi-check"></i></span>Central de atendimento 60+</li>
           <li><span class="pc__ck"><i class="pi pi-check"></i></span>Ambulatorial + Hospitalar</li>
@@ -751,22 +703,22 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
       <!-- Texto -->
       <div class="gs">
         <div class="casa-tag"><i class="pi pi-building"></i> Parceria estratégica</div>
-        <h2 class="h2 gs" style="color:var(--text)">Klini + Rede Casa<br>— um único time</h2>
+        <h2 class="h2 gs">Klini + Rede Casa<br>— um único time</h2>
         <p style="color:var(--muted);font-size:1.05rem;margin-top:18px;line-height:1.8;max-width:430px">
           Nós somos um único time focado no seu cuidado. A Rede Casa amplia nossa capacidade hospitalar com unidades de excelência para internações, cirurgias complexas e UTI — tudo coberto pelo seu plano.
         </p>
         <div class="casa__stats">
           <div>
+            <div class="casa__stat-n">9</div>
+            <div class="casa__stat-l">hospitais<br>Rede Casa</div>
+          </div>
+          <div>
+            <div class="casa__stat-n">10</div>
+            <div class="casa__stat-l">centros médicos<br>Klini</div>
+          </div>
+          <div>
             <div class="casa__stat-n">+1.000</div>
             <div class="casa__stat-l">leitos disponíveis<br>no estado do RJ</div>
-          </div>
-          <div>
-            <div class="casa__stat-n">15</div>
-            <div class="casa__stat-l">unidades próprias<br>da Klini</div>
-          </div>
-          <div>
-            <div class="casa__stat-n">24h</div>
-            <div class="casa__stat-l">pronto atendimento<br>sempre disponível</div>
           </div>
         </div>
       </div>
@@ -935,7 +887,7 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
     <div class="tele">
       <div class="gs">
         <p class="eyebrow">teleconsulta klini</p>
-        <h2 class="h2" style="color:var(--text);margin-top:10px">Atendimento médico<br>onde você estiver</h2>
+        <h2 class="h2" style="margin-top:10px">Atendimento médico<br>onde você estiver</h2>
         <p style="color:var(--muted);font-size:1.05rem;margin-top:12px">Disponível 24h por dia, 7 dias por semana, inclusive feriados. Receitas, atestados e pedidos de exame emitidos digitalmente com validade legal.</p>
         <div class="tele__steps">
           <div class="tele__step">
@@ -964,8 +916,22 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
         <div class="tele__glow"></div>
         <div class="tele__img-wrap">
           <div class="tele__live"><span class="tele__live-dot"></span> CONSULTA AO VIVO</div>
-          <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/03/BG_5050925-768x893-2.webp" alt="App Klini Saúde" class="tele__img" loading="lazy" />
+          <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/03/BG_5050925-768x893-2.webp" alt="App Klini Saúde" class="tele__img" loading="eager" />
           <div class="tele__screen-glow"></div>
+
+          <!-- Balões de notificação — surgem em sequência simulando uso do app -->
+          <div class="tele__notif tele__notif--1 gs" style="transition-delay:.25s">
+            <span class="tele__notif-ico" style="background:rgba(37,149,145,.12);color:var(--teal)"><i class="pi pi-check"></i></span>
+            <div><strong>Consulta confirmada</strong><span>Clínico geral · agora</span></div>
+          </div>
+          <div class="tele__notif tele__notif--2 gs" style="transition-delay:.6s">
+            <span class="tele__notif-ico" style="background:rgba(106,167,174,.16);color:var(--sea)"><i class="pi pi-file"></i></span>
+            <div><strong>Receita enviada</strong><span>PDF com validade legal</span></div>
+          </div>
+          <div class="tele__notif tele__notif--3 gs" style="transition-delay:.95s">
+            <span class="tele__notif-ico" style="background:rgba(205,121,37,.14);color:var(--orange)"><i class="pi pi-verified"></i></span>
+            <div><strong>Atestado pronto</strong><span>Disponível no app</span></div>
+          </div>
         </div>
       </div>
     </div>
@@ -985,7 +951,7 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
       <!-- Card info: col 1-2, row 1-2 -->
       <div class="farm-bento__info gs">
         <p class="eyebrow" style="margin-bottom:10px">como usar</p>
-        <h3 class="h3" style="margin-bottom:22px;color:var(--text)">3 passos simples</h3>
+        <h3 class="h3" style="margin-bottom:22px;color:var(--teal-d)">3 passos simples</h3>
         <div class="farm__steps">
           <div class="farm__step"><div class="farm__ico"><i class="pi pi-map-marker"></i></div><div><strong>Vá a uma farmácia parceira</strong><span>7 redes em todo o Brasil</span></div></div>
           <div class="farm__step"><div class="farm__ico"><i class="pi pi-id-card"></i></div><div><strong>Apresente CPF ou carteirinha</strong><span>Acesse pelo app Klini</span></div></div>
@@ -995,78 +961,37 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
 
       <!-- Drogasil (col 3, row 1) -->
       <a class="farm__logo-card gs" href="https://www.drogasil.com.br" target="_blank" rel="noopener" aria-label="Drogasil">
-        <svg class="farm__svg" viewBox="0 0 220 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Drogasil">
-          <rect x="11" y="10" width="36" height="36" rx="6" transform="rotate(45 29 28)" fill="#C8102E"/>
-          <rect x="26" y="14" width="6" height="28" fill="#fff"/>
-          <rect x="15" y="25" width="28" height="6" fill="#fff"/>
-          <text x="64" y="40" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="26" letter-spacing="0.3" fill="#C8102E">DROGASIL</text>
-        </svg>
+        <img class="farm__svg" src="https://klinisaude.com.br/wp-content/uploads/2023/02/drogasil-logo-1024x197.png" alt="Drogasil" loading="lazy" />
       </a>
 
       <!-- Raia (col 4, row 1) -->
-      <a class="farm__logo-card gs" href="https://www.raia.com.br" target="_blank" rel="noopener" aria-label="Raia">
-        <svg class="farm__svg" viewBox="0 0 180 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Raia">
-          <g transform="translate(28,30)">
-            <line x1="0" y1="-17" x2="0" y2="17" stroke="#7AB800" stroke-width="6.5" stroke-linecap="round"/>
-            <line x1="-17" y1="0" x2="17" y2="0" stroke="#7AB800" stroke-width="6.5" stroke-linecap="round"/>
-            <line x1="-11" y1="-11" x2="11" y2="11" stroke="#7AB800" stroke-width="4.5" stroke-linecap="round"/>
-            <line x1="11" y1="-11" x2="-11" y2="11" stroke="#7AB800" stroke-width="4.5" stroke-linecap="round"/>
-          </g>
-          <text x="54" y="40" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="30" fill="#007F8E">Raia</text>
-        </svg>
+      <a class="farm__logo-card gs" href="https://www.raia.com.br" target="_blank" rel="noopener" aria-label="Droga Raia">
+        <img class="farm__svg" src="https://klinisaude.com.br/wp-content/uploads/2023/02/droga-raia-logo-1024x380.png" alt="Droga Raia" loading="lazy" />
       </a>
 
       <!-- Pacheco (col 3, row 2) -->
       <a class="farm__logo-card gs" href="https://www.drogariaspacheco.com.br" target="_blank" rel="noopener" aria-label="Drogarias Pacheco">
-        <svg class="farm__svg" viewBox="0 0 230 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Drogarias Pacheco">
-          <g fill="#29ABE2">
-            <rect x="22" y="8" width="13" height="42" rx="6.5"/>
-            <rect x="8" y="22" width="42" height="13" rx="6.5"/>
-          </g>
-          <text x="62" y="23" font-family="Arial,Helvetica,sans-serif" font-weight="500" font-size="12" letter-spacing="2" fill="#ED1C24">drogarias</text>
-          <text x="61" y="47" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="25" fill="#ED1C24">Pacheco</text>
-        </svg>
+        <img class="farm__svg" src="https://klinisaude.com.br/wp-content/uploads/2023/02/drogarias-pacheco-logo-1024x254.png" alt="Drogarias Pacheco" loading="lazy" />
       </a>
 
       <!-- Drogaria São Paulo (col 4, row 2) -->
       <a class="farm__logo-card gs" href="https://www.drogariasaopaulo.com.br" target="_blank" rel="noopener" aria-label="Drogaria São Paulo">
-        <svg class="farm__svg" viewBox="0 0 230 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Drogaria São Paulo">
-          <rect x="8" y="20" width="34" height="10" rx="2" fill="#0072BC"/>
-          <rect x="16" y="10" width="10" height="38" rx="2" fill="#0072BC"/>
-          <rect x="8" y="20" width="10" height="10" rx="2" fill="#ED1C24"/>
-          <text x="52" y="24" font-family="Arial,Helvetica,sans-serif" font-weight="500" font-size="11" letter-spacing="1.5" fill="#0072BC">DROGARIA</text>
-          <text x="52" y="46" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="19" fill="#0072BC">São Paulo</text>
-        </svg>
+        <img class="farm__svg" src="https://klinisaude.com.br/wp-content/uploads/2023/02/drogaria-sao-paulo-logo-1024x185.png" alt="Drogaria São Paulo" loading="lazy" />
       </a>
 
       <!-- Venâncio (col 1, row 3) -->
-      <a class="farm__logo-card gs" href="https://www.drogariavenancio.com.br" target="_blank" rel="noopener" aria-label="Venâncio">
-        <svg class="farm__svg" viewBox="0 0 210 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Venâncio">
-          <rect x="8" y="10" width="28" height="13" rx="3" fill="#E4002B"/>
-          <rect x="8" y="26" width="28" height="13" rx="3" fill="#003087"/>
-          <text x="46" y="36" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="20" letter-spacing="0.5" fill="#1A1A1A">VENANCIO</text>
-        </svg>
+      <a class="farm__logo-card gs" href="https://www.drogariavenancio.com.br" target="_blank" rel="noopener" aria-label="Drogaria Venâncio">
+        <img class="farm__svg" src="https://klinisaude.com.br/wp-content/uploads/2024/05/logo_venancio-1.png" alt="Drogaria Venâncio" loading="lazy" />
       </a>
 
       <!-- Drogasmil (col 2, row 3) -->
-      <a class="farm__logo-card gs" href="https://www.drogasmil.com.br" target="_blank" rel="noopener" aria-label="Drogasmil">
-        <svg class="farm__svg" viewBox="0 0 220 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Drogasmil">
-          <circle cx="30" cy="30" r="18" fill="none" stroke="#9E1B53" stroke-width="5.5"/>
-          <rect x="27" y="17" width="6" height="26" fill="#9E1B53"/>
-          <rect x="17" y="27" width="26" height="6" fill="#9E1B53"/>
-          <text x="56" y="38" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="22" fill="#9E1B53">drogasmil</text>
-        </svg>
+      <a class="farm__logo-card farm-logo--dml gs" href="https://www.drogasmil.com.br" target="_blank" rel="noopener" aria-label="Drogasmil">
+        <img class="farm__svg" src="https://klinisaude.com.br/wp-content/uploads/2025/06/dml_marca_f_01_rgb.png" alt="Drogasmil" loading="lazy" />
       </a>
 
       <!-- Farmalife (col 3-4, row 3 — span 2) -->
-      <a class="farm__logo-card farm-logo--far gs" href="https://www.farmalife.com.br" target="_blank" rel="noopener" aria-label="Farmalife">
-        <svg class="farm__svg" viewBox="0 0 260 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Farmalife">
-          <rect x="8" y="12" width="36" height="36" rx="8" fill="#F26522" opacity=".15"/>
-          <rect x="16" y="20" width="6" height="22" fill="#F26522"/>
-          <rect x="16" y="20" width="20" height="6" fill="#F26522"/>
-          <rect x="16" y="30" width="14" height="5" fill="#F26522"/>
-          <text x="56" y="40" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="26" letter-spacing="1" fill="#2B2B2B">FARMA<tspan fill="#F26522">LIFE</tspan></text>
-        </svg>
+      <a class="farm__logo-card farm-logo--far farm-logo--fml gs" href="https://www.farmalife.com.br" target="_blank" rel="noopener" aria-label="Farmalife">
+        <img class="farm__svg" src="https://klinisaude.com.br/wp-content/uploads/2025/06/fml_marca_f_01_rgb.png" alt="Farmalife" loading="lazy" />
       </a>
 
     </div>
@@ -1125,55 +1050,6 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
 </section>
 
 
-<!-- ══ CTA FINAL ════════════════════════════════════════════════════ -->
-<section class="cta-sec" id="cta">
-
-  <!-- C-arc coral na CTA — espesso, destaque na conversão -->
-  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-       style="position:absolute;top:-50px;right:-80px;width:400px;height:500px;pointer-events:none;z-index:1">
-    <defs>
-      <linearGradient id="kln-cta1" x1="50%" y1="0%" x2="50%" y2="100%">
-        <stop offset="0%"   stop-color="#CD7925" stop-opacity="0.36"/>
-        <stop offset="100%" stop-color="#E05759" stop-opacity="0.04"/>
-      </linearGradient>
-      <linearGradient id="kln-cta2" x1="50%" y1="0%" x2="50%" y2="100%">
-        <stop offset="0%"   stop-color="#E05759" stop-opacity="0.16"/>
-        <stop offset="100%" stop-color="#CD7925" stop-opacity="0.01"/>
-      </linearGradient>
-    </defs>
-    <!-- C-arc coral grande — gira CW 18s -->
-    <g class="arc-cw" style="transform-origin:200px 240px;animation-duration:18s">
-      <path d="M 200 62 A 178 178 0 0 0 200 418"
-            fill="none" stroke="url(#kln-cta1)" stroke-width="40" stroke-linecap="square"/>
-    </g>
-    <!-- C-arc coral menor — gira CCW 26s -->
-    <g class="arc-ccw" style="transform-origin:200px 240px;animation-duration:26s">
-      <path d="M 200 134 A 106 106 0 0 0 200 346"
-            fill="none" stroke="url(#kln-cta2)" stroke-width="22" stroke-linecap="square"/>
-    </g>
-  </svg>
-
-  <div class="wrap">
-    <p class="eyebrow gs">pronto para começar?</p>
-    <h2 class="h2 gs">Proteja sua saúde e<br>da sua família hoje</h2>
-    <p class="gs">Sem burocracia. Nosso especialista monta a proposta e entra em contato pelo WhatsApp.</p>
-    <div class="cta-action gs" style="margin-top:40px;margin-bottom:8px">
-      <a href="https://site-dev.klinisaude.com.br/planos/#cotacao"
-         class="cta-main-btn" target="_blank" rel="noopener">
-        <i class="pi pi-clipboard"></i> Simular planos gratuitamente
-      </a>
-      <p style="color:rgba(255,255,255,.3);font-size:.78rem;margin-top:12px;text-align:center">
-        <i class="pi pi-shield" style="color:var(--teal)"></i> Protegido pela LGPD · Sem compromisso
-      </p>
-    </div>
-    <div class="cta-contacts gs">
-      <a href="tel:08000210320"><i class="pi pi-phone"></i> SAC 24h · 0800 021 0320</a>
-      <a href="https://wa.me/552130550790" target="_blank" rel="noopener"><i class="pi pi-whatsapp"></i> WhatsApp · (21) 3055-0790</a>
-      <span style="color:rgba(255,255,255,.35)"><i class="pi pi-clock"></i> Atendimento Seg–Sex · 8h–17h</span>
-    </div>
-  </div>
-</section>
-
 <!-- ══ CANAIS DE ATENDIMENTO ══════════════════════════════════════ -->
 <section class="canais" id="canais-atendimento">
   <div class="wrap">
@@ -1226,7 +1102,8 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
           <span class="canal__name" style="font-size:.88rem">Def. Auditivo</span>
         </div>
         <a href="tel:08009419601" class="canal__info" style="font-size:.8rem">0800 941 9601</a>
-        <span class="canal__badge canal__badge--green" style="margin-top:8px"><i class="pi pi-circle-fill" style="font-size:.45rem"></i> 24h</span>
+        <p class="canal__desc" style="margin-bottom:0">Atendimento exclusivo para deficientes auditivos.</p>
+        <span class="canal__badge canal__badge--green" style="margin-top:10px"><i class="pi pi-circle-fill" style="font-size:.45rem"></i> 24h</span>
       </div>
 
       <!-- Ouvidoria (col 1-3, row 3) -->
@@ -1259,8 +1136,8 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
   <div class="wrap">
     <div class="foot__top">
       <div class="foot__brand">
-        <a href="index.html"><img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/logo-header.webp" alt="Klini Saúde" style="height:28px" /></a>
-        <p style="font-size:.82rem;color:rgba(255,255,255,.4);margin-top:10px;max-width:240px;line-height:1.6">Saúde com rede própria, telemedicina 24h e cuidado humano no Rio de Janeiro.</p>
+        <a href="index.html"><img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/logo-header.webp" alt="Klini Saúde" style="height:44px" /></a>
+        <p style="font-size:.82rem;color:var(--muted);margin-top:14px;max-width:250px;line-height:1.6">Saúde com rede própria, telemedicina 24h e cuidado humano no Rio de Janeiro.</p>
       </div>
       <nav class="foot__links">
         <a href="sobre.html">Sobre a Klini</a>
@@ -1290,7 +1167,7 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
     <div class="foot__bottom">
       <p>© 2020–2026 Klini Planos de Saúde Ltda. · CNPJ 34.539.000/0001-86 · Barra da Tijuca, Rio de Janeiro, RJ</p>
       <div class="seals">
-        <span class="seal ans-badge"><img src="https://klinisaude.com.br/wp-content/uploads/2023/02/ans.png" alt="ANS" style="height:13px;filter:brightness(0) invert(1);vertical-align:middle;margin-right:6px;opacity:.85" />Nº 42.202-9</span>
+        <span class="seal ans-badge">ANS – Nº 42.202-9</span>
         <span class="seal">LGPD</span>
       </div>
     </div>
@@ -1302,10 +1179,6 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
   <span class="wa-tip">Falar com especialista</span>
   <a href="https://wa.me/552130550790?text=Olá!%20Gostaria%20de%20conhecer%20os%20planos%20Klini%20Saúde." class="wa-btn" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="pi pi-whatsapp" style="font-size:1.5rem;color:#fff;line-height:1"></i></a>
 </div>
-
-<!-- ══ GSAP ═══════════════════════════════════════════════════════ -->
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 
 <!-- ══ PAGE INTERACTIONS ═══════════════════════════════════════════ -->
 <script>
@@ -1324,111 +1197,18 @@ if (barHamb && barNav) {
   });
 }
 
-/* ── GSAP + ScrollTrigger ────────────────────────────── */
-if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
-
-window.addEventListener('load', () => {
-  if (typeof gsap === 'undefined') return;
-
-  // Hero entrance (stagger)
-  gsap.fromTo('.hero__inner .gs',
-    { y: 48, opacity: 0 },
-    { opacity: 1, y: 0, stagger: .13, duration: 1, ease: 'power3.out', delay: .35 }
-  );
-
-  // Generic scroll reveal for all .gs outside hero
-  document.querySelectorAll('.gs:not(.hero__inner .gs)').forEach((el, i) => {
-    gsap.fromTo(el,
-      { opacity: 0, y: 44 },
-      { opacity: 1, y: 0, duration: .85, ease: 'power3.out',
-        delay: (i % 4) * .07,
-        scrollTrigger: { trigger: el, start: 'top 82%', once: true }
+/* ── Stagger suave da entrada (estético; o conteúdo já é visível via CSS) ── */
+(function () {
+  document.querySelectorAll('.acess__grid, .plans__track, .mv__grid, .canais-bento, .farm-bento').forEach(grid => {
+    let i = 0;
+    Array.prototype.forEach.call(grid.children, c => {
+      if (c.classList && c.classList.contains('gs')) {
+        c.style.animationDelay = (Math.min(i, 6) * 0.07) + 's';
+        i++;
       }
-    );
+    });
   });
-
-  // Clip-path curtain reveal nos títulos de seção
-  gsap.utils.toArray('.h2.gs').forEach(el => {
-    gsap.fromTo(el,
-      { clipPath: 'inset(0 0 100% 0)' },
-      { clipPath: 'inset(0 0 0% 0)', duration: 1, ease: 'power3.out',
-        scrollTrigger: { trigger: el, start: 'top 86%', once: true }
-      }
-    );
-  });
-
-  // Steps connector line draw
-  gsap.to('#stepsLine', {
-    scaleX: 1, duration: 1.1, ease: 'power2.inOut',
-    scrollTrigger: { trigger: '.steps', start: 'top 78%', once: true }
-  });
-
-  // Plans cards stagger
-  gsap.fromTo('.pc.gs',
-    { opacity: 0, y: 50, scale: .93 },
-    { opacity: 1, y: 0, scale: 1, stagger: .07, duration: .75, ease: 'back.out(1.3)',
-      scrollTrigger: { trigger: '.plans__track', start: 'top 82%', once: true }
-    }
-  );
-
-  // Linhas de Cuidado cards
-  gsap.fromTo('.mv__card.gs',
-    { opacity: 0, y: 40, scale: .9 },
-    { opacity: 1, y: 0, scale: 1, stagger: .1, duration: .8, ease: 'back.out(1.4)',
-      scrollTrigger: { trigger: '.mv__grid', start: 'top 82%', once: true }
-    }
-  );
-  // Linhas de Cuidado entry banner
-  gsap.fromTo('.ldc__entry.gs',
-    { opacity: 0, y: 30 },
-    { opacity: 1, y: 0, duration: .7, ease: 'power3.out',
-      scrollTrigger: { trigger: '.ldc__entry', start: 'top 88%', once: true }
-    }
-  );
-
-  // Acessos cards stagger
-  gsap.fromTo('.acess__card.gs',
-    { opacity: 0, y: 30, scale: .95 },
-    { opacity: 1, y: 0, scale: 1, stagger: .07, duration: .7, ease: 'back.out(1.3)',
-      scrollTrigger: { trigger: '.acess__grid', start: 'top 82%', once: true }
-    }
-  );
-
-  // Canais cards stagger
-  gsap.fromTo('.canal.gs',
-    { opacity: 0, y: 40 },
-    { opacity: 1, y: 0, stagger: .08, duration: .8, ease: 'power3.out',
-      scrollTrigger: { trigger: '.canais__grid', start: 'top 82%', once: true }
-    }
-  );
-
-  // Teleconsulta — scroll-pin "entrar na tela do app"
-  ScrollTrigger.create({
-    trigger: '#teleconsulta',
-    start: 'top top',
-    end: '+=560',
-    pin: true,
-    pinSpacing: true
-  });
-  gsap.fromTo('.tele__img',
-    { scale: 1, transformOrigin: '50% 26%' },
-    { scale: 4.8, ease: 'none',
-      scrollTrigger: { trigger: '#teleconsulta', start: 'top top', end: '+=560', scrub: 1.8 }
-    }
-  );
-
-  // Farm logo cards staggered entrance
-  gsap.fromTo('.farm__logo-card.gs',
-    { opacity: 0, y: 28, scale: .88 },
-    { opacity: 1, y: 0, scale: 1, stagger: .07, duration: .65, ease: 'back.out(1.5)',
-      scrollTrigger: { trigger: '.farm__logo-grid', start: 'top 86%', once: true }
-    }
-  );
-
-  // (teleconsulta zoom: handled by scroll-pin above)
-});
+})();
 
 /* ── Counter animation ───────────────────────────────── */
 const cObs = new IntersectionObserver(entries => {
@@ -1479,6 +1259,15 @@ document.querySelectorAll('.ct').forEach(el => cObs.observe(el));
     if (Math.abs(dx) > 40) window.slideCasa(dx > 0 ? -1 : 1);
   },{passive:true});
 })();
+
+/* ── Spotlight que segue o cursor nos cards de acesso rápido ── */
+document.querySelectorAll('.acess__card').forEach(card => {
+  card.addEventListener('pointermove', e => {
+    const r = card.getBoundingClientRect();
+    card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+    card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+  });
+});
 
 /* ── Smooth anchors ──────────────────────────────────── */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
