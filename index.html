@@ -169,9 +169,17 @@ a{text-decoration:none;color:inherit}
 
 /* ── FARMÁCIA ────────────────────────────────────────────────── */
 .farm{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.farm__logos{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.farm__tag{background:#fff;border:1.5px solid var(--bd-l);border-radius:14px;padding:16px 12px;text-align:center;font-size:.76rem;font-weight:700;color:var(--text);transition:all .25s;cursor:default}
-.farm__tag:hover{border-color:var(--teal);background:#f0fefd;transform:scale(1.04)}
+.farm__logo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
+.farm__logo-card{background:#fff;border:1.5px solid rgba(10,20,40,.07);border-radius:16px;padding:22px 12px 15px;display:flex;flex-direction:column;align-items:center;gap:9px;text-decoration:none;transition:transform .3s,box-shadow .32s,border-color .28s;position:relative;overflow:hidden}
+.farm__logo-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(37,149,145,.06),transparent 65%);opacity:0;transition:opacity .3s;pointer-events:none}
+.farm__logo-card:hover{border-color:var(--teal);transform:translateY(-5px) scale(1.03);box-shadow:0 18px 44px rgba(37,149,145,.12)}
+.farm__logo-card:hover::after{opacity:1}
+.farm__logo-img{height:44px;width:100%;object-fit:contain;padding:0 4px;transition:transform .28s;filter:grayscale(10%)}
+.farm__logo-fallback{height:44px;width:100%;display:none;align-items:center;justify-content:center;font-size:.76rem;font-weight:800;color:var(--text);text-align:center;letter-spacing:-.01em}
+.farm__logo-card:hover .farm__logo-img{transform:scale(1.06);filter:none}
+.farm__logo-name{font-size:.64rem;font-weight:700;color:var(--muted);text-align:center;line-height:1.3}
+.farm__logo-visit{font-size:.6rem;color:var(--teal);display:flex;align-items:center;gap:3px;font-weight:600;opacity:0;transform:translateY(5px);transition:all .25s}
+.farm__logo-card:hover .farm__logo-visit{opacity:1;transform:translateY(0)}
 .farm__steps{display:flex;flex-direction:column;gap:20px;margin-top:32px}
 .farm__step{display:flex;gap:14px;align-items:flex-start}
 .farm__ico{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--teal),var(--sea));display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;color:#fff}
@@ -227,6 +235,7 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
 .foot__bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.75rem}
 .seals{display:flex;gap:8px}
 .seal{background:rgba(255,255,255,.05);border-radius:6px;padding:4px 10px;font-size:.68rem;font-weight:700;letter-spacing:.04em}
+.ans-badge{background:#000;color:#fff;border:1.5px solid #333;font-weight:800;letter-spacing:.03em;font-size:.67rem}
 
 /* ── WA FLOAT ────────────────────────────────────────────────── */
 .wa-f{position:fixed;bottom:28px;right:28px;z-index:950;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
@@ -280,6 +289,30 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
 .casa__stats{display:flex;gap:32px;flex-wrap:wrap;margin-top:36px;padding-top:32px;border-top:1px solid rgba(255,255,255,.07)}
 .casa__stat-n{font-family:'Objective',sans-serif;font-weight:800;font-size:2.1rem;background:linear-gradient(135deg,var(--teal),var(--sea));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:4px}
 .casa__stat-l{font-size:.76rem;color:rgba(255,255,255,.42);line-height:1.5}
+
+/* ── HOSPITAL CAROUSEL ───────────────────────────────────────── */
+.casa-carousel{position:relative;border-radius:20px;overflow:hidden;width:100%;user-select:none}
+.casa-carousel__track{display:flex;transition:transform .52s cubic-bezier(.4,0,.2,1);will-change:transform}
+.casa-carousel__slide{min-width:100%;height:400px;position:relative;overflow:hidden;flex-shrink:0}
+.casa-carousel__slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.68);transition:transform .7s ease}
+.casa-carousel__slide:hover img{transform:scale(1.04)}
+.casa-slide-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.casa-slide-info{position:absolute;bottom:0;left:0;right:0;padding:32px 22px 20px;background:linear-gradient(transparent,rgba(6,9,15,.88))}
+.casa-slide-tag{display:inline-flex;align-items:center;gap:5px;background:rgba(37,149,145,.2);border:1px solid rgba(37,149,145,.35);border-radius:30px;padding:3px 11px;font-size:.61rem;font-weight:700;color:var(--teal);letter-spacing:.04em;margin-bottom:7px;text-transform:uppercase}
+.casa-slide-name{font-weight:800;font-size:1.05rem;color:#fff;letter-spacing:-.01em}
+.casa-slide-addr{font-size:.73rem;color:rgba(255,255,255,.52);margin-top:5px;display:flex;align-items:center;gap:5px}
+.casa-carousel__prev,.casa-carousel__next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(12,20,34,.62);border:1px solid rgba(255,255,255,.12);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.9rem;cursor:pointer;transition:all .22s;z-index:10;backdrop-filter:blur(8px);padding:0;outline:none;line-height:1}
+.casa-carousel__prev:hover,.casa-carousel__next:hover{background:var(--teal);border-color:var(--teal)}
+.casa-carousel__prev{left:12px}
+.casa-carousel__next{right:12px}
+.casa-carousel__dots{display:flex;gap:6px;justify-content:center;padding-top:13px}
+.casa-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.22);transition:all .3s;cursor:pointer;border:none;padding:0;flex-shrink:0;display:inline-block}
+.casa-dot.active{background:var(--teal);width:18px;border-radius:3px}
+
+/* ── TELE ZOOM WRAPPER ────────────────────────────────────────── */
+.tele__img-wrap{position:relative;z-index:1;display:flex;justify-content:flex-end}
+.tele__screen-glow{position:absolute;top:10%;left:50%;transform:translateX(-50%);width:160px;height:240px;border-radius:40px;background:radial-gradient(ellipse,rgba(37,149,145,.22),transparent 70%);pointer-events:none;animation:tele-pulse 3s ease-in-out infinite 1.2s}
+@keyframes tele-pulse{0%,100%{opacity:.6;transform:translateX(-50%) scale(1)}50%{opacity:1;transform:translateX(-50%) scale(1.08)}}
 
 /* ── PLAN CARD IMAGE WRAPPER ──────────────────────────────────── */
 .pc__img-wrap{background:linear-gradient(150deg,#0C1422 0%,#0A1E38 100%);border-radius:var(--r) var(--r) 0 0;margin:-26px -26px 20px;padding:24px 20px 20px;display:flex;align-items:center;justify-content:center;min-height:94px}
@@ -380,7 +413,7 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
       <div class="hero__copy">
         <div class="hero__pill gs">
           <span class="hero__pill-dot"></span>
-          Regulamentado ANS · Reg. 42.000.2085
+          Plano de saúde com rede própria no RJ
         </div>
         <h1 class="h1 gs">
           Saúde completa<br>com <span class="grad">rede própria</span><br>no Rio de Janeiro
@@ -420,7 +453,7 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
               <option>Familiar</option>
               <option>Empresarial / PME</option>
               <option>MEI</option>
-              <option>Sênior (60+)</option>
+              <option>Sênior (50+)</option>
             </select>
           </div>
           <button class="form-btn" type="submit">Quero minha cotação gratuita <i class="pi pi-arrow-right"></i></button>
@@ -672,25 +705,157 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
         </div>
       </div>
 
-      <!-- Unidades hospitalares da Rede Casa -->
-      <div class="casa__hospitals gs">
-        <!-- Foto real do Hospital Premium (site-dev 2026) -->
-        <div class="casa__hospital" style="grid-column:span 2">
-          <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Unidades-Hospitais-Premium.png"
-               alt="Hospital Premium — Rede Casa" loading="lazy" />
-          <div class="casa__hospital-label" style="font-size:.85rem">Hospital Premium · Rede Casa</div>
-        </div>
-        <!-- Cards textuais para os demais hospitais -->
-        <div class="casa__hosp-txt">
-          <i class="pi pi-building" style="color:var(--teal);font-size:1.3rem;margin-bottom:10px;display:block"></i>
-          <strong>Hospital Evangélico</strong>
-          <span>Internações e cirurgias de alta complexidade</span>
-        </div>
-        <div class="casa__hosp-txt">
-          <i class="pi pi-building" style="color:var(--teal);font-size:1.3rem;margin-bottom:10px;display:block"></i>
-          <strong>Hospital São Bernardo</strong>
-          <span>UTI especializada e procedimentos complexos</span>
-        </div>
+      <!-- Carrossel de hospitais da Rede Casa -->
+      <div class="gs">
+        <div class="casa-carousel">
+          <div class="casa-carousel__track" id="casaTrack">
+
+            <!-- Slide 1 — Hospital Premium (foto confirmada) -->
+            <div class="casa-carousel__slide">
+              <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Unidades-Hospitais-Premium.png"
+                   alt="Hospital Premium" loading="lazy"
+                   onerror="this.style.display='none'" />
+              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#082040,#0D2A44)">
+                <i class="pi pi-building" style="font-size:3.5rem;color:rgba(37,149,145,.3)"></i>
+              </div>
+              <div class="casa-slide-info">
+                <span class="casa-slide-tag"><i class="pi pi-heart-fill"></i> Oncologia</span>
+                <div class="casa-slide-name">Hospital Premium</div>
+                <div class="casa-slide-addr"><i class="pi pi-map-marker"></i> Rua do Bispo, 18 — Rio Comprido · RJ</div>
+              </div>
+            </div>
+
+            <!-- Slide 2 — HC Evangélico -->
+            <div class="casa-carousel__slide">
+              <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Unidades-Hospitais-Evangelico.png"
+                   alt="HC Evangélico" loading="lazy"
+                   onerror="this.style.display='none'" />
+              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#0A1E38,#0E2B4A)">
+                <i class="pi pi-building" style="font-size:3.5rem;color:rgba(37,149,145,.28)"></i>
+              </div>
+              <div class="casa-slide-info">
+                <span class="casa-slide-tag"><i class="pi pi-shield"></i> Alta Complexidade</span>
+                <div class="casa-slide-name">HC Evangélico</div>
+                <div class="casa-slide-addr"><i class="pi pi-map-marker"></i> Rua Bom Pastor, 295 — Tijuca · RJ</div>
+              </div>
+            </div>
+
+            <!-- Slide 3 — HC de Portugal -->
+            <div class="casa-carousel__slide">
+              <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Unidades-Hospitais-de-Portugal.png"
+                   alt="HC de Portugal" loading="lazy"
+                   onerror="this.style.display='none'" />
+              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#082040,#0C1E38)">
+                <i class="pi pi-building" style="font-size:3.5rem;color:rgba(106,167,174,.28)"></i>
+              </div>
+              <div class="casa-slide-info">
+                <span class="casa-slide-tag"><i class="pi pi-plus-circle"></i> Clínico &amp; Cirúrgico</span>
+                <div class="casa-slide-name">HC de Portugal</div>
+                <div class="casa-slide-addr"><i class="pi pi-map-marker"></i> Rua do Bispo, 72 — Rio Comprido · RJ</div>
+              </div>
+            </div>
+
+            <!-- Slide 4 — HC Santa Cruz -->
+            <div class="casa-carousel__slide">
+              <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Unidades-Hospitais-Santa-Cruz.png"
+                   alt="HC Santa Cruz" loading="lazy"
+                   onerror="this.style.display='none'" />
+              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#0A2030,#0E2C40)">
+                <i class="pi pi-building" style="font-size:3.5rem;color:rgba(37,149,145,.28)"></i>
+              </div>
+              <div class="casa-slide-info">
+                <span class="casa-slide-tag"><i class="pi pi-clock"></i> Pronto Atendimento 24h</span>
+                <div class="casa-slide-name">HC Santa Cruz</div>
+                <div class="casa-slide-addr"><i class="pi pi-map-marker"></i> Rua Nestor, 131 — Santa Cruz · RJ</div>
+              </div>
+            </div>
+
+            <!-- Slide 5 — HC Ilha do Governador -->
+            <div class="casa-carousel__slide">
+              <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Unidades-Hospitais-Ilha-do-Governador.png"
+                   alt="HC Ilha do Governador" loading="lazy"
+                   onerror="this.style.display='none'" />
+              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#0A1E38,#062030)">
+                <i class="pi pi-building" style="font-size:3.5rem;color:rgba(106,167,174,.3)"></i>
+              </div>
+              <div class="casa-slide-info">
+                <span class="casa-slide-tag"><i class="pi pi-star-fill"></i> Geral</span>
+                <div class="casa-slide-name">HC Ilha do Governador</div>
+                <div class="casa-slide-addr"><i class="pi pi-map-marker"></i> Estrada do Dendê, 668 — Tauá · RJ</div>
+              </div>
+            </div>
+
+            <!-- Slide 6 — HC Menssana -->
+            <div class="casa-carousel__slide">
+              <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Unidades-Hospitais-Menssana.png"
+                   alt="HC Menssana" loading="lazy"
+                   onerror="this.style.display='none'" />
+              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#082040,#0B2442)">
+                <i class="pi pi-building" style="font-size:3.5rem;color:rgba(37,149,145,.28)"></i>
+              </div>
+              <div class="casa-slide-info">
+                <span class="casa-slide-tag"><i class="pi pi-heart"></i> Saúde Mental</span>
+                <div class="casa-slide-name">HC Menssana</div>
+                <div class="casa-slide-addr"><i class="pi pi-map-marker"></i> Rua Marechal Jofre, 30 — Grajaú · RJ</div>
+              </div>
+            </div>
+
+            <!-- Slide 7 — HC Rio Laranjeiras -->
+            <div class="casa-carousel__slide">
+              <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Unidades-Hospitais-Rio-Laranjeiras.png"
+                   alt="HC Rio Laranjeiras" loading="lazy"
+                   onerror="this.style.display='none'" />
+              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#0A2030,#062238)">
+                <i class="pi pi-building" style="font-size:3.5rem;color:rgba(37,149,145,.28)"></i>
+              </div>
+              <div class="casa-slide-info">
+                <span class="casa-slide-tag"><i class="pi pi-plus-circle"></i> Cirúrgico</span>
+                <div class="casa-slide-name">HC Rio Laranjeiras</div>
+                <div class="casa-slide-addr"><i class="pi pi-map-marker"></i> Rua das Laranjeiras, 72 — Laranjeiras · RJ</div>
+              </div>
+            </div>
+
+            <!-- Slide 8 — HC São Bernardo -->
+            <div class="casa-carousel__slide">
+              <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Unidades-Hospitais-Sao-Bernardo.png"
+                   alt="HC São Bernardo" loading="lazy"
+                   onerror="this.style.display='none'" />
+              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#0A1E38,#0D2840)">
+                <i class="pi pi-building" style="font-size:3.5rem;color:rgba(106,167,174,.28)"></i>
+              </div>
+              <div class="casa-slide-info">
+                <span class="casa-slide-tag"><i class="pi pi-heart-fill"></i> UTI Especializada</span>
+                <div class="casa-slide-name">HC São Bernardo</div>
+                <div class="casa-slide-addr"><i class="pi pi-map-marker"></i> Av. das Américas, 3250 — Barra da Tijuca · RJ</div>
+              </div>
+            </div>
+
+            <!-- Slide 9 — Oftalmocasa -->
+            <div class="casa-carousel__slide">
+              <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Unidades-Hospitais-Oftalmocasa.png"
+                   alt="Oftalmocasa" loading="lazy"
+                   onerror="this.style.display='none'" />
+              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#082040,#0A2236)">
+                <i class="pi pi-eye" style="font-size:3.5rem;color:rgba(37,149,145,.3)"></i>
+              </div>
+              <div class="casa-slide-info">
+                <span class="casa-slide-tag"><i class="pi pi-eye"></i> Oftalmologia</span>
+                <div class="casa-slide-name">Oftalmocasa</div>
+                <div class="casa-slide-addr"><i class="pi pi-map-marker"></i> Av. das Américas, 3200 — Barra da Tijuca · RJ</div>
+              </div>
+            </div>
+
+          </div><!-- /track -->
+
+          <button class="casa-carousel__prev" onclick="slideCasa(-1)" aria-label="Hospital anterior">
+            <i class="pi pi-angle-left"></i>
+          </button>
+          <button class="casa-carousel__next" onclick="slideCasa(1)" aria-label="Próximo hospital">
+            <i class="pi pi-angle-right"></i>
+          </button>
+        </div><!-- /carousel -->
+
+        <div class="casa-carousel__dots" id="casaDots"></div>
       </div>
 
     </div>
@@ -766,7 +931,10 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
       </div>
       <div class="tele__side gs">
         <div class="tele__glow"></div>
-        <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/03/BG_5050925-768x893-2.webp" alt="App Klini Saúde" class="tele__img" loading="lazy" />
+        <div class="tele__img-wrap">
+          <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/03/BG_5050925-768x893-2.webp" alt="App Klini Saúde" class="tele__img" loading="lazy" />
+          <div class="tele__screen-glow"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -786,14 +954,66 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
           <div class="farm__step"><div class="farm__ico"><i class="pi pi-tag"></i></div><div><strong>Desconto automático no caixa</strong><span>Redução instantânea, sem etapas extras</span></div></div>
         </div>
       </div>
-      <div class="farm__logos gs">
-        <div class="farm__tag">Drogasil</div>
-        <div class="farm__tag">Droga Raia</div>
-        <div class="farm__tag">Drogarias Pacheco</div>
-        <div class="farm__tag">Drogaria São Paulo</div>
-        <div class="farm__tag">Drogaria Venâncio</div>
-        <div class="farm__tag">Drogasmil</div>
-        <div class="farm__tag">Farmalife</div>
+      <div class="farm__logo-grid">
+
+        <a class="farm__logo-card gs" href="https://www.drogasil.com.br" target="_blank" rel="noopener" aria-label="Drogasil">
+          <img class="farm__logo-img" src="https://logo.clearbit.com/drogasil.com.br" alt="Drogasil"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy" />
+          <div class="farm__logo-fallback">Drogasil</div>
+          <div class="farm__logo-name">Drogasil</div>
+          <div class="farm__logo-visit"><i class="pi pi-external-link"></i> Ver site</div>
+        </a>
+
+        <a class="farm__logo-card gs" href="https://www.drogaraia.com.br" target="_blank" rel="noopener" aria-label="Droga Raia">
+          <img class="farm__logo-img" src="https://logo.clearbit.com/drogaraia.com.br" alt="Droga Raia"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy" />
+          <div class="farm__logo-fallback">Droga Raia</div>
+          <div class="farm__logo-name">Droga Raia</div>
+          <div class="farm__logo-visit"><i class="pi pi-external-link"></i> Ver site</div>
+        </a>
+
+        <a class="farm__logo-card gs" href="https://www.drogariaspacheco.com.br" target="_blank" rel="noopener" aria-label="Drogarias Pacheco">
+          <img class="farm__logo-img" src="https://logo.clearbit.com/drogariaspacheco.com.br" alt="Drogarias Pacheco"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy" />
+          <div class="farm__logo-fallback">Drogarias Pacheco</div>
+          <div class="farm__logo-name">Drogarias Pacheco</div>
+          <div class="farm__logo-visit"><i class="pi pi-external-link"></i> Ver site</div>
+        </a>
+
+        <a class="farm__logo-card gs" href="https://www.drogariasaopaulo.com.br" target="_blank" rel="noopener" aria-label="Drogaria São Paulo">
+          <img class="farm__logo-img" src="https://logo.clearbit.com/drogariasaopaulo.com.br" alt="Drogaria São Paulo"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy" />
+          <div class="farm__logo-fallback">Drogaria São Paulo</div>
+          <div class="farm__logo-name">Drogaria São Paulo</div>
+          <div class="farm__logo-visit"><i class="pi pi-external-link"></i> Ver site</div>
+        </a>
+
+        <a class="farm__logo-card gs" href="https://www.drogariavenancio.com.br" target="_blank" rel="noopener" aria-label="Drogarias Venâncio">
+          <img class="farm__logo-img"
+               src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Logotipo_da_Drogaria_Venancio.svg/500px-Logotipo_da_Drogaria_Venancio.svg.png"
+               alt="Drogarias Venâncio"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy" />
+          <div class="farm__logo-fallback">Venâncio</div>
+          <div class="farm__logo-name">Drogarias Venâncio</div>
+          <div class="farm__logo-visit"><i class="pi pi-external-link"></i> Ver site</div>
+        </a>
+
+        <a class="farm__logo-card gs" href="https://www.drogasmil.com.br" target="_blank" rel="noopener" aria-label="Drogasmil">
+          <img class="farm__logo-img" src="https://logo.clearbit.com/drogasmil.com.br" alt="Drogasmil"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy" />
+          <div class="farm__logo-fallback">Drogasmil</div>
+          <div class="farm__logo-name">Drogasmil</div>
+          <div class="farm__logo-visit"><i class="pi pi-external-link"></i> Ver site</div>
+        </a>
+
+        <a class="farm__logo-card gs" href="https://www.farmalife.com.br" target="_blank" rel="noopener" aria-label="Farmalife" style="grid-column:span 3;max-width:calc(33.33% - 4px);margin:0 auto">
+          <img class="farm__logo-img" src="https://logo.clearbit.com/farmalife.com.br" alt="Farmalife"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy" />
+          <div class="farm__logo-fallback">Farmalife</div>
+          <div class="farm__logo-name">Farmalife</div>
+          <div class="farm__logo-visit"><i class="pi pi-external-link"></i> Ver site</div>
+        </a>
+
       </div>
     </div>
   </div>
@@ -901,7 +1121,7 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
           <select name="type" required>
             <option value="" disabled selected>Selecione</option>
             <option>Individual</option><option>Familiar</option>
-            <option>Empresarial / PME</option><option>MEI</option><option>Sênior (60+)</option>
+            <option>Empresarial / PME</option><option>MEI</option><option>Sênior (50+)</option>
           </select>
         </div>
         <button class="form-btn" type="submit">Quero minha cotação gratuita <i class="pi pi-arrow-right"></i></button>
@@ -924,6 +1144,7 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
         <a href="sobre.html">Sobre a Klini</a>
         <a href="planos.html">Planos</a>
         <a href="teleconsulta.html">Teleconsulta</a>
+        <a href="unidades.html">Unidades</a>
         <a href="rede-credenciada.html">Rede Credenciada</a>
         <a href="transparencia.html">Transparência</a>
         <a href="ouvidoria.html">Ouvidoria</a>
@@ -947,7 +1168,7 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
     <div class="foot__bottom">
       <p>© 2020–2026 Klini Planos de Saúde Ltda. · CNPJ 34.539.000/0001-86 · Barra da Tijuca, Rio de Janeiro, RJ</p>
       <div class="seals">
-        <span class="seal">ANS Reg. 42.000.2085</span>
+        <span class="seal ans-badge">ANS – Nº 42.202-9</span>
         <span class="seal">LGPD</span>
       </div>
     </div>
@@ -1166,6 +1387,22 @@ window.addEventListener('load', () => {
       scrollTrigger: { trigger: '.trust', start: 'top 88%', once: true }
     }
   );
+
+  // Farm logo cards staggered entrance
+  gsap.fromTo('.farm__logo-card.gs',
+    { opacity: 0, y: 28, scale: .88 },
+    { opacity: 1, y: 0, scale: 1, stagger: .07, duration: .65, ease: 'back.out(1.5)',
+      scrollTrigger: { trigger: '.farm__logo-grid', start: 'top 86%', once: true }
+    }
+  );
+
+  // Phone mockup: zoom entrance — scale only (opacity via container .gs)
+  gsap.fromTo('.tele__img',
+    { scale: .72 },
+    { scale: 1, duration: 1.2, ease: 'power4.out',
+      scrollTrigger: { trigger: '#teleconsulta', start: 'top 68%', once: true }
+    }
+  );
 });
 
 /* ── Counter animation ───────────────────────────────── */
@@ -1207,6 +1444,38 @@ function submitLead(e) {
   );
   window.open(`https://wa.me/552130550790?text=${msg}`, '_blank', 'noopener,noreferrer');
 }
+
+/* ── Hospital Carousel ────────────────────────────────── */
+(function(){
+  var track = document.getElementById('casaTrack');
+  var dotsWrap = document.getElementById('casaDots');
+  if (!track || !dotsWrap) return;
+  var slides = track.querySelectorAll('.casa-carousel__slide');
+  var idx = 0, timer;
+  slides.forEach(function(_,i){
+    var d = document.createElement('button');
+    d.className = 'casa-dot' + (i===0?' active':'');
+    d.setAttribute('aria-label','Hospital ' + (i+1));
+    d.addEventListener('click', function(){ go(i); });
+    dotsWrap.appendChild(d);
+  });
+  function go(n){
+    idx = ((n % slides.length) + slides.length) % slides.length;
+    track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+    dotsWrap.querySelectorAll('.casa-dot').forEach(function(d,i){
+      d.classList.toggle('active', i===idx);
+    });
+  }
+  window.slideCasa = function(dir){ clearTimeout(timer); go(idx + dir); autoPlay(); };
+  function autoPlay(){ timer = setTimeout(function(){ go(idx+1); autoPlay(); }, 5200); }
+  autoPlay();
+  var sx = 0;
+  track.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX; },{passive:true});
+  track.addEventListener('touchend', function(e){
+    var dx = e.changedTouches[0].clientX - sx;
+    if (Math.abs(dx) > 40) window.slideCasa(dx > 0 ? -1 : 1);
+  },{passive:true});
+})();
 
 /* ── Smooth anchors ──────────────────────────────────── */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
