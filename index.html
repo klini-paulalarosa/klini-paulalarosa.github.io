@@ -64,14 +64,45 @@ a{text-decoration:none;color:inherit}
 .btn-outline:hover{border-color:var(--teal);background:rgba(37,149,145,.06)}
 
 /* ── TOP BAR ─────────────────────────────────────────────────── */
-.bar{position:fixed;top:0;width:100%;z-index:900;padding:16px 0;transition:padding .3s,background .3s,box-shadow .3s}
-.bar.solid{background:rgba(6,25,23,.96);backdrop-filter:blur(20px);padding:10px 0;box-shadow:0 1px 0 var(--bd-d)}
-.bar__inner{display:flex;align-items:center;justify-content:space-between}
-.bar__logo img{height:30px;width:auto;display:block}
-.bar__right{display:flex;align-items:center;gap:16px}
-.bar__phone{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,.55);font-size:.84rem}
-.bar__phone a{color:inherit;transition:color .2s}
-.bar__phone a:hover{color:var(--teal)}
+.bar{position:fixed;top:0;width:100%;z-index:900;padding:11px 0;transition:all .3s}
+.bar.solid{background:#fff;box-shadow:0 1px 0 var(--bd-l)}
+.bar__inner{display:flex;align-items:center;gap:20px;max-width:1200px;margin:0 auto;padding:0 24px}
+.bar__logo{flex-shrink:0}
+.bar__logo img{height:32px;width:auto;display:block}
+/* Nav */
+.bar__nav{display:flex;align-items:center;gap:2px;flex:1;justify-content:center}
+.nav__item{position:relative}
+.nav__link{display:inline-flex;align-items:center;gap:5px;padding:8px 13px;border-radius:8px;font-size:.84rem;font-weight:600;color:rgba(255,255,255,.85);cursor:pointer;transition:color .2s,background .2s;white-space:nowrap;text-decoration:none;font-family:'Objective',sans-serif}
+.bar.solid .nav__link{color:var(--text)}
+.nav__link:hover,.bar.solid .nav__link:hover{color:var(--teal)}
+.nav__chev{font-size:.52rem;transition:transform .22s;margin-top:1px}
+.nav__item--drop:hover .nav__chev{transform:rotate(180deg)}
+.nav__drop{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%) translateY(-6px);background:#fff;border:1px solid var(--bd-l);border-radius:12px;padding:7px;min-width:188px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;box-shadow:0 16px 40px rgba(4,42,38,.1);z-index:10}
+.nav__item--drop:hover .nav__drop{opacity:1;pointer-events:all;transform:translateX(-50%) translateY(0)}
+.nav__drop a{display:block;padding:9px 13px;border-radius:8px;font-size:.83rem;color:var(--text);transition:background .2s,color .2s;white-space:nowrap;font-family:'Objective',sans-serif;font-weight:500}
+.nav__drop a:hover{background:rgba(37,149,145,.08);color:var(--teal)}
+/* CTAs */
+.bar__ctas{display:flex;align-items:center;gap:9px;flex-shrink:0}
+.btn-klini{display:inline-flex;align-items:center;gap:7px;background:var(--coral);color:#fff;font-weight:700;font-size:.83rem;padding:10px 19px;border-radius:8px;transition:all .22s;white-space:nowrap;letter-spacing:-.01em;font-family:'Objective',sans-serif}
+.btn-klini:hover{background:#c94445;transform:translateY(-1px);box-shadow:0 8px 24px rgba(224,87,89,.3)}
+.btn-area{display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--orange);color:rgba(255,255,255,.8);font-weight:600;font-size:.83rem;padding:9px 17px;border-radius:8px;transition:all .22s;white-space:nowrap;font-family:'Objective',sans-serif}
+.bar.solid .btn-area{color:var(--orange)}
+.btn-area:hover{background:rgba(205,121,37,.1);color:var(--orange)}
+/* Hamburger */
+.bar__hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;margin-left:auto}
+.bar__hamburger span{display:block;width:22px;height:2px;background:rgba(255,255,255,.8);border-radius:1px;transition:all .2s}
+.bar.solid .bar__hamburger span{background:var(--text)}
+/* Mobile nav */
+@media(max-width:900px){
+  .bar__nav{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:1px solid var(--bd-l);padding:12px 24px;flex-direction:column;align-items:flex-start;gap:4px}
+  .bar__nav.open{display:flex}
+  .bar__hamburger{display:flex}
+  .bar__ctas .btn-area{display:none}
+  .nav__link{color:var(--text);width:100%}
+  .nav__drop{position:static;transform:none;box-shadow:none;border:none;background:rgba(37,149,145,.05);opacity:1;pointer-events:all;display:none;padding:4px 0 4px 14px}
+  .nav__item--drop.open .nav__drop{display:block}
+  .nav__item--drop.open .nav__chev{transform:rotate(180deg)}
+}
 
 /* ── HERO ────────────────────────────────────────────────────── */
 .hero{position:relative;min-height:100vh;background:linear-gradient(140deg,var(--ink) 0%,#0C2520 55%,var(--ink) 100%);display:flex;align-items:center;padding:120px 0 80px;overflow:hidden}
@@ -102,15 +133,6 @@ a{text-decoration:none;color:inherit}
 .hero__cta-btn:hover{background:#b86e1f;transform:translateY(-2px);box-shadow:0 14px 36px rgba(205,121,37,.45)}
 .hero__cta-note{font-size:.7rem;color:rgba(255,255,255,.3);text-align:center;display:flex;align-items:center;justify-content:center;gap:5px}
 
-/* ── TRUST STRIP ─────────────────────────────────────────────── */
-.trust{padding:34px 0;border-bottom:1px solid var(--bd-l)}
-.trust__row{display:flex;align-items:center;justify-content:space-around;flex-wrap:wrap;gap:20px}
-.trust__item{display:flex;align-items:center;gap:11px}
-.trust__n{font-family:'Objective',sans-serif;font-weight:800;font-size:1.65rem;color:var(--teal);line-height:1}
-.trust__n em{font-style:normal;color:var(--teal)}
-.trust__lbl{font-size:.76rem;color:var(--muted);line-height:1.4}
-.trust__div{width:1px;height:38px;background:var(--bd-l)}
-.trust__logo{height:38px;object-fit:contain}
 
 /* ── PLANS ───────────────────────────────────────────────────── */
 .plans__track{display:grid;grid-template-columns:repeat(6,276px);gap:18px;overflow-x:auto;padding-bottom:18px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--teal) var(--off)}
@@ -152,8 +174,8 @@ a{text-decoration:none;color:inherit}
 .tele__steps{display:flex;flex-direction:column;gap:26px;margin-top:38px}
 .tele__step{display:flex;gap:18px;align-items:flex-start}
 .tele__num{width:46px;height:46px;border-radius:12px;background:rgba(37,149,145,.1);border:1px solid rgba(37,149,145,.22);display:flex;align-items:center;justify-content:center;font-family:'Objective',sans-serif;font-weight:800;font-size:1.05rem;color:var(--teal);flex-shrink:0}
-.tele__step strong{display:block;color:#fff;font-weight:600;font-size:.94rem;margin-bottom:3px}
-.tele__step span{font-size:.82rem;color:rgba(255,255,255,.45)}
+.tele__step strong{display:block;color:var(--text);font-weight:600;font-size:.94rem;margin-bottom:3px}
+.tele__step span{font-size:.82rem;color:var(--muted)}
 .tele__side{position:relative;display:flex;justify-content:flex-end}
 .tele__glow{position:absolute;width:320px;height:320px;background:radial-gradient(var(--teal-dim),transparent 70%);top:-80px;right:-60px;pointer-events:none}
 .tele__img{width:300px;border-radius:26px;box-shadow:0 40px 80px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.07);position:relative;z-index:1}
@@ -181,19 +203,19 @@ a{text-decoration:none;color:inherit}
 .farm__step span{font-size:.82rem;color:var(--muted)}
 
 /* ── LINHAS DE CUIDADO ───────────────────────────────────────── */
-.mv{background:linear-gradient(145deg,var(--ink2),#091F1D);padding:100px 0;color:#fff}
+.mv{background:#EAF8F7;padding:100px 0}
 .mv__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:56px}
-.mv__card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:28px;text-align:center;transition:all .3s}
+.mv__card{background:#fff;border:1px solid var(--bd-l);border-radius:20px;padding:28px;text-align:center;transition:all .3s}
 .mv__card:hover{background:rgba(37,149,145,.07);border-color:rgba(37,149,145,.28);transform:translateY(-4px)}
-.mv__card h4{font-family:'Objective',sans-serif;font-weight:700;font-size:.98rem;margin-bottom:6px}
-.mv__card p{font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.65}
+.mv__card h4{font-family:'Objective',sans-serif;font-weight:700;font-size:.98rem;margin-bottom:6px;color:var(--text)}
+.mv__card p{font-size:.82rem;color:var(--muted);line-height:1.65}
 .ldc__icon{width:54px;height:54px;border-radius:16px;background:linear-gradient(135deg,rgba(37,149,145,.22),rgba(37,149,145,.07));border:1px solid rgba(37,149,145,.22);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:var(--teal);font-size:1.35rem;transition:all .3s}
 .mv__card:hover .ldc__icon{background:rgba(37,149,145,.3);border-color:rgba(37,149,145,.5);transform:scale(1.08)}
 .ldc__tags{font-size:.66rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--teal);opacity:.8;display:block;margin-bottom:10px}
-.ldc__entry{margin-top:44px;background:rgba(37,149,145,.06);border:1px solid rgba(37,149,145,.18);border-radius:20px;padding:28px 32px;display:flex;align-items:flex-start;gap:20px}
+.ldc__entry{margin-top:44px;background:rgba(37,149,145,.08);border:1px solid rgba(37,149,145,.22);border-radius:20px;padding:28px 32px;display:flex;align-items:flex-start;gap:20px}
 .ldc__entry-icon{width:46px;height:46px;border-radius:13px;background:rgba(37,149,145,.14);border:1px solid rgba(37,149,145,.25);display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:1.2rem;flex-shrink:0;margin-top:2px}
-.ldc__entry h4{font-family:'Objective',sans-serif;font-weight:700;font-size:.96rem;color:#fff;margin-bottom:6px}
-.ldc__entry p{font-size:.83rem;color:rgba(255,255,255,.42);line-height:1.7;margin:0}
+.ldc__entry h4{font-family:'Objective',sans-serif;font-weight:700;font-size:.96rem;color:var(--text);margin-bottom:6px}
+.ldc__entry p{font-size:.83rem;color:var(--muted);line-height:1.7;margin:0}
 
 /* ── FAQ ─────────────────────────────────────────────────────── */
 /* ── CTA FINAL ───────────────────────────────────────────────── */
@@ -245,21 +267,6 @@ footer{background:#030F0E;color:rgba(255,255,255,.38);padding:48px 0 28px}
 .step h3{font-size:1.05rem;font-weight:700;margin-bottom:10px}
 .step p{font-size:.88rem;color:var(--muted);line-height:1.75}
 
-/* ── SEÇÃO PROBLEMA ──────────────────────────────────────────── */
-.compare{display:grid;grid-template-columns:1fr 52px 1fr;gap:20px;align-items:center;max-width:880px;margin:56px auto 0}
-.compare__col{border-radius:20px;padding:32px 28px}
-.compare__col--bad{background:rgba(224,87,89,.04);border:1.5px solid rgba(224,87,89,.14)}
-.compare__col--good{background:linear-gradient(145deg,rgba(37,149,145,.06),rgba(106,167,174,.04));border:1.5px solid rgba(37,149,145,.24)}
-.compare__head{font-weight:800;font-size:.74rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:20px}
-.compare__col--bad .compare__head{color:var(--coral)}
-.compare__col--good .compare__head{color:var(--teal)}
-.compare__col ul{list-style:none;display:flex;flex-direction:column;gap:13px}
-.compare__col li{display:flex;align-items:flex-start;gap:10px;font-size:.9rem;line-height:1.5}
-.compare__col--bad li{color:var(--muted)}
-.compare__col--bad li i{color:var(--coral);margin-top:3px;flex-shrink:0;font-size:.82rem}
-.compare__col--good li{color:var(--text);font-weight:500}
-.compare__col--good li i{color:var(--teal);margin-top:3px;flex-shrink:0;font-size:.82rem}
-.compare__vs{text-align:center;font-weight:800;font-size:1.3rem;color:var(--muted);opacity:.3;letter-spacing:.05em}
 
 /* ── BRAND ARCS — Semicírculos do guia de marca Klini ──────── */
 .kln-arcs{position:absolute;top:0;right:0;height:100%;width:auto;pointer-events:none;z-index:1}
@@ -331,7 +338,6 @@ footer{background:#030F0E;color:rgba(255,255,255,.38);padding:48px 0 28px}
   .bar__phone,.bar__right .btn-ghost{display:none}
   .sec{padding:70px 0}
   .diffs{grid-template-columns:1fr}
-  .trust__div{display:none}
   .tele__img{width:240px}
   .foot__top{flex-direction:column;gap:18px;text-align:center}
   .foot__links{justify-content:center}
@@ -346,8 +352,6 @@ footer{background:#030F0E;color:rgba(255,255,255,.38);padding:48px 0 28px}
 @media(max-width:768px){
   .steps{grid-template-columns:1fr;gap:28px}
   .steps::before{display:none}
-  .compare{grid-template-columns:1fr;gap:14px}
-  .compare__vs{display:none}
 }
   </style>
 </head>
@@ -355,19 +359,40 @@ footer{background:#030F0E;color:rgba(255,255,255,.38);padding:48px 0 28px}
 
 <!-- ══ TOP BAR ═══════════════════════════════════════════════════ -->
 <header class="bar" id="bar">
-  <div class="wrap bar__inner">
-    <a href="#" class="bar__logo">
+  <div class="bar__inner">
+    <a href="index.html" class="bar__logo">
       <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/logo-header.webp" alt="Klini Saúde" loading="eager" />
     </a>
-    <div class="bar__right">
-      <div class="bar__phone">
-        <i class="pi pi-phone" style="font-size:.82rem"></i>
-        <a href="tel:08000210320">0800 021 0320</a>
+
+    <nav class="bar__nav" id="barNav">
+      <div class="nav__item nav__item--drop">
+        <span class="nav__link">Sobre a Klini <i class="pi pi-chevron-down nav__chev"></i></span>
+        <div class="nav__drop">
+          <a href="sobre.html">Nossa História</a>
+          <a href="transparencia.html">Transparência</a>
+          <a href="ouvidoria.html">Ouvidoria</a>
+        </div>
       </div>
-      <a href="https://wa.me/552130550790?text=Olá!%20Gostaria%20de%20conhecer%20os%20planos%20Klini%20Saúde." class="btn btn-ghost" style="padding:9px 20px;font-size:.84rem" target="_blank" rel="noopener">
-        <i class="pi pi-whatsapp"></i> WhatsApp
-      </a>
+      <div class="nav__item nav__item--drop">
+        <span class="nav__link">Rede Credenciada <i class="pi pi-chevron-down nav__chev"></i></span>
+        <div class="nav__drop">
+          <a href="rede-credenciada.html">Prestadores Credenciados</a>
+          <a href="unidades.html">Centros Médicos Klini</a>
+        </div>
+      </div>
+      <a href="unidades.html" class="nav__link nav__item">Nossas Unidades</a>
+      <a href="planos.html" class="nav__link nav__item">Planos</a>
+      <a href="teleconsulta.html" class="nav__link nav__item">Teleconsulta</a>
+    </nav>
+
+    <div class="bar__ctas">
+      <a href="https://site-dev.klinisaude.com.br/planos/#cotacao" class="btn-klini" target="_blank" rel="noopener">Quero ser Klini</a>
+      <a href="https://app.klinisaude.com.br" class="btn-area" target="_blank" rel="noopener"><i class="pi pi-user"></i> Acesse sua área</a>
     </div>
+
+    <button class="bar__hamburger" id="barHamb" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
@@ -392,10 +417,10 @@ footer{background:#030F0E;color:rgba(255,255,255,.38);padding:48px 0 28px}
     </defs>
     <!-- C-arc coral grande — centro (230,270), r=190 → top(230,80) bottom(230,460) -->
     <path d="M 230 80 A 190 190 0 0 0 230 460"
-          fill="none" stroke="url(#kln-h1)" stroke-width="42" stroke-linecap="round"/>
+          fill="none" stroke="url(#kln-h1)" stroke-width="42" stroke-linecap="square"/>
     <!-- C-arc teal menor — centro (230,270), r=118 → top(230,152) bottom(230,388) -->
     <path d="M 230 152 A 118 118 0 0 0 230 388"
-          fill="none" stroke="url(#kln-h2)" stroke-width="26" stroke-linecap="round"/>
+          fill="none" stroke="url(#kln-h2)" stroke-width="26" stroke-linecap="square"/>
   </svg>
 
   <div class="wrap">
@@ -445,32 +470,6 @@ footer{background:#030F0E;color:rgba(255,255,255,.38);padding:48px 0 28px}
   </div>
 </section>
 
-<!-- ══ TRUST STRIP ════════════════════════════════════════════════ -->
-<div class="trust">
-  <div class="wrap">
-    <div class="trust__row">
-      <div class="trust__item gs">
-        <div class="trust__n"><span class="ct" data-t="15">0</span></div>
-        <div class="trust__lbl">unidades<br>próprias RJ</div>
-      </div>
-      <div class="trust__div"></div>
-      <div class="trust__item gs">
-        <div class="trust__n"><span class="ct" data-t="6">0</span></div>
-        <div class="trust__lbl">opções<br>de plano</div>
-      </div>
-      <div class="trust__div"></div>
-      <div class="trust__item gs">
-        <div class="trust__n">24<em>h</em></div>
-        <div class="trust__lbl">telemedicina<br>disponível</div>
-      </div>
-      <div class="trust__div"></div>
-      <div class="trust__item gs">
-        <div class="trust__n"><span class="ct" data-t="7">0</span></div>
-        <div class="trust__lbl">redes de<br>farmácias</div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- ══ COMO FUNCIONA ════════════════════════════════════════════════ -->
 <section class="sec sec--off" id="como-funciona">
@@ -627,7 +626,7 @@ footer{background:#030F0E;color:rgba(255,255,255,.38);padding:48px 0 28px}
     </defs>
     <!-- C-arc teal — centro (170,200), r=155 → top(170,45) bottom(170,355) -->
     <path d="M 170 45 A 155 155 0 0 0 170 355"
-          fill="none" stroke="url(#kln-d1)" stroke-width="34" stroke-linecap="round"/>
+          fill="none" stroke="url(#kln-d1)" stroke-width="34" stroke-linecap="square"/>
   </svg>
 
     <div style="margin-bottom:60px;position:relative;z-index:1">
@@ -665,10 +664,10 @@ footer{background:#030F0E;color:rgba(255,255,255,.38);padding:48px 0 28px}
     <!-- C-arc teal abertura para a ESQUERDA (mirror): sweep=1 = CW = vai pelo lado direito -->
     <!-- Centro (170,250), r=185 → top(170,65) bottom(170,435) -->
     <path d="M 170 65 A 185 185 0 0 1 170 435"
-          fill="none" stroke="url(#kln-c1)" stroke-width="38" stroke-linecap="round"/>
+          fill="none" stroke="url(#kln-c1)" stroke-width="38" stroke-linecap="square"/>
     <!-- C-arc menor — r=108 → top(170,142) bottom(170,358) -->
     <path d="M 170 142 A 108 108 0 0 1 170 358"
-          fill="none" stroke="url(#kln-c2)" stroke-width="22" stroke-linecap="round"/>
+          fill="none" stroke="url(#kln-c2)" stroke-width="22" stroke-linecap="square"/>
   </svg>
 
   <div class="wrap" style="position:relative;z-index:1">
@@ -854,50 +853,15 @@ footer{background:#030F0E;color:rgba(255,255,255,.38);padding:48px 0 28px}
   </div>
 </section>
 
-<!-- ══ PROBLEMA / SOLUÇÃO ═══════════════════════════════════════════ -->
-<section class="sec" id="por-que-klini">
-  <div class="wrap">
-    <div style="text-align:center;margin-bottom:16px">
-      <p class="eyebrow gs">por que klini?</p>
-      <h2 class="h2 gs">Plano de saúde não precisa<br>ser um pesadelo.</h2>
-      <p class="gs" style="color:var(--muted);margin-top:12px;font-size:1.05rem;max-width:500px;margin-left:auto;margin-right:auto">Sabemos o que você enfrenta com outros planos. Construímos a Klini para ser diferente.</p>
-    </div>
-    <div class="compare">
-      <div class="compare__col compare__col--bad gs">
-        <div class="compare__head"><i class="pi pi-times-circle"></i> Planos comuns</div>
-        <ul>
-          <li><i class="pi pi-times"></i>Rede pequena, longe de você</li>
-          <li><i class="pi pi-times"></i>Autorização demorada e burocrática</li>
-          <li><i class="pi pi-times"></i>Atendimento robótico, sem nome</li>
-          <li><i class="pi pi-times"></i>App que trava ou não funciona</li>
-          <li><i class="pi pi-times"></i>Desconto em farmácia só no papel</li>
-          <li><i class="pi pi-times"></i>Reajuste que surpreende todo ano</li>
-        </ul>
-      </div>
-      <div class="compare__vs gs">vs</div>
-      <div class="compare__col compare__col--good gs">
-        <div class="compare__head"><i class="pi pi-check-circle"></i> Klini Saúde</div>
-        <ul>
-          <li><i class="pi pi-check"></i>15 centros médicos próprios no RJ</li>
-          <li><i class="pi pi-check"></i>Resposta e autorização em até 24h</li>
-          <li><i class="pi pi-check"></i>Time dedicado — você é reconhecido pelo nome</li>
-          <li><i class="pi pi-check"></i>App completo com token digital e teleconsulta</li>
-          <li><i class="pi pi-check"></i>7 redes de farmácias com desconto automático</li>
-          <li><i class="pi pi-check"></i>Transparência total nas regras de reajuste</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ══ TELECONSULTA ════════════════════════════════════════════════ -->
-<section class="sec sec--dark" id="teleconsulta">
+<section class="sec sec--off" id="teleconsulta">
   <div class="wrap">
     <div class="tele">
       <div class="gs">
         <p class="eyebrow">teleconsulta klini</p>
-        <h2 class="h2" style="color:#fff;margin-top:10px">Atendimento médico<br>onde você estiver</h2>
-        <p style="color:rgba(255,255,255,.5);font-size:1.05rem;margin-top:12px">Disponível 24h por dia, 7 dias por semana, inclusive feriados. Receitas, atestados e pedidos de exame emitidos digitalmente com validade legal.</p>
+        <h2 class="h2" style="color:var(--text);margin-top:10px">Atendimento médico<br>onde você estiver</h2>
+        <p style="color:var(--muted);font-size:1.05rem;margin-top:12px">Disponível 24h por dia, 7 dias por semana, inclusive feriados. Receitas, atestados e pedidos de exame emitidos digitalmente com validade legal.</p>
         <div class="tele__steps">
           <div class="tele__step">
             <div class="tele__num">1</div>
@@ -1021,7 +985,7 @@ footer{background:#030F0E;color:rgba(255,255,255,.38);padding:48px 0 28px}
   <div class="wrap">
     <p class="eyebrow gs">linhas de cuidado</p>
     <h2 class="h2 gs">Cuidado contínuo para cada<br>momento da sua vida</h2>
-    <p class="gs" style="color:rgba(255,255,255,.5);margin-top:12px;font-size:1.05rem;max-width:580px">Programas estruturados com enfermagem especializada, acompanhamento longitudinal e coordenação de cuidado — inclusos nos planos Família e Empresa.</p>
+    <p class="gs" style="color:var(--muted);margin-top:12px;font-size:1.05rem;max-width:580px">Programas estruturados com enfermagem especializada, acompanhamento longitudinal e coordenação de cuidado — inclusos nos planos Família e Empresa.</p>
 
     <div class="mv__grid">
 
@@ -1086,10 +1050,10 @@ footer{background:#030F0E;color:rgba(255,255,255,.38);padding:48px 0 28px}
     </defs>
     <!-- C-arc coral maior — centro (200,240), r=178 → top(200,62) bottom(200,418) -->
     <path d="M 200 62 A 178 178 0 0 0 200 418"
-          fill="none" stroke="url(#kln-cta1)" stroke-width="40" stroke-linecap="round"/>
+          fill="none" stroke="url(#kln-cta1)" stroke-width="40" stroke-linecap="square"/>
     <!-- C-arc coral menor — r=106 → top(200,134) bottom(200,346) -->
     <path d="M 200 134 A 106 106 0 0 0 200 346"
-          fill="none" stroke="url(#kln-cta2)" stroke-width="22" stroke-linecap="round"/>
+          fill="none" stroke="url(#kln-cta2)" stroke-width="22" stroke-linecap="square"/>
   </svg>
 
   <div class="wrap">
@@ -1170,6 +1134,16 @@ const bar = document.getElementById('bar');
 window.addEventListener('scroll', () =>
   bar.classList.toggle('solid', scrollY > 50), { passive: true });
 
+/* ── Mobile nav hamburger ─────────────────────────── */
+const barHamb = document.getElementById('barHamb');
+const barNav  = document.getElementById('barNav');
+if (barHamb && barNav) {
+  barHamb.addEventListener('click', () => barNav.classList.toggle('open'));
+  barNav.querySelectorAll('.nav__item--drop .nav__link').forEach(btn => {
+    btn.addEventListener('click', () => btn.closest('.nav__item--drop').classList.toggle('open'));
+  });
+}
+
 /* ── GSAP + ScrollTrigger ────────────────────────────── */
 if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -1235,14 +1209,6 @@ window.addEventListener('load', () => {
     { y: 36 },
     { y: -36, ease: 'none',
       scrollTrigger: { trigger: '.tele', start: 'top bottom', end: 'bottom top', scrub: 1 }
-    }
-  );
-
-  // Trust items
-  gsap.fromTo('.trust__item.gs, .trust__div',
-    { opacity: 0, y: 20 },
-    { opacity: 1, y: 0, stagger: .07, duration: .6, ease: 'power2.out',
-      scrollTrigger: { trigger: '.trust', start: 'top 88%', once: true }
     }
   );
 
