@@ -184,15 +184,20 @@ a{text-decoration:none;color:inherit}
 .farm__step strong{display:block;font-size:.92rem;font-weight:600;margin-bottom:3px}
 .farm__step span{font-size:.82rem;color:var(--muted)}
 
-/* ── MAIS VIDA ───────────────────────────────────────────────── */
+/* ── LINHAS DE CUIDADO ───────────────────────────────────────── */
 .mv{background:linear-gradient(145deg,var(--ink2),#091A30);padding:100px 0;color:#fff}
 .mv__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:56px}
 .mv__card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:28px;text-align:center;transition:all .3s}
 .mv__card:hover{background:rgba(37,149,145,.07);border-color:rgba(37,149,145,.28);transform:translateY(-4px)}
-.mv__card img{width:60px;height:60px;margin:0 auto 16px;object-fit:contain}
-.mv__card h4{font-family:'Objective',sans-serif;font-weight:700;font-size:.98rem;margin-bottom:8px}
+.mv__card h4{font-family:'Objective',sans-serif;font-weight:700;font-size:.98rem;margin-bottom:6px}
 .mv__card p{font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.65}
-.mv__logo{height:36px;margin-bottom:14px;filter:brightness(3) saturate(0)}
+.ldc__icon{width:54px;height:54px;border-radius:16px;background:linear-gradient(135deg,rgba(37,149,145,.22),rgba(37,149,145,.07));border:1px solid rgba(37,149,145,.22);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:var(--teal);font-size:1.35rem;transition:all .3s}
+.mv__card:hover .ldc__icon{background:rgba(37,149,145,.3);border-color:rgba(37,149,145,.5);transform:scale(1.08)}
+.ldc__tags{font-size:.66rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--teal);opacity:.8;display:block;margin-bottom:10px}
+.ldc__entry{margin-top:44px;background:rgba(37,149,145,.06);border:1px solid rgba(37,149,145,.18);border-radius:20px;padding:28px 32px;display:flex;align-items:flex-start;gap:20px}
+.ldc__entry-icon{width:46px;height:46px;border-radius:13px;background:rgba(37,149,145,.14);border:1px solid rgba(37,149,145,.25);display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:1.2rem;flex-shrink:0;margin-top:2px}
+.ldc__entry h4{font-family:'Objective',sans-serif;font-weight:700;font-size:.96rem;color:#fff;margin-bottom:6px}
+.ldc__entry p{font-size:.83rem;color:rgba(255,255,255,.42);line-height:1.7;margin:0}
 
 /* ── FAQ ─────────────────────────────────────────────────────── */
 /* ── CTA FINAL ───────────────────────────────────────────────── */
@@ -338,6 +343,7 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
 }
 @media(max-width:480px){
   .mv__grid{grid-template-columns:1fr}
+  .ldc__entry{flex-direction:column;gap:14px;padding:22px 20px}
   .cta-contacts{flex-direction:column;align-items:center;gap:12px}
   .farm__logos{grid-template-columns:1fr 1fr}
 }
@@ -493,7 +499,7 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
       <div class="step gs">
         <div class="step__num">03</div>
         <h3 class="h3">Saúde no dia a dia</h3>
-        <p>App com teleconsulta 24h, rede própria na palma da mão e acompanhamento pelo Programa Mais Vida — tudo incluso no plano.</p>
+        <p>App com teleconsulta 24h, rede própria na palma da mão e acompanhamento pelas Linhas de Cuidado — tudo incluso no plano.</p>
       </div>
     </div>
   </div>
@@ -505,7 +511,7 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
     <div style="margin-bottom:56px">
       <p class="eyebrow gs">nossos planos</p>
       <h2 class="h2 gs">O plano certo para cada<br>momento da vida</h2>
-      <p class="gs" style="color:var(--muted);margin-top:12px;font-size:1.05rem">Do essencial ao completo — todos com telemedicina 24h e medicina preventiva inclusos.</p>
+      <p class="gs" style="color:var(--muted);margin-top:12px;font-size:1.05rem">Do essencial ao completo — todos com telemedicina 24h inclusos.</p>
     </div>
     <div class="plans__track">
 
@@ -623,7 +629,7 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
       <div class="diff gs"><div class="diff__big">24h</div><h3 class="h3">Telemedicina Sempre Disponível</h3><p>Consulte especialistas a qualquer hora, inclusive feriados. Plataforma integrada ao plano — clínica geral, pediatria, ginecologia, psiquiatria e mais.</p></div>
       <div class="diff gs"><div class="diff__big">7</div><h3 class="h3">Redes de Farmácias Parceiras</h3><p>Drogasil, Droga Raia, Drogarias Pacheco, Drogaria São Paulo, Drogaria Venâncio, Drogasmil e Farmalife. Desconto automático só com CPF.</p></div>
       <div class="diff gs"><div class="diff__big">✦</div><h3 class="h3">Rede Hospitalar Casa</h3><p>Parceria com a Rede Casa para internações e cirurgias complexas. Mais de 1.000 leitos disponíveis em todo o estado do Rio de Janeiro.</p></div>
-      <div class="diff gs"><div class="diff__big">✦</div><h3 class="h3">Medicina Preventiva Mais Vida</h3><p>Acompanhamento contínuo multiprofissional, programas de prevenção e promoção de qualidade de vida — incluso em todos os planos.</p></div>
+      <div class="diff gs"><div class="diff__big">✦</div><h3 class="h3">Linhas de Cuidado</h3><p>Programas estruturados para crônicos, gestantes, puericultura e oncologia — com enfermagem especializada e coordenação contínua.</p></div>
       <div class="diff gs"><div class="diff__big">✦</div><h3 class="h3">App com Token Digital</h3><p>Carteirinha digital, agendamento online, resultados de exames, busca de rede e token de autenticação — tudo no aplicativo Klini Saúde.</p></div>
     </div>
   </div>
@@ -994,35 +1000,54 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
   </div>
 </section>
 
-<!-- ══ MEDICINA PREVENTIVA ════════════════════════════════════════ -->
-<section class="mv" id="preventiva">
+<!-- ══ LINHAS DE CUIDADO ════════════════════════════════════════ -->
+<section class="mv" id="linhas-cuidado">
   <div class="wrap">
-    <p class="eyebrow gs">programa mais vida</p>
-    <img src="https://klinisaude.com.br/wp-content/uploads/2024/05/logo-medicina-preventiva-horizontal2.svg" alt="Medicina Preventiva Klini" class="mv__logo gs" loading="lazy" />
-    <h2 class="h2 gs">Cuidar é mais do que tratar —<br>é prevenir</h2>
-    <p class="gs" style="color:rgba(255,255,255,.5);margin-top:12px;font-size:1.05rem;max-width:500px">Acompanhamento contínuo para você viver mais e melhor, com qualidade de vida em todas as fases.</p>
+    <p class="eyebrow gs">linhas de cuidado</p>
+    <h2 class="h2 gs">Cuidado contínuo para cada<br>momento da sua vida</h2>
+    <p class="gs" style="color:rgba(255,255,255,.5);margin-top:12px;font-size:1.05rem;max-width:580px">Programas estruturados com enfermagem especializada, acompanhamento longitudinal e coordenação de cuidado — inclusos nos planos Família e Empresa.</p>
+
     <div class="mv__grid">
+
       <div class="mv__card gs">
-        <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/1-MAISVIDA.svg" alt="Acompanhamento" loading="lazy" />
-        <h4>Acompanhamento</h4>
-        <p>Monitoramento contínuo da sua saúde por equipe multiprofissional dedicada.</p>
+        <div class="ldc__icon"><i class="pi pi-chart-line"></i></div>
+        <h4>Crônicos</h4>
+        <span class="ldc__tags">HAS · Diabetes · Obesidade · Renal Crônico</span>
+        <p>Monitoramento contínuo, educação em saúde e plano de cuidado individualizado para prevenção de complicações.</p>
       </div>
+
       <div class="mv__card gs">
-        <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/2-MAISVIDA.svg" alt="Prevenção" loading="lazy" />
-        <h4>Prevenção</h4>
-        <p>Programas preventivos para evitar doenças crônicas e detectar problemas cedo.</p>
+        <div class="ldc__icon"><i class="pi pi-heart"></i></div>
+        <h4>Gestantes</h4>
+        <span class="ldc__tags">Pré-natal · Obstetrícia · Puerpério</span>
+        <p>Acompanhamento por médicos obstetras e enfermeira obstetra durante todo o pré-natal e preparação para o parto.</p>
       </div>
+
       <div class="mv__card gs">
-        <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/3-MAISVIDA.svg" alt="Qualidade de Vida" loading="lazy" />
-        <h4>Qualidade de Vida</h4>
-        <p>Apoio nutricional, psicológico e de bem-estar para uma vida equilibrada.</p>
+        <div class="ldc__icon"><i class="pi pi-star-fill"></i></div>
+        <h4>Puericultura</h4>
+        <span class="ldc__tags">0 a 2 anos</span>
+        <p>Crescimento e desenvolvimento saudável com orientação familiar e identificação precoce de riscos na infância.</p>
       </div>
+
       <div class="mv__card gs">
-        <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/5-MAISVIDA.svg" alt="Cuidado Humanizado" loading="lazy" />
-        <h4>Cuidado Humanizado</h4>
-        <p>Atendimento que coloca você no centro — respeito, empatia e escuta ativa.</p>
+        <div class="ldc__icon"><i class="pi pi-shield"></i></div>
+        <h4>Oncologia</h4>
+        <span class="ldc__tags">Diagnóstico · Acompanhamento</span>
+        <p>Captação ativa e acompanhamento longitudinal por Enfermeiro Oncológico Especializado para diagnóstico confirmado ou em investigação.</p>
+      </div>
+
+    </div>
+
+    <!-- Porta de entrada -->
+    <div class="ldc__entry gs">
+      <div class="ldc__entry-icon"><i class="pi pi-building"></i></div>
+      <div>
+        <h4>Consultório de Enfermagem — Porta de Entrada</h4>
+        <p>Todo paciente com doença crônica ou em investigação oncológica é encaminhado para avaliação de elegibilidade, estratificação de risco e inserção na linha de cuidado adequada — com coordenação contínua por enfermagem especializada.</p>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -1301,11 +1326,18 @@ window.addEventListener('load', () => {
     }
   );
 
-  // Mais Vida cards
+  // Linhas de Cuidado cards
   gsap.fromTo('.mv__card.gs',
     { opacity: 0, y: 40, scale: .9 },
     { opacity: 1, y: 0, scale: 1, stagger: .1, duration: .8, ease: 'back.out(1.4)',
       scrollTrigger: { trigger: '.mv__grid', start: 'top 82%', once: true }
+    }
+  );
+  // Linhas de Cuidado entry banner
+  gsap.fromTo('.ldc__entry.gs',
+    { opacity: 0, y: 30 },
+    { opacity: 1, y: 0, duration: .7, ease: 'power3.out',
+      scrollTrigger: { trigger: '.ldc__entry', start: 'top 88%', once: true }
     }
   );
 
