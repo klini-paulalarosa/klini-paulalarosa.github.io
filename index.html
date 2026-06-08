@@ -97,17 +97,15 @@ a{text-decoration:none;color:inherit}
 /* Hero Form */
 .hero__card{background:rgba(255,255,255,.045);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.1);border-radius:28px;padding:40px;position:relative;overflow:hidden}
 .hero__card::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(var(--teal-dim),transparent 70%);pointer-events:none}
-.form-ttl{font-family:'Objective',sans-serif;font-weight:700;font-size:1.3rem;color:#fff;margin-bottom:6px}
-.form-sub{font-size:.82rem;color:rgba(255,255,255,.42);margin-bottom:28px;line-height:1.6}
-.fld{margin-bottom:14px}
-.fld label{display:block;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:6px}
-.fld input,.fld select{width:100%;padding:13px 16px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-s);color:#fff;font-size:.94rem;font-family:'Objective',sans-serif;outline:none;appearance:none;transition:border-color .2s,background .2s}
-.fld input::placeholder{color:rgba(255,255,255,.28)}
-.fld input:focus,.fld select:focus{border-color:var(--teal);background:rgba(37,149,145,.08)}
-.fld select option{background:var(--ink2);color:#fff}
-.form-btn{width:100%;padding:15px;font-size:1rem;font-weight:700;font-family:'Objective',sans-serif;background:var(--orange);color:#fff;border:none;border-radius:var(--r-s);cursor:pointer;margin-top:18px;transition:all .25s;display:flex;align-items:center;justify-content:center;gap:8px}
-.form-btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(205,121,37,.42)}
-.form-note{text-align:center;font-size:.73rem;color:rgba(255,255,255,.25);margin-top:10px}
+/* ── HERO CTA CARD ──────────────────────────────────── */
+.hero__cta-eyebrow{font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
+.hero__cta-ttl{font-family:'Objective',sans-serif;font-weight:800;font-size:1.2rem;color:#fff;margin-bottom:18px;letter-spacing:-.02em;line-height:1.3}
+.hero__cta-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:26px}
+.hero__cta-list li{display:flex;align-items:center;gap:10px;font-size:.87rem;color:rgba(255,255,255,.7);line-height:1.4}
+.hero__cta-list li i{color:var(--teal);font-size:.72rem;background:rgba(37,149,145,.14);border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.hero__cta-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--orange);color:#fff;font-weight:700;font-size:.96rem;padding:15px 24px;border-radius:50px;text-decoration:none;transition:all .22s;margin-bottom:12px;font-family:'Objective',sans-serif;letter-spacing:-.01em;width:100%}
+.hero__cta-btn:hover{background:#b86e1f;transform:translateY(-2px);box-shadow:0 14px 36px rgba(205,121,37,.45)}
+.hero__cta-note{font-size:.7rem;color:rgba(255,255,255,.3);text-align:center;display:flex;align-items:center;justify-content:center;gap:5px}
 
 /* ── TRUST STRIP ─────────────────────────────────────────────── */
 .trust{padding:34px 0;border-bottom:1px solid var(--bd-l)}
@@ -197,16 +195,7 @@ a{text-decoration:none;color:inherit}
 .mv__logo{height:36px;margin-bottom:14px;filter:brightness(3) saturate(0)}
 
 /* ── FAQ ─────────────────────────────────────────────────────── */
-.faq__list{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
-.faq__item{background:var(--off);border:1.5px solid var(--bd-l);border-radius:14px;overflow:hidden;transition:border-color .2s}
-.faq__item.open{border-color:var(--teal)}
-.faq__q{width:100%;background:none;border:none;padding:20px 22px;text-align:left;font-size:.96rem;font-weight:600;color:var(--text);cursor:pointer;font-family:'Objective',sans-serif;display:flex;justify-content:space-between;align-items:center;gap:14px}
-.faq__q:hover{color:var(--teal)}
-.faq__ico{width:27px;height:27px;background:var(--bd-l);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--teal);flex-shrink:0;transition:transform .3s,background .2s}
-.faq__item.open .faq__ico{transform:rotate(45deg);background:var(--teal);color:#fff}
-.faq__a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .2s;padding:0 22px}
-.faq__a.open{max-height:220px;padding:0 22px 18px}
-.faq__a p{font-size:.92rem;line-height:1.75;color:var(--muted)}
+/* ── CTA FINAL ───────────────────────────────────────────────── */
 
 /* ── CTA FINAL ───────────────────────────────────────────────── */
 .cta-sec{background:var(--ink);padding:100px 0;text-align:center;position:relative;overflow:hidden}
@@ -214,7 +203,9 @@ a{text-decoration:none;color:inherit}
 .cta-sec .wrap{position:relative;z-index:2}
 .cta-sec h2{color:#fff;margin-bottom:14px}
 .cta-sec > .wrap > p{color:rgba(255,255,255,.5);font-size:1.05rem;max-width:480px;margin:0 auto 48px}
-.cta-form{max-width:540px;margin:0 auto;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:34px}
+.cta-action{margin:0 auto 8px}
+.cta-main-btn{display:inline-flex;align-items:center;gap:10px;background:var(--orange);color:#fff;font-weight:800;font-size:1.05rem;padding:16px 38px;border-radius:50px;text-decoration:none;transition:all .25s;font-family:'Objective',sans-serif;letter-spacing:-.01em}
+.cta-main-btn:hover{background:#b86e1f;transform:translateY(-3px);box-shadow:0 18px 44px rgba(205,121,37,.5)}
 .cta-contacts{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin-top:32px}
 .cta-contacts a{display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.45);font-size:.86rem;transition:color .2s}
 .cta-contacts a:hover{color:var(--teal)}
@@ -419,46 +410,34 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
           Saúde completa<br>com <span class="grad">rede própria</span><br>no Rio de Janeiro
         </h1>
         <p class="hero__sub gs">
-          Cotação gratuita em 2 minutos, sem compromisso.<br>
-          15 unidades próprias, telemedicina 24h e 6 planos para cada momento da vida.
+          Plano de saúde com rede própria, telemedicina 24h<br>
+          e 6 opções para cada momento da vida. Simule grátis.
         </p>
         <div class="hero__proof gs">
-          <div class="hero__badge">
-            <img src="https://klinisaude.com.br/wp-content/uploads/2023/02/ans.png" alt="ANS" />
-            ANS aprovado
-          </div>
-          <div class="hero__badge"><i class="pi pi-star-fill" style="color:var(--orange)"></i> 15 unidades próprias</div>
+          <div class="hero__badge"><i class="pi pi-star-fill" style="color:var(--orange)"></i> 15 unidades próprias no RJ</div>
           <div class="hero__badge"><i class="pi pi-heart" style="color:var(--teal)"></i> Telemedicina 24h</div>
+          <div class="hero__badge"><i class="pi pi-building" style="color:var(--sea)"></i> Rede Hospitalar própria</div>
         </div>
       </div>
 
-      <!-- Form card -->
-      <div class="hero__card gs" id="cotacao">
-        <div class="form-ttl">Cotação Gratuita</div>
-        <p class="form-sub">Preencha em 1 minuto — um especialista entra em contato pelo WhatsApp</p>
-        <form onsubmit="submitLead(event)">
-          <div class="fld">
-            <label>Seu nome</label>
-            <input type="text" name="nome" placeholder="Como posso te chamar?" required autocomplete="given-name" />
-          </div>
-          <div class="fld">
-            <label>WhatsApp</label>
-            <input type="tel" name="phone" placeholder="(21) 9 0000-0000" required autocomplete="tel" />
-          </div>
-          <div class="fld">
-            <label>Tipo de plano</label>
-            <select name="type" required>
-              <option value="" disabled selected>Selecione o tipo</option>
-              <option>Individual</option>
-              <option>Familiar</option>
-              <option>Empresarial / PME</option>
-              <option>MEI</option>
-              <option>Sênior (50+)</option>
-            </select>
-          </div>
-          <button class="form-btn" type="submit">Quero minha cotação gratuita <i class="pi pi-arrow-right"></i></button>
-          <p class="form-note"><i class="pi pi-lock"></i> Protegido pela LGPD · Sem spam</p>
-        </form>
+      <!-- CTA Card -->
+      <div class="hero__card gs">
+        <div class="hero__cta-eyebrow">Cotação Gratuita &amp; Sem Compromisso</div>
+        <h3 class="hero__cta-ttl">Encontre o plano ideal<br>para você e sua família</h3>
+        <ul class="hero__cta-list">
+          <li><i class="pi pi-check"></i> 6 opções de plano — individual, familiar, empresarial</li>
+          <li><i class="pi pi-check"></i> 10 centros médicos próprios no RJ</li>
+          <li><i class="pi pi-check"></i> Telemedicina 24h inclusa em todos os planos</li>
+          <li><i class="pi pi-check"></i> Desconto em 7 redes de farmácias</li>
+          <li><i class="pi pi-check"></i> Rede Hospitalar Casa para internações e UTI</li>
+        </ul>
+        <a href="https://site-dev.klinisaude.com.br/planos/#cotacao"
+           class="hero__cta-btn" target="_blank" rel="noopener">
+          Simular planos gratuitamente <i class="pi pi-arrow-right"></i>
+        </a>
+        <p class="hero__cta-note">
+          <i class="pi pi-lock"></i> Dados protegidos pela LGPD · Resposta via WhatsApp
+        </p>
       </div>
 
     </div>
@@ -488,10 +467,6 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
         <div class="trust__n"><span class="ct" data-t="7">0</span></div>
         <div class="trust__lbl">redes de<br>farmácias</div>
       </div>
-      <div class="trust__div"></div>
-      <div class="trust__item gs">
-        <img src="https://klinisaude.com.br/wp-content/uploads/2023/02/ans.png" alt="ANS" class="trust__logo" />
-      </div>
     </div>
   </div>
 </div>
@@ -501,14 +476,14 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
   <div class="wrap">
     <div style="text-align:center;margin-bottom:60px">
       <p class="eyebrow gs">processo simples</p>
-      <h2 class="h2 gs">Da cotação à saúde protegida<br>em 3 passos</h2>
+      <h2 class="h2 gs">Da simulação à saúde protegida<br>em 3 passos</h2>
       <p class="gs" style="color:var(--muted);margin-top:12px;font-size:1.05rem">Sem burocracia, sem papelada — da proposta à carteirinha em dias.</p>
     </div>
     <div class="steps">
       <div class="step gs">
         <div class="step__num">01</div>
         <h3 class="h3">Simule o plano</h3>
-        <p>Preencha o formulário em 1 minuto. Nosso especialista monta a proposta ideal para você, sua família ou empresa — sem compromisso.</p>
+        <p>Acesse a página de planos e simule em segundos. Nosso especialista monta a proposta ideal para você, sua família ou empresa — sem compromisso.</p>
       </div>
       <div class="step gs">
         <div class="step__num">02</div>
@@ -1051,37 +1026,6 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
   </div>
 </section>
 
-<!-- ══ FAQ ══════════════════════════════════════════════════════════ -->
-<section class="sec sec--off" id="faq">
-  <div class="wrap">
-    <div style="text-align:center;margin-bottom:52px">
-      <p class="eyebrow gs">dúvidas frequentes</p>
-      <h2 class="h2 gs">Respondemos<br>suas dúvidas</h2>
-    </div>
-    <div class="faq__list gs">
-      <div class="faq__item">
-        <button class="faq__q" onclick="toggleFaq(this)">Como funciona a carência dos planos Klini?<span class="faq__ico">+</span></button>
-        <div class="faq__a"><p>Seguindo a ANS: urgência/emergência em 24h, consultas e exames em 30 dias, internações em 180 dias e partos em 300 dias. Em promoções especiais as carências podem ser reduzidas — consulte nosso especialista.</p></div>
-      </div>
-      <div class="faq__item">
-        <button class="faq__q" onclick="toggleFaq(this)">Posso incluir dependentes no plano?<span class="faq__ico">+</span></button>
-        <div class="faq__a"><p>Sim. Cônjuge, filhos e dependentes podem ser incluídos. O valor de cada dependente é proporcional à faixa etária. Peça uma simulação para sua família — sem compromisso.</p></div>
-      </div>
-      <div class="faq__item">
-        <button class="faq__q" onclick="toggleFaq(this)">Os planos cobrem consultas, exames e cirurgias?<span class="faq__ico">+</span></button>
-        <div class="faq__a"><p>Sim. Todos os planos cobrem o Rol de Procedimentos da ANS — consultas, exames laboratoriais e de imagem, procedimentos cirúrgicos e internações conforme a modalidade contratada.</p></div>
-      </div>
-      <div class="faq__item">
-        <button class="faq__q" onclick="toggleFaq(this)">Como funciona a rede credenciada?<span class="faq__ico">+</span></button>
-        <div class="faq__a"><p>A Klini tem 15 unidades próprias no RJ mais a Rede Hospitalar Casa e centenas de clínicas e laboratórios credenciados. Consulte tudo pelo app com mapa e filtro por especialidade.</p></div>
-      </div>
-      <div class="faq__item">
-        <button class="faq__q" onclick="toggleFaq(this)">Posso contratar como pessoa física (individual)?<span class="faq__ico">+</span></button>
-        <div class="faq__a"><p>Sim. A Klini oferece planos individuais, familiares e por adesão para pessoas físicas, além de planos empresariais para MEI, PME e grandes empresas.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ══ CTA FINAL ════════════════════════════════════════════════════ -->
 <section class="cta-sec" id="cta">
@@ -1110,22 +1054,15 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
   <div class="wrap">
     <p class="eyebrow gs">pronto para começar?</p>
     <h2 class="h2 gs">Proteja sua saúde e<br>da sua família hoje</h2>
-    <p class="gs">Preenchimento em 1 minuto. Sem burocracia, sem compromisso.</p>
-    <div class="cta-form gs">
-      <form onsubmit="submitLead(event)">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
-          <div class="fld" style="margin:0"><label>Nome</label><input type="text" name="nome" placeholder="Seu nome" required /></div>
-          <div class="fld" style="margin:0"><label>WhatsApp</label><input type="tel" name="phone" placeholder="(21) 9 0000-0000" required /></div>
-        </div>
-        <div class="fld"><label>Tipo de plano</label>
-          <select name="type" required>
-            <option value="" disabled selected>Selecione</option>
-            <option>Individual</option><option>Familiar</option>
-            <option>Empresarial / PME</option><option>MEI</option><option>Sênior (50+)</option>
-          </select>
-        </div>
-        <button class="form-btn" type="submit">Quero minha cotação gratuita <i class="pi pi-arrow-right"></i></button>
-      </form>
+    <p class="gs">Sem burocracia. Nosso especialista monta a proposta e entra em contato pelo WhatsApp.</p>
+    <div class="cta-action gs" style="margin-top:40px;margin-bottom:8px">
+      <a href="https://site-dev.klinisaude.com.br/planos/#cotacao"
+         class="cta-main-btn" target="_blank" rel="noopener">
+        <i class="pi pi-clipboard"></i> Simular planos gratuitamente
+      </a>
+      <p style="color:rgba(255,255,255,.3);font-size:.78rem;margin-top:12px;text-align:center">
+        <i class="pi pi-shield" style="color:var(--teal)"></i> Protegido pela LGPD · Sem compromisso
+      </p>
     </div>
     <div class="cta-contacts gs">
       <a href="tel:08000210320"><i class="pi pi-phone"></i> SAC 24h · 0800 021 0320</a>
@@ -1168,7 +1105,7 @@ footer{background:#030508;color:rgba(255,255,255,.38);padding:48px 0 28px}
     <div class="foot__bottom">
       <p>© 2020–2026 Klini Planos de Saúde Ltda. · CNPJ 34.539.000/0001-86 · Barra da Tijuca, Rio de Janeiro, RJ</p>
       <div class="seals">
-        <span class="seal ans-badge">ANS – Nº 42.202-9</span>
+        <span class="seal ans-badge"><img src="https://klinisaude.com.br/wp-content/uploads/2023/02/ans.png" alt="ANS" style="height:13px;filter:brightness(0) invert(1);vertical-align:middle;margin-right:6px;opacity:.85" />Nº 42.202-9</span>
         <span class="seal">LGPD</span>
       </div>
     </div>
@@ -1422,28 +1359,6 @@ const cObs = new IntersectionObserver(entries => {
 }, { threshold: .5 });
 document.querySelectorAll('.ct').forEach(el => cObs.observe(el));
 
-/* ── FAQ accordion ───────────────────────────────────── */
-function toggleFaq(btn) {
-  const it = btn.closest('.faq__item'), ans = it.querySelector('.faq__a');
-  const isOpen = it.classList.contains('open');
-  document.querySelectorAll('.faq__item.open').forEach(el => {
-    el.classList.remove('open'); el.querySelector('.faq__a').classList.remove('open');
-  });
-  if (!isOpen) { it.classList.add('open'); ans.classList.add('open'); }
-}
-
-/* ── Lead form → WhatsApp ────────────────────────────── */
-function submitLead(e) {
-  e.preventDefault();
-  const fd   = new FormData(e.target);
-  const nome  = fd.get('nome')  || '';
-  const phone = fd.get('phone') || '';
-  const type  = fd.get('type')  || '';
-  const msg = encodeURIComponent(
-    `Olá! Me chamo ${nome}. Tenho interesse em um plano ${type}. Meu WhatsApp: ${phone}`
-  );
-  window.open(`https://wa.me/552130550790?text=${msg}`, '_blank', 'noopener,noreferrer');
-}
 
 /* ── Hospital Carousel ────────────────────────────────── */
 (function(){
