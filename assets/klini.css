@@ -1,0 +1,139 @@
+/* ============================================================
+   Klini — DS compartilhado (header, footer, tokens, tipografia)
+   Usado por todas as páginas internas para manter consistência
+   com a home/landing. Alinhado ao guia de marca (DS).
+   ============================================================ */
+
+/* ── OBJECTIVE (fonte primária do DS) ── */
+@font-face{font-family:'Objective';src:url('https://brenosousaf13.github.io/klini/fonts/Objective/Objective_Woff2/Objective-Regular.woff2')format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Objective';src:url('https://brenosousaf13.github.io/klini/fonts/Objective/Objective_Woff2/Objective-Medium.woff2')format('woff2');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Objective';src:url('https://brenosousaf13.github.io/klini/fonts/Objective/Objective_Woff2/Objective-Bold.woff2')format('woff2');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Objective';src:url('https://brenosousaf13.github.io/klini/fonts/Objective/Objective_Woff2/Objective-ExtraBold.woff2')format('woff2');font-weight:800;font-style:normal;font-display:swap}
+
+/* ── TOKENS — paleta exata do DS ── */
+:root{
+  --ink:#111111; --ink2:#1C1C1E;
+  --teal:#259591; --teal-dim:rgba(37,149,145,.22);
+  --sea:#6AA7AE;  --sea-dim:rgba(106,167,174,.22);
+  --orange:#CD7925; --coral:#E05759;
+  --white:#fff; --off:#F5F9FF;
+  --text:#333333; --muted:#666666;
+  --bd-d:rgba(255,255,255,.08); --bd-l:rgba(4,42,38,.08);
+  --r:16px; --r-s:10px;
+  --grad-cool:linear-gradient(135deg,#259591,#6AA7AE);
+  --grad-warm:linear-gradient(135deg,#CD7925,#E05759);
+  --grad-brand:linear-gradient(90deg,#259591,#6AA7AE,#CD7925,#E05759);
+  --grad-soft:linear-gradient(180deg,#E1EDEF,#FFFFFF);
+}
+
+/* ── RESET / BASE ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:'Objective',sans-serif;color:var(--text);background:#fff;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-thumb{background:var(--teal);border-radius:2px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.sec{padding:96px 0}
+.sec--off{background-color:var(--off);background-image:radial-gradient(rgba(37,149,145,.06) 1.1px,transparent 1.1px);background-size:26px 26px}
+
+/* ── TIPOGRAFIA — Objective em títulos/UI, Merriweather no corpo ── */
+.h1{font-family:'Objective',sans-serif;font-weight:800;font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.04;letter-spacing:-.035em;color:var(--muted)}
+.h1 strong{font-weight:800;color:var(--teal)}
+.h2{font-family:'Objective',sans-serif;font-weight:400;font-size:clamp(1.7rem,3.6vw,2.7rem);line-height:1.08;letter-spacing:-.03em;color:var(--muted)}
+.h2 strong{font-weight:800;color:var(--teal)}
+.h3{font-family:'Objective',sans-serif;font-weight:700;font-size:1.12rem;color:var(--text)}
+.eyebrow{font-family:'Objective',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:10px}
+.grad{background:var(--grad-cool);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+p{font-family:'Merriweather',Georgia,serif;line-height:1.75}
+
+/* ── BOTÕES ── */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:50px;font-weight:700;font-size:.95rem;cursor:pointer;transition:all .22s ease;text-decoration:none;border:none;white-space:nowrap;font-family:'Objective',sans-serif}
+.btn-teal{background:var(--grad-warm);color:#fff}
+.btn-teal:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(205,121,37,.45)}
+.btn-ghost{background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.28);color:#fff}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.12)}
+.btn-outline{background:transparent;border:1.5px solid var(--bd-l);color:var(--teal)}
+.btn-outline:hover{border-color:var(--teal);background:rgba(37,149,145,.06)}
+
+/* ── TOP BAR (igual à home) ── */
+.bar{position:fixed;top:0;width:100%;z-index:900;padding:11px 0;transition:all .3s;border-top:3px solid;border-image:var(--grad-brand) 1}
+.bar.solid{background:#fff;box-shadow:0 1px 0 var(--bd-l)}
+.bar__inner{display:flex;align-items:center;gap:20px;max-width:1200px;margin:0 auto;padding:0 24px}
+.bar__logo{flex-shrink:0}
+.bar__logo img{height:32px;width:auto;display:block;transition:filter .3s}
+.bar:not(.solid) .bar__logo img{filter:brightness(0) invert(1)}
+.bar__nav{display:flex;align-items:center;gap:2px;flex:1;justify-content:center}
+.nav__item{position:relative}
+.nav__link{display:inline-flex;align-items:center;gap:5px;padding:8px 13px;border-radius:8px;font-size:.84rem;font-weight:600;color:rgba(255,255,255,.85);cursor:pointer;transition:color .2s,background .2s;white-space:nowrap;text-decoration:none;font-family:'Objective',sans-serif}
+.bar.solid .nav__link{color:var(--text)}
+.nav__link:hover,.bar.solid .nav__link:hover{color:var(--teal)}
+.nav__chev{font-size:.52rem;transition:transform .22s;margin-top:1px}
+.nav__item--drop:hover .nav__chev{transform:rotate(180deg)}
+.nav__drop{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%) translateY(-6px);background:#fff;border:1px solid var(--bd-l);border-radius:12px;padding:7px;min-width:188px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;box-shadow:0 16px 40px rgba(4,42,38,.1);z-index:10}
+.nav__item--drop:hover .nav__drop{opacity:1;pointer-events:all;transform:translateX(-50%) translateY(0)}
+.nav__drop a{display:block;padding:9px 13px;border-radius:8px;font-size:.83rem;color:var(--text);transition:background .2s,color .2s;white-space:nowrap;font-family:'Objective',sans-serif;font-weight:500}
+.nav__drop a:hover{background:rgba(37,149,145,.08);color:var(--teal)}
+.bar__ctas{display:flex;align-items:center;gap:9px;flex-shrink:0}
+.btn-klini{display:inline-flex;align-items:center;gap:7px;background:var(--coral);color:#fff;font-weight:700;font-size:.83rem;padding:10px 19px;border-radius:8px;transition:all .22s;white-space:nowrap;letter-spacing:-.01em;font-family:'Objective',sans-serif}
+.btn-klini:hover{background:#c94445;transform:translateY(-1px);box-shadow:0 8px 24px rgba(224,87,89,.3)}
+.btn-area{display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--orange);color:rgba(255,255,255,.8);font-weight:600;font-size:.83rem;padding:9px 17px;border-radius:8px;transition:all .22s;white-space:nowrap;font-family:'Objective',sans-serif}
+.bar.solid .btn-area{color:var(--orange)}
+.btn-area:hover{background:rgba(205,121,37,.1);color:var(--orange)}
+.bar__hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;margin-left:auto}
+.bar__hamburger span{display:block;width:22px;height:2px;background:rgba(255,255,255,.8);border-radius:1px;transition:all .2s}
+.bar.solid .bar__hamburger span{background:var(--text)}
+@media(max-width:900px){
+  .bar__nav{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:1px solid var(--bd-l);padding:12px 24px;flex-direction:column;align-items:flex-start;gap:4px}
+  .bar__nav.open{display:flex}
+  .bar__hamburger{display:flex}
+  .bar__ctas .btn-area{display:none}
+  .nav__link{color:var(--text);width:100%}
+  .nav__drop{position:static;transform:none;box-shadow:none;border:none;background:rgba(37,149,145,.05);opacity:1;pointer-events:all;display:none;padding:4px 0 4px 14px}
+  .nav__item--drop.open .nav__drop{display:block}
+  .nav__item--drop.open .nav__chev{transform:rotate(180deg)}
+}
+
+/* ── PAGE HERO (verde, igual ao hero da home) ── */
+.page-hero{position:relative;background:var(--grad-cool);padding:168px 0 100px;overflow:hidden}
+.page-hero::before{content:'';position:absolute;top:-15%;right:-8%;width:680px;height:680px;border-radius:50%;background:radial-gradient(ellipse,rgba(255,255,255,.14) 0%,transparent 62%);pointer-events:none}
+.page-hero .wrap{position:relative;z-index:2;max-width:820px}
+.page-hero .eyebrow{color:rgba(255,255,255,.85)}
+.page-hero h1{color:#fff;margin-bottom:16px}
+.page-hero h1 strong{color:#FFE0B5}
+.page-hero p{color:rgba(255,255,255,.9);font-size:1.05rem;line-height:1.8;max-width:600px;font-family:'Merriweather',Georgia,serif}
+/* divisor em arco do hero */
+.page-hero__divider{position:absolute;left:0;right:0;bottom:-1px;width:100%;line-height:0;z-index:3;pointer-events:none}
+.page-hero__divider svg{display:block;width:100%;height:clamp(36px,5vw,64px)}
+
+/* ── FOOTER (igual à home, com arco + 4 cores) ── */
+footer{background:#fff;color:var(--muted);padding:52px 0 28px;position:relative}
+.foot-arc{position:absolute;left:0;bottom:100%;width:100%;height:54px;margin-bottom:-1px;line-height:0;pointer-events:none}
+.foot-arc svg{display:block;width:100%;height:100%}
+.foot__top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;padding-bottom:28px;border-bottom:1px solid var(--bd-l);margin-bottom:28px}
+.foot__brand p{font-size:.82rem;color:var(--muted);margin-top:14px;max-width:250px;line-height:1.6}
+.foot__logo img,.foot__brand img{height:44px}
+.foot__links{display:flex;gap:22px;flex-wrap:wrap}
+.foot__links a{font-size:.8rem;color:var(--muted);transition:color .2s;display:inline-block;padding:5px 2px}
+.foot__links a:hover{color:var(--teal)}
+.foot__socials{display:flex;gap:9px}
+.foot__apps{display:flex;gap:8px;align-items:center;margin-top:10px}
+.foot__app-btn{height:30px;opacity:.7;transition:opacity .2s;display:block}
+.foot__app-btn:hover{opacity:1}
+.soc{width:40px;height:40px;background:var(--off);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:all .2s;color:var(--muted);text-decoration:none}
+.soc:hover{background:var(--teal);color:#fff;transform:translateY(-2px)}
+.foot__bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.75rem;color:var(--muted)}
+.seals{display:flex;gap:8px}
+.seal{background:var(--off);border-radius:6px;padding:4px 10px;font-size:.68rem;font-weight:700;letter-spacing:.04em;color:var(--text)}
+.ans-badge{background:#0A0A0A;color:#fff;border:1px solid #2A2A2A;font-weight:800;letter-spacing:.03em;font-size:.67rem}
+@media(max-width:768px){.foot__top{flex-direction:column;gap:18px;text-align:center}.foot__links{justify-content:center}.foot__bottom{flex-direction:column;text-align:center}}
+
+/* ── WHATSAPP FLUTUANTE ── */
+.wa-f{position:fixed;bottom:28px;right:28px;z-index:950;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.wa-tip{background:#fff;border-radius:10px;padding:7px 14px;font-size:.79rem;font-weight:600;color:var(--text);box-shadow:0 8px 24px rgba(0,0,0,.12);white-space:nowrap;opacity:0;transform:translateX(6px);transition:all .25s;pointer-events:none}
+.wa-f:hover .wa-tip{opacity:1;transform:none}
+.wa-btn{width:57px;height:57px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;box-shadow:0 8px 24px rgba(37,211,102,.44);text-decoration:none;animation:wab 3s ease-in-out infinite}
+@keyframes wab{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+.wa-btn:hover{background:#1da851;animation:none;transform:scale(1.12)!important}
+@media(prefers-reduced-motion:reduce){.wa-btn{animation:none}}
