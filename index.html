@@ -438,11 +438,12 @@ footer{background:#fff;color:var(--muted);padding:52px 0 28px;position:relative}
 .tele__notif span{font-size:.63rem;color:var(--muted)}
 .tele__notif-ico{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.78rem;flex-shrink:0}
 /* posicionados na borda esquerda do mockup, com pouca sobreposição */
-.tele__notif--1{top:21%;left:-30px}
-.tele__notif--2{top:50%;left:-46px}
-.tele__notif--3{top:80%;left:-22px}
-@media(max-width:1024px){.tele__notif{min-width:128px}.tele__notif--1{left:-16px}.tele__notif--2{left:-26px}.tele__notif--3{left:-12px}}
-@media(max-width:560px){.tele__notif{min-width:120px}.tele__notif--1{top:15%;left:-6px}.tele__notif--2{top:50%;left:-10px}.tele__notif--3{top:84%;left:-4px}}
+/* ancoradas pela direita: ficam à ESQUERDA do mockup, fora do conteúdo/logo */
+.tele__notif--1{top:14%;left:auto;right:calc(100% - 52px)}
+.tele__notif--2{top:46%;left:auto;right:calc(100% - 22px)}
+.tele__notif--3{top:78%;left:auto;right:calc(100% - 48px)}
+@media(max-width:1024px){.tele__notif{min-width:124px}.tele__notif--1{right:calc(100% - 40px)}.tele__notif--2{right:calc(100% - 14px)}.tele__notif--3{right:calc(100% - 36px)}}
+@media(max-width:560px){.tele__notif{min-width:108px}.tele__notif--1{top:3%;left:0;right:auto}.tele__notif--2{top:47%;left:0;right:auto}.tele__notif--3{top:91%;left:0;right:auto}}
 
 /* ── SCROLL REVEAL (html.sr via reveal.js) ──────────────────── */
 html.sr .gs{opacity:0!important;transform:translateY(22px);transition:opacity .55s cubic-bezier(.4,0,.2,1),transform .55s cubic-bezier(.4,0,.2,1)}
