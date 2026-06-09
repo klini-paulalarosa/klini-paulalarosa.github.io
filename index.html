@@ -21,13 +21,17 @@
 /* ── TOKENS — alinhado ao @klini-saude/ds v2 ─────────────────── */
 :root{
   --ink:#111111;  --ink2:#1C1C1E;                       /* fundos escuros — neutro */
-  --teal:#259591; --teal-dim:rgba(37,149,145,.22);     /* kln-color-teal-500  PANTONE 2461C */
-  --teal-d:#1C7470;                                     /* verde profundo p/ títulos */
-  --sea:#6AA7AE;  --sea-dim:rgba(106,167,174,.22);     /* kln-color-sea-500   PANTONE 549C  */
-  --orange:#CD7925;                                     /* kln-color-orange-500 PANTONE 7565C */
-  --coral:#E05759;                                      /* kln-color-coral-500  PANTONE 7625C */
+  --teal:#259591; --teal-dim:rgba(37,149,145,.22);     /* DS primária — verde */
+  --sea:#6AA7AE;  --sea-dim:rgba(106,167,174,.22);     /* DS primária — sea  */
+  --orange:#CD7925;                                     /* DS primária — laranja */
+  --coral:#E05759;                                      /* DS primária — coral */
   --white:#fff; --off:#F5F9FF;
-  --text:#1E2530; --muted:#666666;                      /* texto neutro (menos verde) */
+  --text:#333333; --muted:#666666;                      /* DS — texto / texto secundário */
+  /* Degradês oficiais da marca */
+  --grad-cool:linear-gradient(135deg,#259591,#6AA7AE);           /* verde → sea */
+  --grad-warm:linear-gradient(135deg,#CD7925,#E05759);           /* laranja → coral */
+  --grad-brand:linear-gradient(90deg,#259591,#6AA7AE,#CD7925,#E05759); /* 4 cores */
+  --grad-soft:linear-gradient(180deg,#E1EDEF,#FFFFFF);           /* verde claro → branco */
   --bd-d:rgba(255,255,255,.08); --bd-l:rgba(4,42,38,.08);
   --r:16px; --r-s:10px;
 }
@@ -44,7 +48,7 @@ a{text-decoration:none;color:inherit}
 /* ── TYPE ────────────────────────────────────────────────────── */
 .h1{font-family:'Objective',sans-serif;font-weight:800;font-size:clamp(3rem,6.8vw,5.8rem);line-height:.98;letter-spacing:-.045em}
 .h2{font-family:'Objective',sans-serif;font-weight:400;font-size:clamp(2.2rem,4.8vw,3.8rem);line-height:1.06;letter-spacing:-.035em;color:var(--text)}
-.h2 strong{font-weight:800;color:var(--teal-d)}
+.h2 strong{font-weight:800;color:var(--teal)}
 .h3{font-family:'Objective',sans-serif;font-weight:700;font-size:clamp(1.1rem,2vw,1.35rem)}
 .eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal)}
 .grad{background:linear-gradient(105deg,var(--teal),var(--sea));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -58,7 +62,7 @@ a{text-decoration:none;color:inherit}
 
 /* ── BUTTONS ─────────────────────────────────────────────────── */
 .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:50px;font-weight:700;font-size:.95rem;cursor:pointer;transition:all .22s ease;text-decoration:none;border:none;white-space:nowrap;font-family:'Objective',sans-serif}
-.btn-teal{background:var(--orange);color:#fff}
+.btn-teal{background:var(--grad-warm);color:#fff}
 .btn-teal:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(205,121,37,.45)}
 .btn-ghost{background:transparent;border:1.5px solid rgba(255,255,255,.28);color:#fff}
 .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
@@ -66,7 +70,7 @@ a{text-decoration:none;color:inherit}
 .btn-outline:hover{border-color:var(--teal);background:rgba(37,149,145,.06)}
 
 /* ── TOP BAR ─────────────────────────────────────────────────── */
-.bar{position:fixed;top:0;width:100%;z-index:900;padding:11px 0;transition:all .3s}
+.bar{position:fixed;top:0;width:100%;z-index:900;padding:11px 0;transition:all .3s;border-top:3px solid;border-image:var(--grad-brand) 1}
 .bar.solid{background:#fff;box-shadow:0 1px 0 var(--bd-l)}
 .bar__inner{display:flex;align-items:center;gap:20px;max-width:1200px;margin:0 auto;padding:0 24px}
 .bar__logo{flex-shrink:0}
@@ -108,7 +112,7 @@ a{text-decoration:none;color:inherit}
 }
 
 /* ── HERO ────────────────────────────────────────────────────── */
-.hero{position:relative;min-height:84vh;background:linear-gradient(140deg,var(--teal) 0%,#1d7470 55%,var(--sea) 100%);display:flex;align-items:center;padding:150px 0 110px;overflow:hidden}
+.hero{position:relative;min-height:84vh;background:linear-gradient(140deg,#259591 0%,#6AA7AE 100%);display:flex;align-items:center;padding:150px 0 110px;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-15%;right:-8%;width:760px;height:760px;border-radius:50%;background:radial-gradient(ellipse,rgba(255,255,255,.14) 0%,transparent 62%);animation:hero-float 14s ease-in-out infinite;pointer-events:none}
 .hero::after{content:'';position:absolute;bottom:-22%;left:-6%;width:560px;height:560px;border-radius:50%;background:radial-gradient(ellipse,rgba(255,255,255,.08) 0%,transparent 60%);animation:hero-float 20s ease-in-out infinite reverse;pointer-events:none}
 @keyframes hero-float{0%,100%{transform:translate(0,0)}33%{transform:translate(28px,-38px)}66%{transform:translate(-18px,22px)}}
@@ -146,7 +150,7 @@ a{text-decoration:none;color:inherit}
 .pc::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--teal-dim),transparent);opacity:0;transition:opacity .3s}
 .pc:hover{border-color:var(--teal);transform:translateY(-6px);box-shadow:0 24px 48px rgba(37,149,145,.1)}
 .pc:hover::before{opacity:1}
-.pc--feat{background:linear-gradient(150deg,var(--teal) 0%,#1a7a77 100%);border-color:rgba(37,149,145,.4);color:#fff;overflow:visible}
+.pc--feat{background:linear-gradient(150deg,#259591 0%,#6AA7AE 100%);border-color:rgba(37,149,145,.4);color:#fff;overflow:visible}
 .pc--feat:hover{box-shadow:0 24px 48px rgba(37,149,145,.3)}
 .pc__hot{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--orange);color:#fff;font-size:.66rem;font-weight:800;padding:5px 15px;border-radius:50px;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;box-shadow:0 8px 20px rgba(205,121,37,.42);z-index:5}
 .pc__img{height:76px;object-fit:contain;margin-bottom:18px}
@@ -199,7 +203,7 @@ a{text-decoration:none;color:inherit}
 .farm__step span{font-size:.82rem;color:var(--muted)}
 
 /* ── LINHAS DE CUIDADO ───────────────────────────────────────── */
-.mv{background:#EAF8F7;padding:100px 0}
+.mv{background:var(--grad-soft);padding:100px 0}
 .mv__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:56px}
 .mv__card{background:#fff;border:1px solid var(--bd-l);border-radius:20px;padding:28px;text-align:center;transition:all .3s}
 .mv__card:hover{background:rgba(37,149,145,.07);border-color:rgba(37,149,145,.28);transform:translateY(-4px)}
@@ -214,7 +218,7 @@ a{text-decoration:none;color:inherit}
 .ldc__entry p{font-size:.83rem;color:var(--muted);line-height:1.7;margin:0}
 
 /* ── FOOTER ──────────────────────────────────────────────────── */
-footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px solid var(--bd-l)}
+footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:3px solid;border-image:var(--grad-brand) 1}
 .foot__top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;padding-bottom:28px;border-bottom:1px solid var(--bd-l);margin-bottom:28px}
 .foot__logo img{height:26px;filter:none}
 .foot__links{display:flex;gap:22px;flex-wrap:wrap}
@@ -400,7 +404,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
 .marquee{overflow:hidden;padding:18px 0;border-top:1px solid var(--bd-l);border-bottom:1px solid var(--bd-l);-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
 .marquee__track{display:inline-flex;align-items:center;gap:30px;white-space:nowrap;animation:marquee-scroll 34s linear infinite}
 .marquee:hover .marquee__track{animation-play-state:paused}
-.marquee__item{font-family:'Objective',sans-serif;font-weight:700;font-size:1.02rem;color:var(--teal-d);letter-spacing:-.01em}
+.marquee__item{font-family:'Objective',sans-serif;font-weight:700;font-size:1.02rem;color:var(--teal);letter-spacing:-.01em}
 .marquee__dot{color:var(--orange);font-size:.7rem}
 @keyframes marquee-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
