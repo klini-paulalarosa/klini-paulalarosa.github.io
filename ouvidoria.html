@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Ouvidoria Klini Saúde — canal exclusivo para registrar reclamações, sugestões, elogios e denúncias não resolvidas pelos demais atendimentos. Resposta em até 7 dias úteis. ANS nº 42.202-9." />
+  <meta name="description" content="Ouvidoria Klini Saúde — canal independente e imparcial para registrar elogios, sugestões e reclamações, em conformidade com a ANS e o Código de Defesa do Consumidor." />
   <title>Ouvidoria | Klini Saúde</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,13 +11,19 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons@7.0.0/primeicons.css" />
   <link rel="stylesheet" href="assets/klini.css" />
   <style>
-    .ouv-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:54px}
-    .ouv-step{background:#fff;border:1.5px solid var(--bd-l);border-radius:16px;padding:24px;display:flex;gap:14px;align-items:flex-start}
-    .ouv-step__n{width:40px;height:40px;border-radius:11px;background:var(--grad-cool);color:#fff;font-family:'Objective',sans-serif;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-    .ouv-step strong{display:block;font-family:'Objective',sans-serif;font-size:.95rem;color:var(--text);margin-bottom:4px}
-    .ouv-step span{font-size:.84rem;color:var(--muted);line-height:1.6}
+    /* intro de conformidade */
+    .ouv-lead{max-width:760px;margin:0 auto;text-align:center}
+    .ouv-lead p{font-size:1.05rem;line-height:1.9;color:var(--muted)}
+    .ouv-lead p strong{color:var(--text);font-weight:700}
+    /* tipos de manifestação */
+    .ouv-types{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:46px}
+    .ouv-type{background:#fff;border:1.5px solid var(--bd-l);border-radius:18px;padding:28px 24px;text-align:center;transition:all .28s}
+    .ouv-type:hover{border-color:var(--teal);transform:translateY(-4px);box-shadow:0 18px 40px rgba(4,42,38,.08)}
+    .ouv-type__ico{width:54px;height:54px;border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin:0 auto 16px}
+    .ouv-type strong{display:block;font-family:'Objective',sans-serif;font-size:1.02rem;color:var(--text);margin-bottom:6px}
+    .ouv-type p{font-size:.86rem;color:var(--muted);line-height:1.65}
 
-    .ouv-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:42px;align-items:start}
+    .ouv-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:42px;align-items:start}
     /* formulário */
     .ouv-form{background:#fff;border:1.5px solid var(--bd-l);border-radius:22px;padding:34px;box-shadow:0 24px 60px rgba(4,42,38,.07)}
     .ouv-form h3{font-family:'Objective',sans-serif;font-size:1.15rem;color:var(--text);margin-bottom:4px}
@@ -30,30 +36,28 @@
     .ouv-field textarea{resize:vertical;min-height:110px;font-family:'Merriweather',Georgia,serif}
     .ouv-field select{-webkit-appearance:none;appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23637585' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;background-size:16px;padding-right:38px}
     .ouv-field input:focus,.ouv-field select:focus,.ouv-field textarea:focus{outline:none;border-color:var(--teal);background-color:#fff;box-shadow:0 0 0 3px rgba(37,149,145,.12)}
-    .ouv-form .btn{width:100%;justify-content:center;margin-top:4px}
-    .ouv-form__note{font-size:.74rem;color:var(--muted);text-align:center;margin-top:12px;font-family:'Objective',sans-serif}
+    /* anexo */
+    .ouv-file{display:flex;align-items:center;gap:12px;background:var(--off);border:1.5px dashed var(--bd-l);border-radius:11px;padding:12px 14px;cursor:pointer;transition:all .2s}
+    .ouv-file:hover{border-color:var(--teal);background:rgba(37,149,145,.04)}
+    .ouv-file i{color:var(--teal);font-size:1.1rem}
+    .ouv-file span{font-family:'Objective',sans-serif;font-size:.85rem;color:var(--muted)}
+    .ouv-file input{display:none}
+    .ouv-form .btn{width:100%;justify-content:center;margin-top:6px}
+    .ouv-form__note{font-size:.74rem;color:var(--muted);text-align:center;margin-top:12px;line-height:1.6}
+    .ouv-form__note a{color:var(--teal);font-weight:600}
+    /* SAC */
+    .ouv-aside{display:flex;flex-direction:column;gap:16px;position:sticky;top:96px}
+    .ouv-sac{background:var(--grad-cool);border-radius:18px;padding:28px;color:#fff}
+    .ouv-sac__ico{width:48px;height:48px;border-radius:13px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:16px}
+    .ouv-sac strong{display:block;font-family:'Objective',sans-serif;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:10px}
+    .ouv-sac a{display:block;font-family:'Objective',sans-serif;font-weight:800;font-size:1.4rem;color:#fff;line-height:1.5;transition:opacity .2s}
+    .ouv-sac a:hover{opacity:.85}
+    .ouv-hours{background:#fff;border:1.5px solid var(--bd-l);border-radius:16px;padding:20px 22px;display:flex;gap:12px;align-items:center}
+    .ouv-hours i{color:var(--teal);font-size:1.2rem}
+    .ouv-hours strong{font-family:'Objective',sans-serif;font-size:.9rem;color:var(--text);display:block}
+    .ouv-hours span{font-size:.82rem;color:var(--muted)}
 
-    /* canais */
-    .ouv-channels{display:flex;flex-direction:column;gap:14px}
-    .ch{background:#fff;border:1.5px solid var(--bd-l);border-radius:14px;padding:20px 22px;transition:all .25s;display:flex;gap:14px;align-items:flex-start}
-    .ch:hover{border-color:var(--teal)}
-    .ch__ico{width:42px;height:42px;border-radius:11px;background:rgba(37,149,145,.1);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:1.05rem;flex-shrink:0}
-    .ch strong{display:block;font-family:'Objective',sans-serif;font-size:.92rem;font-weight:700;color:var(--text);margin-bottom:3px}
-    .ch a,.ch span{display:block;font-size:.82rem;color:var(--muted);line-height:1.6;transition:color .2s}
-    .ch a:hover{color:var(--teal)}
-    .ouv-prazo{background:rgba(37,149,145,.06);border:1px solid rgba(37,149,145,.2);border-radius:14px;padding:18px 20px;display:flex;gap:12px;align-items:center}
-    .ouv-prazo i{font-size:1.3rem;color:var(--teal);flex-shrink:0}
-    .ouv-prazo strong{font-family:'Objective',sans-serif;font-size:.9rem;color:var(--text)}
-    .ouv-prazo span{font-size:.8rem;color:var(--muted)}
-
-    /* ANS box */
-    .ans-box{background:var(--off);border:1px solid var(--bd-l);border-radius:18px;padding:30px 32px;margin-top:48px;font-size:.92rem;line-height:1.85;color:var(--muted)}
-    .ans-box strong{color:var(--text)}
-    .ans-box a{color:var(--teal);font-weight:600}
-    .ans-box__head{display:flex;align-items:center;gap:10px;font-family:'Objective',sans-serif;font-weight:700;color:var(--text);font-size:1rem;margin-bottom:10px}
-    .ans-box__head i{color:var(--teal)}
-
-    @media(max-width:880px){.ouv-grid{grid-template-columns:1fr;gap:30px}.ouv-steps{grid-template-columns:1fr}}
+    @media(max-width:880px){.ouv-grid{grid-template-columns:1fr;gap:30px}.ouv-types{grid-template-columns:1fr}.ouv-aside{position:static}}
     @media(max-width:560px){.ouv-row{grid-template-columns:1fr}}
   </style>
 </head>
@@ -108,7 +112,7 @@
   <div class="wrap">
     <span class="eyebrow">ouvidoria</span>
     <h1 class="h1">Um canal exclusivo<br>para <strong>você ser ouvido</strong></h1>
-    <p>A Ouvidoria Klini registra sugestões, reclamações, elogios e denúncias que não foram resolvidas pelos demais canais de atendimento — com análise cuidadosa e resposta dentro do prazo regulatório.</p>
+    <p>Sua experiência importa. A Ouvidoria Klini é um canal independente e imparcial para você compartilhar elogios, sugestões e reclamações — e ajudar a Klini a cuidar cada vez melhor de você.</p>
   </div>
   <div class="page-hero__divider">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -117,19 +121,37 @@
   </div>
 </section>
 
-<!-- ══ COMO FUNCIONA ════════════════════════════════════════════════ -->
+<!-- ══ INTRO / CONFORMIDADE ═════════════════════════════════════════ -->
 <section class="sec">
   <div class="wrap">
-    <div style="text-align:center;margin-bottom:44px">
-      <span class="eyebrow">como funciona</span>
-      <h2 class="h2">Sua manifestação em <strong>3 passos</strong></h2>
+    <div class="ouv-lead">
+      <span class="eyebrow">um canal independente</span>
+      <h2 class="h2" style="margin:8px 0 18px">Aqui a sua voz <strong>tem espaço</strong></h2>
+      <p>A Ouvidoria Klini Saúde atua em conformidade com as normas da <strong>Agência Nacional de Saúde Suplementar (ANS)</strong> e do <strong>Código de Defesa do Consumidor</strong>. Oferecemos um canal independente e imparcial para que você compartilhe sua experiência conosco — seja um elogio, uma sugestão ou uma reclamação.</p>
     </div>
-    <div class="ouv-steps">
-      <div class="ouv-step"><div class="ouv-step__n">1</div><div><strong>Tente primeiro o atendimento</strong><span>A Ouvidoria atua quando o SAC ou o atendimento comum não resolveram sua demanda.</span></div></div>
-      <div class="ouv-step"><div class="ouv-step__n">2</div><div><strong>Registre sua manifestação</strong><span>Pelo formulário abaixo ou por um dos canais oficiais. Você recebe um protocolo.</span></div></div>
-      <div class="ouv-step"><div class="ouv-step__n">3</div><div><strong>Resposta em até 7 dias úteis</strong><span>Analisamos com atenção e retornamos dentro do prazo previsto pela ANS.</span></div></div>
+    <div class="ouv-types">
+      <div class="ouv-type">
+        <div class="ouv-type__ico" style="background:rgba(37,149,145,.12);color:var(--teal)"><i class="pi pi-thumbs-up"></i></div>
+        <strong>Elogio</strong>
+        <p>Conte o que te encantou. Reconhecer o que damos certo nos ajuda a manter o padrão.</p>
+      </div>
+      <div class="ouv-type">
+        <div class="ouv-type__ico" style="background:rgba(106,167,174,.16);color:var(--sea)"><i class="pi pi-lightbulb"></i></div>
+        <strong>Sugestão</strong>
+        <p>Tem uma ideia para melhorarmos? Queremos ouvir e evoluir com você.</p>
+      </div>
+      <div class="ouv-type">
+        <div class="ouv-type__ico" style="background:rgba(205,121,37,.12);color:var(--orange)"><i class="pi pi-comment"></i></div>
+        <strong>Reclamação</strong>
+        <p>Algo não saiu como esperado? Registre e acompanharemos a resolução com você.</p>
+      </div>
     </div>
+  </div>
+</section>
 
+<!-- ══ FORMULÁRIO + SAC ═════════════════════════════════════════════ -->
+<section class="sec sec--off">
+  <div class="wrap">
     <div class="ouv-grid">
       <!-- FORM -->
       <form class="ouv-form" id="ouvForm">
@@ -148,45 +170,33 @@
           <div class="ouv-field"><label>Tipo de manifestação <span>*</span></label>
             <select name="tipo" required>
               <option value="">Selecione…</option>
-              <option>Reclamação</option><option>Sugestão</option><option>Elogio</option>
+              <option>Elogio</option><option>Sugestão</option><option>Reclamação</option>
               <option>Denúncia</option><option>Solicitação</option><option>Informação</option>
             </select>
           </div>
         </div>
         <div class="ouv-field"><label>Mensagem <span>*</span></label><textarea name="mensagem" placeholder="Descreva sua manifestação com o máximo de detalhes." required></textarea></div>
+        <div class="ouv-field">
+          <label>Anexo <span style="color:var(--muted);font-weight:500">(opcional)</span></label>
+          <label class="ouv-file"><i class="pi pi-paperclip"></i><span id="ouvFileLabel">Anexar documento ou imagem</span><input type="file" id="ouvFile" name="anexo" accept="image/*,.pdf,.doc,.docx" /></label>
+        </div>
         <button type="submit" class="btn btn-teal"><i class="pi pi-send"></i> Enviar manifestação</button>
-        <p class="ouv-form__note">Dados protegidos pela LGPD (Lei nº 13.709/2018) · usados apenas para tratar sua manifestação.</p>
+        <p class="ouv-form__note">Seus dados serão tratados em conformidade com a <a href="politica-de-privacidade.html">Política de Privacidade</a> da Klini Saúde e com a Lei nº 13.709/2018 (LGPD), sendo utilizados exclusivamente para o atendimento desta manifestação.</p>
       </form>
 
-      <!-- CANAIS -->
-      <div class="ouv-channels">
-        <div class="ch">
-          <div class="ch__ico"><i class="pi pi-phone"></i></div>
-          <div><strong>Telefone Ouvidoria</strong><a href="tel:08000210320">0800 021 0320</a><span>Gratuito · Seg–Sex · 8h–17h</span></div>
+      <!-- SAC -->
+      <aside class="ouv-aside">
+        <div class="ouv-sac">
+          <div class="ouv-sac__ico"><i class="pi pi-phone"></i></div>
+          <strong>Urgências — SAC</strong>
+          <a href="tel:08000210320">0800 021 0320</a>
+          <a href="tel:02130550790">(21) 3055-0790</a>
         </div>
-        <div class="ch">
-          <div class="ch__ico"><i class="pi pi-volume-up"></i></div>
-          <div><strong>Deficiente auditivo / fala</strong><a href="tel:08009419601">0800 941 9601</a><span>Canal exclusivo PCD · Seg–Sex · 8h–17h</span></div>
+        <div class="ouv-hours">
+          <i class="pi pi-whatsapp"></i>
+          <div><strong>WhatsApp</strong><span><a href="https://wa.me/552130550790" target="_blank" rel="noopener" style="color:var(--teal)">(21) 3055-0790</a></span></div>
         </div>
-        <div class="ch">
-          <div class="ch__ico"><i class="pi pi-whatsapp"></i></div>
-          <div><strong>WhatsApp</strong><a href="https://wa.me/552130550790" target="_blank" rel="noopener">(21) 3055-0790</a><span>Para demandas com protocolo · Seg–Sex · 8h–17h</span></div>
-        </div>
-        <div class="ch">
-          <div class="ch__ico"><i class="pi pi-map-marker"></i></div>
-          <div><strong>Presencial</strong><span>Av. das Américas, 3200 — Sala 114</span><span>Barra da Tijuca, Rio de Janeiro — RJ</span></div>
-        </div>
-        <div class="ouv-prazo">
-          <i class="pi pi-clock"></i>
-          <div><strong>Resposta em até 7 dias úteis</strong><span style="display:block">Prazo conforme normas da ANS</span></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ANS -->
-    <div class="ans-box">
-      <div class="ans-box__head"><i class="pi pi-info-circle"></i> ANS — Agência Nacional de Saúde Suplementar</div>
-      Caso sua demanda não seja resolvida pela Ouvidoria Klini, você pode acionar a ANS pelo Disque ANS: <strong>0800 701 9656</strong> (gratuito · Seg–Sex 8h–20h · Sáb 8h–14h) ou pelo site <a href="https://www.ans.gov.br" target="_blank" rel="noopener">ans.gov.br</a>. Registro ANS da Klini Saúde: <strong>nº 42.202-9</strong>.
+      </aside>
     </div>
   </div>
 </section>
@@ -255,12 +265,19 @@
     barNav.querySelectorAll('.nav__item--drop .nav__link').forEach(function(btn){ btn.addEventListener('click', function(){ btn.closest('.nav__item--drop').classList.toggle('open'); }); });
   }
 
+  /* label do anexo */
+  var ouvFile = document.getElementById('ouvFile'), ouvFileLabel = document.getElementById('ouvFileLabel');
+  if (ouvFile) ouvFile.addEventListener('change', function(){
+    ouvFileLabel.textContent = ouvFile.files.length ? ouvFile.files[0].name : 'Anexar documento ou imagem';
+  });
+
   /* formulário da ouvidoria → compõe mensagem no WhatsApp (site estático) */
   var ouv = document.getElementById('ouvForm');
   if (ouv) ouv.addEventListener('submit', function(e){
     e.preventDefault();
     if (!ouv.checkValidity()) { ouv.reportValidity(); return; }
     var d = new FormData(ouv);
+    var anexo = ouvFile && ouvFile.files.length ? ouvFile.files[0].name : '';
     var txt = 'Olá! Manifestação para a Ouvidoria Klini.\n'
             + 'Tipo: ' + (d.get('tipo')||'') + '\n'
             + 'Nome: ' + (d.get('nome')||'') + '\n'
@@ -268,7 +285,8 @@
             + 'E-mail: ' + (d.get('email')||'') + '\n'
             + 'Telefone: ' + (d.get('telefone')||'') + '\n'
             + 'Cartão/beneficiário: ' + (d.get('cartao')||'—') + '\n'
-            + 'Mensagem: ' + (d.get('mensagem')||'');
+            + 'Mensagem: ' + (d.get('mensagem')||'')
+            + (anexo ? '\nAnexo: ' + anexo + ' (vou enviar nesta conversa)' : '');
     window.open('https://wa.me/552130550790?text=' + encodeURIComponent(txt), '_blank');
   });
 </script>

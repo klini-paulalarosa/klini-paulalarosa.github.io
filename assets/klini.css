@@ -73,6 +73,8 @@ p{font-family:'Merriweather',Georgia,serif;line-height:1.75}
 .nav__item--drop:hover .nav__chev{transform:rotate(180deg)}
 .nav__drop{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%) translateY(-6px);background:#fff;border:1px solid var(--bd-l);border-radius:12px;padding:7px;min-width:188px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;box-shadow:0 16px 40px rgba(4,42,38,.1);z-index:10}
 .nav__item--drop:hover .nav__drop{opacity:1;pointer-events:all;transform:translateX(-50%) translateY(0)}
+/* ponte invisível para cobrir o gap entre item e submenu (evita o drop sumir ao mover o mouse) */
+.nav__drop::before{content:'';position:absolute;left:0;right:0;top:-10px;height:10px}
 .nav__drop a{display:block;padding:9px 13px;border-radius:8px;font-size:.83rem;color:var(--text);transition:background .2s,color .2s;white-space:nowrap;font-family:'Objective',sans-serif;font-weight:500}
 .nav__drop a:hover{background:rgba(37,149,145,.08);color:var(--teal)}
 .bar__ctas{display:flex;align-items:center;gap:9px;flex-shrink:0}

@@ -394,16 +394,19 @@ footer{background:#fff;color:var(--muted);padding:52px 0 28px;position:relative}
 .tele__img{transform-origin:50% 42%}
 /* balões que surgem como se alguém estivesse usando o app */
 .tele__notif{position:absolute;display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--bd-l);border-radius:12px;padding:7px 12px 7px 8px;box-shadow:0 12px 30px rgba(4,42,38,.14);z-index:4;min-width:140px;opacity:0;transform:translateY(14px) scale(.96);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)}
-.tele__notif.show{opacity:1;transform:none}
+@keyframes tele-wobble{0%,100%{transform:translate(0,0) rotate(0deg)}25%{transform:translate(0,-1.5px) rotate(-1deg)}50%{transform:translate(0,0) rotate(0deg)}75%{transform:translate(0,1.5px) rotate(1deg)}}
+.tele__notif.show{opacity:1;transform:none;animation:tele-wobble 3.2s ease-in-out .55s infinite}
+.tele__notif--2.show{animation-duration:3.8s}
+.tele__notif--3.show{animation-duration:2.9s}
 .tele__notif strong{display:block;font-size:.74rem;font-weight:700;color:var(--text);line-height:1.2}
 .tele__notif span{font-size:.63rem;color:var(--muted)}
 .tele__notif-ico{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.78rem;flex-shrink:0}
 /* posicionados na borda esquerda do mockup, com pouca sobreposição */
-.tele__notif--1{top:9%;left:-6px}
-.tele__notif--2{top:45%;left:-24px}
-.tele__notif--3{top:80%;left:-6px}
-@media(max-width:1024px){.tele__notif{min-width:126px}.tele__notif--2{left:-8px}}
-@media(max-width:560px){.tele__notif{min-width:118px}.tele__notif--1{top:3%;left:0}.tele__notif--2{top:47%;left:0}.tele__notif--3{top:85%;left:0}}
+.tele__notif--1{top:21%;left:-30px}
+.tele__notif--2{top:50%;left:-46px}
+.tele__notif--3{top:80%;left:-22px}
+@media(max-width:1024px){.tele__notif{min-width:128px}.tele__notif--1{left:-16px}.tele__notif--2{left:-26px}.tele__notif--3{left:-12px}}
+@media(max-width:560px){.tele__notif{min-width:120px}.tele__notif--1{top:15%;left:-6px}.tele__notif--2{top:50%;left:-10px}.tele__notif--3{top:84%;left:-4px}}
 
 /* ── REVEAL ──────────────────────────────────────────────────── */
 .reveal{clip-path:inset(0 0 100% 0)}
@@ -743,278 +746,27 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
   </div>
 </section>
 
-<!-- ══ CONHEÇA A KLINI (vídeo) ══════════════════════════════════════ -->
+<!-- ══ CONHEÇA A KLINI + REDE CASA (vídeo) ══════════════════════════ -->
 <section class="sec sec--off" id="conheca">
   <div class="wrap">
     <div style="text-align:center;margin-bottom:40px">
-      <p class="eyebrow gs">conheça a klini</p>
+      <p class="eyebrow gs">klini + rede casa · um único time</p>
       <h2 class="h2 gs">Veja a Klini <strong style="color:var(--teal)">por dentro</strong></h2>
-      <p class="gs" style="color:var(--muted);margin-top:12px;font-size:1.05rem">Rede própria, telemedicina 24h e cuidado humano — em pouco mais de um minuto.</p>
+      <p class="gs" style="color:var(--muted);margin-top:12px;font-size:1.05rem;max-width:660px;margin-left:auto;margin-right:auto;line-height:1.8">Somos um único time pelo seu cuidado: rede própria, Rede Casa Hospitalar e telemedicina 24h. Veja no vídeo como a Klini acompanha você de ponta a ponta — do ambulatório ao hospital.</p>
     </div>
     <div class="gs" style="position:relative;max-width:920px;margin:0 auto;aspect-ratio:16/9;border-radius:22px;overflow:hidden;box-shadow:0 24px 60px rgba(4,42,38,.16);border:1px solid var(--bd-l);background:#000">
       <iframe style="position:absolute;inset:0;width:100%;height:100%;border:0" src="https://www.youtube.com/embed/gqo3ChsNoqI" title="Conheça a Klini Saúde" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
     </div>
+    <div class="gs" style="display:flex;flex-wrap:wrap;gap:40px 56px;justify-content:center;margin-top:42px">
+      <div style="text-align:center"><div style="font-family:'Objective',sans-serif;font-weight:800;font-size:2.2rem;line-height:1;background:linear-gradient(135deg,#259591,#6AA7AE);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">9</div><div style="font-size:.84rem;color:var(--muted);margin-top:6px">hospitais Rede Casa</div></div>
+      <div style="text-align:center"><div style="font-family:'Objective',sans-serif;font-weight:800;font-size:2.2rem;line-height:1;background:linear-gradient(135deg,#259591,#6AA7AE);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">10</div><div style="font-size:.84rem;color:var(--muted);margin-top:6px">centros médicos Klini</div></div>
+      <div style="text-align:center"><div style="font-family:'Objective',sans-serif;font-weight:800;font-size:2.2rem;line-height:1;background:linear-gradient(135deg,#259591,#6AA7AE);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">+1.000</div><div style="font-size:.84rem;color:var(--muted);margin-top:6px">leitos no estado do RJ</div></div>
+    </div>
+    <div class="gs" style="text-align:center;margin-top:30px">
+      <a href="sobre.html#unidades" class="btn btn-outline"><i class="pi pi-map"></i> Ver endereços no mapa</a>
+    </div>
   </div>
 </section>
-
-<!-- ══ REDE CASA ════════════════════════════════════════════════════ -->
-<section class="sec sec--ink2 casa-sec" id="rede-casa">
-
-  <!-- C-arc teal espelhado lado esquerdo da seção Rede Casa -->
-  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" class="deco-arcs"
-       style="position:absolute;top:-50px;right:-80px;width:400px;height:520px;pointer-events:none;z-index:0">
-    <defs>
-      <linearGradient id="kln-c1" x1="50%" y1="0%" x2="50%" y2="100%">
-        <stop offset="0%"   stop-color="#259591" stop-opacity="0.26"/>
-        <stop offset="100%" stop-color="#6AA7AE" stop-opacity="0.03"/>
-      </linearGradient>
-      <linearGradient id="kln-c2" x1="50%" y1="0%" x2="50%" y2="100%">
-        <stop offset="0%"   stop-color="#6AA7AE" stop-opacity="0.14"/>
-        <stop offset="100%" stop-color="#259591" stop-opacity="0.01"/>
-      </linearGradient>
-    </defs>
-    <!-- C-arc teal grande — gira CCW 22s -->
-    <g class="arc-ccw" style="transform-origin:170px 250px;animation-duration:22s">
-      <path d="M 170 65 A 185 185 0 0 1 170 435"
-            fill="none" stroke="url(#kln-c1)" stroke-width="38" stroke-linecap="square"/>
-    </g>
-    <!-- C-arc teal menor — gira CW 34s -->
-    <g class="arc-cw" style="transform-origin:170px 250px;animation-duration:34s">
-      <path d="M 170 142 A 108 108 0 0 1 170 358"
-            fill="none" stroke="url(#kln-c2)" stroke-width="22" stroke-linecap="square"/>
-    </g>
-  </svg>
-
-  <div class="wrap" style="position:relative;z-index:1">
-
-    <div class="casa-toggle gs">
-      <button class="casa-toggle__btn active" data-tab="hosp" type="button"><i class="pi pi-building"></i> Hospitais</button>
-      <button class="casa-toggle__btn" data-tab="cmk" type="button"><i class="pi pi-map-marker"></i> Centros Médicos</button>
-    </div>
-
-    <div class="casa-tab" data-tab="hosp">
-    <div class="casa-grid">
-
-      <!-- Texto -->
-      <div class="gs">
-        <div class="casa-tag"><i class="pi pi-building"></i> Parceria estratégica</div>
-        <h2 class="h2 gs">Klini + Rede Casa<br><strong style="color:var(--teal)">— um único time</strong></h2>
-        <p style="color:var(--muted);font-size:1.05rem;margin-top:18px;line-height:1.8;max-width:430px">
-          Nós somos um único time focado no seu cuidado. A Rede Casa amplia nossa capacidade hospitalar com unidades de excelência para internações, cirurgias complexas e UTI — tudo coberto pelo seu plano.
-        </p>
-        <div class="casa__stats">
-          <div>
-            <div class="casa__stat-n" data-count="9">9</div>
-            <div class="casa__stat-l">hospitais<br>Rede Casa</div>
-          </div>
-          <div>
-            <div class="casa__stat-n" data-count="10">10</div>
-            <div class="casa__stat-l">centros médicos<br>Klini</div>
-          </div>
-          <div>
-            <div class="casa__stat-n" data-count="1000" data-prefix="+" data-sep="1">+1.000</div>
-            <div class="casa__stat-l">leitos disponíveis<br>no estado do RJ</div>
-          </div>
-        </div>
-        <a href="sobre.html#unidades" class="btn btn-outline casa__map-btn"><i class="pi pi-map"></i> Ver endereços no mapa</a>
-      </div>
-
-      <!-- Carrossel de hospitais da Rede Casa -->
-      <div class="gs">
-        <div class="casa-carousel">
-          <div class="casa-carousel__track" id="casaTrack">
-
-            <!-- Slide 1 — Hospital Premium (foto confirmada) -->
-            <div class="casa-carousel__slide">
-              <img src="assets/hospital-premium.png"
-                   alt="Hospital Premium" loading="lazy"
-                   onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=900&q=70'}else{this.style.display='none'}" />
-              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#111111,#1a1a1a)">
-                <i class="pi pi-building" style="font-size:3.5rem;color:rgba(37,149,145,.3)"></i>
-              </div>
-              <div class="casa-slide-info">
-                <span class="casa-slide-tag"><i class="pi pi-heart-fill"></i> Oncologia</span>
-                <div class="casa-slide-name">Hospital Premium</div>
-                <div class="casa-slide-addr"><i class="pi pi-map-marker"></i> Rua do Bispo, 18 — Rio Comprido · RJ</div>
-              </div>
-            </div>
-
-            <!-- Slide 2 — HC Evangélico -->
-            <div class="casa-carousel__slide">
-              <img src="assets/hospitais/evangelico.webp"
-                   alt="HC Evangélico" loading="lazy"
-                   onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=900&q=70'}else{this.style.display='none'}" />
-              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#111111,#1a1a1a)">
-                <i class="pi pi-building" style="font-size:3.5rem;color:rgba(37,149,145,.28)"></i>
-              </div>
-              <div class="casa-slide-info">
-                <span class="casa-slide-tag"><i class="pi pi-shield"></i> Alta Complexidade</span>
-                <div class="casa-slide-name">HC Evangélico</div>
-                <div class="casa-slide-addr"><i class="pi pi-map-marker"></i> Rua Bom Pastor, 295 — Tijuca · RJ</div>
-              </div>
-            </div>
-
-            <!-- Slide 3 — HC de Portugal -->
-            <div class="casa-carousel__slide">
-              <img src="assets/hospitais/casa-de-portugal.webp"
-                   alt="HC de Portugal" loading="lazy"
-                   onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=70'}else{this.style.display='none'}" />
-              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#111111,#1a1a1a)">
-                <i class="pi pi-building" style="font-size:3.5rem;color:rgba(106,167,174,.28)"></i>
-              </div>
-              <div class="casa-slide-info">
-                <span class="casa-slide-tag"><i class="pi pi-plus-circle"></i> Clínico &amp; Cirúrgico</span>
-                <div class="casa-slide-name">HC de Portugal</div>
-                <div class="casa-slide-addr"><i class="pi pi-map-marker"></i> Rua do Bispo, 72 — Rio Comprido · RJ</div>
-              </div>
-            </div>
-
-            <!-- Slide 4 — HC Santa Cruz -->
-            <div class="casa-carousel__slide">
-              <img src="assets/hospitais/santa-cruz.webp"
-                   alt="HC Santa Cruz" loading="lazy"
-                   onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&w=900&q=70'}else{this.style.display='none'}" />
-              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#111111,#1a1a1a)">
-                <i class="pi pi-building" style="font-size:3.5rem;color:rgba(37,149,145,.28)"></i>
-              </div>
-              <div class="casa-slide-info">
-                <span class="casa-slide-tag"><i class="pi pi-clock"></i> Pronto Atendimento 24h</span>
-                <div class="casa-slide-name">HC Santa Cruz</div>
-                <div class="casa-slide-addr"><i class="pi pi-map-marker"></i> Rua Nestor, 131 — Santa Cruz · RJ</div>
-              </div>
-            </div>
-
-            <!-- Slide 5 — HC Ilha do Governador -->
-            <div class="casa-carousel__slide">
-              <img src="assets/hospitais/ilha-do-governador.webp"
-                   alt="HC Ilha do Governador" loading="lazy"
-                   onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=900&q=70'}else{this.style.display='none'}" />
-              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#111111,#1a1a1a)">
-                <i class="pi pi-building" style="font-size:3.5rem;color:rgba(106,167,174,.3)"></i>
-              </div>
-              <div class="casa-slide-info">
-                <span class="casa-slide-tag"><i class="pi pi-star-fill"></i> Geral</span>
-                <div class="casa-slide-name">HC Ilha do Governador</div>
-                <div class="casa-slide-addr"><i class="pi pi-map-marker"></i> Estrada do Dendê, 668 — Tauá · RJ</div>
-              </div>
-            </div>
-
-            <!-- Slide 6 — HC Menssana -->
-            <div class="casa-carousel__slide">
-              <img src="assets/hospitais/menssana.webp"
-                   alt="HC Menssana" loading="lazy"
-                   onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=900&q=70'}else{this.style.display='none'}" />
-              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#111111,#1a1a1a)">
-                <i class="pi pi-building" style="font-size:3.5rem;color:rgba(37,149,145,.28)"></i>
-              </div>
-              <div class="casa-slide-info">
-                <span class="casa-slide-tag"><i class="pi pi-heart"></i> Saúde Mental</span>
-                <div class="casa-slide-name">HC Menssana</div>
-                <div class="casa-slide-addr"><i class="pi pi-map-marker"></i> Rua Marechal Jofre, 30 — Grajaú · RJ</div>
-              </div>
-            </div>
-
-            <!-- Slide 7 — HC Rio Laranjeiras -->
-            <div class="casa-carousel__slide">
-              <img src="assets/hospitais/laranjeiras.webp"
-                   alt="HC Rio Laranjeiras" loading="lazy"
-                   onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=900&q=70'}else{this.style.display='none'}" />
-              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#111111,#1a1a1a)">
-                <i class="pi pi-building" style="font-size:3.5rem;color:rgba(37,149,145,.28)"></i>
-              </div>
-              <div class="casa-slide-info">
-                <span class="casa-slide-tag"><i class="pi pi-plus-circle"></i> Cirúrgico</span>
-                <div class="casa-slide-name">HC Rio Laranjeiras</div>
-                <div class="casa-slide-addr"><i class="pi pi-map-marker"></i> Rua das Laranjeiras, 72 — Laranjeiras · RJ</div>
-              </div>
-            </div>
-
-            <!-- Slide 8 — HC São Bernardo -->
-            <div class="casa-carousel__slide">
-              <img src="assets/hospitais/sao-bernardo.webp"
-                   alt="HC São Bernardo" loading="lazy"
-                   onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=900&q=70'}else{this.style.display='none'}" />
-              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#111111,#1a1a1a)">
-                <i class="pi pi-building" style="font-size:3.5rem;color:rgba(106,167,174,.28)"></i>
-              </div>
-              <div class="casa-slide-info">
-                <span class="casa-slide-tag"><i class="pi pi-heart-fill"></i> UTI Especializada</span>
-                <div class="casa-slide-name">HC São Bernardo</div>
-                <div class="casa-slide-addr"><i class="pi pi-map-marker"></i> Av. das Américas, 3250 — Barra da Tijuca · RJ</div>
-              </div>
-            </div>
-
-            <!-- Slide 9 — Oftalmocasa -->
-            <div class="casa-carousel__slide">
-              <img src="assets/hospitais/oftalmocasa.webp"
-                   alt="Oftalmocasa" loading="lazy"
-                   onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=70'}else{this.style.display='none'}" />
-              <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#111111,#1a1a1a)">
-                <i class="pi pi-eye" style="font-size:3.5rem;color:rgba(37,149,145,.3)"></i>
-              </div>
-              <div class="casa-slide-info">
-                <span class="casa-slide-tag"><i class="pi pi-eye"></i> Oftalmologia</span>
-                <div class="casa-slide-name">Oftalmocasa</div>
-                <div class="casa-slide-addr"><i class="pi pi-map-marker"></i> Av. das Américas, 3200 — Barra da Tijuca · RJ</div>
-              </div>
-            </div>
-
-          </div><!-- /track -->
-
-          <button class="casa-carousel__prev" type="button" aria-label="Hospital anterior">
-            <i class="pi pi-angle-left"></i>
-          </button>
-          <button class="casa-carousel__next" type="button" aria-label="Próximo hospital">
-            <i class="pi pi-angle-right"></i>
-          </button>
-        </div><!-- /carousel -->
-
-        <div class="casa-carousel__dots" id="casaDots"></div>
-      </div>
-
-    </div>
-    </div><!-- /tab hospitais -->
-
-    <!-- TAB Centros Médicos (mesma estrutura — fotos entram depois) -->
-    <div class="casa-tab" data-tab="cmk" hidden>
-    <div class="casa-grid">
-
-      <div>
-        <div class="casa-tag"><i class="pi pi-map-marker"></i> Rede própria Klini</div>
-        <h2 class="h2">Centros Médicos<br><strong style="color:var(--teal)">perto de você</strong></h2>
-        <p style="color:var(--muted);font-size:1.05rem;margin-top:18px;line-height:1.8;max-width:430px">
-          Consultas, exames e acompanhamento nas unidades próprias da Klini (CMK) espalhadas pelo Rio de Janeiro — atendimento ambulatorial completo, com agendamento pelo app.
-        </p>
-        <div class="casa__stats">
-          <div><div class="casa__stat-n" data-count="10">10</div><div class="casa__stat-l">centros médicos<br>próprios (CMK)</div></div>
-          <div><div class="casa__stat-n" data-count="3">3</div><div class="casa__stat-l">centros de<br>fisioterapia</div></div>
-          <div><div class="casa__stat-n" data-count="24" data-suffix="h">24h</div><div class="casa__stat-l">agendamento<br>pelo app</div></div>
-        </div>
-        <a href="sobre.html#unidades" class="btn btn-outline casa__map-btn"><i class="pi pi-map"></i> Ver endereços no mapa</a>
-      </div>
-
-      <div>
-        <div class="casa-carousel">
-          <div class="casa-carousel__track">
-            <div class="casa-carousel__slide casa-slide--cmk"><div class="casa-slide-fallback casa-fb--cmk"><i class="pi pi-building"></i></div><div class="casa-slide-info"><span class="casa-slide-tag"><i class="pi pi-map-marker"></i> Centro Médico Klini</span><div class="casa-slide-name">CMK Barra da Tijuca</div><div class="casa-slide-addr"><i class="pi pi-map-marker"></i> Av. das Américas, 3200 · Barra da Tijuca</div></div></div>
-            <div class="casa-carousel__slide casa-slide--cmk"><div class="casa-slide-fallback casa-fb--cmk"><i class="pi pi-building"></i></div><div class="casa-slide-info"><span class="casa-slide-tag"><i class="pi pi-map-marker"></i> Centro Médico Klini</span><div class="casa-slide-name">CMK Tijuca</div><div class="casa-slide-addr"><i class="pi pi-map-marker"></i> Tijuca · Rio de Janeiro</div></div></div>
-            <div class="casa-carousel__slide casa-slide--cmk"><div class="casa-slide-fallback casa-fb--cmk"><i class="pi pi-building"></i></div><div class="casa-slide-info"><span class="casa-slide-tag"><i class="pi pi-map-marker"></i> Centro Médico Klini</span><div class="casa-slide-name">CMK Campo Grande</div><div class="casa-slide-addr"><i class="pi pi-map-marker"></i> Campo Grande · Rio de Janeiro</div></div></div>
-            <div class="casa-carousel__slide casa-slide--cmk"><div class="casa-slide-fallback casa-fb--cmk"><i class="pi pi-building"></i></div><div class="casa-slide-info"><span class="casa-slide-tag"><i class="pi pi-map-marker"></i> Centro Médico Klini</span><div class="casa-slide-name">CMK Madureira</div><div class="casa-slide-addr"><i class="pi pi-map-marker"></i> Madureira · Rio de Janeiro</div></div></div>
-            <div class="casa-carousel__slide casa-slide--cmk"><div class="casa-slide-fallback casa-fb--cmk"><i class="pi pi-building"></i></div><div class="casa-slide-info"><span class="casa-slide-tag"><i class="pi pi-map-marker"></i> Centro Médico Klini</span><div class="casa-slide-name">CMK Nova Iguaçu</div><div class="casa-slide-addr"><i class="pi pi-map-marker"></i> Nova Iguaçu · RJ</div></div></div>
-            <div class="casa-carousel__slide casa-slide--cmk"><div class="casa-slide-fallback casa-fb--cmk"><i class="pi pi-building"></i></div><div class="casa-slide-info"><span class="casa-slide-tag"><i class="pi pi-map-marker"></i> Centro Médico Klini</span><div class="casa-slide-name">CMK Centro</div><div class="casa-slide-addr"><i class="pi pi-map-marker"></i> Centro · Rio de Janeiro</div></div></div>
-            <div class="casa-carousel__slide casa-slide--cmk"><div class="casa-slide-fallback casa-fb--cmk"><i class="pi pi-building"></i></div><div class="casa-slide-info"><span class="casa-slide-tag"><i class="pi pi-map-marker"></i> Centro Médico Klini</span><div class="casa-slide-name">CMK Angra dos Reis</div><div class="casa-slide-addr"><i class="pi pi-map-marker"></i> Angra dos Reis · RJ</div></div></div>
-          </div>
-          <button class="casa-carousel__prev" type="button" aria-label="Centro anterior"><i class="pi pi-angle-left"></i></button>
-          <button class="casa-carousel__next" type="button" aria-label="Próximo centro"><i class="pi pi-angle-right"></i></button>
-        </div>
-        <div class="casa-carousel__dots"></div>
-      </div>
-
-    </div>
-    </div><!-- /tab cmk -->
-  </div>
-</section>
-
 
 <!-- ══ TELECONSULTA ════════════════════════════════════════════════ -->
 <section class="sec sec--off" id="teleconsulta">
@@ -1441,24 +1193,19 @@ document.querySelectorAll('.casa-toggle__btn').forEach(function (btn) {
   if (!sec) return;
   const phone = sec.querySelector('.tele__img');
   const notifs = Array.prototype.slice.call(sec.querySelectorAll('.tele__notif'));
-  let shown = false;
-  function reveal() {
-    if (shown) return; shown = true;
-    notifs.forEach((n, i) => setTimeout(() => n.classList.add('show'), 150 + i * 480));
-  }
+  // cada balão surge conforme o scroll avança na seção
+  const th = [0.30, 0.42, 0.54];
   function onScroll() {
     const r = sec.getBoundingClientRect(), vh = window.innerHeight || 800;
     const prog = Math.min(Math.max((vh - r.top) / (vh + r.height), 0), 1);
     if (phone) phone.style.transform = 'scale(' + (1 + prog * 0.07).toFixed(3) + ')';
-    if (r.top < vh * 0.72 && r.bottom > 0) reveal();
+    notifs.forEach((n, i) => { if (prog >= th[i]) n.classList.add('show'); });
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll, { passive: true });
   onScroll();
   // salvaguarda: garante os balões visíveis mesmo sem eventos de scroll (preview)
-  setTimeout(() => {
-    if (!shown) { notifs.forEach(n => { n.style.transition = 'none'; n.classList.add('show'); }); shown = true; }
-  }, 2200);
+  setTimeout(() => { notifs.forEach(n => n.classList.add('show')); }, 2200);
 })();
 
 /* ── Spotlight que segue o cursor nos cards de acesso rápido ── */
