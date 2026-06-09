@@ -25,6 +25,19 @@
     .flyer__body p{font-size:.82rem;color:var(--muted);line-height:1.6;margin-bottom:12px;min-height:42px}
     .flyer__cta{font-size:.84rem;font-weight:700;color:var(--teal);display:inline-flex;align-items:center;gap:6px;font-family:'Objective',sans-serif;transition:gap .2s}
     .flyer:hover .flyer__cta{gap:10px}
+    /* ── FLYER HOSPITALAR (composto em CSS — mesmo template, foto real) ── */
+    .flyer__poster--hosp{background:#259591}
+    .flyer__poster--hosp .fh__photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 6%}
+    /* wash teal DS (#259591) diagonal — sem verde escuro */
+    .flyer__poster--hosp::before{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(118deg,rgba(37,149,145,.8) 0%,rgba(37,149,145,.34) 46%,rgba(37,149,145,.05) 72%),linear-gradient(0deg,rgba(37,149,145,.7),transparent 40%)}
+    .fh__arc{position:absolute;top:-46px;left:-46px;width:140px;height:140px;z-index:2;opacity:.8;pointer-events:none}
+    .fh__logo{position:absolute;top:14px;right:14px;width:66px;height:auto;z-index:3;filter:drop-shadow(0 2px 9px rgba(4,42,38,.45))}
+    .fh__badge{position:absolute;top:44%;right:14px;z-index:3;background:var(--teal);border-radius:14px;padding:11px 18px;text-align:center;box-shadow:0 12px 26px rgba(4,42,38,.34)}
+    .fh__badge small{display:block;font-family:'Objective',sans-serif;font-weight:700;font-size:.62rem;letter-spacing:.04em;color:rgba(255,255,255,.92);text-transform:uppercase}
+    .fh__badge b{font-family:'Objective',sans-serif;font-weight:800;font-size:1.55rem;color:#fff;line-height:1.05;display:block;margin-top:2px}
+    .fh__badge b sup{font-size:.72rem;font-weight:700;top:-.6em}
+    .fh__head{position:absolute;left:16px;right:14px;bottom:16px;z-index:3;font-family:'Objective',sans-serif;font-weight:800;font-size:1.2rem;line-height:1.06;color:#fff;letter-spacing:-.02em;text-shadow:0 2px 12px rgba(4,42,38,.45)}
+    .fh__disc{display:block;font-family:'Merriweather',Georgia,serif;font-style:italic;font-weight:300;font-size:.5rem;line-height:1.35;color:rgba(255,255,255,.82);margin-top:7px;letter-spacing:0}
     /* ── SELETOR DE PERFIL ── */
     .perfil{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:26px}
     .perfil__btn{background:#fff;border:1.5px solid var(--bd-l);border-radius:16px;padding:22px 18px;cursor:pointer;text-align:left;transition:all .25s;font-family:'Objective',sans-serif;display:flex;flex-direction:column;gap:9px}
@@ -159,8 +172,15 @@
       </div>
 
       <div class="flyer">
-        <!-- TODO: trocar pelo flyer oficial do Hospitalar quando disponível -->
-        <div class="flyer__poster flyer__poster--senior"><img src="assets/planos/plano-hospitalar-w.webp" alt="Klini Hospitalar" loading="lazy" /><span style="color:rgba(255,255,255,.85);font-family:'Merriweather',serif;font-style:italic;font-size:.82rem;text-align:center">Cobertura hospitalar · Rede Casa</span></div>
+        <div class="flyer__poster flyer__poster--hosp">
+          <img class="fh__photo" src="assets/campanha/dirceu-flyer.webp" alt="Klini Hospitalar — beneficiário Dirceu Duarte" loading="lazy" />
+          <svg class="fh__arc" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M75 14 A61 61 0 0 1 75 136" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="19" stroke-linecap="square"/></svg>
+          <img class="fh__logo" src="assets/campanha/logo-hosp-w.webp" alt="Klini Rede Casa Hospitalar" />
+          <div class="fh__badge"><small>a partir de</small><b>R$ 72<sup>,32</sup></b></div>
+          <div class="fh__head">Segurança quando<br>mais importa
+            <span class="fh__disc">*Klini Hospitalar PME II, faixa etária 0–18 anos. Cobertura na Rede Casa: internações, urgência 24h, cirurgias e UTI.</span>
+          </div>
+        </div>
         <div class="flyer__body"><h3>Klini Hospitalar</h3><p>Foco em internações, urgência e cirurgias na Rede Casa Hospitalar.</p><a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Hospitalar." class="flyer__cta" target="_blank" rel="noopener">Solicitar cotação <i class="pi pi-arrow-right"></i></a></div>
       </div>
 
