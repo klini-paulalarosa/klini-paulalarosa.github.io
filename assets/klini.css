@@ -140,6 +140,16 @@ footer{background:#fff;color:var(--muted);padding:52px 0 28px;position:relative}
 .wa-btn:hover{background:#1da851;animation:none;transform:scale(1.12)!important}
 @media(prefers-reduced-motion:reduce){.wa-btn{animation:none}}
 
+/* ── ACESSIBILIDADE: foco visível por teclado ── */
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:6px}
+.bar:not(.solid) :focus-visible{outline-color:#fff}
+.page-hero :focus-visible{outline-color:#fff}
+
+/* ── ACESSIBILIDADE: respeitar redução de movimento (desliga animações decorativas) ── */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+
 /* ── PÁGINAS LEGAIS (TOC lateral + conteúdo) ── */
 .legal{display:grid;grid-template-columns:248px 1fr;gap:52px;align-items:start}
 .legal__updated{font-size:.82rem;color:var(--muted);margin-bottom:30px;display:inline-flex;align-items:center;gap:8px;background:var(--off);border:1px solid var(--bd-l);border-radius:30px;padding:7px 16px;font-family:'Objective',sans-serif}

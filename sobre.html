@@ -84,7 +84,7 @@
     .sidebar-search input{background:none;border:none;outline:none;color:var(--text);font-family:'Objective',sans-serif;font-size:.86rem;width:100%;caret-color:var(--teal)}
     .sidebar-count{font-size:.68rem;color:var(--muted);font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:0 18px 10px;border-bottom:1px solid var(--bd-l)}
     .unit-list{overflow-y:auto;flex:1}
-    .unit-item{padding:15px 18px;border-bottom:1px solid var(--bd-l);cursor:pointer;transition:background .2s;display:flex;gap:12px;align-items:flex-start}
+    .unit-item{width:100%;text-align:left;background:transparent;border:0;border-bottom:1px solid var(--bd-l);font-family:inherit;color:inherit;padding:15px 18px;cursor:pointer;transition:background .2s;display:flex;gap:12px;align-items:flex-start}
     .unit-item:hover{background:var(--off)}
     .unit-item.active{background:rgba(37,149,145,.07);border-left:3px solid var(--teal)}
     .unit-item.active.cmk{background:rgba(205,121,37,.07);border-left-color:var(--orange)}
@@ -542,7 +542,8 @@
       var q=currentSearch.toLowerCase();
       var matchSearch=!q||u.name.toLowerCase().indexOf(q)>-1||u.addr.toLowerCase().indexOf(q)>-1||u.city.toLowerCase().indexOf(q)>-1;
       var show=matchFilter&&matchSearch; if(show) visible++;
-      var item=document.createElement('div');
+      var item=document.createElement('button');
+      item.type='button'; item.setAttribute('aria-label', u.name+' — '+u.addr);
       item.className='unit-item '+u.type+(show?'':' hidden'); item.id='item-'+u.id;
       item.innerHTML='<div class="unit-dot unit-dot--'+u.type+'"></div><div><div class="unit-name">'+u.name+'</div><div class="unit-addr">'+u.addr+' · '+u.city+'</div><span class="unit-tag">'+u.spec+'</span></div>';
       item.addEventListener('click',function(){ map.setView([u.lat,u.lng],15,{animate:true}); markers[u.id].openPopup(); highlightItem(u.id); });
