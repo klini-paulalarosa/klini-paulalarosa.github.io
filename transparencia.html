@@ -3,136 +3,267 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Transparência Klini Saúde — acesso a informações regulatórias, demonstrativos e portal ANS de dados abertos." />
-  <title>Transparência | Klini Saúde</title>
-  <style>@font-face{font-family:'Objective';src:url('https://brenosousaf13.github.io/klini/fonts/Objective/Objective_Woff2/Objective-Regular.woff2')format('woff2');font-weight:400;font-style:normal;font-display:swap}@font-face{font-family:'Objective';src:url('https://brenosousaf13.github.io/klini/fonts/Objective/Objective_Woff2/Objective-Medium.woff2')format('woff2');font-weight:500;font-style:normal;font-display:swap}@font-face{font-family:'Objective';src:url('https://brenosousaf13.github.io/klini/fonts/Objective/Objective_Woff2/Objective-Bold.woff2')format('woff2');font-weight:700;font-style:normal;font-display:swap}@font-face{font-family:'Objective';src:url('https://brenosousaf13.github.io/klini/fonts/Objective/Objective_Woff2/Objective-ExtraBold.woff2')format('woff2');font-weight:800;font-style:normal;font-display:swap}</style>
+  <meta name="description" content="Portal da Transparência Klini Saúde — normas da ANS, demonstrações financeiras, relatórios de igualdade salarial e dados abertos. ANS nº 42.202-9." />
+  <title>Portal da Transparência | Klini Saúde</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons@7.0.0/primeicons.css" />
+  <link rel="stylesheet" href="assets/klini.css" />
   <style>
-@font-face{font-family:'Objective';src:url('https://brenosousaf13.github.io/klini/fonts/Objective/Objective_Woff2/Objective-Regular.woff2')format('woff2');font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:'Objective';src:url('https://brenosousaf13.github.io/klini/fonts/Objective/Objective_Woff2/Objective-Bold.woff2')format('woff2');font-weight:700;font-style:normal;font-display:swap}
-@font-face{font-family:'Objective';src:url('https://brenosousaf13.github.io/klini/fonts/Objective/Objective_Woff2/Objective-ExtraBold.woff2')format('woff2');font-weight:800;font-style:normal;font-display:swap}
-:root{--teal:#259591;--orange:#CD7925;--ink:#06090F;--off:#F5F9FF;--text:#1E2D3D;--muted:#637585;--bd-l:rgba(10,20,40,.08)}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Objective',sans-serif;color:var(--text);background:#fff}
-a{text-decoration:none;color:inherit}
-.wrap{max-width:900px;margin:0 auto;padding:0 24px}
-.nav{background:rgba(6,9,15,.97);padding:13px 0}
-.nav__inner{display:flex;align-items:center;justify-content:space-between}
-.nav__cta{background:var(--orange);color:#fff;padding:8px 18px;border-radius:8px;font-size:.84rem;font-weight:700}
-.page-hero{background:var(--ink);padding:64px 0 52px;position:relative;overflow:hidden}
-.page-hero::before{content:'';position:absolute;top:-60px;left:-60px;width:360px;height:360px;background:radial-gradient(circle,rgba(37,149,145,.15) 0%,transparent 70%);pointer-events:none}
-.eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:8px}
-.page-hero h1{font-weight:800;font-size:clamp(1.8rem,3.5vw,2.8rem);letter-spacing:-.03em;color:#fff;margin-bottom:12px}
-.page-hero p{color:rgba(255,255,255,.55);font-size:.96rem;line-height:1.75;max-width:560px}
-.content{padding:64px 0}
-.section-title{font-weight:800;font-size:1.2rem;letter-spacing:-.02em;margin-bottom:20px}
-.doc-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:48px}
-.doc-card{border:1.5px solid var(--bd-l);border-radius:12px;padding:22px;display:flex;align-items:flex-start;gap:14px;transition:all .25s}
-.doc-card:hover{border-color:var(--teal);box-shadow:0 8px 24px rgba(37,149,145,.07)}
-.doc-card__ico{font-size:1.3rem;color:var(--teal);flex-shrink:0;margin-top:2px}
-.doc-card strong{display:block;font-size:.9rem;font-weight:700;margin-bottom:4px}
-.doc-card p{font-size:.82rem;color:var(--muted);line-height:1.6;margin-bottom:10px}
-.doc-card a{font-size:.8rem;font-weight:600;color:var(--teal);display:inline-flex;align-items:center;gap:5px;transition:opacity .2s}
-.doc-card a:hover{opacity:.75}
-.ans-banner{background:var(--off);border-radius:14px;padding:32px;display:flex;gap:20px;align-items:flex-start;margin-top:8px}
-.ans-banner__ico{font-size:1.8rem;color:var(--teal);flex-shrink:0}
-.ans-banner h3{font-weight:700;font-size:1rem;margin-bottom:6px}
-.ans-banner p{font-size:.86rem;color:var(--muted);line-height:1.7;margin-bottom:14px}
-.btn-sm{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:8px;font-size:.82rem;font-weight:700;background:var(--teal);color:#fff;transition:background .2s}
-.btn-sm:hover{background:#1e7d7a}
-footer{background:#030508;color:rgba(255,255,255,.35);padding:32px 0 20px;margin-top:64px}
-.foot__inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:18px}
-.foot__links{display:flex;gap:16px;flex-wrap:wrap}
-.foot__links a{font-size:.77rem;color:rgba(255,255,255,.3);transition:color .2s}
-.foot__links a:hover{color:var(--teal)}
-.foot__bottom{font-size:.73rem}
-.seal{background:rgba(255,255,255,.05);border-radius:6px;padding:3px 9px;font-size:.66rem;font-weight:700;margin-left:8px}
-@media(max-width:600px){.doc-grid{grid-template-columns:1fr}}
+    .tr-sec-head{margin-bottom:26px}
+    .tr-sec-head .h3{font-size:1.3rem}
+    .tr-sec-head p{color:var(--muted);font-size:.92rem;margin-top:8px;max-width:640px}
+    /* normas ANS */
+    .tr-rn{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .tr-rn__item{background:#fff;border:1.5px solid var(--bd-l);border-radius:14px;padding:18px 20px;display:flex;gap:14px;align-items:flex-start;transition:all .25s}
+    .tr-rn__item:hover{border-color:var(--teal);transform:translateY(-2px);box-shadow:0 12px 28px rgba(4,42,38,.07)}
+    .tr-rn__n{font-family:'Objective',sans-serif;font-weight:800;font-size:.82rem;color:#fff;background:var(--teal);border-radius:8px;padding:5px 9px;flex-shrink:0;white-space:nowrap}
+    .tr-rn__t{font-size:.86rem;color:var(--text);font-family:'Objective',sans-serif;font-weight:600;line-height:1.4}
+    /* demonstrações por ano */
+    .tr-years{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .tr-year{background:#fff;border:1.5px solid var(--bd-l);border-radius:18px;padding:26px 28px;transition:all .25s}
+    .tr-year:hover{border-color:var(--teal);box-shadow:0 16px 36px rgba(4,42,38,.07)}
+    .tr-year__top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+    .tr-year__y{font-family:'Objective',sans-serif;font-weight:800;font-size:1.5rem;color:var(--text)}
+    .tr-year__lbl{font-size:.74rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:700}
+    .tr-year ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px;margin-bottom:18px}
+    .tr-year li{display:flex;gap:8px;align-items:flex-start;font-size:.82rem;color:var(--muted);line-height:1.5}
+    .tr-year li i{color:var(--teal);font-size:.75rem;margin-top:4px;flex-shrink:0}
+    .tr-year .btn{width:100%;justify-content:center}
+    /* relatórios igualdade */
+    .tr-reports{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .tr-report{display:flex;align-items:center;gap:14px;background:#fff;border:1.5px solid var(--bd-l);border-radius:14px;padding:20px 22px;transition:all .25s}
+    .tr-report:hover{border-color:var(--teal);transform:translateY(-2px);box-shadow:0 12px 28px rgba(4,42,38,.07)}
+    .tr-report i{width:44px;height:44px;border-radius:11px;background:rgba(37,149,145,.1);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:1.05rem;flex-shrink:0}
+    .tr-report strong{display:block;font-family:'Objective',sans-serif;font-size:.92rem;color:var(--text)}
+    .tr-report span{font-size:.8rem;color:var(--teal);font-weight:600}
+    /* banner ANS */
+    .tr-banner{position:relative;overflow:hidden;background:var(--grad-cool);border-radius:var(--r);padding:40px;display:flex;gap:24px;align-items:center;flex-wrap:wrap;justify-content:space-between;color:#fff;margin-top:8px}
+    .tr-banner__txt{max-width:560px}
+    .tr-banner h3{font-family:'Objective',sans-serif;font-weight:800;font-size:1.3rem;margin-bottom:8px}
+    .tr-banner p{color:rgba(255,255,255,.92);font-size:.92rem;line-height:1.7}
+    .tr-banner .btn{background:#fff;color:var(--teal);flex-shrink:0}
+    .tr-banner .btn:hover{background:#FFE0B5;color:var(--text)}
+    .tr-note{font-size:.82rem;color:var(--muted);background:var(--off);border:1px solid var(--bd-l);border-radius:12px;padding:14px 18px;display:flex;gap:10px;align-items:flex-start;margin-top:30px}
+    .tr-note i{color:var(--teal);margin-top:2px}
+    @media(max-width:820px){.tr-rn{grid-template-columns:1fr 1fr}.tr-years,.tr-reports{grid-template-columns:1fr}}
+    @media(max-width:520px){.tr-rn{grid-template-columns:1fr}.tr-year ul{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
 
-<header class="nav">
-  <div class="wrap nav__inner">
-    <a href="index.html"><img src="https://klinisaude.com.br/wp-content/uploads/2023/01/logo-header.webp" alt="Klini Saúde" style="height:28px" /></a>
-    <a href="index.html#cotacao" class="nav__cta">Cotação Gratuita</a>
+<!-- ══ TOP BAR (padrão Klini) ═══════════════════════════════════════ -->
+<header class="bar" id="bar">
+  <div class="bar__inner">
+    <a href="index.html" class="bar__logo"><img src="assets/logo-klini.webp" alt="Klini Saúde" /></a>
+    <nav class="bar__nav" id="barNav">
+      <a href="sobre.html" class="nav__link nav__item">A Klini</a>
+      <div class="nav__item nav__item--drop">
+        <span class="nav__link">Serviços <i class="pi pi-chevron-down nav__chev"></i></span>
+        <div class="nav__drop">
+          <a href="token-digital.html">Token digital</a>
+          <a href="desconto-farmacia.html">Desconto farmácia</a>
+          <a href="teleconsulta.html">Teleconsulta</a>
+          <a href="rede-credenciada.html">Busca de rede</a>
+          <a href="rede-credenciada.html#atualizacoes">Atualização de rede</a>
+        </div>
+      </div>
+      <a href="planos.html" class="nav__link nav__item">Planos</a>
+      <div class="nav__item nav__item--drop">
+        <span class="nav__link">Transparência <i class="pi pi-chevron-down nav__chev"></i></span>
+        <div class="nav__drop">
+          <a href="transparencia.html">Portal da transparência</a>
+          <a href="politica-de-privacidade.html">Política de privacidade</a>
+          <a href="codigo-de-conduta.html">Código de conduta</a>
+          <a href="termos-de-uso.html">Termos de uso</a>
+          <a href="idss.html">IDSS</a>
+        </div>
+      </div>
+      <div class="nav__item nav__item--drop">
+        <span class="nav__link">Atendimento <i class="pi pi-chevron-down nav__chev"></i></span>
+        <div class="nav__drop">
+          <a href="ouvidoria.html">Ouvidoria</a>
+          <a href="negocie-sua-divida.html">Negocie sua dívida</a>
+          <a href="quero-me-credenciar.html">Quero me credenciar</a>
+        </div>
+      </div>
+    </nav>
+    <div class="bar__ctas">
+      <a href="planos.html#cotacao" class="btn-klini">Quero ser Klini</a>
+      <a href="https://app.klinisaude.com.br" class="btn-area" target="_blank" rel="noopener"><i class="pi pi-user"></i> Acesse sua área</a>
+    </div>
+    <button class="bar__hamburger" id="barHamb" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </header>
 
+<!-- ══ HERO ═════════════════════════════════════════════════════════ -->
 <section class="page-hero">
   <div class="wrap">
-    <span class="eyebrow">transparência</span>
-    <h1>Informação clara<br>para você decidir</h1>
-    <p>A Klini Saúde disponibiliza os documentos regulatórios e dados institucionais exigidos pela Agência Nacional de Saúde Suplementar (ANS).</p>
+    <span class="eyebrow">portal da transparência</span>
+    <h1 class="h1">Informação clara<br>para <strong>você decidir</strong></h1>
+    <p>A Klini Saúde disponibiliza as normas, os demonstrativos e os dados institucionais exigidos pela Agência Nacional de Saúde Suplementar (ANS) — para você acompanhar com total transparência.</p>
+  </div>
+  <div class="page-hero__divider">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M0,80 L0,42 C 420,86 1020,86 1440,42 L1440,80 Z" fill="#fff"/>
+    </svg>
   </div>
 </section>
 
-<section class="content">
+<!-- ══ NORMAS ANS ═══════════════════════════════════════════════════ -->
+<section class="sec">
   <div class="wrap">
+    <div class="tr-sec-head">
+      <span class="eyebrow">documentos regulatórios</span>
+      <h2 class="h3">Resoluções Normativas da ANS</h2>
+      <p>As principais normas que orientam os direitos e deveres de beneficiários e operadoras de planos de saúde.</p>
+    </div>
+    <div class="tr-rn">
+      <div class="tr-rn__item"><span class="tr-rn__n">RN 368</span><span class="tr-rn__t">Partos e cesáreas</span></div>
+      <div class="tr-rn__item"><span class="tr-rn__n">RN 438</span><span class="tr-rn__t">Portabilidade de carências</span></div>
+      <div class="tr-rn__item"><span class="tr-rn__n">RN 465</span><span class="tr-rn__t">Rol de procedimentos</span></div>
+      <div class="tr-rn__item"><span class="tr-rn__n">RN 497</span><span class="tr-rn__t">Produtos ANS</span></div>
+      <div class="tr-rn__item"><span class="tr-rn__n">RN 509</span><span class="tr-rn__t">Tipos de contratação</span></div>
+      <div class="tr-rn__item"><span class="tr-rn__n">RN 561</span><span class="tr-rn__t">Cancelamento e exclusão</span></div>
+      <div class="tr-rn__item"><span class="tr-rn__n">RN 565</span><span class="tr-rn__t">Pool de risco</span></div>
+      <div class="tr-rn__item"><span class="tr-rn__n">RN 566</span><span class="tr-rn__t">Garantia de atendimento</span></div>
+      <div class="tr-rn__item"><span class="tr-rn__n">RN 623</span><span class="tr-rn__t">Regras de atendimento</span></div>
+    </div>
+    <div style="margin-top:22px">
+      <a href="https://www.gov.br/ans/pt-br/assuntos/legislacao" target="_blank" rel="noopener" class="btn btn-outline"><i class="pi pi-external-link"></i> Consultar normas no portal da ANS</a>
+    </div>
+  </div>
+</section>
 
-    <h2 class="section-title">Documentos e publicações</h2>
-    <div class="doc-grid">
-      <div class="doc-card">
-        <div class="doc-card__ico"><i class="pi pi-file-pdf"></i></div>
-        <div>
-          <strong>Contrato e Regulamento</strong>
-          <p>Condições gerais, cobertura, carências e exclusões do plano.</p>
-          <a href="https://klinisaude.com.br" target="_blank" rel="noopener">Acessar <i class="pi pi-external-link"></i></a>
-        </div>
+<!-- ══ DEMONSTRAÇÕES FINANCEIRAS ════════════════════════════════════ -->
+<section class="sec sec--off">
+  <div class="wrap">
+    <div class="tr-sec-head">
+      <span class="eyebrow">informações financeiras</span>
+      <h2 class="h3">Demonstrações financeiras</h2>
+      <p>Publicadas anualmente: Balanço Patrimonial, DRE, Fluxo de Caixa, Mutações de Patrimônio, Notas Explicativas e Relatório dos Auditores Independentes.</p>
+    </div>
+    <div class="tr-years">
+      <!-- TODO: substituir href pelos PDFs oficiais de cada ano quando disponíveis -->
+      <div class="tr-year">
+        <div class="tr-year__top"><span class="tr-year__y">2024</span><span class="tr-year__lbl">ano-base</span></div>
+        <ul><li><i class="pi pi-check"></i> Balanço Patrimonial</li><li><i class="pi pi-check"></i> DRE</li><li><i class="pi pi-check"></i> Fluxo de Caixa</li><li><i class="pi pi-check"></i> Mutações de Patrimônio</li><li><i class="pi pi-check"></i> Notas Explicativas</li><li><i class="pi pi-check"></i> Relatório de Auditores</li></ul>
+        <a href="https://klinisaude.com.br" target="_blank" rel="noopener" class="btn btn-outline"><i class="pi pi-file-pdf"></i> Acessar documentos 2024</a>
       </div>
-      <div class="doc-card">
-        <div class="doc-card__ico"><i class="pi pi-chart-line"></i></div>
-        <div>
-          <strong>Demonstrativos Financeiros</strong>
-          <p>Balanços e demonstrações de resultado publicados anualmente.</p>
-          <a href="https://klinisaude.com.br" target="_blank" rel="noopener">Acessar <i class="pi pi-external-link"></i></a>
-        </div>
+      <div class="tr-year">
+        <div class="tr-year__top"><span class="tr-year__y">2023</span><span class="tr-year__lbl">ano-base</span></div>
+        <ul><li><i class="pi pi-check"></i> Balanço Patrimonial</li><li><i class="pi pi-check"></i> DRE</li><li><i class="pi pi-check"></i> Fluxo de Caixa</li><li><i class="pi pi-check"></i> Mutações de Patrimônio</li><li><i class="pi pi-check"></i> Notas Explicativas</li><li><i class="pi pi-check"></i> Relatório de Auditores</li></ul>
+        <a href="https://klinisaude.com.br" target="_blank" rel="noopener" class="btn btn-outline"><i class="pi pi-file-pdf"></i> Acessar documentos 2023</a>
       </div>
-      <div class="doc-card">
-        <div class="doc-card__ico"><i class="pi pi-shield"></i></div>
-        <div>
-          <strong>Nota Técnica ANS</strong>
-          <p>Índices de reajuste autorizados e notas técnicas de produto.</p>
-          <a href="https://klinisaude.com.br" target="_blank" rel="noopener">Acessar <i class="pi pi-external-link"></i></a>
-        </div>
+      <div class="tr-year">
+        <div class="tr-year__top"><span class="tr-year__y">2022</span><span class="tr-year__lbl">ano-base</span></div>
+        <ul><li><i class="pi pi-check"></i> Balanço Patrimonial</li><li><i class="pi pi-check"></i> DRE</li><li><i class="pi pi-check"></i> Fluxo de Caixa</li><li><i class="pi pi-check"></i> Mutações de Patrimônio</li><li><i class="pi pi-check"></i> Notas Explicativas</li><li><i class="pi pi-check"></i> Relatório de Auditores</li></ul>
+        <a href="https://klinisaude.com.br" target="_blank" rel="noopener" class="btn btn-outline"><i class="pi pi-file-pdf"></i> Acessar documentos 2022</a>
       </div>
-      <div class="doc-card">
-        <div class="doc-card__ico"><i class="pi pi-list"></i></div>
-        <div>
-          <strong>Rol de Procedimentos</strong>
-          <p>Cobertura mínima obrigatória conforme resolução normativa ANS.</p>
-          <a href="https://www.ans.gov.br/planos-de-saude-e-operadoras/espaco-do-consumidor/rol-de-procedimentos-e-eventos-em-saude" target="_blank" rel="noopener">Ver no site ANS <i class="pi pi-external-link"></i></a>
-        </div>
+      <div class="tr-year">
+        <div class="tr-year__top"><span class="tr-year__y">2021</span><span class="tr-year__lbl">ano-base</span></div>
+        <ul><li><i class="pi pi-check"></i> Balanço Patrimonial</li><li><i class="pi pi-check"></i> DRE</li><li><i class="pi pi-check"></i> Fluxo de Caixa</li><li><i class="pi pi-check"></i> Mutações de Patrimônio</li><li><i class="pi pi-check"></i> Notas Explicativas</li><li><i class="pi pi-check"></i> Relatório de Auditores</li></ul>
+        <a href="https://klinisaude.com.br" target="_blank" rel="noopener" class="btn btn-outline"><i class="pi pi-file-pdf"></i> Acessar documentos 2021</a>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="ans-banner">
-      <div class="ans-banner__ico"><i class="pi pi-database"></i></div>
-      <div>
+<!-- ══ IGUALDADE SALARIAL ═══════════════════════════════════════════ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="tr-sec-head">
+      <span class="eyebrow">lei nº 14.611/2023</span>
+      <h2 class="h3">Relatórios de Transparência e Igualdade Salarial</h2>
+      <p>Relatórios semestrais de remuneração por gênero e raça, conforme exige a legislação.</p>
+    </div>
+    <div class="tr-reports">
+      <a class="tr-report" href="https://klinisaude.com.br" target="_blank" rel="noopener"><i class="pi pi-file-pdf"></i><div><strong>1º Semestre 2025</strong><span>Acessar relatório</span></div></a>
+      <a class="tr-report" href="https://klinisaude.com.br" target="_blank" rel="noopener"><i class="pi pi-file-pdf"></i><div><strong>2º Semestre 2025</strong><span>Acessar relatório</span></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DADOS ABERTOS ANS ════════════════════════════════════════════ -->
+<section class="sec sec--off">
+  <div class="wrap">
+    <div class="tr-banner">
+      <div class="tr-banner__txt">
         <h3>Portal ANS — Dados Abertos</h3>
-        <p>O portal de dados abertos da ANS reúne informações públicas sobre todas as operadoras de saúde do Brasil, incluindo índices de satisfação, reclamações e rankings. O registro da Klini Saúde é <strong>42.202-9</strong>.</p>
-        <a href="https://dados.ans.gov.br" target="_blank" rel="noopener" class="btn-sm"><i class="pi pi-external-link"></i> Acessar dados.ans.gov.br</a>
+        <p>O portal de dados abertos da ANS reúne informações públicas sobre todas as operadoras do Brasil, incluindo índices de satisfação, reclamações e rankings. O registro da Klini Saúde é nº 42.202-9.</p>
       </div>
+      <a href="https://dados.ans.gov.br" target="_blank" rel="noopener" class="btn"><i class="pi pi-external-link"></i> Acessar dados.ans.gov.br</a>
     </div>
-
+    <div class="tr-note">
+      <i class="pi pi-info-circle"></i>
+      <span>Os documentos institucionais são publicados pela Klini Saúde e atualizados periodicamente. Em caso de dúvida sobre qualquer informação, fale com a nossa <a href="ouvidoria.html" style="color:var(--teal);font-weight:600">Ouvidoria</a>.</span>
+    </div>
   </div>
 </section>
 
+<!-- ══ FOOTER (padrão Klini) ════════════════════════════════════════ -->
 <footer>
+  <div class="foot-arc" aria-hidden="true">
+    <svg viewBox="0 0 1440 54" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="foot-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#259591"/><stop offset="38%" stop-color="#6AA7AE"/>
+        <stop offset="70%" stop-color="#CD7925"/><stop offset="100%" stop-color="#E05759"/>
+      </linearGradient></defs>
+      <path d="M0,54 L0,36 C 420,4 1020,4 1440,36 L1440,54 Z" fill="#fff"/>
+      <path d="M0,36 C 420,4 1020,4 1440,36" fill="none" stroke="url(#foot-grad)" stroke-width="4" stroke-linecap="round"/>
+    </svg>
+  </div>
   <div class="wrap">
-    <div class="foot__inner">
-      <a href="index.html"><img src="https://klinisaude.com.br/wp-content/uploads/2023/02/logo_klini-br.png" alt="Klini Saúde" style="height:20px;filter:brightness(2) saturate(0)" /></a>
+    <div class="foot__top">
+      <div class="foot__brand">
+        <a href="index.html"><img src="assets/logo-klini.webp" alt="Klini Saúde" style="height:44px" /></a>
+        <p>Saúde com rede própria, telemedicina 24h e cuidado humano no Rio de Janeiro.</p>
+      </div>
       <nav class="foot__links">
-        <a href="sobre.html">Sobre</a><a href="planos.html">Planos</a><a href="ouvidoria.html">Ouvidoria</a>
-        <a href="rede-credenciada.html">Rede</a><a href="politica-de-privacidade.html">Privacidade</a>
+        <a href="sobre.html">A Klini</a>
+        <a href="sobre.html#unidades">Nossas unidades</a>
+        <a href="planos.html">Planos</a>
+        <a href="teleconsulta.html">Teleconsulta</a>
+        <a href="rede-credenciada.html">Rede credenciada</a>
+        <a href="transparencia.html">Transparência</a>
+        <a href="ouvidoria.html">Ouvidoria</a>
+        <a href="politica-de-privacidade.html">Privacidade</a>
       </nav>
+      <div class="foot__socials">
+        <a href="https://www.instagram.com/klinisaude/" class="soc" target="_blank" rel="noopener" aria-label="Instagram"><i class="pi pi-instagram"></i></a>
+        <a href="https://www.facebook.com/klinisaudematriz" class="soc" target="_blank" rel="noopener" aria-label="Facebook"><i class="pi pi-facebook"></i></a>
+        <a href="https://br.linkedin.com/company/klinisaude" class="soc" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="pi pi-linkedin"></i></a>
+        <a href="https://www.youtube.com/@KliniSaude" class="soc" target="_blank" rel="noopener" aria-label="YouTube"><i class="pi pi-youtube"></i></a>
+      </div>
+      <div class="foot__apps">
+        <a href="https://apps.apple.com/br/app/klini-saude/id6447484649" target="_blank" rel="noopener" aria-label="App Store"><img src="assets/btn-appstore.png" alt="App Store" class="foot__app-btn" /></a>
+        <a href="https://play.google.com/store/apps/details?id=br.com.klinisaude.klini_app" target="_blank" rel="noopener" aria-label="Google Play"><img src="assets/btn-googleplay.png" alt="Google Play" class="foot__app-btn" /></a>
+      </div>
     </div>
     <div class="foot__bottom">
-      © 2020–2026 Klini Planos de Saúde Ltda. · CNPJ 34.539.000/0001-86
-      <span class="seal" style="background:#0A0A0A;color:#fff;border:1px solid #2A2A2A;font-weight:800;letter-spacing:.03em">ANS – Nº 42.202-9</span>
+      <p>© 2020–2026 Klini Planos de Saúde Ltda. · CNPJ 34.539.000/0001-86 · Barra da Tijuca, Rio de Janeiro, RJ</p>
+      <div class="seals">
+        <span class="seal ans-badge">ANS – Nº 42.202-9</span>
+        <span class="seal">LGPD</span>
+      </div>
     </div>
   </div>
 </footer>
 
+<div class="wa-f">
+  <span class="wa-tip">Falar com a Klini</span>
+  <a href="https://wa.me/552130550790?text=Olá!%20Preciso%20de%20uma%20informação%20do%20Portal%20da%20Transparência%20Klini." class="wa-btn" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="pi pi-whatsapp" style="font-size:1.5rem;color:#fff;line-height:1"></i></a>
+</div>
+
+<script>
+  var bar = document.getElementById('bar');
+  window.addEventListener('scroll', function(){ bar.classList.toggle('solid', window.scrollY > 50); }, { passive:true });
+  var barHamb = document.getElementById('barHamb'), barNav = document.getElementById('barNav');
+  if (barHamb && barNav) {
+    barHamb.addEventListener('click', function(){ barNav.classList.toggle('open'); });
+    barNav.querySelectorAll('.nav__item--drop .nav__link').forEach(function(btn){ btn.addEventListener('click', function(){ btn.closest('.nav__item--drop').classList.toggle('open'); }); });
+  }
+</script>
 </body>
 </html>
