@@ -47,7 +47,7 @@ a{text-decoration:none;color:inherit}
 
 /* ── TYPE ────────────────────────────────────────────────────── */
 .h1{font-family:'Objective',sans-serif;font-weight:800;font-size:clamp(3rem,6.8vw,5.8rem);line-height:.98;letter-spacing:-.045em}
-.h2{font-family:'Objective',sans-serif;font-weight:400;font-size:clamp(2.2rem,4.8vw,3.8rem);line-height:1.06;letter-spacing:-.035em;color:var(--text)}
+.h2{font-family:'Objective',sans-serif;font-weight:400;font-size:clamp(2.2rem,4.8vw,3.8rem);line-height:1.06;letter-spacing:-.035em;color:var(--muted)}
 .h2 strong{font-weight:800;color:var(--teal)}
 .h3{font-family:'Objective',sans-serif;font-weight:700;font-size:clamp(1.1rem,2vw,1.35rem)}
 .eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal)}
@@ -140,10 +140,21 @@ a{text-decoration:none;color:inherit}
 
 
 /* ── PLANS ───────────────────────────────────────────────────── */
-.plans__track{display:grid;grid-template-columns:repeat(6,236px);gap:16px;overflow-x:auto;overflow-y:visible;padding:20px 2px 18px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--teal) var(--off)}
-.plans__track::-webkit-scrollbar{height:3px}
-.plans__track::-webkit-scrollbar-thumb{background:var(--teal);border-radius:2px}
-.pc{background:#fff;border:1.5px solid var(--bd-l);border-radius:var(--r);padding:22px;scroll-snap-align:start;flex-shrink:0;position:relative;overflow:hidden;transition:all .3s ease;display:flex;flex-direction:column}
+/* Planos — carrossel (3 visíveis, controles no topo) */
+.plans__head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:40px;flex-wrap:wrap}
+.plans__head-txt{max-width:620px}
+.plans__nav{display:flex;align-items:center;gap:10px}
+.plans__dots{display:flex;gap:6px;margin-right:8px}
+.plans__dot{width:8px;height:8px;border-radius:50%;background:var(--bd-l);border:none;padding:0;cursor:pointer;transition:all .3s}
+.plans__dot.active{background:var(--teal);width:22px;border-radius:4px}
+.plans__arrow{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--bd-l);background:#fff;color:var(--teal);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.95rem;transition:all .22s}
+.plans__arrow:hover{border-color:var(--teal);background:rgba(37,149,145,.07)}
+.plans__arrow:disabled{opacity:.3;cursor:default}
+.plans__viewport{overflow:hidden;padding:20px 2px 8px}
+.plans__track{display:flex;gap:18px;transition:transform .5s cubic-bezier(.4,0,.2,1);will-change:transform}
+.pc{background:#fff;border:1.5px solid var(--bd-l);border-radius:var(--r);padding:24px;flex:0 0 calc((100% - 36px)/3);position:relative;overflow:hidden;transition:all .3s ease;display:flex;flex-direction:column}
+@media(max-width:980px){.pc{flex-basis:calc((100% - 18px)/2)}}
+@media(max-width:600px){.pc{flex-basis:100%}}
 .pc__more{margin-top:auto;display:inline-flex;align-items:center;gap:6px;font-size:.86rem;font-weight:700;color:var(--teal);text-decoration:none;transition:gap .2s}
 .pc__more:hover{gap:10px}
 .pc--feat .pc__more{color:#fff}
@@ -162,7 +173,7 @@ a{text-decoration:none;color:inherit}
 .pc__list li{display:flex;align-items:center;gap:8px;font-size:.81rem;color:var(--text)}
 .pc--feat .pc__list li{color:rgba(255,255,255,.8)}
 .pc__ck{width:17px;height:17px;background:rgba(37,149,145,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:.58rem;flex-shrink:0}
-.pc__btn{width:100%;justify-content:center;padding:11px;border-radius:10px;font-size:.85rem}
+.pc__btn{width:100%;justify-content:center;padding:11px;border-radius:10px;font-size:.85rem;margin-top:auto}
 .pc__btn-feat{background:var(--orange);color:#fff;border:none}
 .pc__btn-out{border:1.5px solid var(--bd-l);background:transparent;color:var(--teal)}
 .pc--feat .pc__btn-out{border-color:rgba(255,255,255,.2);color:#fff}
@@ -218,7 +229,9 @@ a{text-decoration:none;color:inherit}
 .ldc__entry p{font-size:.83rem;color:var(--muted);line-height:1.7;margin:0}
 
 /* ── FOOTER ──────────────────────────────────────────────────── */
-footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:3px solid;border-image:var(--grad-brand) 1}
+footer{background:#fff;color:var(--muted);padding:70px 0 28px;position:relative}
+.foot-arc{position:absolute;top:0;left:0;width:100%;height:48px;line-height:0;pointer-events:none}
+.foot-arc svg{display:block;width:100%;height:100%}
 .foot__top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;padding-bottom:28px;border-bottom:1px solid var(--bd-l);margin-bottom:28px}
 .foot__logo img{height:26px;filter:none}
 .foot__links{display:flex;gap:22px;flex-wrap:wrap}
@@ -592,12 +605,21 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
 <!-- ══ PLANOS ══════════════════════════════════════════════════════ -->
 <section class="sec" id="planos">
   <div class="wrap">
-    <div style="margin-bottom:56px">
-      <p class="eyebrow gs">nossos planos</p>
-      <h2 class="h2 gs">O plano certo para cada<br><strong style="color:var(--orange)">momento da vida</strong></h2>
-      <p class="gs" style="color:var(--muted);margin-top:12px;font-size:1.05rem">Do essencial ao completo — todos com telemedicina 24h inclusos.</p>
+    <div class="plans__head">
+      <div class="plans__head-txt">
+        <p class="eyebrow gs">nossos planos</p>
+        <h2 class="h2 gs">O plano certo para cada<br><strong style="color:var(--orange)">momento da vida</strong></h2>
+        <p class="gs" style="color:var(--muted);margin-top:12px;font-size:1.05rem">Do essencial ao completo — todos com telemedicina 24h inclusos.</p>
+      </div>
+      <div class="plans__nav gs">
+        <div class="plans__dots" id="plansDots"></div>
+        <button class="plans__arrow" id="plansPrev" aria-label="Planos anteriores"><i class="pi pi-angle-left"></i></button>
+        <button class="plans__arrow" id="plansNext" aria-label="Próximos planos"><i class="pi pi-angle-right"></i></button>
+      </div>
     </div>
-    <div class="plans__track">
+
+    <div class="plans__viewport">
+      <div class="plans__track" id="plansTrack">
 
       <div class="pc gs">
         <div class="pc__img-wrap">
@@ -605,7 +627,13 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
         </div>
         <div class="pc__name">Klini 200</div>
         <p class="pc__tag">A porta de entrada para proteção ampla com custo equilibrado</p>
-        <a href="planos.html" class="pc__more">Saiba mais <i class="pi pi-arrow-right"></i></a>
+        <ul class="pc__list">
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Ambulatorial + Hospitalar</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Obstetrícia inclusa</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Rede regional RJ</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Teleconsulta 24h</li>
+        </ul>
+        <a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20200." class="btn pc__btn pc__btn-out" target="_blank" rel="noopener">Solicitar Cotação</a>
       </div>
 
       <div class="pc gs">
@@ -618,7 +646,13 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
         </div>
         <div class="pc__name">Klini 350</div>
         <p class="pc__tag">O plano que acompanha o crescimento da sua família</p>
-        <a href="planos.html" class="pc__more">Saiba mais <i class="pi pi-arrow-right"></i></a>
+        <ul class="pc__list">
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Ampla rede credenciada</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Hospitais de referência</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Obstetrícia inclusa</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Telemedicina</li>
+        </ul>
+        <a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20350." class="btn pc__btn pc__btn-out" target="_blank" rel="noopener">Solicitar Cotação</a>
       </div>
 
       <div class="pc pc--feat gs">
@@ -628,7 +662,13 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
         </div>
         <div class="pc__name">Klini 400</div>
         <p class="pc__tag">Rede ampliada com Linhas de Cuidados para acompanhamento completo</p>
-        <a href="planos.html" class="pc__more">Saiba mais <i class="pi pi-arrow-right"></i></a>
+        <ul class="pc__list">
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Ambulatorial + Hospitalar</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Obstetrícia inclusa</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Rede ampliada premium</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Linhas de Cuidados (LCA)</li>
+        </ul>
+        <a href="https://wa.me/552130550790?text=Olá!%20Quero%20simular%20o%20Klini%20400." class="btn pc__btn pc__btn-feat" target="_blank" rel="noopener">Simular Agora <i class="pi pi-arrow-right"></i></a>
       </div>
 
       <div class="pc gs">
@@ -637,7 +677,13 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
         </div>
         <div class="pc__name">Klini 600</div>
         <p class="pc__tag">Cobertura total, tranquilidade completa</p>
-        <a href="planos.html" class="pc__more">Saiba mais <i class="pi pi-arrow-right"></i></a>
+        <ul class="pc__list">
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Hospitais de excelência</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Alto reembolso</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Maior rede credenciada</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>LCA ao extremo</li>
+        </ul>
+        <a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20600." class="btn pc__btn pc__btn-out" target="_blank" rel="noopener">Solicitar Cotação</a>
       </div>
 
       <div class="pc gs">
@@ -646,7 +692,13 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
         </div>
         <div class="pc__name">Ambulatorial</div>
         <p class="pc__tag">O seu plano acessível. Ideal para quem busca cobertura essencial</p>
-        <a href="planos.html" class="pc__more">Saiba mais <i class="pi pi-arrow-right"></i></a>
+        <ul class="pc__list">
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Cobertura ambulatorial completa</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Consultas e exames</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Teleconsulta 24h inclusa</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Desconto em farmácias</li>
+        </ul>
+        <a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Ambulatorial." class="btn pc__btn pc__btn-out" target="_blank" rel="noopener">Solicitar Cotação</a>
       </div>
 
       <div class="pc gs">
@@ -660,13 +712,16 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
         </div>
         <div class="pc__name">Klini Sênior</div>
         <p class="pc__tag">Central exclusiva e cuidado especializado para o perfil 60+</p>
-        <a href="planos.html" class="pc__more">Saiba mais <i class="pi pi-arrow-right"></i></a>
+        <ul class="pc__list">
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Central de atendimento 60+</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Ambulatorial + Hospitalar</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Teleconsulta inclusa</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Linhas de Cuidados (LCA)</li>
+        </ul>
+        <a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Sênior." class="btn pc__btn pc__btn-out" target="_blank" rel="noopener">Solicitar Cotação</a>
       </div>
 
-    </div>
-
-    <div style="text-align:center;margin-top:34px">
-      <a href="https://site-dev.klinisaude.com.br/planos/#cotacao" class="btn btn-teal" target="_blank" rel="noopener" style="font-size:.92rem"><i class="pi pi-clipboard"></i> Simular meu plano</a>
+      </div>
     </div>
   </div>
 </section>
@@ -1162,6 +1217,20 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
 
 <!-- ══ FOOTER ════════════════════════════════════════════════════════ -->
 <footer>
+  <!-- Divisor em arco com as 4 cores da marca (igual ao do hero) -->
+  <div class="foot-arc" aria-hidden="true">
+    <svg viewBox="0 0 1440 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="foot-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#259591"/>
+          <stop offset="38%" stop-color="#6AA7AE"/>
+          <stop offset="70%" stop-color="#CD7925"/>
+          <stop offset="100%" stop-color="#E05759"/>
+        </linearGradient>
+      </defs>
+      <path d="M0,10 C 420,46 1020,46 1440,10" fill="none" stroke="url(#foot-grad)" stroke-width="4" stroke-linecap="round"/>
+    </svg>
+  </div>
   <div class="wrap">
     <div class="foot__top">
       <div class="foot__brand">
@@ -1336,6 +1405,42 @@ document.querySelectorAll('.acess__card').forEach(card => {
     card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
   });
 });
+
+/* ── Carrossel de planos (3 visíveis, prev/next + dots) ── */
+(function () {
+  var track = document.getElementById('plansTrack');
+  if (!track) return;
+  var prev = document.getElementById('plansPrev'), next = document.getElementById('plansNext'),
+      dotsWrap = document.getElementById('plansDots');
+  var cards = track.children, total = cards.length, idx = 0, GAP = 18;
+  function perView() { var w = window.innerWidth; return w <= 600 ? 1 : (w <= 980 ? 2 : 3); }
+  function maxIdx() { return Math.max(0, total - perView()); }
+  function step() { return cards[0].getBoundingClientRect().width + GAP; }
+  function buildDots() {
+    if (!dotsWrap) return; dotsWrap.innerHTML = '';
+    for (var i = 0; i <= maxIdx(); i++) {
+      var b = document.createElement('button');
+      b.className = 'plans__dot' + (i === idx ? ' active' : '');
+      b.setAttribute('aria-label', 'Página ' + (i + 1));
+      (function (n) { b.addEventListener('click', function () { idx = n; render(); }); })(i);
+      dotsWrap.appendChild(b);
+    }
+  }
+  function render() {
+    if (idx > maxIdx()) idx = maxIdx(); if (idx < 0) idx = 0;
+    track.style.transform = 'translateX(-' + (idx * step()) + 'px)';
+    if (dotsWrap) { var d = dotsWrap.children; for (var i = 0; i < d.length; i++) d[i].classList.toggle('active', i === idx); }
+    if (prev) prev.disabled = idx <= 0;
+    if (next) next.disabled = idx >= maxIdx();
+  }
+  if (prev) prev.addEventListener('click', function () { idx--; render(); });
+  if (next) next.addEventListener('click', function () { idx++; render(); });
+  var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { buildDots(); render(); }, 160); });
+  // arraste/swipe no mobile
+  var sx = 0; track.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', function (e) { var dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 40) { idx += dx > 0 ? -1 : 1; render(); } }, { passive: true });
+  buildDots(); render();
+})();
 
 /* ── Smooth anchors ──────────────────────────────────── */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
