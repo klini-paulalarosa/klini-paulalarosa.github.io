@@ -348,21 +348,14 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
 @media(max-width:540px){.farm-bento{grid-template-columns:1fr 1fr}.farm-bento__info{grid-column:1/3}}
 
 /* ── CANAIS BENTO ─────────────────────────────────────────────── */
-.canais-bento{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:auto;gap:12px;margin-top:48px}
-.canal--wa{grid-column:1/4;grid-row:1/3;justify-content:flex-start}
-.canal--pres{grid-column:4/7}
-.canal--sac{grid-column:4/6}
-.canal--deaf{grid-column:6/7}
-.canal--ouv{grid-column:1/4}
-.canal--imp{grid-column:4/7}
-.canal--wa .canal__head{margin-bottom:14px}
-.canal--wa .canal__ico{width:52px;height:52px;font-size:1.3rem}
-.canal--wa .canal__name{font-size:1.15rem}
-.canal--wa .canal__info{font-size:1.05rem}
-.canal--wa .canal__desc{font-size:.88rem;margin-bottom:14px}
+/* grid limpo 3×2 — alturas pelo conteúdo (sem row-span = sem espaço sobrando) */
+.canais-bento{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px;align-items:start}
+.canal--wa{background:linear-gradient(150deg,rgba(37,149,145,.07),rgba(106,167,174,.03));border-color:rgba(37,149,145,.3)}
+.canal--wa .canal__ico{width:50px;height:50px;font-size:1.25rem}
+.canal--wa .canal__name{font-size:1.1rem}
 .canal__head{margin-bottom:12px}
-@media(max-width:1024px){.canais-bento{grid-template-columns:repeat(4,1fr)}.canal--wa{grid-column:1/3;grid-row:1/3}.canal--pres{grid-column:3/5}.canal--sac{grid-column:1/3}.canal--deaf{grid-column:3/5}.canal--ouv{grid-column:1/3}.canal--imp{grid-column:3/5}}
-@media(max-width:640px){.canais-bento{grid-template-columns:1fr 1fr}.canal--wa{grid-column:1/3;grid-row:auto}.canal--pres,.canal--sac,.canal--ouv,.canal--imp{grid-column:1/3}.canal--deaf{grid-column:1/3}}
+@media(max-width:900px){.canais-bento{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.canais-bento{grid-template-columns:1fr}}
 
 /* ── TELECONSULTA — zoom sutil + balões de notificação ───────── */
 #teleconsulta{overflow:hidden}
