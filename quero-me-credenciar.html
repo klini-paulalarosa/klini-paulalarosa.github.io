@@ -229,24 +229,53 @@
 
   /* formulário → compõe e-mail para credenciamento (site estático) */
   var cred = document.getElementById('credForm');
+  var credToast = document.getElementById('credToast');
+  function showCredToast(sub, cb) {
+    if (credToast) {
+      credToast.querySelector('.form-toast__sub').textContent = sub || '';
+      credToast.classList.add('show');
+      setTimeout(function(){ credToast.classList.remove('show'); }, 4200);
+    }
+    setTimeout(cb || function(){}, 750);
+  }
   if (cred) cred.addEventListener('submit', function(e){
     e.preventDefault();
     if (!cred.checkValidity()) { cred.reportValidity(); return; }
     var d = new FormData(cred);
     var anexo = credFile && credFile.files.length ? credFile.files[0].name : '';
     var subject = 'Credenciamento — ' + (d.get('estabelecimento')||'');
-    var body = 'Solicitação de credenciamento à rede Klini\n\n'
-            + 'Nome: ' + (d.get('nome')||'') + '\n'
-            + 'CPF/CNPJ: ' + (d.get('doc')||'') + '\n'
-            + 'E-mail: ' + (d.get('email')||'') + '\n'
-            + 'Telefone: ' + (d.get('telefone')||'') + '\n'
-            + 'Estabelecimento: ' + (d.get('estabelecimento')||'') + '\n'
-            + 'Endereço: ' + (d.get('endereco')||'') + '\n'
-            + 'Especialidade/tipo: ' + (d.get('tipo')||'') + '\n'
+    var body = 'Solicitação de credenciamento à rede Klini
+
+'
+            + 'Nome: ' + (d.get('nome')||'') + '
+'
+            + 'CPF/CNPJ: ' + (d.get('doc')||'') + '
+'
+            + 'E-mail: ' + (d.get('email')||'') + '
+'
+            + 'Telefone: ' + (d.get('telefone')||'') + '
+'
+            + 'Estabelecimento: ' + (d.get('estabelecimento')||'') + '
+'
+            + 'Endereço: ' + (d.get('endereco')||'') + '
+'
+            + 'Especialidade/tipo: ' + (d.get('tipo')||'') + '
+'
             + 'Serviços: ' + (d.get('servicos')||'—')
-            + (anexo ? '\nAnexo: ' + anexo + ' (anexar a este e-mail)' : '');
-    window.location.href = 'mailto:credenciamento@klinisaude.com.br?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+            + (anexo ? '
+Anexo: ' + anexo + ' (anexar a este e-mail)' : '');
+    var href = 'mailto:credenciamento@klinisaude.com.br?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    showCredToast('Abrindo cliente de e-mail…', function(){ window.location.href = href; });
   });
 </script>
+
+<div class="form-toast" id="credToast" role="status" aria-live="polite">
+  <div class="form-toast__ico"><i class="pi pi-check"></i></div>
+  <div>
+    <span class="form-toast__title">Solicitação enviada!</span>
+    <span class="form-toast__sub"></span>
+  </div>
+</div>
+<script src="assets/reveal.js"></script>
 </body>
 </html>

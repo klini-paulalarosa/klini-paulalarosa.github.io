@@ -193,6 +193,25 @@
         <div class="rc-type"><div class="rc-type__ico"><i class="pi pi-comments"></i></div><strong>Saúde mental e psicologia</strong></div>
         <div class="rc-type"><div class="rc-type__ico"><i class="pi pi-shopping-bag"></i></div><strong>Farmácias conveniadas</strong></div>
       </div>
+
+      <!-- ── PRÉVIA DA REDE PRÓPRIA — busca ao vivo ───────────────── -->
+      <div class="rc-quick">
+        <div class="rc-quick__bar">
+          <div class="rc-quick__label">
+            <span class="eyebrow">rede própria klini</span>
+            <p>CMK Centros Médicos e Hospitais Rede Casa — busque por nome, especialidade ou cidade.</p>
+          </div>
+          <div class="rc-quick__search">
+            <i class="pi pi-search"></i>
+            <input type="text" id="rcSearch" placeholder="Nome, especialidade ou cidade…" autocomplete="off" />
+            <span class="rc-quick__count" id="rcCount">19 unidades</span>
+          </div>
+        </div>
+        <div class="rc-quick__grid" id="rcGrid"></div>
+        <p style="font-size:.76rem;color:var(--muted);text-align:center;margin-top:16px">
+          Rede própria Klini. Para a rede credenciada completa, use o <a href="https://klinisaude.com.br/rede-credenciada/" target="_blank" rel="noopener" style="color:var(--teal);font-weight:600">portal oficial</a>.
+        </p>
+      </div>
     </div>
 
     <!-- TAB: ATUALIZAÇÕES -->
@@ -321,5 +340,67 @@
     if (location.hash === '#atualizacoes') activate('atualizacoes');
   })();
 </script>
+<script>
+/* ── Live filter — rede própria Klini ── */
+(function(){
+  var UNITS=[
+    {name:'CMK Praça da Bandeira',  cls:'cmk',  type:'CMK',  spec:'Clínica geral · Ginecologia · Pediatria', local:'Praça da Bandeira, Rio de Janeiro'},
+    {name:'CMK Centro',             cls:'cmk',  type:'CMK',  spec:'Clínica geral · Ortopedia · Cardiologia',  local:'Centro, Rio de Janeiro'},
+    {name:'CMK Tijuca',             cls:'cmk',  type:'CMK',  spec:'Clínica geral · Dermatologia',             local:'Tijuca, Rio de Janeiro'},
+    {name:'CMK Madureira',          cls:'cmk',  type:'CMK',  spec:'Clínica geral · Ortopedia',                local:'Madureira, Rio de Janeiro'},
+    {name:'CMK Vila Valqueire',     cls:'cmk',  type:'CMK',  spec:'Clínica geral · Psiquiatria',              local:'Vila Valqueire, Rio de Janeiro'},
+    {name:'CMK Jacarepaguá',        cls:'cmk',  type:'CMK',  spec:'Clínica geral · Neurologia',               local:'Jacarepaguá, Rio de Janeiro'},
+    {name:'CMK Barra da Tijuca',    cls:'cmk',  type:'CMK',  spec:'Clínica geral · Ginecologia · Pediatria',  local:'Barra da Tijuca, Rio de Janeiro'},
+    {name:'CMK Recreio',            cls:'cmk',  type:'CMK',  spec:'Clínica geral · Dermatologia',             local:'Recreio, Rio de Janeiro'},
+    {name:'CMK Campo Grande',       cls:'cmk',  type:'CMK',  spec:'Clínica geral · Ginecologia',              local:'Campo Grande, Rio de Janeiro'},
+    {name:'CMK Nova Iguaçu',        cls:'cmk',  type:'CMK',  spec:'Clínica geral · Pediatria · Ortopedia',    local:'Nova Iguaçu'},
+    {name:'RCASA Ilha do Governador',cls:'rcasa',type:'Hospital',spec:'Cirurgia · Urgência · UTI',            local:'Ilha do Governador, Rio de Janeiro'},
+    {name:'RCASA Laranjeiras',      cls:'rcasa',type:'Hospital',spec:'Maternidade · Obstetrícia · UTI',       local:'Laranjeiras, Rio de Janeiro'},
+    {name:'RCASA Santa Cruz',       cls:'rcasa',type:'Hospital',spec:'Clínica geral · Cirurgia · Urgência',   local:'Santa Cruz, Rio de Janeiro'},
+    {name:'Hospital Egas Moniz',    cls:'rcasa',type:'Hospital',spec:'Cirurgia · Oncologia · UTI',            local:'Rio de Janeiro'},
+    {name:'Hospital Evangélico',    cls:'rcasa',type:'Hospital',spec:'Urgência · Cirurgia · Maternidade',     local:'Nova Iguaçu'},
+    {name:'MensSana',               cls:'rcasa',type:'Hospital',spec:'Saúde mental · Psiquiatria',            local:'Rio de Janeiro'},
+    {name:'RCASA Rio Botafogo',     cls:'rcasa',type:'Hospital',spec:'Cirurgia · Ortopedia · Urgência',       local:'Botafogo, Rio de Janeiro'},
+    {name:'Hospital Premium',       cls:'rcasa',type:'Hospital',spec:'Oncologia · Cirurgia · UTI',            local:'Rio de Janeiro'},
+    {name:'Casa de Portugal',       cls:'rcasa',type:'Hospital',spec:'Clínica geral · Cirurgia · Maternidade',local:'Rio de Janeiro'}
+  ];
+
+  var grid=document.getElementById('rcGrid');
+  var search=document.getElementById('rcSearch');
+  var countEl=document.getElementById('rcCount');
+  if(!grid||!search)return;
+
+  // Render cards
+  UNITS.forEach(function(u){
+    var el=document.createElement('div');
+    el.className='rc-unit';
+    el.innerHTML='<span class="rc-unit__badge rc-unit__badge--'+u.cls+'">'+u.type+'</span>'
+      +'<div class="rc-unit__name">'+u.name+'</div>'
+      +'<div class="rc-unit__spec">'+u.spec+'</div>'
+      +'<div class="rc-unit__local"><i class="pi pi-map-marker" style="font-size:.7rem"></i> '+u.local+'</div>';
+    grid.appendChild(el);
+  });
+
+  var cards=Array.prototype.slice.call(grid.querySelectorAll('.rc-unit'));
+
+  function filter(q){
+    var terms=q.trim().toLowerCase().split(/\s+/).filter(Boolean);
+    var n=0;
+    cards.forEach(function(card,i){
+      var u=UNITS[i];
+      var hay=(u.name+' '+u.type+' '+u.spec+' '+u.local).toLowerCase();
+      var match=!terms.length||terms.every(function(t){return hay.indexOf(t)>=0});
+      card.hidden=!match;
+      if(match)n++;
+    });
+    countEl.textContent=n+' unidade'+(n!==1?'s':'');
+  }
+
+  search.addEventListener('input',function(){filter(this.value)});
+  // Initial state
+  countEl.textContent=UNITS.length+' unidades';
+})();
+</script>
+<script src="assets/reveal.js"></script>
 </body>
 </html>

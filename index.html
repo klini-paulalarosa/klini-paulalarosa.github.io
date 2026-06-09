@@ -408,10 +408,16 @@ footer{background:#fff;color:var(--muted);padding:52px 0 28px;position:relative}
 @media(max-width:1024px){.tele__notif{min-width:128px}.tele__notif--1{left:-16px}.tele__notif--2{left:-26px}.tele__notif--3{left:-12px}}
 @media(max-width:560px){.tele__notif{min-width:120px}.tele__notif--1{top:15%;left:-6px}.tele__notif--2{top:50%;left:-10px}.tele__notif--3{top:84%;left:-4px}}
 
-/* ── REVEAL ──────────────────────────────────────────────────── */
-.reveal{clip-path:inset(0 0 100% 0)}
+/* ── SCROLL REVEAL (html.sr via reveal.js) ──────────────────── */
+html.sr .gs{opacity:0!important;transform:translateY(22px);transition:opacity .55s cubic-bezier(.4,0,.2,1),transform .55s cubic-bezier(.4,0,.2,1)}
+html.sr .gs.vis{opacity:1!important;transform:none!important}
+@media(prefers-reduced-motion:reduce){html.sr .gs{transition:none!important}}
 
-/* ── INVISIBLE INITIAL STATE (GSAP targets) ─────────────────── */
+/* ── HERO ENTRY — above fold, pure CSS animation ─────────────── */
+@keyframes hero-in{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
+.hero__inner>*{animation:hero-in .68s cubic-bezier(.4,0,.2,1) both}
+.hero__inner>*:nth-child(2){animation-delay:.11s}
+@media(prefers-reduced-motion:reduce){.hero__inner>*{animation:none}}
 /* ── BRAND ARC ROTATION ──────────────────────────────────── */
 @keyframes kln-arc-cw  { to { transform: rotate( 360deg); } }
 @keyframes kln-arc-ccw { to { transform: rotate(-360deg); } }
@@ -559,10 +565,10 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
 
   <div class="wrap">
       <div class="hero__inner">
-        <h1 class="h1 hero__title gs">
+        <h1 class="h1 hero__title">
           Saúde completa<br>com <span class="hero__accent">rede própria</span>
         </h1>
-        <div class="hero__actions gs">
+        <div class="hero__actions">
           <a href="planos.html#cotacao" class="hero__btn-primary" target="_blank" rel="noopener">
             Simular planos gratuitamente <i class="pi pi-arrow-right"></i>
           </a>
@@ -1264,5 +1270,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 </script>
+<script src="assets/reveal.js"></script>
 </body>
 </html>

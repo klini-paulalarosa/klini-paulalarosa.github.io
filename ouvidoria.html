@@ -273,22 +273,49 @@
 
   /* formulário da ouvidoria → compõe mensagem no WhatsApp (site estático) */
   var ouv = document.getElementById('ouvForm');
+  var ouvToast = document.getElementById('ouvToast');
+  function showToast(toast, sub, cb) {
+    if (toast) {
+      toast.querySelector('.form-toast__sub').textContent = sub || '';
+      toast.classList.add('show');
+      setTimeout(function(){ toast.classList.remove('show'); }, 4200);
+    }
+    setTimeout(cb || function(){}, 750);
+  }
   if (ouv) ouv.addEventListener('submit', function(e){
     e.preventDefault();
     if (!ouv.checkValidity()) { ouv.reportValidity(); return; }
     var d = new FormData(ouv);
     var anexo = ouvFile && ouvFile.files.length ? ouvFile.files[0].name : '';
-    var txt = 'Olá! Manifestação para a Ouvidoria Klini.\n'
-            + 'Tipo: ' + (d.get('tipo')||'') + '\n'
-            + 'Nome: ' + (d.get('nome')||'') + '\n'
-            + 'CPF: ' + (d.get('cpf')||'') + '\n'
-            + 'E-mail: ' + (d.get('email')||'') + '\n'
-            + 'Telefone: ' + (d.get('telefone')||'') + '\n'
-            + 'Cartão/beneficiário: ' + (d.get('cartao')||'—') + '\n'
+    var txt = 'Olá! Manifestação para a Ouvidoria Klini.
+'
+            + 'Tipo: ' + (d.get('tipo')||'') + '
+'
+            + 'Nome: ' + (d.get('nome')||'') + '
+'
+            + 'CPF: ' + (d.get('cpf')||'') + '
+'
+            + 'E-mail: ' + (d.get('email')||'') + '
+'
+            + 'Telefone: ' + (d.get('telefone')||'') + '
+'
+            + 'Cartão/beneficiário: ' + (d.get('cartao')||'—') + '
+'
             + 'Mensagem: ' + (d.get('mensagem')||'')
-            + (anexo ? '\nAnexo: ' + anexo + ' (vou enviar nesta conversa)' : '');
-    window.open('https://wa.me/552130550790?text=' + encodeURIComponent(txt), '_blank');
+            + (anexo ? '
+Anexo: ' + anexo + ' (vou enviar nesta conversa)' : '');
+    var url = 'https://wa.me/552130550790?text=' + encodeURIComponent(txt);
+    showToast(ouvToast, 'Abrindo WhatsApp…', function(){ window.open(url, '_blank'); });
   });
 </script>
+
+<div class="form-toast" id="ouvToast" role="status" aria-live="polite">
+  <div class="form-toast__ico"><i class="pi pi-check"></i></div>
+  <div>
+    <span class="form-toast__title">Manifestação enviada!</span>
+    <span class="form-toast__sub"></span>
+  </div>
+</div>
+<script src="assets/reveal.js"></script>
 </body>
 </html>
