@@ -450,6 +450,43 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
 .casa-dot{box-sizing:content-box;padding:9px;background-clip:content-box}
 @media(prefers-reduced-motion:reduce){.marquee__track{animation:none}}
 
+/* Plans commercial redesign */
+.plans-sec{background:linear-gradient(160deg,rgba(37,149,145,.06) 0%,#fff 56%);position:relative;overflow:hidden}
+.plans-sec::before{content:'';position:absolute;top:-80px;right:-160px;width:580px;height:580px;border-radius:50%;background:radial-gradient(rgba(37,149,145,.08),transparent 65%);pointer-events:none}
+.plans__trust{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+.plans__trust-chip{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1.5px solid var(--bd-l);border-radius:50px;padding:6px 15px;font-size:.76rem;font-weight:700;color:var(--text);box-shadow:0 2px 6px rgba(4,42,38,.04)}
+.plans__trust-chip i{color:var(--teal);font-size:.72rem}
+.pc--feat{animation:plan-glow 3.5s ease-in-out infinite}
+@keyframes plan-glow{0%,100%{box-shadow:0 24px 48px rgba(37,149,145,.22)}50%{box-shadow:0 24px 64px rgba(37,149,145,.44),0 0 0 7px rgba(37,149,145,.07)}}
+.pc{border-top:3px solid transparent}
+.pc--t200{border-top-color:var(--sea)}
+.pc--t350{border-top-color:var(--teal)}
+.pc--t600{border-top-color:var(--coral)}
+.pc--tamb{border-top-color:rgba(37,149,145,.55)}
+.pc--thos{border-top-color:var(--orange)}
+.plans__compare-btn{display:flex;align-items:center;gap:8px;margin:28px auto 0;background:transparent;border:1.5px solid var(--bd-l);border-radius:50px;padding:10px 22px;font-family:'Objective',sans-serif;font-weight:700;font-size:.84rem;color:var(--teal);cursor:pointer;transition:all .22s}
+.plans__compare-btn:hover{border-color:var(--teal);background:rgba(37,149,145,.06)}
+.plans__compare-btn i.caret{transition:transform .3s}
+.plans__compare-btn.open i.caret{transform:rotate(180deg)}
+.plans__ctable-wrap{overflow:hidden;max-height:0;transition:max-height .5s cubic-bezier(.4,0,.2,1)}
+.plans__ctable-wrap.open{max-height:540px;margin-top:28px}
+.plans__ctable{width:100%;border-collapse:collapse;border:1.5px solid var(--bd-l);border-radius:14px;overflow:hidden;font-family:'Objective',sans-serif}
+.plans__ctable th,.plans__ctable td{padding:11px 14px;text-align:center;font-size:.8rem;border-bottom:1px solid var(--bd-l)}
+.plans__ctable th{background:var(--off);font-weight:700;color:var(--text);font-size:.77rem}
+.plans__ctable th:first-child,.plans__ctable td:first-child{text-align:left;font-weight:600;color:var(--text);width:34%}
+.plans__ctable tr:last-child td{border-bottom:none}
+.plans__ctable .ck{color:var(--teal)}
+.plans__ctable .no{color:rgba(4,42,38,.18)}
+.plans__ctable th.feat-col{background:linear-gradient(135deg,#259591,#6AA7AE);color:#fff}
+.plans__ctable td.feat-col{background:rgba(37,149,145,.04);font-weight:600;color:var(--teal)}
+.plans__cta-strip{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;background:linear-gradient(135deg,rgba(37,149,145,.07),rgba(106,167,174,.03));border:1.5px solid rgba(37,149,145,.18);border-radius:20px;padding:24px 32px;margin-top:40px}
+.plans__strip-msg{display:flex;align-items:center;gap:14px}
+.plans__strip-ico{width:48px;height:48px;border-radius:14px;background:var(--grad-cool);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem;flex-shrink:0}
+.plans__strip-msg strong{display:block;font-size:.96rem;font-weight:700;color:var(--text);margin-bottom:2px}
+.plans__strip-msg span{font-size:.82rem;color:var(--muted)}
+.plans__strip-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+@media(max-width:768px){.plans__cta-strip{flex-direction:column;align-items:flex-start;padding:20px 22px}.plans__trust{gap:6px}.plans__trust-chip{font-size:.72rem;padding:5px 11px}}
+
 /* ── RESPONSIVE ──────────────────────────────────────────────── */
 @media(max-width:1024px){
   .hero__sub{font-size:1.05rem}
@@ -638,13 +675,19 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
 </section>
 
 <!-- ══ PLANOS ══════════════════════════════════════════════════════ -->
-<section class="sec" id="planos">
+<section class="sec plans-sec" id="planos">
   <div class="wrap">
     <div class="plans__head">
       <div class="plans__head-txt">
         <p class="eyebrow gs">nossos planos</p>
         <h2 class="h2 gs">O plano certo para<br>cada <strong style="color:var(--orange)">momento da vida</strong></h2>
         <p class="gs" style="color:var(--muted);margin-top:12px;font-size:1.05rem">Do essencial ao completo — todos com telemedicina 24h inclusos.</p>
+        <div class="plans__trust gs">
+          <span class="plans__trust-chip"><i class="pi pi-users"></i> 50.000+ beneficiários</span>
+          <span class="plans__trust-chip"><i class="pi pi-shield"></i> ANS Nº 42.202-9</span>
+          <span class="plans__trust-chip"><i class="pi pi-map-marker"></i> 19 unidades no RJ</span>
+          <span class="plans__trust-chip"><i class="pi pi-video"></i> Teleconsulta 24h inclusa</span>
+        </div>
       </div>
       <div class="plans__nav gs">
         <div class="plans__dots" id="plansDots"></div>
@@ -656,7 +699,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
     <div class="plans__viewport">
       <div class="plans__track" id="plansTrack">
 
-      <div class="pc gs">
+      <div class="pc gs pc--t200">
         <div class="pc__img-wrap">
           <img src="assets/plan-200.webp" alt="Klini 200" class="pc__img" />
         </div>
@@ -671,7 +714,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
         <a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20200." class="btn pc__btn pc__btn-out" target="_blank" rel="noopener">Solicitar Cotação</a>
       </div>
 
-      <div class="pc gs">
+      <div class="pc gs pc--t350">
         <div class="pc__img-wrap">
           <img src="assets/planos/plano-350.webp" alt="Klini 350" class="pc__img" />
         </div>
@@ -702,7 +745,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
         <a href="https://wa.me/552130550790?text=Olá!%20Quero%20simular%20o%20Klini%20400." class="btn pc__btn pc__btn-feat" target="_blank" rel="noopener">Simular Agora <i class="pi pi-arrow-right"></i></a>
       </div>
 
-      <div class="pc gs">
+      <div class="pc gs pc--t600">
         <div class="pc__img-wrap">
           <img src="assets/plan-600.webp" alt="Klini 600" class="pc__img" />
         </div>
@@ -717,7 +760,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
         <a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20600." class="btn pc__btn pc__btn-out" target="_blank" rel="noopener">Solicitar Cotação</a>
       </div>
 
-      <div class="pc gs">
+      <div class="pc gs pc--tamb">
         <div class="pc__img-wrap">
           <img src="assets/plan-ambulatorial.webp" alt="Klini Ambulatorial" class="pc__img" />
         </div>
@@ -732,7 +775,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
         <a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Ambulatorial." class="btn pc__btn pc__btn-out" target="_blank" rel="noopener">Solicitar Cotação</a>
       </div>
 
-      <div class="pc gs">
+      <div class="pc gs pc--thos">
         <div class="pc__img-wrap">
           <img src="assets/planos/plano-hospitalar-w.webp" alt="Klini Hospitalar" class="pc__img" />
         </div>
@@ -749,6 +792,52 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
 
       </div>
     </div>
+
+    <!-- Comparar planos -->
+    <button class="plans__compare-btn gs" id="plansCompareBtn" aria-expanded="false" aria-controls="plansCompareTable">
+      <i class="pi pi-table"></i> Comparar planos <i class="pi pi-angle-down caret"></i>
+    </button>
+    <div class="plans__ctable-wrap" id="plansCompareTable" aria-hidden="true">
+      <div style="overflow-x:auto">
+        <table class="plans__ctable">
+          <thead>
+            <tr>
+              <th>Cobertura</th>
+              <th>200</th>
+              <th>350</th>
+              <th class="feat-col">400 ✦</th>
+              <th>600</th>
+              <th>Amb.</th>
+              <th>Hosp.</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Ambulatorial</td><td><i class="pi pi-check ck"></i></td><td><i class="pi pi-check ck"></i></td><td class="feat-col"><i class="pi pi-check ck"></i></td><td><i class="pi pi-check ck"></i></td><td><i class="pi pi-check ck"></i></td><td><i class="pi pi-minus no"></i></td></tr>
+            <tr><td>Hospitalar</td><td><i class="pi pi-check ck"></i></td><td><i class="pi pi-check ck"></i></td><td class="feat-col"><i class="pi pi-check ck"></i></td><td><i class="pi pi-check ck"></i></td><td><i class="pi pi-minus no"></i></td><td><i class="pi pi-check ck"></i></td></tr>
+            <tr><td>Obstétrica</td><td><i class="pi pi-check ck"></i></td><td><i class="pi pi-check ck"></i></td><td class="feat-col"><i class="pi pi-check ck"></i></td><td><i class="pi pi-check ck"></i></td><td><i class="pi pi-minus no"></i></td><td><i class="pi pi-minus no"></i></td></tr>
+            <tr><td>Teleconsulta 24h</td><td><i class="pi pi-check ck"></i></td><td><i class="pi pi-check ck"></i></td><td class="feat-col"><i class="pi pi-check ck"></i></td><td><i class="pi pi-check ck"></i></td><td><i class="pi pi-check ck"></i></td><td><i class="pi pi-check ck"></i></td></tr>
+            <tr><td>Linhas de Cuidado (LCA)</td><td><i class="pi pi-minus no"></i></td><td><i class="pi pi-minus no"></i></td><td class="feat-col"><i class="pi pi-check ck"></i></td><td><i class="pi pi-check ck"></i></td><td><i class="pi pi-minus no"></i></td><td><i class="pi pi-minus no"></i></td></tr>
+            <tr><td>Rede credenciada</td><td>Regional</td><td>Ampliada</td><td class="feat-col">Premium</td><td>Máxima</td><td>Regional</td><td>Rede Casa</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- CTA strip -->
+    <div class="plans__cta-strip gs">
+      <div class="plans__strip-msg">
+        <div class="plans__strip-ico"><i class="pi pi-comments"></i></div>
+        <div>
+          <strong>Não sabe qual plano é o ideal para você?</strong>
+          <span>Um consultor Klini te orienta em minutos, sem compromisso.</span>
+        </div>
+      </div>
+      <div class="plans__strip-actions">
+        <a href="https://wa.me/552130550790?text=Olá!%20Gostaria%20de%20ajuda%20para%20escolher%20o%20plano%20ideal." class="btn btn-teal" target="_blank" rel="noopener"><i class="pi pi-whatsapp"></i> Falar com consultor</a>
+        <a href="planos.html" class="btn btn-outline">Ver todos os planos</a>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1257,6 +1346,19 @@ document.querySelectorAll('.acess__card').forEach(card => {
   var sx = 0; track.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
   track.addEventListener('touchend', function (e) { var dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 40) { idx += dx > 0 ? -1 : 1; render(); } }, { passive: true });
   buildDots(); render();
+})();
+
+(function(){
+  var btn=document.getElementById('plansCompareBtn');
+  var wrap=document.getElementById('plansCompareTable');
+  if(!btn||!wrap)return;
+  btn.addEventListener('click',function(){
+    var open=wrap.classList.toggle('open');
+    btn.classList.toggle('open',open);
+    btn.setAttribute('aria-expanded',String(open));
+    wrap.setAttribute('aria-hidden',String(!open));
+    if(open)wrap.scrollIntoView({behavior:'smooth',block:'nearest'});
+  });
 })();
 
 /* ── Smooth anchors ──────────────────────────────────── */

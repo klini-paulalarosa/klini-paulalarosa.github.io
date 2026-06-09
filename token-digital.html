@@ -44,6 +44,16 @@
     .tk-dot.on{background:var(--teal);width:26px;border-radius:5px}
     .tk-sim__hint{font-size:.76rem;color:var(--muted)}
 
+    /* ── CSS PHONE MOCKUPS (substituem webp borrado) ───────────────── */
+    .tk-screen-item{position:absolute;left:50%;top:0;transform:translateX(-50%);width:252px;height:600px;opacity:0;transition:opacity .6s ease;z-index:1;display:flex;align-items:center;justify-content:center}
+    .tk-screen-item.show{opacity:1}
+    .tk-mock{width:252px;height:546px;background:linear-gradient(155deg,#242424,#111);border-radius:44px;border:2px solid #2c2c2c;position:relative;padding:12px;box-shadow:inset 0 0 0 1.5px #3a3a3a,0 32px 64px rgba(0,0,0,.55),0 8px 16px rgba(0,0,0,.3)}
+    .tk-mock__pill{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:90px;height:22px;background:#090909;border-radius:11px;z-index:20}
+    .tk-mock__home{position:absolute;bottom:6px;left:50%;transform:translateX(-50%);width:96px;height:5px;background:rgba(255,255,255,.3);border-radius:3px}
+    .tk-mock__scr{width:100%;height:100%;background:#f9f9f9;border-radius:34px;overflow:hidden;display:flex;flex-direction:column}
+    /* WA chat mockup */
+    .tk-wa-mock{width:240px;height:290px;background:#fff;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 20px 44px rgba(4,42,38,.2)}
+
     /* ── WHATSAPP ALT ──────────────────────────────────────────────── */
     .tk-wa{display:grid;grid-template-columns:1fr 300px;gap:48px;align-items:center;background:#fff;border:1.5px solid var(--bd-l);border-radius:var(--r);padding:40px 44px;box-shadow:0 20px 50px rgba(4,42,38,.06)}
     .tk-wa h2{margin-bottom:10px}
@@ -146,9 +156,97 @@
       </div>
       <div class="tk-stage">
         <div class="tk-screens" id="tkScreens">
-          <img data-key="login" src="assets/token/login.webp" alt="Tela de login no app Klini" />
-          <img data-key="tokens" src="assets/token/tokens.webp" alt="Tela de token no app Klini" />
-          <img data-key="validado" src="assets/token/validado.webp" alt="Token validado no app Klini" />
+          <!-- ── TELA 1: LOGIN ─── -->
+          <div class="tk-screen-item" data-key="login">
+            <div class="tk-mock">
+              <div class="tk-mock__pill"></div>
+              <div class="tk-mock__home"></div>
+              <div class="tk-mock__scr">
+                <div style="background:linear-gradient(150deg,#259591,#6AA7AE);padding:40px 18px 20px;display:flex;flex-direction:column;align-items:center;gap:8px">
+                  <div style="width:44px;height:44px;background:rgba(255,255,255,.22);border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:'Objective',sans-serif;font-weight:900;color:#fff;font-size:1.15rem">K</div>
+                  <div style="color:#fff;font-weight:800;font-size:.78rem;letter-spacing:.05em">Klini Saúde</div>
+                  <div style="color:rgba(255,255,255,.72);font-size:.6rem">seu plano de saúde</div>
+                </div>
+                <div style="padding:20px 16px;flex:1;display:flex;flex-direction:column;gap:11px">
+                  <div style="font-weight:800;font-size:.78rem;color:#111;margin-bottom:2px">Bem-vindo de volta</div>
+                  <div style="background:#fff;border:1.5px solid #e6e6e6;border-radius:10px;padding:10px 12px">
+                    <div style="font-size:.57rem;color:#999;margin-bottom:2px;font-weight:700;letter-spacing:.04em">CPF</div>
+                    <div style="font-size:.72rem;font-weight:600;color:#333;letter-spacing:.02em">•••.•••.•••-80</div>
+                  </div>
+                  <div style="background:#fff;border:1.5px solid #e6e6e6;border-radius:10px;padding:10px 12px">
+                    <div style="font-size:.57rem;color:#999;margin-bottom:2px;font-weight:700;letter-spacing:.04em">Senha</div>
+                    <div style="font-size:.72rem;color:#333;letter-spacing:.18em">••••••••</div>
+                  </div>
+                  <div style="background:linear-gradient(135deg,#259591,#6AA7AE);border-radius:10px;padding:12px;text-align:center;color:#fff;font-weight:700;font-size:.76rem;display:flex;align-items:center;justify-content:center;gap:6px">
+                    <i class="pi pi-lock" style="font-size:.68rem"></i> Entrar com segurança
+                  </div>
+                  <div style="display:flex;align-items:center;gap:5px;justify-content:center;margin-top:auto;padding-top:6px">
+                    <i class="pi pi-shield" style="color:#259591;font-size:.62rem"></i>
+                    <span style="font-size:.57rem;color:#aaa">SSL 256-bit · LGPD</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ── TELA 2: TOKEN ─── -->
+          <div class="tk-screen-item" data-key="tokens">
+            <div class="tk-mock">
+              <div class="tk-mock__pill"></div>
+              <div class="tk-mock__home"></div>
+              <div class="tk-mock__scr">
+                <div style="background:linear-gradient(150deg,#259591,#6AA7AE);padding:36px 18px 18px">
+                  <div style="color:rgba(255,255,255,.75);font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase">Meu Token</div>
+                  <div style="color:#fff;font-weight:800;font-size:.8rem;margin-top:3px">Ana Paula · CPF •••-80</div>
+                </div>
+                <div style="padding:18px 16px;flex:1;display:flex;flex-direction:column;align-items:center;gap:14px">
+                  <div style="font-size:.6rem;color:#aaa;font-weight:700;letter-spacing:.06em;text-transform:uppercase">Código de acesso único</div>
+                  <div style="background:rgba(37,149,145,.07);border:2px solid rgba(37,149,145,.22);border-radius:14px;padding:16px 18px;width:100%;text-align:center">
+                    <div style="font-family:monospace;font-weight:900;font-size:1.45rem;letter-spacing:.14em;color:#111;line-height:1;white-space:nowrap">7348<span style="color:#259591;font-size:1.1rem;letter-spacing:0"> · </span>2156</div>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:10px">
+                    <div style="position:relative;width:38px;height:38px;flex-shrink:0">
+                      <svg viewBox="0 0 36 36" width="38" height="38" style="transform:rotate(-90deg)">
+                        <circle cx="18" cy="18" r="15" fill="none" stroke="rgba(37,149,145,.15)" stroke-width="3"/>
+                        <circle cx="18" cy="18" r="15" fill="none" stroke="#259591" stroke-width="3" stroke-linecap="round" stroke-dasharray="63 94"/>
+                      </svg>
+                      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.54rem;font-weight:800;color:#259591">42</div>
+                    </div>
+                    <span style="font-size:.64rem;color:#888">segundos para expirar</span>
+                  </div>
+                  <div style="background:#F0F9F9;border:1px solid rgba(37,149,145,.16);border-radius:10px;padding:11px 13px;width:100%">
+                    <div style="font-size:.6rem;color:#555;line-height:1.65">Apresente este código na recepção da unidade Klini para autorizar seu atendimento.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ── TELA 3: VALIDADO ─── -->
+          <div class="tk-screen-item" data-key="validado">
+            <div class="tk-mock">
+              <div class="tk-mock__pill"></div>
+              <div class="tk-mock__home"></div>
+              <div class="tk-mock__scr">
+                <div style="background:linear-gradient(150deg,#259591,#6AA7AE);padding:36px 18px 18px">
+                  <div style="color:rgba(255,255,255,.75);font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase">Status do Atendimento</div>
+                  <div style="color:#fff;font-weight:800;font-size:.78rem;margin-top:3px">Rede Klini · Hoje, 14:32</div>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px 18px;gap:13px">
+                  <div style="width:74px;height:74px;border-radius:50%;background:linear-gradient(135deg,#259591,#6AA7AE);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 32px rgba(37,149,145,.4)">
+                    <i class="pi pi-check" style="color:#fff;font-size:1.65rem"></i>
+                  </div>
+                  <div style="font-weight:800;font-size:.92rem;color:#111;text-align:center">Token Validado!</div>
+                  <div style="font-size:.68rem;color:#888;text-align:center;line-height:1.65;max-width:160px">Atendimento autorizado com sucesso pelo sistema Klini.</div>
+                  <div style="background:#F0F9F9;border:1px solid rgba(37,149,145,.2);border-radius:12px;padding:12px 14px;width:100%">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px">
+                      <i class="pi pi-check-circle" style="color:#259591;font-size:.78rem"></i>
+                      <span style="font-size:.66rem;color:#333;font-weight:700">Autorizado</span>
+                    </div>
+                    <div style="font-size:.6rem;color:#888;line-height:1.55">Klini Barra · Recepção confirmada<br>Token único: 7348-2156</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <span class="tk-tap" id="tkTap" aria-hidden="true"></span>
         </div>
         <div class="tk-status" id="tkStatus"><i class="pi pi-lock"></i> <span>Entrando com segurança…</span></div>
@@ -170,7 +268,31 @@
         <a href="https://wa.me/552130550790?text=Olá!%20Quero%20solicitar%20o%20meu%20token%20Klini." target="_blank" rel="noopener" class="btn btn-teal"><i class="pi pi-whatsapp"></i> Pedir token no WhatsApp</a>
       </div>
       <div class="tk-wa__phone">
-        <img src="assets/token/wpp.webp" alt="Atendimento Klini pelo WhatsApp" loading="lazy" />
+        <div class="tk-wa-mock">
+          <div style="background:#128C7E;padding:8px 14px;display:flex;align-items:center;gap:10px;flex-shrink:0">
+            <div style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.18);border:2px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;font-family:'Objective',sans-serif;font-weight:900;color:#fff;font-size:.88rem;flex-shrink:0">K</div>
+            <div>
+              <div style="color:#fff;font-weight:700;font-size:.72rem">Klini Saúde</div>
+              <div style="color:rgba(255,255,255,.72);font-size:.57rem">Bot · online agora</div>
+            </div>
+          </div>
+          <div style="background:#ECE5DD;flex:1;padding:10px 8px;display:flex;flex-direction:column;gap:7px;overflow:hidden">
+            <div style="background:#fff;border-radius:0 10px 10px 10px;padding:8px 11px;max-width:86%;box-shadow:0 1px 2px rgba(0,0,0,.1)">
+              <div style="font-size:.62rem;color:#111;line-height:1.55">Olá! Sou a assistente da Klini. Para enviar seu token, informe seu <b>CPF</b>. 😊</div>
+              <div style="font-size:.52rem;color:#aaa;text-align:right;margin-top:3px">14:30</div>
+            </div>
+            <div style="background:#DCF8C6;border-radius:10px 0 10px 10px;padding:8px 11px;max-width:68%;align-self:flex-end;box-shadow:0 1px 2px rgba(0,0,0,.1)">
+              <div style="font-size:.62rem;color:#111">•••.•••.•••-80</div>
+              <div style="font-size:.52rem;color:#aaa;text-align:right;margin-top:3px">14:30 ✓✓</div>
+            </div>
+            <div style="background:#fff;border-radius:0 10px 10px 10px;padding:9px 11px;max-width:90%;box-shadow:0 1px 2px rgba(0,0,0,.1)">
+              <div style="font-size:.62rem;color:#111;line-height:1.5;margin-bottom:4px">Aqui está seu token:</div>
+              <div style="font-family:monospace;font-size:.95rem;font-weight:900;letter-spacing:.12em;color:#259591">7348&nbsp;·&nbsp;2156</div>
+              <div style="font-size:.57rem;color:#555;margin-top:3px">Válido para este atendimento ✅</div>
+              <div style="font-size:.52rem;color:#aaa;text-align:right;margin-top:3px">14:31 ✓✓</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -265,7 +387,7 @@
   /* simulação automática do app — sem botões, como se a pessoa estivesse usando */
   (function(){
     var wrap=document.getElementById('tkScreens'); if(!wrap) return;
-    var imgs=wrap.querySelectorAll('img[data-key]');
+    var imgs=wrap.querySelectorAll('[data-key]');
     var statusEl=document.getElementById('tkStatus');
     var dots=document.querySelectorAll('#tkDots .tk-dot');
     var tlItems=document.querySelectorAll('#tkTl .tk-tl__item');
