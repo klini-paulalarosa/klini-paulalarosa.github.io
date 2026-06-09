@@ -50,7 +50,9 @@ a{text-decoration:none;color:inherit}
 .h2{font-family:'Objective',sans-serif;font-weight:400;font-size:clamp(2.2rem,4.8vw,3.8rem);line-height:1.06;letter-spacing:-.035em;color:var(--muted)}
 .h2 strong{font-weight:800;color:var(--teal)}
 .h3{font-family:'Objective',sans-serif;font-weight:700;font-size:clamp(1.1rem,2vw,1.35rem)}
-.eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal)}
+.eyebrow{font-family:'Objective',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal)}
+/* DS — corpo de texto em Merriweather; títulos/subtítulos/UI em Objective */
+p{font-family:'Merriweather',Georgia,serif;line-height:1.75}
 .grad{background:linear-gradient(105deg,var(--teal),var(--sea));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
 /* ── LAYOUT ──────────────────────────────────────────────────── */
@@ -620,7 +622,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
     <div class="plans__head">
       <div class="plans__head-txt">
         <p class="eyebrow gs">nossos planos</p>
-        <h2 class="h2 gs">O plano certo para cada<br><strong style="color:var(--orange)">momento da vida</strong></h2>
+        <h2 class="h2 gs">O plano certo para<br>cada <strong style="color:var(--orange)">momento da vida</strong></h2>
         <p class="gs" style="color:var(--muted);margin-top:12px;font-size:1.05rem">Do essencial ao completo — todos com telemedicina 24h inclusos.</p>
       </div>
       <div class="plans__nav gs">
