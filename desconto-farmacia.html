@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Desconto em farmácias Klini — economize em medicamentos nas principais redes do Brasil. Sem cadastro extra: basta apresentar seu CPF ou carteirinha no caixa." />
+  <title>Desconto em Farmácias | Klini Saúde</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons@7.0.0/primeicons.css" />
+  <link rel="stylesheet" href="assets/klini.css" />
+  <style>
+    .df-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+    .df-chip{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);color:#fff;font-family:'Objective',sans-serif;font-weight:600;font-size:.84rem;padding:9px 16px;border-radius:40px}
+    .df-chip i{color:#FFE0B5}
+
+    /* ── COMO USAR + CARTEIRINHA ───────────────────────────────────── */
+    .df-how{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+    .df-steps{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+    .df-step{display:flex;gap:18px;align-items:flex-start;padding:16px 0}
+    .df-step:not(:last-child){border-bottom:1px solid var(--bd-l)}
+    .df-step__n{width:46px;height:46px;border-radius:13px;background:var(--grad-warm);display:flex;align-items:center;justify-content:center;font-family:'Objective',sans-serif;font-weight:800;font-size:1.05rem;color:#fff;flex-shrink:0;box-shadow:0 8px 20px rgba(205,121,37,.26)}
+    .df-step strong{display:block;font-size:.98rem;font-weight:700;color:var(--text);margin-bottom:3px;font-family:'Objective',sans-serif}
+    .df-step span{font-size:.86rem;color:var(--muted);line-height:1.6}
+    .df-card-wrap{display:flex;justify-content:center;perspective:1200px}
+    .df-card{width:100%;max-width:380px;aspect-ratio:1.586/1;background:var(--grad-cool);border-radius:22px;padding:28px;color:#fff;position:relative;overflow:hidden;box-shadow:0 26px 60px rgba(4,42,38,.22);transition:transform .35s cubic-bezier(.22,1,.36,1);transform-style:preserve-3d;will-change:transform;display:flex;flex-direction:column;justify-content:space-between}
+    .df-card::after{content:'';position:absolute;top:-40%;right:-20%;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.16),transparent 65%);pointer-events:none}
+    .df-card__top{display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1}
+    .df-card__top img{height:26px;filter:brightness(0) invert(1)}
+    .df-card__top span{font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.28);padding:5px 11px;border-radius:30px}
+    .df-card__chip{width:46px;height:34px;border-radius:8px;background:linear-gradient(135deg,#FFE0B5,#E8C089);position:relative;z-index:1}
+    .df-card__name{font-family:'Objective',sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:.04em;position:relative;z-index:1}
+    .df-card__cpf{font-family:'Objective',monospace;font-size:.9rem;letter-spacing:.12em;color:rgba(255,255,255,.85);position:relative;z-index:1;margin-top:-10px}
+    .df-card__foot{font-size:.72rem;color:rgba(255,255,255,.8);position:relative;z-index:1}
+    .df-card-hint{text-align:center;font-size:.8rem;color:var(--muted);margin-top:16px}
+
+    /* ── REDES PARCEIRAS ───────────────────────────────────────────── */
+    .df-logos{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+    .df-logo{background:#fff;border:1.5px solid var(--bd-l);border-radius:16px;min-height:104px;display:flex;align-items:center;justify-content:center;padding:24px 18px;position:relative;overflow:hidden;transition:transform .35s cubic-bezier(.34,1.56,.64,1),box-shadow .3s,border-color .25s}
+    .df-logo::before{content:'';position:absolute;top:0;left:-120%;width:55%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.6),transparent);transform:skewX(-18deg);pointer-events:none}
+    .df-logo:hover{border-color:var(--teal);transform:translateY(-5px);box-shadow:0 20px 44px rgba(37,149,145,.14)}
+    .df-logo:hover::before{animation:df-shine .9s ease}
+    @keyframes df-shine{0%{left:-120%}100%{left:160%}}
+    .df-logo img{max-width:78%;max-height:54px;width:auto;height:auto;object-fit:contain;transition:transform .4s}
+    .df-logo.df-logo--tall img{max-width:88%;max-height:60px}
+    .df-logo:hover img{transform:scale(1.08)}
+    .df-logo__more{font-family:'Objective',sans-serif;font-weight:700;color:var(--teal);font-size:.92rem;text-align:center;line-height:1.4}
+
+    /* ── APP + CTA ─────────────────────────────────────────────────── */
+    .df-app{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+    .df-app__card{background:#fff;border:1.5px solid var(--bd-l);border-radius:20px;padding:32px;display:flex;gap:16px;align-items:flex-start}
+    .df-app__card i{width:48px;height:48px;border-radius:13px;background:rgba(37,149,145,.1);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+    .df-app__card strong{display:block;font-family:'Objective',sans-serif;font-size:1rem;color:var(--text);margin-bottom:5px}
+    .df-app__card p{font-size:.86rem;color:var(--muted);line-height:1.65;margin-bottom:12px}
+    .df-app__card .lk{font-family:'Objective',sans-serif;font-weight:700;font-size:.84rem;color:var(--teal);display:inline-flex;align-items:center;gap:6px}
+    .df-badges{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+    .df-badges img{height:44px}
+    .df-cta{position:relative;overflow:hidden;background:var(--grad-warm);border-radius:var(--r);padding:42px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;justify-content:space-between;color:#fff;margin-top:60px}
+    .df-cta h2{font-family:'Objective',sans-serif;font-weight:800;font-size:1.4rem;margin-bottom:8px}
+    .df-cta p{color:rgba(255,255,255,.94);font-size:.95rem;line-height:1.7;max-width:540px}
+    .df-cta .btn{background:#fff;color:var(--orange);flex-shrink:0}
+    .df-cta .btn:hover{background:#0C1422;color:#fff}
+
+    @media(max-width:900px){.df-how{grid-template-columns:1fr;gap:36px}.df-card-wrap{order:-1}.df-app{grid-template-columns:1fr;gap:20px}.df-logos{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:560px){.df-logos{grid-template-columns:1fr 1fr}}
+  </style>
+</head>
+<body>
+
+<!-- ══ TOP BAR (padrão Klini) ═══════════════════════════════════════ -->
+<header class="bar" id="bar">
+  <div class="bar__inner">
+    <a href="index.html" class="bar__logo"><img src="assets/logo-klini.webp" alt="Klini Saúde" /></a>
+    <nav class="bar__nav" id="barNav">
+      <a href="sobre.html" class="nav__link nav__item">A Klini</a>
+      <div class="nav__item nav__item--drop">
+        <span class="nav__link">Serviços <i class="pi pi-chevron-down nav__chev"></i></span>
+        <div class="nav__drop">
+          <a href="token-digital.html">Token digital</a>
+          <a href="desconto-farmacia.html">Desconto farmácia</a>
+          <a href="teleconsulta.html">Teleconsulta</a>
+          <a href="rede-credenciada.html">Busca de rede</a>
+          <a href="rede-credenciada.html#atualizacoes">Atualização de rede</a>
+        </div>
+      </div>
+      <a href="planos.html" class="nav__link nav__item">Planos</a>
+      <div class="nav__item nav__item--drop">
+        <span class="nav__link">Transparência <i class="pi pi-chevron-down nav__chev"></i></span>
+        <div class="nav__drop">
+          <a href="transparencia.html">Portal da transparência</a>
+          <a href="politica-de-privacidade.html">Política de privacidade</a>
+          <a href="codigo-de-conduta.html">Código de conduta</a>
+          <a href="termos-de-uso.html">Termos de uso</a>
+          <a href="idss.html">IDSS</a>
+        </div>
+      </div>
+      <div class="nav__item nav__item--drop">
+        <span class="nav__link">Atendimento <i class="pi pi-chevron-down nav__chev"></i></span>
+        <div class="nav__drop">
+          <a href="ouvidoria.html">Ouvidoria</a>
+          <a href="negocie-sua-divida.html">Negocie sua dívida</a>
+          <a href="quero-me-credenciar.html">Quero me credenciar</a>
+        </div>
+      </div>
+    </nav>
+    <div class="bar__ctas">
+      <a href="planos.html#cotacao" class="btn-klini">Quero ser Klini</a>
+      <a href="https://app.klinisaude.com.br" class="btn-area" target="_blank" rel="noopener"><i class="pi pi-user"></i> Acesse sua área</a>
+    </div>
+    <button class="bar__hamburger" id="barHamb" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ══ HERO ═════════════════════════════════════════════════════════ -->
+<section class="page-hero">
+  <div class="wrap">
+    <span class="eyebrow">desconto em farmácias</span>
+    <h1 class="h1">Economize em<br><strong>medicamentos</strong></h1>
+    <p>Como beneficiário Klini, você tem descontos especiais em medicamentos nas principais redes de farmácias do Brasil — sem cadastro extra, direto no caixa.</p>
+    <div class="df-chips">
+      <span class="df-chip"><i class="pi pi-check"></i> Sem cadastro adicional</span>
+      <span class="df-chip"><i class="pi pi-bolt"></i> Desconto na hora</span>
+      <span class="df-chip"><i class="pi pi-map-marker"></i> Principais redes do Brasil</span>
+    </div>
+  </div>
+  <div class="page-hero__divider">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M0,80 L0,42 C 420,86 1020,86 1440,42 L1440,80 Z" fill="#fff"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ══ COMO USAR + CARTEIRINHA ══════════════════════════════════════ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="df-how">
+      <div>
+        <span class="eyebrow">como usar o benefício</span>
+        <h2 class="h2">Simples assim, <strong style="color:var(--orange)">no caixa</strong></h2>
+        <div class="df-steps">
+          <div class="df-step"><div class="df-step__n">1</div><div><strong>Vá a uma farmácia parceira</strong><span>Procure uma das redes conveniadas perto de você.</span></div></div>
+          <div class="df-step"><div class="df-step__n">2</div><div><strong>Informe seu CPF ou carteirinha</strong><span>No caixa, apresente o CPF do titular ou a carteirinha digital do app.</span></div></div>
+          <div class="df-step"><div class="df-step__n">3</div><div><strong>Aproveite o desconto automático</strong><span>O desconto é aplicado na hora, sem burocracia e sem cadastro extra.</span></div></div>
+        </div>
+      </div>
+      <div>
+        <div class="df-card-wrap">
+          <div class="df-card" id="dfCard">
+            <div class="df-card__top"><img src="assets/logo-klini.webp" alt="Klini" /><span>Benefício Farmácia</span></div>
+            <div class="df-card__chip"></div>
+            <div>
+              <div class="df-card__name">SEU NOME AQUI</div>
+              <div class="df-card__cpf">CPF •••.•••.•••-••</div>
+            </div>
+            <div class="df-card__foot">Apresente no caixa da farmácia parceira</div>
+          </div>
+        </div>
+        <p class="df-card-hint">Sua carteirinha digital fica no app Klini — sempre com você.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ REDES PARCEIRAS ══════════════════════════════════════════════ -->
+<section class="sec sec--off">
+  <div class="wrap">
+    <div style="text-align:center">
+      <span class="eyebrow">onde usar</span>
+      <h2 class="h2">Nas <strong style="color:var(--teal)">principais redes</strong></h2>
+      <p style="color:var(--muted);font-size:.98rem;margin-top:12px">Algumas das farmácias parceiras onde o seu benefício Klini vale.</p>
+    </div>
+    <div class="df-logos">
+      <div class="df-logo"><img src="assets/farm-drogasil.png" alt="Drogasil" loading="lazy" /></div>
+      <div class="df-logo"><img src="assets/farm-raia.png" alt="Droga Raia" loading="lazy" /></div>
+      <div class="df-logo"><img src="assets/farm-pacheco.png" alt="Drogarias Pacheco" loading="lazy" /></div>
+      <div class="df-logo"><img src="assets/farm-saopaulo.png" alt="Drogaria São Paulo" loading="lazy" /></div>
+      <div class="df-logo df-logo--tall"><img src="assets/farm-drogasmil.png" alt="Drogasmil" loading="lazy" /></div>
+      <div class="df-logo df-logo--tall"><img src="assets/farm-farmalife.png" alt="Farmalife" loading="lazy" /></div>
+      <div class="df-logo"><img src="assets/farm-venancio.png" alt="Drogaria Venâncio" loading="lazy" /></div>
+      <div class="df-logo"><span class="df-logo__more"><i class="pi pi-plus-circle"></i><br>e outras redes</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ APP / WHATSAPP ═══════════════════════════════════════════════ -->
+<section class="sec">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:40px">
+      <span class="eyebrow">na palma da mão</span>
+      <h2 class="h2">Tudo no <strong>app Klini</strong></h2>
+    </div>
+    <div class="df-app">
+      <div class="df-app__card">
+        <i class="pi pi-mobile"></i>
+        <div>
+          <strong>Carteirinha digital e farmácias</strong>
+          <p>Acesse a carteirinha, consulte seus benefícios e encontre farmácias parceiras direto no app — para iOS e Android.</p>
+          <div class="df-badges">
+            <a href="https://apps.apple.com/br/app/klini-saude/id6447484649" target="_blank" rel="noopener"><img src="assets/btn-appstore.png" alt="App Store" /></a>
+            <a href="https://play.google.com/store/apps/details?id=br.com.klinisaude.klini_app" target="_blank" rel="noopener"><img src="assets/btn-googleplay.png" alt="Google Play" /></a>
+          </div>
+        </div>
+      </div>
+      <div class="df-app__card">
+        <i class="pi pi-whatsapp"></i>
+        <div>
+          <strong>Dúvidas pelo WhatsApp</strong>
+          <p>Quer saber se a sua farmácia é parceira ou como usar o benefício? Fale com a gente pelo WhatsApp.</p>
+          <a class="lk" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20sobre%20o%20desconto%20em%20farmácias%20da%20Klini." target="_blank" rel="noopener">Falar no WhatsApp <i class="pi pi-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA contextual -->
+    <div class="df-cta">
+      <div>
+        <h2>Ainda não é Klini?</h2>
+        <p>O desconto em farmácias é só um dos benefícios. Conheça os planos Klini e tenha telemedicina 24h, rede própria e muito mais.</p>
+      </div>
+      <a href="planos.html" class="btn"><i class="pi pi-arrow-right"></i> Conhecer os planos</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER (padrão Klini) ════════════════════════════════════════ -->
+<footer>
+  <div class="foot-arc" aria-hidden="true">
+    <svg viewBox="0 0 1440 54" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="foot-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#259591"/><stop offset="38%" stop-color="#6AA7AE"/>
+        <stop offset="70%" stop-color="#CD7925"/><stop offset="100%" stop-color="#E05759"/>
+      </linearGradient></defs>
+      <path d="M0,54 L0,36 C 420,4 1020,4 1440,36 L1440,54 Z" fill="#fff"/>
+      <path d="M0,36 C 420,4 1020,4 1440,36" fill="none" stroke="url(#foot-grad)" stroke-width="4" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="wrap">
+    <div class="foot__top">
+      <div class="foot__brand">
+        <a href="index.html"><img src="assets/logo-klini.webp" alt="Klini Saúde" style="height:44px" /></a>
+        <p>Saúde com rede própria, telemedicina 24h e cuidado humano no Rio de Janeiro.</p>
+      </div>
+      <nav class="foot__links">
+        <a href="sobre.html">A Klini</a>
+        <a href="sobre.html#unidades">Nossas unidades</a>
+        <a href="planos.html">Planos</a>
+        <a href="teleconsulta.html">Teleconsulta</a>
+        <a href="rede-credenciada.html">Rede credenciada</a>
+        <a href="transparencia.html">Transparência</a>
+        <a href="ouvidoria.html">Ouvidoria</a>
+        <a href="politica-de-privacidade.html">Privacidade</a>
+      </nav>
+      <div class="foot__socials">
+        <a href="https://www.instagram.com/klinisaude/" class="soc" target="_blank" rel="noopener" aria-label="Instagram"><i class="pi pi-instagram"></i></a>
+        <a href="https://www.facebook.com/klinisaudematriz" class="soc" target="_blank" rel="noopener" aria-label="Facebook"><i class="pi pi-facebook"></i></a>
+        <a href="https://br.linkedin.com/company/klinisaude" class="soc" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="pi pi-linkedin"></i></a>
+        <a href="https://www.youtube.com/@KliniSaude" class="soc" target="_blank" rel="noopener" aria-label="YouTube"><i class="pi pi-youtube"></i></a>
+      </div>
+      <div class="foot__apps">
+        <a href="https://apps.apple.com/br/app/klini-saude/id6447484649" target="_blank" rel="noopener" aria-label="App Store"><img src="assets/btn-appstore.png" alt="App Store" class="foot__app-btn" /></a>
+        <a href="https://play.google.com/store/apps/details?id=br.com.klinisaude.klini_app" target="_blank" rel="noopener" aria-label="Google Play"><img src="assets/btn-googleplay.png" alt="Google Play" class="foot__app-btn" /></a>
+      </div>
+    </div>
+    <div class="foot__bottom">
+      <p>© 2020–2026 Klini Planos de Saúde Ltda. · CNPJ 34.539.000/0001-86 · Barra da Tijuca, Rio de Janeiro, RJ</p>
+      <div class="seals">
+        <span class="seal ans-badge">ANS – Nº 42.202-9</span>
+        <span class="seal">LGPD</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="wa-f">
+  <span class="wa-tip">Dúvidas sobre o desconto</span>
+  <a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20sobre%20o%20desconto%20em%20farmácias%20da%20Klini." class="wa-btn" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="pi pi-whatsapp" style="font-size:1.5rem;color:#fff;line-height:1"></i></a>
+</div>
+
+<script>
+  /* header solid + menu mobile */
+  var bar = document.getElementById('bar');
+  window.addEventListener('scroll', function(){ bar.classList.toggle('solid', window.scrollY > 50); }, { passive:true });
+  var barHamb = document.getElementById('barHamb'), barNav = document.getElementById('barNav');
+  if (barHamb && barNav) {
+    barHamb.addEventListener('click', function(){ barNav.classList.toggle('open'); });
+    barNav.querySelectorAll('.nav__item--drop .nav__link').forEach(function(btn){ btn.addEventListener('click', function(){ btn.closest('.nav__item--drop').classList.toggle('open'); }); });
+  }
+
+  /* tilt 3D na carteirinha (segue o cursor) */
+  (function(){
+    var card=document.getElementById('dfCard'); if(!card) return;
+    var wrap=card.parentElement;
+    wrap.addEventListener('pointermove', function(e){
+      var r=wrap.getBoundingClientRect();
+      var px=(e.clientX-r.left)/r.width-.5, py=(e.clientY-r.top)/r.height-.5;
+      card.style.transform='rotateY('+(px*12)+'deg) rotateX('+(-py*12)+'deg)';
+    });
+    wrap.addEventListener('pointerleave', function(){ card.style.transform=''; });
+  })();
+</script>
+</body>
+</html>

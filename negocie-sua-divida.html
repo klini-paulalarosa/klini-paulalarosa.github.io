@@ -27,7 +27,13 @@
     .neg-ch i{font-size:1.2rem;flex-shrink:0}
     .neg-ch strong{display:block;font-family:'Objective',sans-serif;font-size:.95rem;line-height:1.3}
     .neg-ch span{font-size:.76rem;opacity:.85}
-    @media(max-width:880px){.pillars{grid-template-columns:1fr 1fr}.neg-cta{grid-template-columns:1fr;gap:26px;padding:32px}}
+    .neg-partner{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center;background:#fff;border:1.5px solid var(--bd-l);border-radius:22px;padding:34px 42px;max-width:920px;margin:58px auto 0;box-shadow:0 20px 50px rgba(4,42,38,.07)}
+    .neg-partner__logo{padding-right:40px;border-right:1px solid var(--bd-l)}
+    .neg-partner__logo img{width:170px;height:auto;display:block}
+    .neg-partner h2{margin:6px 0 12px}
+    .neg-partner p{color:var(--muted);font-size:.95rem;line-height:1.85}
+    .neg-partner a.neg-partner__link{display:inline-flex;align-items:center;gap:7px;color:var(--teal);font-family:'Objective',sans-serif;font-weight:700;font-size:.86rem;margin-top:14px}
+    @media(max-width:880px){.pillars{grid-template-columns:1fr 1fr}.neg-cta{grid-template-columns:1fr;gap:26px;padding:32px}.neg-partner{grid-template-columns:1fr;gap:24px;text-align:center;padding:30px}.neg-partner__logo{padding-right:0;border-right:none;padding-bottom:24px;border-bottom:1px solid var(--bd-l)}.neg-partner__logo img{margin:0 auto}}
     @media(max-width:520px){.pillars{grid-template-columns:1fr}}
   </style>
 </head>
@@ -107,19 +113,21 @@
     </div>
 
     <!-- Sobre o parceiro -->
-    <div style="max-width:760px;margin:56px auto 0;text-align:center">
-      <span class="eyebrow">quem conduz a negociação</span>
-      <h2 class="h2" style="margin:8px 0 14px">Em parceria com o <strong style="color:var(--teal)">Grupo Baião</strong></h2>
-      <p style="color:var(--muted);font-size:.98rem;line-height:1.85">A negociação é conduzida pelo Grupo Baião, empresa especializada em recuperação de ativos, cobrança extrajudicial e judicial e gestão de crédito, com atuação no segmento de saúde suplementar. Todo o trabalho é feito de forma ética e transparente, sempre priorizando acordos que respeitem a realidade de cada beneficiário.</p>
+    <div class="neg-partner">
+      <div class="neg-partner__logo"><img src="assets/parceiros/grupo-baiao.webp" alt="Grupo Baião" /></div>
+      <div>
+        <span class="eyebrow">quem conduz a negociação</span>
+        <h2 class="h2">Em parceria com o <strong style="color:var(--teal)">Grupo Baião</strong></h2>
+        <p>A negociação é conduzida pelo Grupo Baião, empresa especializada em recuperação de ativos, cobrança extrajudicial e judicial e gestão de crédito, com atuação no segmento de saúde suplementar. Todo o trabalho é feito de forma ética e transparente, sempre priorizando acordos que respeitem a realidade de cada beneficiário.</p>
+        <a class="neg-partner__link" href="https://grupobaiao.com.br" target="_blank" rel="noopener">Conhecer o Grupo Baião <i class="pi pi-external-link" style="font-size:.8rem"></i></a>
+      </div>
     </div>
 
     <!-- CTA contextual: falar com a negociação (Grupo Baião) -->
     <div class="neg-cta">
       <div>
-        <img src="assets/parceiros/grupo-baiao.webp" alt="Grupo Baião" style="height:50px;width:auto;display:block;margin-bottom:20px" />
         <h2>Vamos resolver juntos?</h2>
-        <p>A negociação é conduzida pelo <strong>Grupo Baião</strong>, empresa especializada em recuperação de crédito e parceira da Klini. Fale com a equipe e receba uma proposta sob medida.</p>
-        <a href="https://grupobaiao.com.br" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;color:#fff;font-family:'Objective',sans-serif;font-weight:600;font-size:.86rem;margin-top:14px;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:2px">Conhecer o Grupo Baião <i class="pi pi-external-link" style="font-size:.8rem"></i></a>
+        <p>A negociação é conduzida pelo <strong>Grupo Baião</strong>, parceiro da Klini. Fale com a equipe e receba uma proposta sob medida.</p>
         <p class="neg-cta__partner"><i class="pi pi-info-circle"></i> Parceria oficial Klini × Grupo Baião · CNPJ Klini 34.539.000/0001-86</p>
       </div>
       <div class="neg-channels">
