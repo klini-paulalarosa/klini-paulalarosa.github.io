@@ -15,27 +15,8 @@
     .tk-chip{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);color:#fff;font-family:'Objective',sans-serif;font-weight:600;font-size:.84rem;padding:9px 16px;border-radius:40px}
     .tk-chip i{color:#FFE0B5}
 
-    /* ── TOKEN AO VIVO ─────────────────────────────────────────────── */
-    .tk-live{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-    .tk-card{position:relative;background:#0C1422;border-radius:26px;padding:40px 36px;color:#fff;box-shadow:0 30px 70px rgba(4,42,38,.28);overflow:hidden;max-width:420px}
-    .tk-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 70% 0%,rgba(37,149,145,.35),transparent 60%);pointer-events:none}
-    .tk-card__head{display:flex;align-items:center;gap:10px;position:relative;z-index:1;margin-bottom:26px}
-    .tk-card__head img{height:24px;filter:brightness(0) invert(1)}
-    .tk-card__tag{margin-left:auto;font-size:.64rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7FE3DD;background:rgba(37,149,145,.18);border:1px solid rgba(37,149,145,.35);padding:4px 10px;border-radius:30px}
-    .tk-ring{position:relative;width:150px;height:150px;margin:0 auto 22px}
-    .tk-ring svg{transform:rotate(-90deg);width:100%;height:100%}
-    .tk-ring__sec{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
-    .tk-ring__sec b{font-family:'Objective',sans-serif;font-weight:800;font-size:2.1rem;line-height:1}
-    .tk-ring__sec span{font-size:.64rem;color:rgba(255,255,255,.5);letter-spacing:.1em;text-transform:uppercase;margin-top:2px}
-    .tk-code{font-family:'Objective',monospace;font-weight:800;font-size:2.1rem;letter-spacing:.32em;text-align:center;color:#fff;position:relative;z-index:1;padding-left:.32em}
-    .tk-code.flash{animation:tkflash .5s}
-    @keyframes tkflash{0%{opacity:.2;transform:scale(.96)}100%{opacity:1;transform:none}}
-    .tk-card__lbl{text-align:center;font-size:.78rem;color:rgba(255,255,255,.55);margin-top:10px;position:relative;z-index:1}
-    .tk-card__btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:22px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;font-family:'Objective',sans-serif;font-weight:700;font-size:.85rem;padding:12px;border-radius:12px;cursor:pointer;transition:background .2s;position:relative;z-index:1}
-    .tk-card__btn:hover{background:rgba(255,255,255,.18)}
-
-    /* ── STEPPER + PHONE ───────────────────────────────────────────── */
-    .tk-how{display:grid;grid-template-columns:1fr 360px;gap:56px;align-items:center}
+    /* ── COMO FUNCIONA (stepper + telas reais) ─────────────────────── */
+    .tk-how{display:grid;grid-template-columns:1fr 380px;gap:60px;align-items:center}
     .tk-steps{display:flex;flex-direction:column;gap:12px}
     .tk-step{display:flex;gap:16px;align-items:flex-start;width:100%;text-align:left;background:#fff;border:1.5px solid var(--bd-l);border-radius:16px;padding:18px 20px;cursor:pointer;transition:all .25s;font-family:'Objective',sans-serif}
     .tk-step:hover{border-color:var(--sea)}
@@ -44,30 +25,27 @@
     .tk-step.active .tk-step__n{background:var(--grad-cool);color:#fff}
     .tk-step strong{display:block;font-size:.96rem;color:var(--text);margin-bottom:3px}
     .tk-step span{font-size:.84rem;color:var(--muted);line-height:1.55}
-    /* phone */
-    .tk-phone-wrap{display:flex;justify-content:center}
-    .tk-phone{position:relative;width:280px;height:560px;background:#0C1422;border-radius:40px;padding:14px;box-shadow:0 30px 70px rgba(4,42,38,.26)}
-    .tk-phone::before{content:'';position:absolute;top:16px;left:50%;transform:translateX(-50%);width:90px;height:7px;border-radius:8px;background:rgba(255,255,255,.2);z-index:3}
-    .tk-phone__screen{position:relative;width:100%;height:100%;background:linear-gradient(160deg,#0f1b2d,#0a1018);border-radius:28px;overflow:hidden}
-    .tk-screen{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:34px 26px;text-align:center;color:#fff}
-    .tk-screen.show{display:flex;animation:tkfade .4s}
-    @keyframes tkfade{0%{opacity:0;transform:translateY(8px)}100%{opacity:1;transform:none}}
-    .tk-screen__ico{width:72px;height:72px;border-radius:20px;background:var(--grad-cool);display:flex;align-items:center;justify-content:center;font-size:2rem;color:#fff}
-    .tk-screen h4{font-family:'Objective',sans-serif;font-size:1.05rem}
-    .tk-screen p{font-size:.82rem;color:rgba(255,255,255,.6);line-height:1.6}
-    .tk-fake-field{width:100%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:12px 14px;font-size:.78rem;color:rgba(255,255,255,.5);text-align:left}
-    .tk-fake-btn{width:100%;background:var(--teal);border-radius:10px;padding:12px;font-family:'Objective',sans-serif;font-weight:700;font-size:.82rem;color:#fff}
-    .tk-fake-nav{position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:space-around;padding:14px 0;background:rgba(255,255,255,.05);border-top:1px solid rgba(255,255,255,.08)}
-    .tk-fake-nav i{font-size:1.1rem;color:rgba(255,255,255,.35)}
-    .tk-fake-nav i.on{color:#7FE3DD}
-    .tk-bigcode{font-family:'Objective',monospace;font-weight:800;font-size:1.5rem;letter-spacing:.22em;color:#7FE3DD}
+    /* viewer das telas reais */
+    .tk-viewer{position:relative;min-height:600px;display:flex;align-items:center;justify-content:center}
+    .tk-viewer::before{content:'';position:absolute;width:330px;height:330px;border-radius:50%;background:radial-gradient(circle,rgba(37,149,145,.16),transparent 68%);pointer-events:none}
+    .tk-view{position:absolute;inset:0;display:none;align-items:center;justify-content:center;flex-direction:column;gap:18px}
+    .tk-view.show{display:flex;animation:tkfade .45s}
+    @keyframes tkfade{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:none}}
+    .tk-view img{height:560px;max-height:70vh;width:auto;filter:drop-shadow(0 26px 56px rgba(4,42,38,.24));position:relative;z-index:1}
+    /* card de download (passo 1, sem tela real) */
+    .tk-dl{position:relative;z-index:1;background:#fff;border:1.5px solid var(--bd-l);border-radius:24px;padding:40px 34px;text-align:center;max-width:300px;box-shadow:0 24px 56px rgba(4,42,38,.12)}
+    .tk-dl__ico{width:76px;height:76px;border-radius:22px;background:var(--grad-cool);display:flex;align-items:center;justify-content:center;font-size:2.1rem;color:#fff;margin:0 auto 18px}
+    .tk-dl h4{font-family:'Objective',sans-serif;font-size:1.1rem;color:var(--text);margin-bottom:8px}
+    .tk-dl p{font-size:.86rem;color:var(--muted);line-height:1.6;margin-bottom:18px}
+    .tk-dl__badges{display:flex;flex-direction:column;gap:10px;align-items:center}
+    .tk-dl__badges img{height:44px}
 
     /* ── WHATSAPP ALT ──────────────────────────────────────────────── */
-    .tk-wa{position:relative;overflow:hidden;background:var(--grad-cool);border-radius:var(--r);padding:42px;display:flex;align-items:center;gap:28px;flex-wrap:wrap;justify-content:space-between;color:#fff}
-    .tk-wa h2{font-family:'Objective',sans-serif;font-weight:800;font-size:1.4rem;margin-bottom:8px}
-    .tk-wa p{color:rgba(255,255,255,.92);font-size:.95rem;line-height:1.7;max-width:560px}
-    .tk-wa .btn{background:#fff;color:var(--teal);flex-shrink:0}
-    .tk-wa .btn:hover{background:#FFE0B5;color:var(--text)}
+    .tk-wa{display:grid;grid-template-columns:1fr 300px;gap:48px;align-items:center;background:#fff;border:1.5px solid var(--bd-l);border-radius:var(--r);padding:40px 44px;box-shadow:0 20px 50px rgba(4,42,38,.06)}
+    .tk-wa h2{margin-bottom:10px}
+    .tk-wa p{color:var(--muted);font-size:.96rem;line-height:1.8;margin-bottom:20px}
+    .tk-wa__phone{display:flex;justify-content:center}
+    .tk-wa__phone img{height:300px;width:auto;filter:drop-shadow(0 20px 44px rgba(4,42,38,.2))}
 
     /* ── SEGURANÇA ─────────────────────────────────────────────────── */
     .tk-safe{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
@@ -79,8 +57,7 @@
     .tk-app-btns{display:flex;gap:13px;flex-wrap:wrap;margin-top:30px;justify-content:center}
     .tk-app-btns img{height:46px}
 
-    @media(max-width:900px){.tk-live{grid-template-columns:1fr;gap:36px;justify-items:center}.tk-how{grid-template-columns:1fr;gap:40px}.tk-phone-wrap{order:-1}.tk-safe{grid-template-columns:1fr}}
-    @media(max-width:560px){.tk-code{font-size:1.7rem;letter-spacing:.2em}}
+    @media(max-width:900px){.tk-how{grid-template-columns:1fr;gap:36px}.tk-viewer{min-height:540px;order:-1}.tk-wa{grid-template-columns:1fr;gap:28px;text-align:center}.tk-wa__phone{order:-1}.tk-safe{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -134,9 +111,9 @@
   <div class="wrap">
     <span class="eyebrow">token digital</span>
     <h1 class="h1">Sua chave digital<br>de <strong>acesso seguro</strong></h1>
-    <p>O token Klini é o código de 8 dígitos que autoriza, só com você, o seu atendimento — consultas, exames e procedimentos com total proteção, direto no app.</p>
+    <p>O token Klini é o código que autoriza, só com você, o seu atendimento — consultas, exames e procedimentos com total proteção, direto no app.</p>
     <div class="tk-chips">
-      <span class="tk-chip"><i class="pi pi-hashtag"></i> 8 dígitos</span>
+      <span class="tk-chip"><i class="pi pi-hashtag"></i> código único</span>
       <span class="tk-chip"><i class="pi pi-sync"></i> renova a cada 60s</span>
       <span class="tk-chip"><i class="pi pi-lock"></i> 100% seguro</span>
     </div>
@@ -148,107 +125,68 @@
   </div>
 </section>
 
-<!-- ══ TOKEN AO VIVO ════════════════════════════════════════════════ -->
+<!-- ══ COMO FUNCIONA (stepper + telas reais do app) ═════════════════ -->
 <section class="sec">
-  <div class="wrap">
-    <div class="tk-live">
-      <div>
-        <span class="eyebrow">veja na prática</span>
-        <h2 class="h2">Assim funciona o seu <strong>token</strong></h2>
-        <p style="color:var(--muted);font-size:1rem;line-height:1.8;margin-top:14px">No app, o token aparece como um código de 8 dígitos com um cronômetro. A cada <strong>60 segundos</strong> ele se renova automaticamente — então ninguém consegue reutilizá-lo. É a sua autorização, viva e única, para cada atendimento.</p>
-        <p style="color:var(--muted);font-size:.92rem;line-height:1.8;margin-top:12px">A demonstração ao lado é ilustrativa: o código real você gera no app Klini.</p>
-      </div>
-      <div class="tk-card" aria-hidden="true">
-        <div class="tk-card__head">
-          <img src="assets/logo-klini.webp" alt="" /><span class="tk-card__tag">Token ativo</span>
-        </div>
-        <div class="tk-ring">
-          <svg viewBox="0 0 120 120">
-            <circle cx="60" cy="60" r="54" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="8"/>
-            <circle id="tkRing" cx="60" cy="60" r="54" fill="none" stroke="#7FE3DD" stroke-width="8" stroke-linecap="round"/>
-          </svg>
-          <div class="tk-ring__sec"><b id="tkSecs">60</b><span>segundos</span></div>
-        </div>
-        <div class="tk-code" id="tkCode">0 0 0 0 0 0 0 0</div>
-        <div class="tk-card__lbl">Apresente este código ao prestador</div>
-        <button class="tk-card__btn" id="tkNew"><i class="pi pi-refresh"></i> Gerar novo token</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ COMO GERAR (stepper + phone) ═════════════════════════════════ -->
-<section class="sec sec--off">
   <div class="wrap">
     <div style="text-align:center;margin-bottom:46px">
       <span class="eyebrow">passo a passo</span>
       <h2 class="h2">Gere o seu em <strong style="color:var(--orange)">4 passos</strong></h2>
-      <p style="color:var(--muted);font-size:.98rem;margin-top:12px">Toque em cada passo e veja como fica na tela do app.</p>
+      <p style="color:var(--muted);font-size:.98rem;margin-top:12px">Toque em cada passo e veja a tela real do app Klini.</p>
     </div>
     <div class="tk-how">
       <div class="tk-steps" id="tkSteps">
         <button class="tk-step active" data-step="1"><div class="tk-step__n">1</div><div><strong>Baixe ou abra o app Klini</strong><span>Disponível para iOS e Android — comece em segundos.</span></div></button>
         <button class="tk-step" data-step="2"><div class="tk-step__n">2</div><div><strong>Faça login com CPF e senha</strong><span>Ambiente 100% seguro e criptografado a cada sessão.</span></div></button>
-        <button class="tk-step" data-step="3"><div class="tk-step__n">3</div><div><strong>Toque em "Token" no menu</strong><span>O código é gerado na hora para o seu atendimento.</span></div></button>
-        <button class="tk-step" data-step="4"><div class="tk-step__n">4</div><div><strong>Apresente o código de 8 dígitos</strong><span>Só você autoriza o seu próprio atendimento.</span></div></button>
+        <button class="tk-step" data-step="3"><div class="tk-step__n">3</div><div><strong>Toque em "Token" e gere o código</strong><span>O token é gerado na hora e expira automaticamente.</span></div></button>
+        <button class="tk-step" data-step="4"><div class="tk-step__n">4</div><div><strong>Apresente o token no atendimento</strong><span>Só você autoriza o seu próprio atendimento.</span></div></button>
       </div>
-      <div class="tk-phone-wrap">
-        <div class="tk-phone">
-          <div class="tk-phone__screen">
-            <div class="tk-screen show" data-screen="1">
-              <div class="tk-screen__ico"><i class="pi pi-download"></i></div>
-              <h4>App Klini</h4>
-              <p>Baixe grátis na App Store ou no Google Play.</p>
-            </div>
-            <div class="tk-screen" data-screen="2">
-              <div class="tk-screen__ico"><i class="pi pi-lock"></i></div>
-              <h4>Entrar</h4>
-              <div class="tk-fake-field">CPF</div>
-              <div class="tk-fake-field">Senha ••••••••</div>
-              <div class="tk-fake-btn">Entrar</div>
-            </div>
-            <div class="tk-screen" data-screen="3">
-              <div class="tk-screen__ico"><i class="pi pi-shield"></i></div>
-              <h4>Menu</h4>
-              <p>Toque no ícone de Token Digital.</p>
-              <div class="tk-fake-nav"><i class="pi pi-home"></i><i class="pi pi-calendar"></i><i class="pi pi-shield on"></i><i class="pi pi-user"></i></div>
-            </div>
-            <div class="tk-screen" data-screen="4">
-              <div class="tk-screen__ico"><i class="pi pi-check-circle"></i></div>
-              <h4>Seu token</h4>
-              <div class="tk-bigcode">48 29 17 35</div>
-              <p>Renova a cada 60 segundos.</p>
+      <div class="tk-viewer" id="tkViewer">
+        <div class="tk-view show" data-view="1">
+          <div class="tk-dl">
+            <div class="tk-dl__ico"><i class="pi pi-download"></i></div>
+            <h4>Baixe o app Klini</h4>
+            <p>Grátis para iOS e Android. Em segundos você já tem o token na palma da mão.</p>
+            <div class="tk-dl__badges">
+              <a href="https://apps.apple.com/br/app/klini-saude/id6447484649" target="_blank" rel="noopener"><img src="assets/btn-appstore.png" alt="Baixar na App Store" /></a>
+              <a href="https://play.google.com/store/apps/details?id=br.com.klinisaude.klini_app" target="_blank" rel="noopener"><img src="assets/btn-googleplay.png" alt="Disponível no Google Play" /></a>
             </div>
           </div>
         </div>
+        <div class="tk-view" data-view="2"><img src="assets/token/login.webp" alt="Tela de login no app Klini" loading="lazy" /></div>
+        <div class="tk-view" data-view="3"><img src="assets/token/tokens.webp" alt="Tela de token no app Klini" loading="lazy" /></div>
+        <div class="tk-view" data-view="4"><img src="assets/token/validado.webp" alt="Token validado no app Klini" loading="lazy" /></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ══ WHATSAPP ALT ═════════════════════════════════════════════════ -->
-<section class="sec">
+<section class="sec sec--off">
   <div class="wrap">
     <div class="tk-wa">
       <div>
-        <h2>Sem o app? Use o WhatsApp</h2>
-        <p>Prefere a praticidade do chat? Você também pode solicitar o seu token pelo nosso assistente virtual no WhatsApp — de forma instantânea, sem precisar baixar nada.</p>
+        <span class="eyebrow">sem o app?</span>
+        <h2 class="h2">Peça seu token pelo <strong style="color:var(--teal)">WhatsApp</strong></h2>
+        <p>Prefere a praticidade do chat? Você também pode solicitar o token pelo nosso assistente virtual no WhatsApp — de forma instantânea, sem precisar baixar nada.</p>
+        <a href="https://wa.me/552130550790?text=Olá!%20Quero%20solicitar%20o%20meu%20token%20Klini." target="_blank" rel="noopener" class="btn btn-teal"><i class="pi pi-whatsapp"></i> Pedir token no WhatsApp</a>
       </div>
-      <a href="https://wa.me/552130550790?text=Olá!%20Quero%20solicitar%20o%20meu%20token%20Klini." target="_blank" rel="noopener" class="btn"><i class="pi pi-whatsapp"></i> Pedir token no WhatsApp</a>
+      <div class="tk-wa__phone">
+        <img src="assets/token/wpp.webp" alt="Atendimento Klini pelo WhatsApp" loading="lazy" />
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ══ SEGURANÇA ════════════════════════════════════════════════════ -->
-<section class="sec sec--off">
+<section class="sec">
   <div class="wrap">
     <div style="text-align:center;margin-bottom:8px">
       <span class="eyebrow">segurança em primeiro lugar</span>
       <h2 class="h2">Bom de saber <strong style="color:var(--coral)">sobre o token</strong></h2>
     </div>
     <div class="tk-safe">
-      <div class="tk-safe__c"><i class="pi pi-verified"></i><h4>Por que ele existe</h4><p>O token confirma que o atendimento foi autorizado presencialmente por você, reduzindo fraudes e trazendo mais segurança.</p></div>
-      <div class="tk-safe__c"><i class="pi pi-clock"></i><h4>Validade de 60 segundos</h4><p>No app, o código se renova a cada minuto. Pelo WhatsApp, ele vale para aquele atendimento específico.</p></div>
+      <div class="tk-safe__c"><i class="pi pi-verified"></i><h4>Por que ele existe</h4><p>O token confirma que o atendimento foi autorizado por você, reduzindo fraudes e trazendo mais segurança.</p></div>
+      <div class="tk-safe__c"><i class="pi pi-clock"></i><h4>Validade curta</h4><p>No app, o código se renova a cada 60 segundos. Pelo WhatsApp, vale para aquele atendimento específico.</p></div>
       <div class="tk-safe__c"><i class="pi pi-wifi"></i><h4>Precisa de internet</h4><p>O app usa conexão para gerar novos tokens. Sem internet no momento, salve o código ou peça pelo WhatsApp.</p></div>
       <div class="tk-safe__c"><i class="pi pi-mobile"></i><h4>Perdeu o celular?</h4><p>Fale na hora com o SAC <strong>0800 021 0320</strong> para bloquear o acesso e receber orientações.</p></div>
       <div class="tk-safe__c"><i class="pi pi-lock"></i><h4>Só você autoriza</h4><p>O token é pessoal e intransferível — é a sua assinatura digital para cada procedimento.</p></div>
@@ -325,35 +263,16 @@
     barNav.querySelectorAll('.nav__item--drop .nav__link').forEach(function(btn){ btn.addEventListener('click', function(){ btn.closest('.nav__item--drop').classList.toggle('open'); }); });
   }
 
-  /* token ao vivo: código de 8 dígitos + countdown de 60s */
-  (function(){
-    var ring=document.getElementById('tkRing'), secsEl=document.getElementById('tkSecs'), codeEl=document.getElementById('tkCode');
-    if(!ring) return;
-    var R=54, C=2*Math.PI*R; ring.style.strokeDasharray=C.toFixed(1);
-    var t=60;
-    function newCode(){
-      var s=''; for(var i=0;i<8;i++){ s+=Math.floor(Math.random()*10); }
-      codeEl.textContent=s.split('').join(' ');
-      codeEl.classList.remove('flash'); void codeEl.offsetWidth; codeEl.classList.add('flash');
-    }
-    function render(){ ring.style.strokeDashoffset=(C*(1 - t/60)).toFixed(1); secsEl.textContent=t; }
-    function tick(){ t--; if(t<0){ t=60; newCode(); } render(); }
-    newCode(); render();
-    setInterval(tick,1000);
-    document.getElementById('tkNew').addEventListener('click', function(){ t=60; newCode(); render(); });
-  })();
-
-  /* stepper: troca a tela do celular ao clicar */
+  /* stepper: troca a tela real do app ao clicar */
   (function(){
     var steps=document.querySelectorAll('#tkSteps .tk-step');
-    var screens=document.querySelectorAll('.tk-screen');
+    var views=document.querySelectorAll('#tkViewer .tk-view');
     function show(n){
       steps.forEach(function(s){ s.classList.toggle('active', s.getAttribute('data-step')===n); });
-      screens.forEach(function(sc){ sc.classList.toggle('show', sc.getAttribute('data-screen')===n); });
+      views.forEach(function(v){ v.classList.toggle('show', v.getAttribute('data-view')===n); });
     }
     steps.forEach(function(s){ s.addEventListener('click', function(){ show(s.getAttribute('data-step')); }); });
-    /* avanço automático suave (para também sem interação) */
-    var auto=1; var timer=setInterval(function(){ auto = auto>=4?1:auto+1; show(String(auto)); }, 3200);
+    var auto=1, timer=setInterval(function(){ auto = auto>=4?1:auto+1; show(String(auto)); }, 3400);
     document.getElementById('tkSteps').addEventListener('click', function(){ clearInterval(timer); });
   })();
 </script>
