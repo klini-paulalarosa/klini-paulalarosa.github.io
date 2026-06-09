@@ -3,23 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Conheça a Klini Saúde — rede própria no RJ, telemedicina 24h e cuidado integral desde 2020. Missão, visão, estrutura e contato." />
-  <title>Sobre a Klini | Klini Saúde</title>
+  <meta name="description" content="A Klini Saúde — rede própria no RJ, telemedicina 24h e cuidado integral desde 2020. Conheça nossa essência, nossas unidades no mapa e oportunidades para trabalhar com a gente." />
+  <title>A Klini | Klini Saúde</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons@7.0.0/primeicons.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
   <link rel="stylesheet" href="assets/klini.css" />
   <style>
-    /* estilos específicos da página Sobre */
+    /* ── chips de âncora no hero ──────────────────────────────────── */
+    .akl-jump{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+    .akl-jump a{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);color:#fff;font-family:'Objective',sans-serif;font-weight:600;font-size:.84rem;padding:10px 18px;border-radius:40px;backdrop-filter:blur(4px);transition:all .22s}
+    .akl-jump a:hover{background:#fff;color:var(--teal)}
+    .akl-jump a i{font-size:.9rem;color:#FFE0B5}
+    .akl-jump a:hover i{color:var(--teal)}
+
+    /* ── essência / estrutura / contato (mantido) ─────────────────── */
     .essencia{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
     .essencia__card{background:#fff;border:1.5px solid var(--bd-l);border-radius:var(--r);padding:32px;transition:all .3s}
     .essencia__card:hover{border-color:var(--teal);transform:translateY(-4px);box-shadow:0 20px 40px rgba(37,149,145,.1)}
     .essencia__ico{width:52px;height:52px;border-radius:14px;background:var(--teal-dim);border:1px solid rgba(37,149,145,.2);display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:var(--teal);margin-bottom:18px}
     .essencia__card h3{margin-bottom:10px}
     .essencia__card p{font-size:.9rem;color:var(--muted);line-height:1.75}
-    .video-embed{position:relative;width:100%;aspect-ratio:16/9;border-radius:20px;overflow:hidden;box-shadow:0 24px 60px rgba(4,42,38,.16);margin-top:34px;border:1px solid var(--bd-l)}
-    .video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+    .media-embed{position:relative;width:100%;aspect-ratio:16/9;border-radius:20px;overflow:hidden;box-shadow:0 24px 60px rgba(4,42,38,.16);border:1px solid var(--bd-l);background:#000}
+    .media-embed iframe,.media-embed video{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover}
     .estrutura__grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
     .estrutura__items{display:flex;flex-direction:column;gap:18px;margin-top:26px}
     .estrutura__item{display:flex;gap:14px;align-items:flex-start}
@@ -30,18 +38,100 @@
     .stat{background:#fff;border:1px solid var(--bd-l);border-radius:18px;padding:30px 20px;text-align:center;box-shadow:0 14px 36px rgba(4,42,38,.06)}
     .stat__n{font-family:'Objective',sans-serif;font-weight:800;font-size:2.4rem;line-height:1;background:var(--grad-cool);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
     .stat__lbl{font-size:.82rem;color:var(--muted);line-height:1.5}
+
+    /* ── Rede Casa ────────────────────────────────────────────────── */
     .casa-light{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
     .casa-light__quote{border-left:3px solid var(--teal);padding-left:24px;margin:22px 0}
     .casa-light__quote p{font-style:italic;font-size:1rem;line-height:1.85;color:var(--text)}
     .casa-light__stats{display:flex;gap:30px;flex-wrap:wrap;margin-top:28px}
     .casa-light__stats b{font-family:'Objective',sans-serif;font-weight:800;font-size:2rem;color:var(--teal);display:block;line-height:1}
     .casa-light__stats span{font-size:.82rem;color:var(--muted)}
-    .casa-cards{display:flex;flex-direction:column;gap:16px}
+    .casa-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
     .casa-card{background:#fff;border:1.5px solid var(--bd-l);border-radius:14px;padding:22px;display:flex;gap:14px;align-items:flex-start;transition:border-color .25s}
     .casa-card:hover{border-color:var(--teal)}
     .casa-card i{font-size:1.3rem;color:var(--teal);flex-shrink:0;margin-top:2px}
     .casa-card strong{display:block;margin-bottom:4px;color:var(--text)}
     .casa-card span{font-size:.85rem;color:var(--muted)}
+
+    /* ── carrossel de fotos dos hospitais ─────────────────────────── */
+    .hosp{margin-top:56px}
+    .hosp__head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+    .hosp__nav{display:flex;gap:8px}
+    .hosp__btn{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--bd-l);background:#fff;color:var(--teal);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+    .hosp__btn:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+    .hosp__viewport{overflow:hidden}
+    .hosp__track{display:flex;gap:18px;transition:transform .45s cubic-bezier(.22,1,.36,1)}
+    .hosp__slide{flex:0 0 calc((100% - 36px)/3);position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 14px 36px rgba(4,42,38,.1)}
+    .hosp__slide img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+    .hosp__slide:hover img{transform:scale(1.06)}
+    .hosp__slide figcaption{position:absolute;left:0;right:0;bottom:0;padding:30px 16px 14px;background:linear-gradient(transparent,rgba(6,9,15,.82));color:#fff;font-family:'Objective',sans-serif;font-weight:700;font-size:.92rem}
+
+    /* ── NOSSAS UNIDADES (mapa claro) ─────────────────────────────── */
+    .uni-intro{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;margin-bottom:40px}
+    .uni-legend{display:flex;gap:22px;flex-wrap:wrap;margin-top:22px}
+    .leg{display:flex;align-items:center;gap:9px;font-family:'Objective',sans-serif;font-weight:600;font-size:.82rem;color:var(--text)}
+    .leg-dot{width:13px;height:13px;border-radius:50%;flex-shrink:0}
+    .leg-dot--cmk{background:var(--orange)}
+    .leg-dot--hc{background:var(--teal)}
+    .map-section{display:grid;grid-template-columns:330px 1fr;height:580px;border:1px solid var(--bd-l);border-radius:22px;overflow:hidden;box-shadow:0 24px 60px rgba(4,42,38,.1)}
+    .sidebar{background:#fff;border-right:1px solid var(--bd-l);display:flex;flex-direction:column;overflow:hidden}
+    .sidebar-head{padding:18px 18px 0;flex-shrink:0}
+    .filter-tabs{display:flex;gap:6px;margin-bottom:14px}
+    .filter-tab{padding:7px 15px;border-radius:30px;font-size:.76rem;font-weight:700;border:1.5px solid var(--bd-l);background:#fff;color:var(--muted);cursor:pointer;transition:all .22s;font-family:'Objective',sans-serif}
+    .filter-tab.active{border-color:var(--teal);color:var(--teal);background:rgba(37,149,145,.08)}
+    .sidebar-search{display:flex;align-items:center;gap:10px;background:var(--off);border:1px solid var(--bd-l);border-radius:10px;padding:9px 14px;margin-bottom:14px}
+    .sidebar-search i{color:var(--muted);font-size:.9rem;flex-shrink:0}
+    .sidebar-search input{background:none;border:none;outline:none;color:var(--text);font-family:'Objective',sans-serif;font-size:.86rem;width:100%;caret-color:var(--teal)}
+    .sidebar-count{font-size:.68rem;color:var(--muted);font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:0 18px 10px;border-bottom:1px solid var(--bd-l)}
+    .unit-list{overflow-y:auto;flex:1}
+    .unit-item{padding:15px 18px;border-bottom:1px solid var(--bd-l);cursor:pointer;transition:background .2s;display:flex;gap:12px;align-items:flex-start}
+    .unit-item:hover{background:var(--off)}
+    .unit-item.active{background:rgba(37,149,145,.07);border-left:3px solid var(--teal)}
+    .unit-item.active.cmk{background:rgba(205,121,37,.07);border-left-color:var(--orange)}
+    .unit-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;margin-top:4px}
+    .unit-dot--cmk{background:var(--orange)}
+    .unit-dot--hc{background:var(--teal)}
+    .unit-name{font-family:'Objective',sans-serif;font-size:.88rem;font-weight:700;color:var(--text);margin-bottom:3px;line-height:1.3}
+    .unit-addr{font-size:.75rem;color:var(--muted);line-height:1.5}
+    .unit-tag{display:inline-block;background:rgba(37,149,145,.1);border:1px solid rgba(37,149,145,.2);border-radius:20px;padding:2px 9px;font-size:.6rem;font-weight:700;color:var(--teal);margin-top:5px;letter-spacing:.03em;font-family:'Objective',sans-serif}
+    .unit-item.cmk .unit-tag{background:rgba(205,121,37,.09);border-color:rgba(205,121,37,.22);color:var(--orange)}
+    .unit-item.hidden{display:none}
+    .map-wrap{position:relative}
+    #map{height:100%;width:100%}
+    .map-controls{position:absolute;top:14px;right:14px;z-index:500}
+    .map-reset{display:flex;align-items:center;gap:6px;padding:9px 14px;font-size:.74rem;font-weight:700;white-space:nowrap;background:#fff;border:1px solid var(--bd-l);border-radius:10px;color:var(--text);cursor:pointer;box-shadow:0 6px 18px rgba(4,42,38,.12);font-family:'Objective',sans-serif;transition:all .2s}
+    .map-reset:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+    .kln-marker{cursor:pointer;transition:transform .2s}
+    .kln-marker:hover{transform:scale(1.18) translateY(-3px)}
+    .leaflet-popup-content-wrapper{border-radius:14px;box-shadow:0 18px 44px rgba(4,42,38,.18);padding:0;overflow:hidden}
+    .leaflet-popup-content{margin:0;font-family:'Objective',sans-serif}
+    .popup-inner{padding:16px 18px 14px}
+    .popup-type{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
+    .popup-type--cmk{color:var(--orange)}
+    .popup-type--hc{color:var(--teal)}
+    .popup-name{font-weight:800;font-size:1rem;color:var(--text);margin-bottom:6px;line-height:1.3}
+    .popup-addr{font-size:.75rem;color:var(--muted);display:flex;align-items:flex-start;gap:5px;margin-bottom:12px;line-height:1.5}
+    .popup-addr i{color:var(--teal);flex-shrink:0;margin-top:1px}
+    .popup-spec{display:inline-flex;align-items:center;gap:4px;background:rgba(37,149,145,.12);border:1px solid rgba(37,149,145,.22);border-radius:20px;padding:3px 10px;font-size:.63rem;font-weight:700;color:var(--teal);margin-bottom:10px}
+    .popup-spec--cmk{background:rgba(205,121,37,.1);border-color:rgba(205,121,37,.22);color:var(--orange)}
+    .popup-maps{display:inline-flex;align-items:center;gap:6px;background:var(--teal);color:#fff;font-size:.76rem;font-weight:700;padding:8px 14px;border-radius:8px;transition:background .2s;text-decoration:none}
+    .popup-maps:hover{background:#1e7d7a}
+    .popup-maps--cmk{background:var(--orange)}
+
+    /* ── trabalhe conosco ─────────────────────────────────────────── */
+    .tc-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+    .tc-perks{display:flex;flex-direction:column;gap:14px;margin-top:24px}
+    .tc-perk{display:flex;gap:13px;align-items:flex-start;font-size:.92rem;color:var(--text)}
+    .tc-perk i{width:38px;height:38px;border-radius:11px;background:rgba(37,149,145,.1);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .tc-card{position:relative;overflow:hidden;background:var(--grad-cool);border-radius:var(--r);padding:42px;color:#fff}
+    .tc-card h3{font-family:'Objective',sans-serif;font-weight:800;font-size:1.4rem;margin-bottom:10px}
+    .tc-card p{color:rgba(255,255,255,.9);font-size:.92rem;line-height:1.7;margin-bottom:24px}
+    .tc-card .btn{background:#fff;color:var(--teal)}
+    .tc-card .btn:hover{background:#FFE0B5;color:var(--text)}
+    .tc-card .btn-ghost{background:transparent;border:1.5px solid rgba(255,255,255,.6);color:#fff;margin-left:10px}
+    .tc-card .btn-ghost:hover{background:rgba(255,255,255,.12)}
+
+    /* ── contato ──────────────────────────────────────────────────── */
     .contact__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
     .citem{background:#fff;border:1.5px solid var(--bd-l);border-radius:var(--r);padding:28px;transition:border-color .2s}
     .citem:hover{border-color:var(--teal)}
@@ -49,50 +139,82 @@
     .citem strong{display:block;font-size:.95rem;color:var(--text);margin-bottom:6px}
     .citem a,.citem span{font-size:.86rem;color:var(--muted);display:block;line-height:1.7;transition:color .2s}
     .citem a:hover{color:var(--teal)}
-    @media(max-width:900px){.essencia{grid-template-columns:1fr 1fr}.estrutura__grid,.casa-light{grid-template-columns:1fr;gap:40px}.contact__grid{grid-template-columns:1fr 1fr}}
-    @media(max-width:600px){.essencia,.contact__grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr;margin-top:32px}}
+
+    @media(max-width:900px){
+      .essencia{grid-template-columns:1fr 1fr}
+      .estrutura__grid,.casa-light,.uni-intro,.tc-grid{grid-template-columns:1fr;gap:36px}
+      .casa-cards{grid-template-columns:1fr}
+      .contact__grid{grid-template-columns:1fr 1fr}
+      .hosp__slide{flex:0 0 calc((100% - 18px)/2)}
+      .map-section{grid-template-columns:1fr;height:auto}
+      .sidebar{order:2;max-height:420px;border-right:none;border-top:1px solid var(--bd-l)}
+      .map-wrap{order:1;height:420px}
+    }
+    @media(max-width:600px){
+      .essencia,.contact__grid{grid-template-columns:1fr}
+      .stats{grid-template-columns:1fr 1fr;margin-top:32px}
+      .hosp__slide{flex:0 0 100%}
+      .tc-card .btn-ghost{margin-left:0;margin-top:10px}
+    }
   </style>
 </head>
 <body>
 
-<!-- TOP BAR (padrão Klini) -->
+<!-- ══ TOP BAR (padrão Klini) ═══════════════════════════════════════ -->
 <header class="bar" id="bar">
   <div class="bar__inner">
     <a href="index.html" class="bar__logo"><img src="assets/logo-klini.webp" alt="Klini Saúde" /></a>
     <nav class="bar__nav" id="barNav">
+      <a href="sobre.html" class="nav__link nav__item">A Klini</a>
       <div class="nav__item nav__item--drop">
-        <span class="nav__link">Sobre a Klini <i class="pi pi-chevron-down nav__chev"></i></span>
+        <span class="nav__link">Serviços <i class="pi pi-chevron-down nav__chev"></i></span>
         <div class="nav__drop">
-          <a href="sobre.html">Nossa História</a>
-          <a href="transparencia.html">Transparência</a>
-          <a href="ouvidoria.html">Ouvidoria</a>
+          <a href="token-digital.html">Token digital</a>
+          <a href="desconto-farmacia.html">Desconto farmácia</a>
+          <a href="teleconsulta.html">Teleconsulta</a>
+          <a href="rede-credenciada.html">Busca de rede</a>
+          <a href="rede-credenciada.html#atualizacoes">Atualização de rede</a>
         </div>
       </div>
-      <div class="nav__item nav__item--drop">
-        <span class="nav__link">Rede Credenciada <i class="pi pi-chevron-down nav__chev"></i></span>
-        <div class="nav__drop">
-          <a href="rede-credenciada.html">Prestadores Credenciados</a>
-          <a href="unidades.html">Centros Médicos Klini</a>
-        </div>
-      </div>
-      <a href="unidades.html" class="nav__link nav__item">Nossas Unidades</a>
       <a href="planos.html" class="nav__link nav__item">Planos</a>
-      <a href="teleconsulta.html" class="nav__link nav__item">Teleconsulta</a>
+      <div class="nav__item nav__item--drop">
+        <span class="nav__link">Transparência <i class="pi pi-chevron-down nav__chev"></i></span>
+        <div class="nav__drop">
+          <a href="transparencia.html">Portal da transparência</a>
+          <a href="politica-de-privacidade.html">Política de privacidade</a>
+          <a href="codigo-de-conduta.html">Código de conduta</a>
+          <a href="termos-de-uso.html">Termos de uso</a>
+          <a href="idss.html">IDSS</a>
+        </div>
+      </div>
+      <div class="nav__item nav__item--drop">
+        <span class="nav__link">Atendimento <i class="pi pi-chevron-down nav__chev"></i></span>
+        <div class="nav__drop">
+          <a href="ouvidoria.html">Ouvidoria</a>
+          <a href="negocie-sua-divida.html">Negocie sua dívida</a>
+          <a href="quero-me-credenciar.html">Quero me credenciar</a>
+        </div>
+      </div>
     </nav>
     <div class="bar__ctas">
-      <a href="https://site-dev.klinisaude.com.br/planos/#cotacao" class="btn-klini" target="_blank" rel="noopener">Quero ser Klini</a>
+      <a href="planos.html#cotacao" class="btn-klini">Quero ser Klini</a>
       <a href="https://app.klinisaude.com.br" class="btn-area" target="_blank" rel="noopener"><i class="pi pi-user"></i> Acesse sua área</a>
     </div>
     <button class="bar__hamburger" id="barHamb" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<!-- HERO -->
+<!-- ══ HERO ═════════════════════════════════════════════════════════ -->
 <section class="page-hero">
   <div class="wrap">
-    <span class="eyebrow">quem somos</span>
+    <span class="eyebrow">a klini</span>
     <h1 class="h1">Cuidado integral.<br>Estrutura <strong>própria</strong>.</h1>
     <p>A Klini é uma operadora de saúde suplementar com DNA carioca — nascida no Rio de Janeiro para cuidar de quem vive no Rio de Janeiro. Rede própria, equipe qualificada e atendimento humano em cada ponto de contato.</p>
+    <div class="akl-jump">
+      <a href="#essencia"><i class="pi pi-heart"></i> Quem somos</a>
+      <a href="#unidades"><i class="pi pi-map-marker"></i> Nossas unidades</a>
+      <a href="#trabalhe"><i class="pi pi-briefcase"></i> Trabalhe conosco</a>
+    </div>
   </div>
   <div class="page-hero__divider">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -101,7 +223,7 @@
   </div>
 </section>
 
-<!-- STATS -->
+<!-- ══ STATS ════════════════════════════════════════════════════════ -->
 <div class="wrap">
   <div class="stats">
     <div class="stat"><div class="stat__n">10</div><div class="stat__lbl">Centros Médicos<br>próprios (CMK)</div></div>
@@ -111,8 +233,8 @@
   </div>
 </div>
 
-<!-- ESSÊNCIA -->
-<section class="sec sec--off">
+<!-- ══ ESSÊNCIA ═════════════════════════════════════════════════════ -->
+<section class="sec sec--off" id="essencia">
   <div class="wrap">
     <div style="margin-bottom:48px">
       <span class="eyebrow">nossa essência</span>
@@ -138,7 +260,7 @@
   </div>
 </section>
 
-<!-- ESTRUTURA -->
+<!-- ══ ESTRUTURA (vídeo institucional) ══════════════════════════════ -->
 <section class="sec">
   <div class="wrap">
     <div class="estrutura__grid">
@@ -154,7 +276,7 @@
         </div>
       </div>
       <div>
-        <div class="video-embed" style="margin-top:0">
+        <div class="media-embed">
           <iframe src="https://www.youtube.com/embed/gqo3ChsNoqI" title="Conheça a Klini Saúde" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
         </div>
       </div>
@@ -162,7 +284,7 @@
   </div>
 </section>
 
-<!-- REDE CASA -->
+<!-- ══ REDE CASA (vídeo + carrossel de hospitais) ═══════════════════ -->
 <section class="sec sec--off">
   <div class="wrap">
     <div class="casa-light">
@@ -178,17 +300,100 @@
           <div><b>9</b><span>hospitais no RJ</span></div>
         </div>
       </div>
-      <div class="casa-cards">
-        <div class="casa-card"><i class="pi pi-building"></i><div><strong>Internação</strong><span>Acesso a leitos hospitalares de qualidade em todo o RJ</span></div></div>
-        <div class="casa-card"><i class="pi pi-bolt"></i><div><strong>Urgência e Emergência</strong><span>Pronto atendimento com toda a estrutura que o momento exige</span></div></div>
-        <div class="casa-card"><i class="pi pi-star"></i><div><strong>Cirurgias Complexas</strong><span>Centro cirúrgico de alto padrão para os procedimentos mais complexos</span></div></div>
+      <div class="media-embed">
+        <video controls preload="none" playsinline poster="assets/hospitais/rio-botafogo.webp">
+          <source src="https://klinisaude.com.br/wp-content/uploads/2025/06/Hospitais-Rede-Casa.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+
+    <div class="casa-cards">
+      <div class="casa-card"><i class="pi pi-building"></i><div><strong>Internação</strong><span>Acesso a leitos hospitalares de qualidade em todo o RJ</span></div></div>
+      <div class="casa-card"><i class="pi pi-bolt"></i><div><strong>Urgência e Emergência</strong><span>Pronto atendimento com toda a estrutura que o momento exige</span></div></div>
+      <div class="casa-card"><i class="pi pi-star"></i><div><strong>Cirurgias Complexas</strong><span>Centro cirúrgico de alto padrão para os procedimentos mais complexos</span></div></div>
+    </div>
+
+    <!-- carrossel de fotos dos hospitais -->
+    <div class="hosp">
+      <div class="hosp__head">
+        <div>
+          <span class="eyebrow">por dentro da rede casa</span>
+          <h2 class="h2" style="margin-top:8px">Hospitais que <strong style="color:var(--orange)">cuidam de você</strong></h2>
+        </div>
+        <div class="hosp__nav">
+          <button class="hosp__btn" id="hospPrev" aria-label="Anterior"><i class="pi pi-chevron-left"></i></button>
+          <button class="hosp__btn" id="hospNext" aria-label="Próximo"><i class="pi pi-chevron-right"></i></button>
+        </div>
+      </div>
+      <div class="hosp__viewport">
+        <div class="hosp__track" id="hospTrack">
+          <figure class="hosp__slide"><img src="assets/hospitais/ilha-do-governador.webp" alt="HC Ilha do Governador" loading="lazy"><figcaption>HC Ilha do Governador</figcaption></figure>
+          <figure class="hosp__slide"><img src="assets/hospitais/santa-cruz.webp" alt="HC Santa Cruz" loading="lazy"><figcaption>HC Santa Cruz</figcaption></figure>
+          <figure class="hosp__slide"><img src="assets/hospitais/evangelico.webp" alt="Hospital Evangélico" loading="lazy"><figcaption>Hospital Evangélico</figcaption></figure>
+          <figure class="hosp__slide"><img src="assets/hospitais/menssana.webp" alt="HC Menssana" loading="lazy"><figcaption>HC Menssana</figcaption></figure>
+          <figure class="hosp__slide"><img src="assets/hospitais/casa-de-portugal.webp" alt="Hospital de Portugal" loading="lazy"><figcaption>Hospital de Portugal</figcaption></figure>
+          <figure class="hosp__slide"><img src="assets/hospitais/premium.webp" alt="HC Premium" loading="lazy"><figcaption>HC Premium</figcaption></figure>
+          <figure class="hosp__slide"><img src="assets/hospitais/laranjeiras.webp" alt="HC Rio Laranjeiras" loading="lazy"><figcaption>HC Rio Laranjeiras</figcaption></figure>
+          <figure class="hosp__slide"><img src="assets/hospitais/sao-bernardo.webp" alt="HC São Bernardo" loading="lazy"><figcaption>HC São Bernardo</figcaption></figure>
+          <figure class="hosp__slide"><img src="assets/hospitais/oftalmocasa.webp" alt="Oftalmocasa" loading="lazy"><figcaption>Oftalmocasa</figcaption></figure>
+          <figure class="hosp__slide"><img src="assets/hospitais/egas-moniz.webp" alt="Egas Moniz" loading="lazy"><figcaption>Egas Moniz</figcaption></figure>
+          <figure class="hosp__slide"><img src="assets/hospitais/rio-botafogo.webp" alt="HC Rio — Botafogo" loading="lazy"><figcaption>HC Rio — Botafogo</figcaption></figure>
+          <figure class="hosp__slide"><img src="assets/hospitais/rio-botafogo-2.webp" alt="HC Rio — Botafogo" loading="lazy"><figcaption>HC Rio — Botafogo</figcaption></figure>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTATO -->
-<section class="sec">
+<!-- ══ NOSSAS UNIDADES (mapa + vídeo CMK) ═══════════════════════════ -->
+<section class="sec" id="unidades">
+  <div class="wrap">
+    <div class="uni-intro">
+      <div>
+        <span class="eyebrow">nossas unidades · Rio de Janeiro</span>
+        <h2 class="h2">Klini perto de você,<br><strong>em todo o Rio</strong></h2>
+        <p style="color:var(--muted);font-size:1rem;line-height:1.8;margin-top:14px">10 Centros Médicos Klini (CMK) e 9 Hospitais da Rede Casa (HC) distribuídos pela Região Metropolitana, Baixada Fluminense e Costa Verde. Use o mapa para encontrar a unidade mais próxima e traçar a rota.</p>
+        <div class="uni-legend">
+          <div class="leg"><span class="leg-dot leg-dot--cmk"></span> Centro Médico Klini (CMK)</div>
+          <div class="leg"><span class="leg-dot leg-dot--hc"></span> Hospital Rede Casa (HC)</div>
+        </div>
+      </div>
+      <div class="media-embed">
+        <video controls preload="none" playsinline poster="assets/hospitais/laranjeiras.webp">
+          <source src="https://klinisaude.com.br/wp-content/uploads/2024/01/CMK-Tijuca.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+
+    <!-- MAPA + SIDEBAR -->
+    <div class="map-section">
+      <aside class="sidebar">
+        <div class="sidebar-head">
+          <div class="filter-tabs">
+            <button class="filter-tab active" data-filter="all" onclick="filterUnits('all',this)">Todos (19)</button>
+            <button class="filter-tab" data-filter="cmk" onclick="filterUnits('cmk',this)">CMK (10)</button>
+            <button class="filter-tab" data-filter="hc" onclick="filterUnits('hc',this)">HC (9)</button>
+          </div>
+          <div class="sidebar-search">
+            <i class="pi pi-search"></i>
+            <input type="text" placeholder="Buscar bairro ou unidade…" oninput="searchUnits(this.value)" autocomplete="off" />
+          </div>
+        </div>
+        <div class="sidebar-count" id="sidebarCount">19 unidades</div>
+        <div class="unit-list" id="unitList"></div>
+      </aside>
+      <div class="map-wrap">
+        <div id="map"></div>
+        <div class="map-controls">
+          <button class="map-reset" onclick="resetMap()" title="Ver todas as unidades"><i class="pi pi-expand"></i> Ver todas</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTATO ══════════════════════════════════════════════════════ -->
+<section class="sec sec--off">
   <div class="wrap">
     <div style="margin-bottom:40px">
       <span class="eyebrow">fale com a gente</span>
@@ -216,13 +421,34 @@
         <span>CNPJ 34.539.000/0001-86</span>
       </div>
     </div>
-    <div style="margin-top:40px;text-align:center">
-      <a href="https://site-dev.klinisaude.com.br/planos/#cotacao" class="btn btn-teal" target="_blank" rel="noopener"><i class="pi pi-arrow-right"></i> Solicitar cotação gratuita</a>
+  </div>
+</section>
+
+<!-- ══ TRABALHE CONOSCO ═════════════════════════════════════════════ -->
+<section class="sec" id="trabalhe">
+  <div class="wrap">
+    <div class="tc-grid">
+      <div>
+        <span class="eyebrow">trabalhe conosco</span>
+        <h2 class="h2">Faça parte de quem<br><strong style="color:var(--coral)">cuida de vidas</strong></h2>
+        <p style="color:var(--muted);font-size:1rem;line-height:1.8;margin-top:14px">Somos movidos por propósito: cuidar das pessoas com estrutura própria e atendimento humano. Se você compartilha desses valores, queremos te conhecer.</p>
+        <div class="tc-perks">
+          <div class="tc-perk"><i class="pi pi-heart-fill"></i><div>Propósito real de cuidado e impacto na saúde das pessoas</div></div>
+          <div class="tc-perk"><i class="pi pi-chart-line"></i><div>Crescimento dentro de uma operadora em expansão no RJ</div></div>
+          <div class="tc-perk"><i class="pi pi-users"></i><div>Time multidisciplinar e ambiente que valoriza a colaboração</div></div>
+        </div>
+      </div>
+      <div class="tc-card">
+        <h3>Vamos crescer juntos?</h3>
+        <p>Envie seu currículo para o nosso time de Gente &amp; Gestão ou acompanhe nossas vagas abertas no LinkedIn. Estamos sempre de olho em talentos que querem fazer a diferença.</p>
+        <a href="mailto:rh@klinisaude.com.br?subject=Trabalhe%20conosco%20%E2%80%94%20Envio%20de%20curr%C3%ADculo" class="btn"><i class="pi pi-send"></i> Enviar currículo</a>
+        <a href="https://br.linkedin.com/company/klinisaude/jobs" target="_blank" rel="noopener" class="btn btn-ghost"><i class="pi pi-linkedin"></i> Vagas no LinkedIn</a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER (padrão Klini) -->
+<!-- ══ FOOTER (padrão Klini) ════════════════════════════════════════ -->
 <footer>
   <div class="foot-arc" aria-hidden="true">
     <svg viewBox="0 0 1440 54" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
@@ -241,11 +467,11 @@
         <p>Saúde com rede própria, telemedicina 24h e cuidado humano no Rio de Janeiro.</p>
       </div>
       <nav class="foot__links">
-        <a href="sobre.html">Sobre a Klini</a>
+        <a href="sobre.html">A Klini</a>
+        <a href="sobre.html#unidades">Nossas unidades</a>
         <a href="planos.html">Planos</a>
         <a href="teleconsulta.html">Teleconsulta</a>
-        <a href="unidades.html">Unidades</a>
-        <a href="rede-credenciada.html">Rede Credenciada</a>
+        <a href="rede-credenciada.html">Rede credenciada</a>
         <a href="transparencia.html">Transparência</a>
         <a href="ouvidoria.html">Ouvidoria</a>
         <a href="politica-de-privacidade.html">Privacidade</a>
@@ -271,23 +497,133 @@
   </div>
 </footer>
 
-<!-- WhatsApp flutuante -->
 <div class="wa-f">
   <span class="wa-tip">Falar com especialista</span>
   <a href="https://wa.me/552130550790?text=Olá!%20Gostaria%20de%20conhecer%20os%20planos%20Klini%20Saúde." class="wa-btn" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="pi pi-whatsapp" style="font-size:1.5rem;color:#fff;line-height:1"></i></a>
 </div>
 
+<!-- ══ LEAFLET ══════════════════════════════════════════════════════ -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <script>
-  /* topbar solid no scroll + menu mobile (padrão Klini) */
+  /* header solid no scroll + menu mobile */
   var bar = document.getElementById('bar');
   window.addEventListener('scroll', function(){ bar.classList.toggle('solid', window.scrollY > 50); }, { passive:true });
   var barHamb = document.getElementById('barHamb'), barNav = document.getElementById('barNav');
   if (barHamb && barNav) {
     barHamb.addEventListener('click', function(){ barNav.classList.toggle('open'); });
-    barNav.querySelectorAll('.nav__item--drop .nav__link').forEach(function(btn){
-      btn.addEventListener('click', function(){ btn.closest('.nav__item--drop').classList.toggle('open'); });
-    });
+    barNav.querySelectorAll('.nav__item--drop .nav__link').forEach(function(btn){ btn.addEventListener('click', function(){ btn.closest('.nav__item--drop').classList.toggle('open'); }); });
   }
+
+  /* carrossel de fotos dos hospitais */
+  (function(){
+    var track=document.getElementById('hospTrack'), prev=document.getElementById('hospPrev'), next=document.getElementById('hospNext');
+    if(!track) return;
+    var slides=track.children, idx=0;
+    function perView(){ return window.innerWidth<=600?1:(window.innerWidth<=900?2:3); }
+    function maxIdx(){ return Math.max(0, slides.length-perView()); }
+    function go(){ idx=Math.max(0,Math.min(idx,maxIdx()));
+      var slideW=slides[0].getBoundingClientRect().width+18;
+      track.style.transform='translateX('+(-idx*slideW)+'px)'; }
+    prev.addEventListener('click',function(){ idx--; go(); });
+    next.addEventListener('click',function(){ idx++; go(); });
+    window.addEventListener('resize', go, {passive:true});
+    go();
+  })();
+
+  /* ── MAPA DE UNIDADES ─────────────────────────────────────────── */
+  var units = [
+    { id:'cmk-nova-iguacu', type:'cmk', name:'CMK Nova Iguaçu', addr:'Rua Dom Walmor, 383 — Centro', city:'Nova Iguaçu', lat:-22.7574, lng:-43.4524, spec:'Centro Médico' },
+    { id:'cmk-ilha', type:'cmk', name:'CMK Ilha do Governador', addr:'Estrada do Dendê, 1086 — Tauá', city:'Rio de Janeiro', lat:-22.7882, lng:-43.1741, spec:'Centro Médico' },
+    { id:'cmk-bangu', type:'cmk', name:'CMK Bangu', addr:'Rua Fonseca, 580 — Bangu', city:'Rio de Janeiro', lat:-22.8783, lng:-43.4637, spec:'Centro Médico' },
+    { id:'cmk-madureira', type:'cmk', name:'CMK Madureira', addr:'Rua Guarapari, 25 — Madureira', city:'Rio de Janeiro', lat:-22.8765, lng:-43.3395, spec:'Centro Médico' },
+    { id:'cmk-santa-cruz', type:'cmk', name:'CMK Santa Cruz', addr:'Rua Nestor, 131 — Santa Cruz', city:'Rio de Janeiro', lat:-22.9063, lng:-43.6966, spec:'Centro Médico' },
+    { id:'cmk-campo-grande', type:'cmk', name:'CMK Campo Grande', addr:'Rua Ivo do Prado, 79 — Campo Grande', city:'Rio de Janeiro', lat:-22.9019, lng:-43.5529, spec:'Centro Médico' },
+    { id:'cmk-centro', type:'cmk', name:'CMK Centro', addr:'Rua Riachuelo, 350 — Centro', city:'Rio de Janeiro', lat:-22.9073, lng:-43.1813, spec:'Centro Médico' },
+    { id:'cmk-tijuca', type:'cmk', name:'CMK Tijuca', addr:'Rua Major Ávila, 260, 8º andar — Tijuca', city:'Rio de Janeiro', lat:-22.9265, lng:-43.2497, spec:'Centro Médico' },
+    { id:'cmk-angra', type:'cmk', name:'CMK Angra dos Reis', addr:'Rua Ilha dos Coqueiros, 571 — Praia da Ribeira', city:'Angra dos Reis', lat:-23.0062, lng:-44.3174, spec:'Centro Médico' },
+    { id:'cmk-barra', type:'cmk', name:'CMK Barra da Tijuca', addr:'Av. das Américas, 3200 — Barra da Tijuca', city:'Rio de Janeiro', lat:-23.0003, lng:-43.3623, spec:'Sede + Centro Médico' },
+    { id:'hc-ilha', type:'hc', name:'HC Ilha do Governador', addr:'Estrada do Dendê, 668 — Tauá', city:'Rio de Janeiro', lat:-22.7893, lng:-43.1808, spec:'Geral' },
+    { id:'hc-santa-cruz', type:'hc', name:'HC Santa Cruz', addr:'Rua Nestor, 131 — Santa Cruz', city:'Rio de Janeiro', lat:-22.9075, lng:-43.6973, spec:'Pronto Atendimento 24h' },
+    { id:'hc-menssana', type:'hc', name:'HC Menssana', addr:'Rua Marechal Jofre, 30 — Grajaú', city:'Rio de Janeiro', lat:-22.9139, lng:-43.2914, spec:'Saúde Mental' },
+    { id:'hc-evangelico', type:'hc', name:'HC Evangélico', addr:'Rua Bom Pastor, 295 — Tijuca', city:'Rio de Janeiro', lat:-22.9237, lng:-43.2417, spec:'Alta Complexidade' },
+    { id:'hc-portugal', type:'hc', name:'HC de Portugal', addr:'Rua do Bispo, 72 — Rio Comprido', city:'Rio de Janeiro', lat:-22.9113, lng:-43.1916, spec:'Clínico & Cirúrgico' },
+    { id:'hc-premium', type:'hc', name:'HC Premium', addr:'Rua do Bispo, 18 — Rio Comprido', city:'Rio de Janeiro', lat:-22.9110, lng:-43.1912, spec:'Oncologia' },
+    { id:'hc-laranjeiras', type:'hc', name:'HC Rio Laranjeiras', addr:'Rua das Laranjeiras, 72 — Laranjeiras', city:'Rio de Janeiro', lat:-22.9299, lng:-43.1833, spec:'Cirúrgico' },
+    { id:'hc-sao-bernardo', type:'hc', name:'HC São Bernardo', addr:'Av. das Américas, 3250 — Barra da Tijuca', city:'Rio de Janeiro', lat:-23.0009, lng:-43.3618, spec:'UTI Especializada' },
+    { id:'hc-oftalmocasa', type:'hc', name:'Oftalmocasa', addr:'Av. das Américas, 3200 — Barra da Tijuca', city:'Rio de Janeiro', lat:-23.0003, lng:-43.3625, spec:'Oftalmologia' }
+  ];
+
+  var map = L.map('map', { center:[-22.88,-43.55], zoom:10, zoomControl:false, scrollWheelZoom:false });
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    subdomains:'abcd', maxZoom:18
+  }).addTo(map);
+  L.control.zoom({ position:'bottomright' }).addTo(map);
+
+  function makeIcon(type){
+    var color = type==='cmk' ? '#CD7925' : '#259591';
+    var svg = '<svg viewBox="0 0 32 42" xmlns="http://www.w3.org/2000/svg"><path d="M16 0C7.2 0 0 7.2 0 16c0 11.2 16 26 16 26S32 27.2 32 16C32 7.2 24.8 0 16 0z" fill="'+color+'"/><circle cx="16" cy="16" r="6.5" fill="#fff"/></svg>';
+    return L.divIcon({ html:'<div class="kln-marker">'+svg+'</div>', className:'', iconSize:[32,42], iconAnchor:[16,42], popupAnchor:[0,-44] });
+  }
+  function makePopup(u){
+    var label = u.type==='cmk' ? 'Centro Médico Klini' : 'Hospital Rede Casa';
+    var typeClass = u.type==='cmk' ? 'popup-type--cmk' : 'popup-type--hc';
+    var specClass = u.type==='cmk' ? 'popup-spec--cmk' : '';
+    var mapsClass = u.type==='cmk' ? 'popup-maps--cmk' : '';
+    var mapsUrl = 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(u.name+' '+u.city+' '+u.addr);
+    return '<div class="popup-inner"><div class="popup-type '+typeClass+'">'+label+'</div>'+
+      '<div class="popup-name">'+u.name+'</div>'+
+      '<div class="popup-addr"><i class="pi pi-map-marker"></i>'+u.addr+' · '+u.city+'</div>'+
+      '<div class="popup-spec '+specClass+'"><i class="pi pi-star-fill"></i> '+u.spec+'</div><br>'+
+      '<a class="popup-maps '+mapsClass+'" href="'+mapsUrl+'" target="_blank" rel="noopener"><i class="pi pi-map"></i> Como chegar</a></div>';
+  }
+
+  var markers = {}, currentFilter='all', currentSearch='', bounds=L.latLngBounds();
+  units.forEach(function(u){
+    var m=L.marker([u.lat,u.lng],{icon:makeIcon(u.type)}).addTo(map).bindPopup(makePopup(u),{maxWidth:280,className:''});
+    m.on('click',function(){ highlightItem(u.id); });
+    markers[u.id]=m; bounds.extend([u.lat,u.lng]);
+  });
+  map.fitBounds(bounds,{ padding:[40,40] });
+
+  var listEl=document.getElementById('unitList'), countEl=document.getElementById('sidebarCount');
+  function buildList(){
+    listEl.innerHTML=''; var visible=0;
+    units.forEach(function(u){
+      var matchFilter=(currentFilter==='all')||(currentFilter===u.type);
+      var q=currentSearch.toLowerCase();
+      var matchSearch=!q||u.name.toLowerCase().indexOf(q)>-1||u.addr.toLowerCase().indexOf(q)>-1||u.city.toLowerCase().indexOf(q)>-1;
+      var show=matchFilter&&matchSearch; if(show) visible++;
+      var item=document.createElement('div');
+      item.className='unit-item '+u.type+(show?'':' hidden'); item.id='item-'+u.id;
+      item.innerHTML='<div class="unit-dot unit-dot--'+u.type+'"></div><div><div class="unit-name">'+u.name+'</div><div class="unit-addr">'+u.addr+' · '+u.city+'</div><span class="unit-tag">'+u.spec+'</span></div>';
+      item.addEventListener('click',function(){ map.setView([u.lat,u.lng],15,{animate:true}); markers[u.id].openPopup(); highlightItem(u.id); });
+      listEl.appendChild(item);
+    });
+    countEl.textContent=visible+' unidade'+(visible===1?'':'s');
+  }
+  function highlightItem(id){
+    document.querySelectorAll('.unit-item').forEach(function(el){ el.classList.remove('active'); });
+    var el=document.getElementById('item-'+id); if(el){ el.classList.add('active'); el.scrollIntoView({behavior:'smooth',block:'nearest'}); }
+  }
+  function filterUnits(type,btn){
+    currentFilter=type;
+    document.querySelectorAll('.filter-tab').forEach(function(t){ t.classList.remove('active'); });
+    btn.classList.add('active');
+    units.forEach(function(u){
+      var show=(type==='all')||(u.type===type);
+      if(show){ if(!map.hasLayer(markers[u.id])) markers[u.id].addTo(map); }
+      else { if(map.hasLayer(markers[u.id])) map.removeLayer(markers[u.id]); }
+    });
+    buildList();
+    var b=L.latLngBounds();
+    units.forEach(function(u){ if((type==='all')||(u.type===type)) b.extend([u.lat,u.lng]); });
+    if(b.isValid()) map.fitBounds(b,{padding:[40,40],animate:true});
+  }
+  function searchUnits(val){ currentSearch=val; buildList(); }
+  function resetMap(){ filterUnits('all',document.querySelector('.filter-tab[data-filter="all"]')); document.querySelector('.sidebar-search input').value=''; currentSearch=''; buildList(); }
+  buildList();
+  setTimeout(function(){ map.invalidateSize(); }, 250);
 </script>
 </body>
 </html>
