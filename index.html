@@ -27,7 +27,7 @@
   --orange:#CD7925;                                     /* kln-color-orange-500 PANTONE 7565C */
   --coral:#E05759;                                      /* kln-color-coral-500  PANTONE 7625C */
   --white:#fff; --off:#F5F9FF;
-  --text:#1C2E2C; --muted:#5C7B78;
+  --text:#1E2530; --muted:#666666;                      /* texto neutro (menos verde) */
   --bd-d:rgba(255,255,255,.08); --bd-l:rgba(4,42,38,.08);
   --r:16px; --r-s:10px;
 }
@@ -43,7 +43,7 @@ a{text-decoration:none;color:inherit}
 
 /* ── TYPE ────────────────────────────────────────────────────── */
 .h1{font-family:'Objective',sans-serif;font-weight:800;font-size:clamp(3rem,6.8vw,5.8rem);line-height:.98;letter-spacing:-.045em}
-.h2{font-family:'Objective',sans-serif;font-weight:400;font-size:clamp(2.2rem,4.8vw,3.8rem);line-height:1.06;letter-spacing:-.035em;color:var(--teal-d)}
+.h2{font-family:'Objective',sans-serif;font-weight:400;font-size:clamp(2.2rem,4.8vw,3.8rem);line-height:1.06;letter-spacing:-.035em;color:var(--text)}
 .h2 strong{font-weight:800;color:var(--teal-d)}
 .h3{font-family:'Objective',sans-serif;font-weight:700;font-size:clamp(1.1rem,2vw,1.35rem)}
 .eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal)}
@@ -136,10 +136,13 @@ a{text-decoration:none;color:inherit}
 
 
 /* ── PLANS ───────────────────────────────────────────────────── */
-.plans__track{display:grid;grid-template-columns:repeat(6,276px);gap:18px;overflow-x:auto;overflow-y:visible;padding:20px 2px 18px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--teal) var(--off)}
+.plans__track{display:grid;grid-template-columns:repeat(6,236px);gap:16px;overflow-x:auto;overflow-y:visible;padding:20px 2px 18px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--teal) var(--off)}
 .plans__track::-webkit-scrollbar{height:3px}
 .plans__track::-webkit-scrollbar-thumb{background:var(--teal);border-radius:2px}
-.pc{background:#fff;border:1.5px solid var(--bd-l);border-radius:var(--r);padding:26px;scroll-snap-align:start;flex-shrink:0;position:relative;overflow:hidden;transition:all .3s ease}
+.pc{background:#fff;border:1.5px solid var(--bd-l);border-radius:var(--r);padding:22px;scroll-snap-align:start;flex-shrink:0;position:relative;overflow:hidden;transition:all .3s ease;display:flex;flex-direction:column}
+.pc__more{margin-top:auto;display:inline-flex;align-items:center;gap:6px;font-size:.86rem;font-weight:700;color:var(--teal);text-decoration:none;transition:gap .2s}
+.pc__more:hover{gap:10px}
+.pc--feat .pc__more{color:#fff}
 .pc::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--teal-dim),transparent);opacity:0;transition:opacity .3s}
 .pc:hover{border-color:var(--teal);transform:translateY(-6px);box-shadow:0 24px 48px rgba(37,149,145,.1)}
 .pc:hover::before{opacity:1}
@@ -311,7 +314,7 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
 .acess__card:nth-child(5) .acess__ico{animation-delay:-4s}
 @keyframes acess-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 .acess__card:hover .acess__ico{transform:scale(1.14) rotate(-4deg)}
-.acess__card h3{font-weight:700;font-size:.95rem;color:var(--teal-d);line-height:1.3;margin:0}
+.acess__card h3{font-weight:700;font-size:.95rem;color:var(--text);line-height:1.3;margin:0}
 .acess__card p{font-size:.79rem;color:var(--muted);line-height:1.6;margin:0;flex:1}
 .acess__cta{font-size:.8rem;font-weight:700;color:var(--teal);display:inline-flex;align-items:center;gap:4px;margin-top:2px;transition:gap .25s}
 .acess__card:hover .acess__cta{gap:9px}
@@ -388,6 +391,7 @@ footer{background:#fff;color:var(--muted);padding:48px 0 28px;border-top:1px sol
 .arc-cw  { transform-box: view-box; animation: kln-arc-cw  linear infinite; }
 .arc-ccw { transform-box: view-box; animation: kln-arc-ccw linear infinite; }
 @media(prefers-reduced-motion:reduce){.arc-cw,.arc-ccw{animation:none}}
+@media(max-width:760px){.deco-arcs{display:none}}
 
 /* Conteúdo SEMPRE visível — sem hide-then-reveal (robusto em qualquer ambiente) */
 .gs{opacity:1}
@@ -488,7 +492,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
   <div class="hero__fog"></div>
 
   <!-- Semicírculos do guia de marca Klini — C-shapes espessos com linecap round -->
-  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" class="deco-arcs"
        style="position:absolute;top:-120px;right:-160px;width:720px;height:860px;pointer-events:none;z-index:1">
     <defs>
       <!-- Arco claro 1 — branco/creme sobre o verde -->
@@ -544,7 +548,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
   <div class="wrap">
     <div style="text-align:center;margin-bottom:48px">
       <p class="eyebrow gs">acesso rápido</p>
-      <h2 class="h2 gs">O que você precisa,<br><strong>quando precisa</strong></h2>
+      <h2 class="h2 gs">O que você precisa,<br><strong style="color:var(--teal)">quando precisa</strong></h2>
       <p class="gs" style="color:var(--muted);margin-top:12px;font-size:1rem">Serviços e portais disponíveis para beneficiários e parceiros Klini.</p>
     </div>
     <div class="acess__grid">
@@ -593,7 +597,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
   <div class="wrap">
     <div style="margin-bottom:56px">
       <p class="eyebrow gs">nossos planos</p>
-      <h2 class="h2 gs">O plano certo para cada<br><strong>momento da vida</strong></h2>
+      <h2 class="h2 gs">O plano certo para cada<br><strong style="color:var(--orange)">momento da vida</strong></h2>
       <p class="gs" style="color:var(--muted);margin-top:12px;font-size:1.05rem">Do essencial ao completo — todos com telemedicina 24h inclusos.</p>
     </div>
     <div class="plans__track">
@@ -604,13 +608,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
         </div>
         <div class="pc__name">Klini 200</div>
         <p class="pc__tag">A porta de entrada para proteção ampla com custo equilibrado</p>
-        <ul class="pc__list">
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Ambulatorial + Hospitalar</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Obstetrícia inclusa</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Rede regional RJ</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Teleconsulta 24h</li>
-        </ul>
-        <a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20200." class="btn pc__btn pc__btn-out" target="_blank" rel="noopener">Solicitar Cotação</a>
+        <a href="planos.html" class="pc__more">Saiba mais <i class="pi pi-arrow-right"></i></a>
       </div>
 
       <div class="pc gs">
@@ -623,13 +621,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
         </div>
         <div class="pc__name">Klini 350</div>
         <p class="pc__tag">O plano que acompanha o crescimento da sua família</p>
-        <ul class="pc__list">
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Ampla rede credenciada</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Hospitais de referência</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Obstetrícia inclusa</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Telemedicina</li>
-        </ul>
-        <a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20350." class="btn pc__btn pc__btn-out" target="_blank" rel="noopener">Solicitar Cotação</a>
+        <a href="planos.html" class="pc__more">Saiba mais <i class="pi pi-arrow-right"></i></a>
       </div>
 
       <div class="pc pc--feat gs">
@@ -639,13 +631,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
         </div>
         <div class="pc__name">Klini 400</div>
         <p class="pc__tag">Rede ampliada com Linhas de Cuidados para acompanhamento completo</p>
-        <ul class="pc__list">
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Ambulatorial + Hospitalar</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Obstetrícia inclusa</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Rede ampliada premium</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Linhas de Cuidados (LCA)</li>
-        </ul>
-        <a href="https://wa.me/552130550790?text=Olá!%20Quero%20simular%20o%20Klini%20400." class="btn pc__btn pc__btn-feat" target="_blank" rel="noopener">Simular Agora <i class="pi pi-arrow-right"></i></a>
+        <a href="planos.html" class="pc__more">Saiba mais <i class="pi pi-arrow-right"></i></a>
       </div>
 
       <div class="pc gs">
@@ -654,13 +640,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
         </div>
         <div class="pc__name">Klini 600</div>
         <p class="pc__tag">Cobertura total, tranquilidade completa</p>
-        <ul class="pc__list">
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Hospitais de excelência</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Alto reembolso</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Maior rede credenciada</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>LCA ao extremo</li>
-        </ul>
-        <a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20600." class="btn pc__btn pc__btn-out" target="_blank" rel="noopener">Solicitar Cotação</a>
+        <a href="planos.html" class="pc__more">Saiba mais <i class="pi pi-arrow-right"></i></a>
       </div>
 
       <div class="pc gs">
@@ -669,13 +649,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
         </div>
         <div class="pc__name">Ambulatorial</div>
         <p class="pc__tag">O seu plano acessível. Ideal para quem busca cobertura essencial</p>
-        <ul class="pc__list">
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Cobertura ambulatorial completa</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Consultas e exames</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Teleconsulta 24h inclusa</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Desconto em farmácias</li>
-        </ul>
-        <a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Ambulatorial." class="btn pc__btn pc__btn-out" target="_blank" rel="noopener">Solicitar Cotação</a>
+        <a href="planos.html" class="pc__more">Saiba mais <i class="pi pi-arrow-right"></i></a>
       </div>
 
       <div class="pc gs">
@@ -689,15 +663,13 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
         </div>
         <div class="pc__name">Klini Sênior</div>
         <p class="pc__tag">Central exclusiva e cuidado especializado para o perfil 60+</p>
-        <ul class="pc__list">
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Central de atendimento 60+</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Ambulatorial + Hospitalar</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Teleconsulta inclusa</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Linhas de Cuidados (LCA)</li>
-        </ul>
-        <a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Sênior." class="btn pc__btn pc__btn-out" target="_blank" rel="noopener">Solicitar Cotação</a>
+        <a href="planos.html" class="pc__more">Saiba mais <i class="pi pi-arrow-right"></i></a>
       </div>
 
+    </div>
+
+    <div style="text-align:center;margin-top:34px">
+      <a href="https://site-dev.klinisaude.com.br/planos/#cotacao" class="btn btn-teal" target="_blank" rel="noopener" style="font-size:.92rem"><i class="pi pi-clipboard"></i> Simular meu plano</a>
     </div>
   </div>
 </section>
@@ -706,8 +678,8 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
 <section class="sec sec--ink2 casa-sec" id="rede-casa">
 
   <!-- C-arc teal espelhado lado esquerdo da seção Rede Casa -->
-  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-       style="position:absolute;top:-50px;left:-80px;width:400px;height:520px;pointer-events:none;z-index:0">
+  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" class="deco-arcs"
+       style="position:absolute;top:-50px;right:-80px;width:400px;height:520px;pointer-events:none;z-index:0">
     <defs>
       <linearGradient id="kln-c1" x1="50%" y1="0%" x2="50%" y2="100%">
         <stop offset="0%"   stop-color="#259591" stop-opacity="0.26"/>
@@ -736,7 +708,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
       <!-- Texto -->
       <div class="gs">
         <div class="casa-tag"><i class="pi pi-building"></i> Parceria estratégica</div>
-        <h2 class="h2 gs">Klini + Rede Casa<br><strong>— um único time</strong></h2>
+        <h2 class="h2 gs">Klini + Rede Casa<br><strong style="color:var(--teal)">— um único time</strong></h2>
         <p style="color:var(--muted);font-size:1.05rem;margin-top:18px;line-height:1.8;max-width:430px">
           Nós somos um único time focado no seu cuidado. A Rede Casa amplia nossa capacidade hospitalar com unidades de excelência para internações, cirurgias complexas e UTI — tudo coberto pelo seu plano.
         </p>
@@ -947,7 +919,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
     <div class="tele">
       <div class="gs">
         <p class="eyebrow">teleconsulta klini</p>
-        <h2 class="h2" style="margin-top:10px">Atendimento médico<br><strong>onde você estiver</strong></h2>
+        <h2 class="h2" style="margin-top:10px">Atendimento médico<br><strong style="color:var(--coral)">onde você estiver</strong></h2>
         <p style="color:var(--muted);font-size:1.05rem;margin-top:12px">Disponível 24h por dia, 7 dias por semana, inclusive feriados. Receitas, atestados e pedidos de exame emitidos digitalmente com validade legal.</p>
         <div class="tele__steps">
           <div class="tele__step">
@@ -1003,7 +975,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
   <div class="wrap">
     <div style="text-align:center;margin-bottom:56px">
       <p class="eyebrow gs">desconto em farmácias</p>
-      <h2 class="h2 gs">Economize em<br><strong>medicamentos</strong></h2>
+      <h2 class="h2 gs">Economize em<br><strong style="color:var(--orange)">medicamentos</strong></h2>
       <p class="gs" style="color:var(--muted);margin-top:12px;font-size:1.05rem">Descontos especiais nas principais redes do Brasil — sem cadastro adicional.</p>
     </div>
     <div class="farm-bento">
@@ -1011,7 +983,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
       <!-- Card info: col 1-2, row 1-2 -->
       <div class="farm-bento__info gs">
         <p class="eyebrow" style="margin-bottom:10px">como usar</p>
-        <h3 class="h3" style="margin-bottom:22px;color:var(--teal-d)">3 passos simples</h3>
+        <h3 class="h3" style="margin-bottom:22px;color:var(--text)">3 passos simples</h3>
         <div class="farm__steps">
           <div class="farm__step"><div class="farm__ico"><i class="pi pi-map-marker"></i></div><div><strong>Vá a uma farmácia parceira</strong><span>7 redes em todo o Brasil</span></div></div>
           <div class="farm__step"><div class="farm__ico"><i class="pi pi-id-card"></i></div><div><strong>Apresente CPF ou carteirinha</strong><span>Acesse pelo app Klini</span></div></div>
@@ -1062,7 +1034,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
 <section class="mv" id="linhas-cuidado">
   <div class="wrap">
     <p class="eyebrow gs">linhas de cuidado</p>
-    <h2 class="h2 gs">Cuidado contínuo para cada<br><strong>momento da sua vida</strong></h2>
+    <h2 class="h2 gs">Cuidado contínuo para cada<br><strong style="color:var(--teal)">momento da sua vida</strong></h2>
     <p class="gs" style="color:var(--muted);margin-top:12px;font-size:1.05rem;max-width:580px">Programas estruturados com enfermagem especializada, acompanhamento longitudinal e coordenação de cuidado — inclusos nos planos Família e Empresa.</p>
 
     <div class="mv__grid">
@@ -1115,7 +1087,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
   <div class="wrap">
     <div style="text-align:center;margin-bottom:8px">
       <p class="eyebrow gs">fale com a gente</p>
-      <h2 class="h2 gs">Canais de <strong>atendimento</strong></h2>
+      <h2 class="h2 gs">Canais de <strong style="color:var(--coral)">atendimento</strong></h2>
       <p class="gs" style="color:var(--muted);margin-top:12px;font-size:1.05rem">Escolha o canal mais conveniente para você.</p>
     </div>
     <div class="canais-bento">
