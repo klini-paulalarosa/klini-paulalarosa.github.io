@@ -279,6 +279,16 @@ footer{background:#fff;color:var(--muted);padding:52px 0 28px;position:relative}
 .casa__stat-n{font-family:'Objective',sans-serif;font-weight:800;font-size:2.1rem;background:linear-gradient(135deg,var(--teal),var(--sea));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:4px}
 .casa__stat-l{font-size:.76rem;color:var(--muted);line-height:1.5}
 
+/* ── REDE CASA: toggle Hospitais / Centros Médicos ──────────── */
+.casa-toggle{display:inline-flex;gap:6px;background:var(--off);border:1px solid var(--bd-l);border-radius:50px;padding:5px;margin-bottom:38px}
+.casa-toggle__btn{border:none;background:transparent;color:var(--muted);font-family:'Objective',sans-serif;font-weight:700;font-size:.9rem;padding:9px 20px;border-radius:50px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:all .25s}
+.casa-toggle__btn.active{background:var(--grad-cool);color:#fff;box-shadow:0 6px 18px rgba(37,149,145,.28)}
+.casa-tab[hidden]{display:none}
+.casa__map-btn{margin-top:26px;width:fit-content}
+.casa-fb--cmk{background:linear-gradient(150deg,#259591,#1f807c)!important}
+.casa-fb--cmk i{font-size:3.4rem;color:rgba(255,255,255,.5)}
+.casa-slide--cmk img{display:none}
+
 /* ── HOSPITAL CAROUSEL ───────────────────────────────────────── */
 .casa-carousel{position:relative;border-radius:20px;overflow:hidden;width:100%;user-select:none}
 .casa-carousel__track{display:flex;transition:transform .52s cubic-bezier(.4,0,.2,1);will-change:transform}
@@ -757,6 +767,13 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
   </svg>
 
   <div class="wrap" style="position:relative;z-index:1">
+
+    <div class="casa-toggle gs">
+      <button class="casa-toggle__btn active" data-tab="hosp" type="button"><i class="pi pi-building"></i> Hospitais</button>
+      <button class="casa-toggle__btn" data-tab="cmk" type="button"><i class="pi pi-map-marker"></i> Centros Médicos</button>
+    </div>
+
+    <div class="casa-tab" data-tab="hosp">
     <div class="casa-grid">
 
       <!-- Texto -->
@@ -780,6 +797,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
             <div class="casa__stat-l">leitos disponíveis<br>no estado do RJ</div>
           </div>
         </div>
+        <a href="unidades.html" class="btn btn-outline casa__map-btn"><i class="pi pi-map"></i> Ver endereços no mapa</a>
       </div>
 
       <!-- Carrossel de hospitais da Rede Casa -->
@@ -924,10 +942,10 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
 
           </div><!-- /track -->
 
-          <button class="casa-carousel__prev" onclick="slideCasa(-1)" aria-label="Hospital anterior">
+          <button class="casa-carousel__prev" type="button" aria-label="Hospital anterior">
             <i class="pi pi-angle-left"></i>
           </button>
-          <button class="casa-carousel__next" onclick="slideCasa(1)" aria-label="Próximo hospital">
+          <button class="casa-carousel__next" type="button" aria-label="Próximo hospital">
             <i class="pi pi-angle-right"></i>
           </button>
         </div><!-- /carousel -->
@@ -936,33 +954,45 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
       </div>
 
     </div>
+    </div><!-- /tab hospitais -->
 
-    <!-- Marquee dos hospitais da Rede Casa -->
-    <div class="marquee" style="margin-top:48px">
-      <div class="marquee__track">
-        <span class="marquee__item">Hospital Casa Câncer</span><span class="marquee__dot">●</span>
-        <span class="marquee__item">Casa Laranjeiras</span><span class="marquee__dot">●</span>
-        <span class="marquee__item">Casa Menssana</span><span class="marquee__dot">●</span>
-        <span class="marquee__item">Casa de Portugal</span><span class="marquee__dot">●</span>
-        <span class="marquee__item">Casa São Bernardo</span><span class="marquee__dot">●</span>
-        <span class="marquee__item">Casa Ilha do Governador</span><span class="marquee__dot">●</span>
-        <span class="marquee__item">Casa Premium</span><span class="marquee__dot">●</span>
-        <span class="marquee__item">Casa Santa Cruz</span><span class="marquee__dot">●</span>
-        <span class="marquee__item">Casa Evangélico</span><span class="marquee__dot">●</span>
-        <span class="marquee__item">Oftalmocasa</span><span class="marquee__dot">●</span>
-        <!-- duplicado p/ loop contínuo -->
-        <span class="marquee__item">Hospital Casa Câncer</span><span class="marquee__dot">●</span>
-        <span class="marquee__item">Casa Laranjeiras</span><span class="marquee__dot">●</span>
-        <span class="marquee__item">Casa Menssana</span><span class="marquee__dot">●</span>
-        <span class="marquee__item">Casa de Portugal</span><span class="marquee__dot">●</span>
-        <span class="marquee__item">Casa São Bernardo</span><span class="marquee__dot">●</span>
-        <span class="marquee__item">Casa Ilha do Governador</span><span class="marquee__dot">●</span>
-        <span class="marquee__item">Casa Premium</span><span class="marquee__dot">●</span>
-        <span class="marquee__item">Casa Santa Cruz</span><span class="marquee__dot">●</span>
-        <span class="marquee__item">Casa Evangélico</span><span class="marquee__dot">●</span>
-        <span class="marquee__item">Oftalmocasa</span><span class="marquee__dot">●</span>
+    <!-- TAB Centros Médicos (mesma estrutura — fotos entram depois) -->
+    <div class="casa-tab" data-tab="cmk" hidden>
+    <div class="casa-grid">
+
+      <div>
+        <div class="casa-tag"><i class="pi pi-map-marker"></i> Rede própria Klini</div>
+        <h2 class="h2">Centros Médicos<br><strong style="color:var(--teal)">perto de você</strong></h2>
+        <p style="color:var(--muted);font-size:1.05rem;margin-top:18px;line-height:1.8;max-width:430px">
+          Consultas, exames e acompanhamento nas unidades próprias da Klini (CMK) espalhadas pelo Rio de Janeiro — atendimento ambulatorial completo, com agendamento pelo app.
+        </p>
+        <div class="casa__stats">
+          <div><div class="casa__stat-n" data-count="10">10</div><div class="casa__stat-l">centros médicos<br>próprios (CMK)</div></div>
+          <div><div class="casa__stat-n" data-count="3">3</div><div class="casa__stat-l">centros de<br>fisioterapia</div></div>
+          <div><div class="casa__stat-n" data-count="24" data-suffix="h">24h</div><div class="casa__stat-l">agendamento<br>pelo app</div></div>
+        </div>
+        <a href="unidades.html" class="btn btn-outline casa__map-btn"><i class="pi pi-map"></i> Ver endereços no mapa</a>
       </div>
+
+      <div>
+        <div class="casa-carousel">
+          <div class="casa-carousel__track">
+            <div class="casa-carousel__slide casa-slide--cmk"><div class="casa-slide-fallback casa-fb--cmk"><i class="pi pi-building"></i></div><div class="casa-slide-info"><span class="casa-slide-tag"><i class="pi pi-map-marker"></i> Centro Médico Klini</span><div class="casa-slide-name">CMK Barra da Tijuca</div><div class="casa-slide-addr"><i class="pi pi-map-marker"></i> Av. das Américas, 3200 · Barra da Tijuca</div></div></div>
+            <div class="casa-carousel__slide casa-slide--cmk"><div class="casa-slide-fallback casa-fb--cmk"><i class="pi pi-building"></i></div><div class="casa-slide-info"><span class="casa-slide-tag"><i class="pi pi-map-marker"></i> Centro Médico Klini</span><div class="casa-slide-name">CMK Tijuca</div><div class="casa-slide-addr"><i class="pi pi-map-marker"></i> Tijuca · Rio de Janeiro</div></div></div>
+            <div class="casa-carousel__slide casa-slide--cmk"><div class="casa-slide-fallback casa-fb--cmk"><i class="pi pi-building"></i></div><div class="casa-slide-info"><span class="casa-slide-tag"><i class="pi pi-map-marker"></i> Centro Médico Klini</span><div class="casa-slide-name">CMK Campo Grande</div><div class="casa-slide-addr"><i class="pi pi-map-marker"></i> Campo Grande · Rio de Janeiro</div></div></div>
+            <div class="casa-carousel__slide casa-slide--cmk"><div class="casa-slide-fallback casa-fb--cmk"><i class="pi pi-building"></i></div><div class="casa-slide-info"><span class="casa-slide-tag"><i class="pi pi-map-marker"></i> Centro Médico Klini</span><div class="casa-slide-name">CMK Madureira</div><div class="casa-slide-addr"><i class="pi pi-map-marker"></i> Madureira · Rio de Janeiro</div></div></div>
+            <div class="casa-carousel__slide casa-slide--cmk"><div class="casa-slide-fallback casa-fb--cmk"><i class="pi pi-building"></i></div><div class="casa-slide-info"><span class="casa-slide-tag"><i class="pi pi-map-marker"></i> Centro Médico Klini</span><div class="casa-slide-name">CMK Nova Iguaçu</div><div class="casa-slide-addr"><i class="pi pi-map-marker"></i> Nova Iguaçu · RJ</div></div></div>
+            <div class="casa-carousel__slide casa-slide--cmk"><div class="casa-slide-fallback casa-fb--cmk"><i class="pi pi-building"></i></div><div class="casa-slide-info"><span class="casa-slide-tag"><i class="pi pi-map-marker"></i> Centro Médico Klini</span><div class="casa-slide-name">CMK Centro</div><div class="casa-slide-addr"><i class="pi pi-map-marker"></i> Centro · Rio de Janeiro</div></div></div>
+            <div class="casa-carousel__slide casa-slide--cmk"><div class="casa-slide-fallback casa-fb--cmk"><i class="pi pi-building"></i></div><div class="casa-slide-info"><span class="casa-slide-tag"><i class="pi pi-map-marker"></i> Centro Médico Klini</span><div class="casa-slide-name">CMK Angra dos Reis</div><div class="casa-slide-addr"><i class="pi pi-map-marker"></i> Angra dos Reis · RJ</div></div></div>
+          </div>
+          <button class="casa-carousel__prev" type="button" aria-label="Centro anterior"><i class="pi pi-angle-left"></i></button>
+          <button class="casa-carousel__next" type="button" aria-label="Próximo centro"><i class="pi pi-angle-right"></i></button>
+        </div>
+        <div class="casa-carousel__dots"></div>
+      </div>
+
     </div>
+    </div><!-- /tab cmk -->
   </div>
 </section>
 
@@ -1344,37 +1374,47 @@ if (barHamb && barNav) {
 })();
 
 
-/* ── Hospital Carousel ────────────────────────────────── */
-(function(){
-  var track = document.getElementById('casaTrack');
-  var dotsWrap = document.getElementById('casaDots');
-  if (!track || !dotsWrap) return;
+/* ── Carrosséis Rede Casa (Hospitais + Centros Médicos) ── */
+document.querySelectorAll('.casa-carousel').forEach(function (carousel) {
+  var track = carousel.querySelector('.casa-carousel__track');
+  if (!track) return;
   var slides = track.querySelectorAll('.casa-carousel__slide');
+  var dotsWrap = carousel.parentElement.querySelector('.casa-carousel__dots');
+  var prevBtn = carousel.querySelector('.casa-carousel__prev');
+  var nextBtn = carousel.querySelector('.casa-carousel__next');
   var idx = 0, timer;
-  slides.forEach(function(_,i){
-    var d = document.createElement('button');
-    d.className = 'casa-dot' + (i===0?' active':'');
-    d.setAttribute('aria-label','Hospital ' + (i+1));
-    d.addEventListener('click', function(){ go(i); });
-    dotsWrap.appendChild(d);
-  });
-  function go(n){
-    idx = ((n % slides.length) + slides.length) % slides.length;
-    track.style.transform = 'translateX(-' + (idx * 100) + '%)';
-    dotsWrap.querySelectorAll('.casa-dot').forEach(function(d,i){
-      d.classList.toggle('active', i===idx);
+  if (dotsWrap) {
+    slides.forEach(function (_, i) {
+      var d = document.createElement('button');
+      d.className = 'casa-dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('aria-label', 'Item ' + (i + 1));
+      d.addEventListener('click', function () { go(i); rest(); });
+      dotsWrap.appendChild(d);
     });
   }
-  window.slideCasa = function(dir){ clearTimeout(timer); go(idx + dir); autoPlay(); };
-  function autoPlay(){ timer = setTimeout(function(){ go(idx+1); autoPlay(); }, 5200); }
-  autoPlay();
+  function go(n) {
+    idx = ((n % slides.length) + slides.length) % slides.length;
+    track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+    if (dotsWrap) dotsWrap.querySelectorAll('.casa-dot').forEach(function (d, i) { d.classList.toggle('active', i === idx); });
+  }
+  function rest() { clearTimeout(timer); auto(); }
+  function auto() { timer = setTimeout(function () { go(idx + 1); auto(); }, 5200); }
+  if (prevBtn) prevBtn.addEventListener('click', function () { go(idx - 1); rest(); });
+  if (nextBtn) nextBtn.addEventListener('click', function () { go(idx + 1); rest(); });
   var sx = 0;
-  track.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX; },{passive:true});
-  track.addEventListener('touchend', function(e){
-    var dx = e.changedTouches[0].clientX - sx;
-    if (Math.abs(dx) > 40) window.slideCasa(dx > 0 ? -1 : 1);
-  },{passive:true});
-})();
+  track.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', function (e) { var dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 40) { go(idx + (dx > 0 ? -1 : 1)); rest(); } }, { passive: true });
+  auto();
+});
+
+/* ── Toggle Hospitais / Centros Médicos ── */
+document.querySelectorAll('.casa-toggle__btn').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var tab = btn.dataset.tab;
+    document.querySelectorAll('.casa-toggle__btn').forEach(function (b) { b.classList.toggle('active', b === btn); });
+    document.querySelectorAll('.casa-tab').forEach(function (p) { p.hidden = (p.dataset.tab !== tab); });
+  });
+});
 
 /* ── Teleconsulta: zoom leve ligado ao scroll + balões em sequência ── */
 (function () {
