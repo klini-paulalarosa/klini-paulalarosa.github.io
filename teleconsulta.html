@@ -11,78 +11,159 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons@7.0.0/primeicons.css" />
   <link rel="stylesheet" href="assets/klini.css" />
   <style>
-    /* específico da teleconsulta */
-    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-    .feat{background:#fff;border:1.5px solid var(--bd-l);border-radius:var(--r);padding:32px;transition:all .3s}
-    .feat:hover{border-color:var(--teal);transform:translateY(-4px);box-shadow:0 20px 40px rgba(37,149,145,.1)}
-    .feat__ico{width:54px;height:54px;border-radius:15px;background:rgba(37,149,145,.1);border:1px solid rgba(37,149,145,.2);display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:var(--teal);margin-bottom:18px}
-    .feat h3{margin-bottom:10px}
-    .feat p{font-size:.88rem;color:var(--muted);line-height:1.75}
-    .mini{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:22px;max-width:760px;margin-left:auto;margin-right:auto}
-    .mini div{background:var(--off);border:1px solid var(--bd-l);border-radius:12px;padding:15px 18px;display:flex;gap:10px;align-items:center}
-    .mini i{color:var(--teal)}
-    .mini span{font-size:.87rem;color:var(--text);font-family:'Objective',sans-serif}
-    .como{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-    .steps{display:flex;flex-direction:column;gap:24px;margin-top:30px}
-    .step{display:flex;gap:18px;align-items:flex-start}
-    .step__num{width:48px;height:48px;border-radius:13px;background:var(--grad-cool);display:flex;align-items:center;justify-content:center;font-family:'Objective',sans-serif;font-weight:800;font-size:1.05rem;color:#fff;flex-shrink:0;box-shadow:0 8px 20px rgba(37,149,145,.28)}
-    .step strong{display:block;font-size:.96rem;font-weight:700;color:var(--text);margin-bottom:4px;font-family:'Objective',sans-serif}
-    .step span{font-size:.86rem;color:var(--muted)}
-    .como__phone{position:relative;display:flex;justify-content:center;align-items:center}
-    .como__phone::before{content:'';position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(rgba(37,149,145,.16),transparent 70%);pointer-events:none}
-    .como__phone img{width:270px;position:relative;z-index:1;filter:drop-shadow(0 24px 56px rgba(37,149,145,.22))}
-    .app__btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
-    .app__btns img{height:46px}
-    .espec__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px}
-    .espec__tag{background:#fff;border:1.5px solid var(--bd-l);border-radius:12px;padding:16px 16px;display:flex;align-items:center;gap:11px;font-size:.88rem;font-weight:700;color:var(--text);font-family:'Objective',sans-serif;transition:all .25s}
+    /* ── HERO chips ─────────────────────────────────────────────── */
+    .tc-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+    .tc-chip{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);color:#fff;font-family:'Objective',sans-serif;font-weight:600;font-size:.84rem;padding:9px 16px;border-radius:40px;backdrop-filter:blur(4px)}
+    .tc-chip i{font-size:.9rem;color:#FFE0B5}
+
+    /* ── COMO FUNCIONA: mockup interativo ──────────────────────────── */
+    #como{overflow:hidden}
+    .tcomo{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+    .tcomo__side{position:relative;display:flex;justify-content:center;align-items:center;min-height:520px}
+    .tcomo__glow{position:absolute;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(37,149,145,.18),transparent 68%);pointer-events:none}
+    .tphone{position:relative;z-index:1}
+    .tphone__img{width:316px;max-width:80vw;display:block;filter:drop-shadow(0 28px 60px rgba(37,149,145,.26))}
+    .tphone__live{position:absolute;top:18px;left:50%;transform:translateX(-50%);z-index:3;display:inline-flex;align-items:center;gap:7px;background:rgba(10,10,10,.74);color:#fff;font-family:'Objective',sans-serif;font-weight:700;font-size:.62rem;letter-spacing:.08em;padding:6px 12px;border-radius:30px;backdrop-filter:blur(4px)}
+    .tphone__live-dot{width:7px;height:7px;border-radius:50%;background:#E05759;box-shadow:0 0 0 0 rgba(224,87,89,.6);animation:tpulse 1.8s infinite}
+    @keyframes tpulse{0%{box-shadow:0 0 0 0 rgba(224,87,89,.55)}70%{box-shadow:0 0 0 9px rgba(224,87,89,0)}100%{box-shadow:0 0 0 0 rgba(224,87,89,0)}}
+    /* balões que surgem em sequência simulando uso do app */
+    .tnotif{position:absolute;display:flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--bd-l);border-radius:13px;padding:9px 14px 9px 9px;box-shadow:0 14px 34px rgba(4,42,38,.16);z-index:4;min-width:158px;opacity:0;transform:translateY(16px) scale(.95);transition:opacity .55s cubic-bezier(.22,1,.36,1),transform .55s cubic-bezier(.22,1,.36,1)}
+    .tnotif.show{opacity:1;transform:none}
+    .tnotif strong{display:block;font-size:.78rem;font-weight:700;color:var(--text);line-height:1.2;font-family:'Objective',sans-serif}
+    .tnotif span{font-size:.68rem;color:var(--muted)}
+    .tnotif-ico{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0}
+    .tnotif--1{top:8%;left:-10px}
+    .tnotif--2{top:43%;right:-18px}
+    .tnotif--3{top:82%;left:0}
+
+    .tsteps{display:flex;flex-direction:column;gap:8px;margin-top:30px;position:relative}
+    .tstep{display:flex;gap:18px;align-items:flex-start;padding:14px 0}
+    .tstep:not(:last-child){border-bottom:1px solid var(--bd-l)}
+    .tstep__num{width:46px;height:46px;border-radius:13px;background:var(--grad-cool);display:flex;align-items:center;justify-content:center;font-family:'Objective',sans-serif;font-weight:800;font-size:1.02rem;color:#fff;flex-shrink:0;box-shadow:0 8px 20px rgba(37,149,145,.26)}
+    .tstep strong{display:block;font-size:.98rem;font-weight:700;color:var(--text);margin-bottom:3px;font-family:'Objective',sans-serif}
+    .tstep span{font-size:.86rem;color:var(--muted);line-height:1.6}
+    .tapp-btns{display:flex;gap:13px;flex-wrap:wrap;margin-top:26px}
+    .tapp-btns img{height:46px}
+
+    /* ── MODALIDADES ──────────────────────────────────────────────── */
+    .tmodes{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:46px}
+    .tmode{position:relative;background:#fff;border:1.5px solid var(--bd-l);border-radius:var(--r);padding:34px;overflow:hidden;transition:all .3s}
+    .tmode::before{content:'';position:absolute;inset:0 0 auto 0;height:4px;background:var(--grad-cool)}
+    .tmode--warm::before{background:var(--grad-warm)}
+    .tmode:hover{transform:translateY(-4px);box-shadow:0 24px 50px rgba(4,42,38,.1);border-color:transparent}
+    .tmode__ico{width:56px;height:56px;border-radius:16px;background:rgba(37,149,145,.1);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:18px}
+    .tmode--warm .tmode__ico{background:rgba(205,121,37,.1);color:var(--orange)}
+    .tmode h3{margin-bottom:8px}
+    .tmode>p{font-size:.92rem;color:var(--muted);line-height:1.75;margin-bottom:18px}
+    .tmode ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+    .tmode li{display:flex;gap:10px;align-items:flex-start;font-size:.88rem;color:var(--text);font-family:'Objective',sans-serif;font-weight:500}
+    .tmode li i{color:var(--teal);font-size:.95rem;margin-top:2px;flex-shrink:0}
+    .tmode--warm li i{color:var(--orange)}
+
+    /* ── DOCUMENTOS (abas interativas) ─────────────────────────────── */
+    .tdocs{display:grid;grid-template-columns:.95fr 1.05fr;gap:56px;align-items:center;margin-top:44px}
+    .tdoc-tabs{display:flex;flex-direction:column;gap:10px}
+    .tdoc-tab{display:flex;gap:14px;align-items:center;width:100%;text-align:left;background:#fff;border:1.5px solid var(--bd-l);border-radius:14px;padding:16px 18px;cursor:pointer;transition:all .25s;font-family:'Objective',sans-serif}
+    .tdoc-tab:hover{border-color:var(--sea)}
+    .tdoc-tab.active{border-color:var(--teal);background:rgba(37,149,145,.04);box-shadow:0 10px 26px rgba(37,149,145,.1)}
+    .tdoc-tab i{width:42px;height:42px;border-radius:11px;background:var(--off);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;transition:all .25s}
+    .tdoc-tab.active i{background:var(--grad-cool);color:#fff}
+    .tdoc-tab strong{display:block;font-size:.95rem;font-weight:700;color:var(--text)}
+    .tdoc-tab small{font-size:.78rem;color:var(--muted);font-weight:500}
+    /* preview "documento" */
+    .tdoc-preview{position:relative;min-height:300px;display:flex;justify-content:center;align-items:center}
+    .tdoc-card{position:relative;width:100%;max-width:380px;background:#fff;border:1px solid var(--bd-l);border-radius:18px;box-shadow:0 26px 60px rgba(4,42,38,.12);padding:28px 28px 24px;opacity:0;transform:translateY(12px);transition:opacity .35s,transform .35s;display:none}
+    .tdoc-card.show{opacity:1;transform:none;display:block}
+    .tdoc-card__top{display:flex;align-items:center;gap:12px;padding-bottom:16px;border-bottom:1px dashed var(--bd-l)}
+    .tdoc-card__seal{width:46px;height:46px;border-radius:12px;background:var(--grad-cool);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+    .tdoc-card__t strong{display:block;font-family:'Objective',sans-serif;font-size:1.02rem;color:var(--text)}
+    .tdoc-card__t span{font-size:.76rem;color:var(--muted)}
+    .tdoc-card__body{padding-top:16px}
+    .tdoc-card__body p{font-size:.88rem;color:var(--muted);line-height:1.75;margin-bottom:16px}
+    .tdoc-card__chk{display:flex;align-items:center;gap:9px;font-family:'Objective',sans-serif;font-weight:600;font-size:.82rem;color:var(--teal)}
+    .tdoc-card__chk i{font-size:.95rem}
+    .tdoc-line{height:9px;border-radius:5px;background:var(--off);margin-bottom:9px}
+    .tdoc-line:nth-child(1){width:88%}.tdoc-line:nth-child(2){width:70%}.tdoc-line:nth-child(3){width:80%}
+
+    /* ── ESPECIALIDADES ───────────────────────────────────────────── */
+    .espec__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:38px}
+    .espec__tag{background:#fff;border:1.5px solid var(--bd-l);border-radius:13px;padding:16px;display:flex;align-items:center;gap:11px;font-size:.88rem;font-weight:700;color:var(--text);font-family:'Objective',sans-serif;transition:all .25s}
     .espec__tag:hover{border-color:var(--teal);background:rgba(37,149,145,.04);transform:translateY(-2px)}
     .espec__tag i{color:var(--teal);font-size:1.05rem;flex-shrink:0}
-    @media(max-width:900px){.features{grid-template-columns:1fr 1fr}.como{grid-template-columns:1fr;gap:40px}.espec__grid{grid-template-columns:1fr 1fr}}
-    @media(max-width:600px){.features,.mini{grid-template-columns:1fr}.espec__grid{grid-template-columns:1fr 1fr}}
+
+    @media(max-width:980px){
+      .tcomo{grid-template-columns:1fr;gap:30px}
+      .tcomo__side{min-height:480px;order:-1}
+      .tdocs{grid-template-columns:1fr;gap:32px}
+      .tdoc-preview{order:-1;min-height:0}
+    }
+    @media(max-width:760px){.tmodes{grid-template-columns:1fr}}
+    @media(max-width:600px){.espec__grid{grid-template-columns:1fr 1fr}.tnotif{min-width:142px}.tnotif--2{right:-6px}}
   </style>
 </head>
 <body>
 
-<!-- TOP BAR (padrão Klini) -->
+<!-- ══ TOP BAR (padrão Klini) ═══════════════════════════════════════ -->
 <header class="bar" id="bar">
   <div class="bar__inner">
     <a href="index.html" class="bar__logo"><img src="assets/logo-klini.webp" alt="Klini Saúde" /></a>
     <nav class="bar__nav" id="barNav">
       <div class="nav__item nav__item--drop">
-        <span class="nav__link">Sobre a Klini <i class="pi pi-chevron-down nav__chev"></i></span>
+        <span class="nav__link">A Klini <i class="pi pi-chevron-down nav__chev"></i></span>
         <div class="nav__drop">
-          <a href="sobre.html">Nossa História</a>
-          <a href="transparencia.html">Transparência</a>
-          <a href="ouvidoria.html">Ouvidoria</a>
+          <a href="sobre.html">Sobre nós</a>
+          <a href="unidades.html">Nossas unidades</a>
+          <a href="trabalhe-conosco.html">Trabalhe conosco</a>
         </div>
       </div>
       <div class="nav__item nav__item--drop">
-        <span class="nav__link">Rede Credenciada <i class="pi pi-chevron-down nav__chev"></i></span>
+        <span class="nav__link">Serviços <i class="pi pi-chevron-down nav__chev"></i></span>
         <div class="nav__drop">
-          <a href="rede-credenciada.html">Prestadores Credenciados</a>
-          <a href="unidades.html">Centros Médicos Klini</a>
+          <a href="token-digital.html">Token digital</a>
+          <a href="desconto-farmacia.html">Desconto farmácia</a>
+          <a href="teleconsulta.html">Teleconsulta</a>
+          <a href="rede-credenciada.html">Busca de rede</a>
+          <a href="rede-credenciada.html#atualizacoes">Atualização de rede</a>
         </div>
       </div>
-      <a href="unidades.html" class="nav__link nav__item">Nossas Unidades</a>
       <a href="planos.html" class="nav__link nav__item">Planos</a>
-      <a href="teleconsulta.html" class="nav__link nav__item">Teleconsulta</a>
+      <div class="nav__item nav__item--drop">
+        <span class="nav__link">Transparência <i class="pi pi-chevron-down nav__chev"></i></span>
+        <div class="nav__drop">
+          <a href="transparencia.html">Portal da transparência</a>
+          <a href="politica-de-privacidade.html">Política de privacidade</a>
+          <a href="codigo-de-conduta.html">Código de conduta</a>
+          <a href="termos-de-uso.html">Termos de uso</a>
+          <a href="idss.html">IDSS</a>
+        </div>
+      </div>
+      <div class="nav__item nav__item--drop">
+        <span class="nav__link">Atendimento <i class="pi pi-chevron-down nav__chev"></i></span>
+        <div class="nav__drop">
+          <a href="ouvidoria.html">Ouvidoria</a>
+          <a href="negocie-sua-divida.html">Negocie sua dívida</a>
+          <a href="quero-me-credenciar.html">Quero me credenciar</a>
+        </div>
+      </div>
     </nav>
     <div class="bar__ctas">
-      <a href="https://site-dev.klinisaude.com.br/planos/#cotacao" class="btn-klini" target="_blank" rel="noopener">Quero ser Klini</a>
+      <a href="planos.html#cotacao" class="btn-klini">Quero ser Klini</a>
       <a href="https://app.klinisaude.com.br" class="btn-area" target="_blank" rel="noopener"><i class="pi pi-user"></i> Acesse sua área</a>
     </div>
     <button class="bar__hamburger" id="barHamb" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<!-- HERO -->
+<!-- ══ HERO ═════════════════════════════════════════════════════════ -->
 <section class="page-hero">
   <div class="wrap">
     <span class="eyebrow">teleconsulta klini</span>
     <h1 class="h1">Atendimento médico<br><strong>onde você estiver</strong></h1>
-    <p>Consulte médicos especializados sem sair de casa. Pronto atendimento 24h ou consulta agendada — tudo integrado ao seu plano Klini.</p>
-    <div style="margin-top:30px">
-      <a href="https://app.klinisaude.com.br" class="btn btn-teal" target="_blank" rel="noopener"><i class="pi pi-video"></i> Iniciar teleconsulta</a>
+    <p>Consulte médicos especializados sem sair de casa. Pronto atendimento 24h ou consulta agendada — tudo integrado ao seu plano Klini, direto pelo app.</p>
+    <div class="tc-chips">
+      <span class="tc-chip"><i class="pi pi-clock"></i> 24h por dia</span>
+      <span class="tc-chip"><i class="pi pi-calendar"></i> 7 dias por semana</span>
+      <span class="tc-chip"><i class="pi pi-verified"></i> Documentos com validade legal</span>
     </div>
   </div>
   <div class="page-hero__divider">
@@ -92,70 +173,122 @@
   </div>
 </section>
 
-<!-- FEATURES -->
-<section class="sec">
+<!-- ══ COMO FUNCIONA (mockup interativo) ════════════════════════════ -->
+<section class="sec" id="como">
   <div class="wrap">
-    <div style="margin-bottom:46px;text-align:center">
-      <span class="eyebrow">o que você tem acesso</span>
-      <h2 class="h2">Muito mais que <strong style="color:var(--coral)">uma consulta</strong></h2>
-    </div>
-    <div class="features">
-      <div class="feat">
-        <div class="feat__ico"><i class="pi pi-clock"></i></div>
-        <h3 class="h3">Pronto Atendimento 24h</h3>
-        <p>Médicos disponíveis a qualquer hora do dia ou da noite, todos os dias — incluindo feriados. Sem fila, sem espera.</p>
+    <div class="tcomo">
+      <div class="tcomo__side">
+        <div class="tcomo__glow"></div>
+        <div class="tphone">
+          <span class="tphone__live"><span class="tphone__live-dot"></span> CONSULTA AO VIVO</span>
+          <img src="assets/app-mockup.webp" alt="App Klini Saúde — teleconsulta em andamento" class="tphone__img" loading="eager" />
+          <div class="tnotif tnotif--1">
+            <span class="tnotif-ico" style="background:rgba(37,149,145,.12);color:var(--teal)"><i class="pi pi-check"></i></span>
+            <div><strong>Consulta confirmada</strong><span>Clínico geral · agora</span></div>
+          </div>
+          <div class="tnotif tnotif--2">
+            <span class="tnotif-ico" style="background:rgba(106,167,174,.16);color:var(--sea)"><i class="pi pi-file"></i></span>
+            <div><strong>Receita enviada</strong><span>PDF com validade legal</span></div>
+          </div>
+          <div class="tnotif tnotif--3">
+            <span class="tnotif-ico" style="background:rgba(205,121,37,.14);color:var(--orange)"><i class="pi pi-verified"></i></span>
+            <div><strong>Atestado pronto</strong><span>Disponível no app</span></div>
+          </div>
+        </div>
       </div>
-      <div class="feat">
-        <div class="feat__ico"><i class="pi pi-calendar"></i></div>
-        <h3 class="h3">Consulta Agendada</h3>
-        <p>Escolha o médico, a especialidade e o horário que melhor se encaixa na sua rotina. Com ou sem urgência.</p>
-      </div>
-      <div class="feat">
-        <div class="feat__ico"><i class="pi pi-file"></i></div>
-        <h3 class="h3">Documentos Digitais</h3>
-        <p>Receitas, atestados e pedidos de exame com assinatura digital e plena validade legal — entregues por e-mail.</p>
-      </div>
-    </div>
-    <div class="mini">
-      <div><i class="pi pi-search"></i><span>Pedidos de exames laboratoriais e de imagem</span></div>
-      <div><i class="pi pi-send"></i><span>Encaminhamento para especialistas</span></div>
-      <div><i class="pi pi-check-circle"></i><span>Atestados médicos com validade legal</span></div>
-      <div><i class="pi pi-tablet"></i><span>Receitas com assinatura digital</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- COMO FUNCIONA -->
-<section class="sec sec--off">
-  <div class="wrap">
-    <div class="como">
       <div>
         <span class="eyebrow">simples do início ao fim</span>
         <h2 class="h2">Como <strong>funciona</strong></h2>
         <p style="color:var(--muted);font-size:.98rem;line-height:1.8;margin-top:12px">Em 3 passos você já está em consulta com um médico da Klini — sem papelada, sem deslocamento.</p>
-        <div class="steps">
-          <div class="step"><div class="step__num">1</div><div><strong>Baixe o app ou acesse pelo navegador</strong><span>Grátis para iOS, Android ou em app.klinisaude.com.br</span></div></div>
-          <div class="step"><div class="step__num">2</div><div><strong>Escolha a especialidade e o tipo de consulta</strong><span>Pronto atendimento imediato ou agende com o especialista de sua preferência</span></div></div>
-          <div class="step"><div class="step__num">3</div><div><strong>Inicie a consulta e receba seus documentos</strong><span>Videoconsulta segura — receitas e atestados enviados digitalmente ao final</span></div></div>
+        <div class="tsteps">
+          <div class="tstep"><div class="tstep__num">1</div><div><strong>Baixe o app ou acesse pelo navegador</strong><span>Grátis para iOS, Android ou em app.klinisaude.com.br</span></div></div>
+          <div class="tstep"><div class="tstep__num">2</div><div><strong>Escolha a especialidade e o tipo de consulta</strong><span>Pronto atendimento imediato ou agende com o especialista de sua preferência</span></div></div>
+          <div class="tstep"><div class="tstep__num">3</div><div><strong>Inicie a consulta e receba seus documentos</strong><span>Videoconsulta segura — receitas e atestados enviados digitalmente ao final</span></div></div>
         </div>
-        <div class="app__btns">
+        <div class="tapp-btns">
           <a href="https://apps.apple.com/br/app/klini-saude/id6447484649" target="_blank" rel="noopener"><img src="assets/btn-appstore.png" alt="Baixar na App Store" /></a>
           <a href="https://play.google.com/store/apps/details?id=br.com.klinisaude.klini_app" target="_blank" rel="noopener"><img src="assets/btn-googleplay.png" alt="Disponível no Google Play" /></a>
         </div>
-      </div>
-      <div class="como__phone">
-        <img src="assets/app-mockup.webp" alt="App Klini Saúde — teleconsulta" loading="lazy" />
       </div>
     </div>
   </div>
 </section>
 
-<!-- ESPECIALIDADES -->
+<!-- ══ MODALIDADES ══════════════════════════════════════════════════ -->
+<section class="sec sec--off">
+  <div class="wrap">
+    <div style="text-align:center">
+      <span class="eyebrow">como você é atendido</span>
+      <h2 class="h2">Imediato ou agendado, <strong style="color:var(--orange)">você escolhe</strong></h2>
+    </div>
+    <div class="tmodes">
+      <div class="tmode">
+        <div class="tmode__ico"><i class="pi pi-clock"></i></div>
+        <h3 class="h3">Pronto atendimento 24h</h3>
+        <p>Sentiu algo agora? Fale com um clínico geral em minutos, a qualquer hora — inclusive de madrugada e em feriados.</p>
+        <ul>
+          <li><i class="pi pi-check"></i> Disponível 24h, todos os dias</li>
+          <li><i class="pi pi-check"></i> Sem fila e sem agendamento</li>
+          <li><i class="pi pi-check"></i> Ideal para urgências do dia a dia</li>
+        </ul>
+      </div>
+      <div class="tmode tmode--warm">
+        <div class="tmode__ico"><i class="pi pi-calendar"></i></div>
+        <h3 class="h3">Consulta agendada</h3>
+        <p>Prefere planejar? Escolha o especialista, o dia e o horário que cabem na sua rotina, com ou sem urgência.</p>
+        <ul>
+          <li><i class="pi pi-check"></i> Diversas especialidades</li>
+          <li><i class="pi pi-check"></i> Você escolhe médico e horário</li>
+          <li><i class="pi pi-check"></i> Acompanhamento contínuo</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DOCUMENTOS (abas interativas) ════════════════════════════════ -->
 <section class="sec">
   <div class="wrap">
     <div style="text-align:center">
+      <span class="eyebrow">ao final da consulta</span>
+      <h2 class="h2">Você sai com <strong>tudo em mãos</strong></h2>
+      <p style="color:var(--muted);font-size:.98rem;margin-top:12px;max-width:620px;margin-left:auto;margin-right:auto">Toque em cada item para ver o que o médico pode emitir digitalmente — tudo com assinatura e validade legal.</p>
+    </div>
+    <div class="tdocs">
+      <div class="tdoc-tabs" id="tdocTabs">
+        <button class="tdoc-tab active" data-doc="receita"><i class="pi pi-tablet"></i><span><strong>Receita digital</strong><small>Medicamentos com assinatura válida</small></span></button>
+        <button class="tdoc-tab" data-doc="atestado"><i class="pi pi-check-circle"></i><span><strong>Atestado médico</strong><small>Reconhecido pelo empregador</small></span></button>
+        <button class="tdoc-tab" data-doc="exame"><i class="pi pi-search"></i><span><strong>Pedido de exame</strong><small>Laboratoriais e de imagem</small></span></button>
+        <button class="tdoc-tab" data-doc="encam"><i class="pi pi-send"></i><span><strong>Encaminhamento</strong><small>Para especialistas da rede</small></span></button>
+      </div>
+      <div class="tdoc-preview" id="tdocPreview">
+        <div class="tdoc-card show" data-doc="receita">
+          <div class="tdoc-card__top"><div class="tdoc-card__seal"><i class="pi pi-tablet"></i></div><div class="tdoc-card__t"><strong>Receita digital</strong><span>Klini Saúde · assinatura ICP-Brasil</span></div></div>
+          <div class="tdoc-card__body"><p>Sua prescrição chega por e-mail e no app em PDF, pronta para apresentar na farmácia. Sem papel, sem risco de perder.</p><div class="tdoc-line"></div><div class="tdoc-line"></div><div class="tdoc-line"></div><div class="tdoc-card__chk"><i class="pi pi-verified"></i> Validade legal em todo o Brasil</div></div>
+        </div>
+        <div class="tdoc-card" data-doc="atestado">
+          <div class="tdoc-card__top"><div class="tdoc-card__seal"><i class="pi pi-check-circle"></i></div><div class="tdoc-card__t"><strong>Atestado médico</strong><span>Klini Saúde · assinatura digital</span></div></div>
+          <div class="tdoc-card__body"><p>Precisou se afastar? O atestado é emitido na hora, com validade reconhecida para apresentar ao seu empregador.</p><div class="tdoc-line"></div><div class="tdoc-line"></div><div class="tdoc-line"></div><div class="tdoc-card__chk"><i class="pi pi-verified"></i> Aceito por empresas e instituições</div></div>
+        </div>
+        <div class="tdoc-card" data-doc="exame">
+          <div class="tdoc-card__top"><div class="tdoc-card__seal"><i class="pi pi-search"></i></div><div class="tdoc-card__t"><strong>Pedido de exame</strong><span>Klini Saúde · laboratório e imagem</span></div></div>
+          <div class="tdoc-card__body"><p>O médico solicita exames laboratoriais e de imagem que você realiza na rede credenciada Klini, sem burocracia.</p><div class="tdoc-line"></div><div class="tdoc-line"></div><div class="tdoc-line"></div><div class="tdoc-card__chk"><i class="pi pi-verified"></i> Direto na rede credenciada</div></div>
+        </div>
+        <div class="tdoc-card" data-doc="encam">
+          <div class="tdoc-card__top"><div class="tdoc-card__seal"><i class="pi pi-send"></i></div><div class="tdoc-card__t"><strong>Encaminhamento</strong><span>Klini Saúde · especialistas</span></div></div>
+          <div class="tdoc-card__body"><p>Quando preciso, você é encaminhado a um especialista da rede para dar continuidade ao cuidado com segurança.</p><div class="tdoc-line"></div><div class="tdoc-line"></div><div class="tdoc-line"></div><div class="tdoc-card__chk"><i class="pi pi-verified"></i> Continuidade do seu tratamento</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ESPECIALIDADES ═══════════════════════════════════════════════ -->
+<section class="sec sec--off">
+  <div class="wrap">
+    <div style="text-align:center">
       <span class="eyebrow">especialidades disponíveis</span>
-      <h2 class="h2">Com quem você <strong>pode consultar</strong></h2>
+      <h2 class="h2">Com quem você <strong style="color:var(--coral)">pode consultar</strong></h2>
     </div>
     <div class="espec__grid">
       <div class="espec__tag"><i class="pi pi-heart"></i> Clínica Geral</div>
@@ -171,7 +304,7 @@
   </div>
 </section>
 
-<!-- FOOTER (padrão Klini) -->
+<!-- ══ FOOTER (padrão Klini) ════════════════════════════════════════ -->
 <footer>
   <div class="foot-arc" aria-hidden="true">
     <svg viewBox="0 0 1440 54" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
@@ -190,11 +323,11 @@
         <p>Saúde com rede própria, telemedicina 24h e cuidado humano no Rio de Janeiro.</p>
       </div>
       <nav class="foot__links">
-        <a href="sobre.html">Sobre a Klini</a>
+        <a href="sobre.html">Sobre nós</a>
         <a href="planos.html">Planos</a>
         <a href="teleconsulta.html">Teleconsulta</a>
         <a href="unidades.html">Unidades</a>
-        <a href="rede-credenciada.html">Rede Credenciada</a>
+        <a href="rede-credenciada.html">Rede credenciada</a>
         <a href="transparencia.html">Transparência</a>
         <a href="ouvidoria.html">Ouvidoria</a>
         <a href="politica-de-privacidade.html">Privacidade</a>
@@ -226,6 +359,7 @@
 </div>
 
 <script>
+  /* header solid no scroll + menu mobile */
   var bar = document.getElementById('bar');
   window.addEventListener('scroll', function(){ bar.classList.toggle('solid', window.scrollY > 50); }, { passive:true });
   var barHamb = document.getElementById('barHamb'), barNav = document.getElementById('barNav');
@@ -233,6 +367,25 @@
     barHamb.addEventListener('click', function(){ barNav.classList.toggle('open'); });
     barNav.querySelectorAll('.nav__item--drop .nav__link').forEach(function(btn){ btn.addEventListener('click', function(){ btn.closest('.nav__item--drop').classList.toggle('open'); }); });
   }
+
+  /* balões de notificação — surgem em sequência (com fallback sempre-visível) */
+  (function(){
+    var notifs = Array.prototype.slice.call(document.querySelectorAll('.tnotif'));
+    notifs.forEach(function(n,i){ setTimeout(function(){ n.classList.add('show'); }, 500 + i*520); });
+  })();
+
+  /* abas de documentos interativas */
+  (function(){
+    var tabs = document.querySelectorAll('#tdocTabs .tdoc-tab');
+    var cards = document.querySelectorAll('#tdocPreview .tdoc-card');
+    tabs.forEach(function(tab){
+      tab.addEventListener('click', function(){
+        var doc = tab.getAttribute('data-doc');
+        tabs.forEach(function(t){ t.classList.toggle('active', t===tab); });
+        cards.forEach(function(c){ c.classList.toggle('show', c.getAttribute('data-doc')===doc); });
+      });
+    });
+  })();
 </script>
 </body>
 </html>
