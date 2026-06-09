@@ -15,30 +15,34 @@
     .tk-chip{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);color:#fff;font-family:'Objective',sans-serif;font-weight:600;font-size:.84rem;padding:9px 16px;border-radius:40px}
     .tk-chip i{color:#FFE0B5}
 
-    /* ── COMO FUNCIONA (stepper + telas reais) ─────────────────────── */
-    .tk-how{display:grid;grid-template-columns:1fr 380px;gap:60px;align-items:center}
-    .tk-steps{display:flex;flex-direction:column;gap:12px}
-    .tk-step{display:flex;gap:16px;align-items:flex-start;width:100%;text-align:left;background:#fff;border:1.5px solid var(--bd-l);border-radius:16px;padding:18px 20px;cursor:pointer;transition:all .25s;font-family:'Objective',sans-serif}
-    .tk-step:hover{border-color:var(--sea)}
-    .tk-step.active{border-color:var(--teal);background:rgba(37,149,145,.04);box-shadow:0 12px 28px rgba(37,149,145,.1)}
-    .tk-step__n{width:40px;height:40px;border-radius:11px;background:var(--off);color:var(--muted);display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;transition:all .25s}
-    .tk-step.active .tk-step__n{background:var(--grad-cool);color:#fff}
-    .tk-step strong{display:block;font-size:.96rem;color:var(--text);margin-bottom:3px}
-    .tk-step span{font-size:.84rem;color:var(--muted);line-height:1.55}
-    /* viewer das telas reais */
-    .tk-viewer{position:relative;min-height:600px;display:flex;align-items:center;justify-content:center}
-    .tk-viewer::before{content:'';position:absolute;width:330px;height:330px;border-radius:50%;background:radial-gradient(circle,rgba(37,149,145,.16),transparent 68%);pointer-events:none}
-    .tk-view{position:absolute;inset:0;display:none;align-items:center;justify-content:center;flex-direction:column;gap:18px}
-    .tk-view.show{display:flex;animation:tkfade .45s}
-    @keyframes tkfade{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:none}}
-    .tk-view img{height:560px;max-height:70vh;width:auto;filter:drop-shadow(0 26px 56px rgba(4,42,38,.24));position:relative;z-index:1}
-    /* card de download (passo 1, sem tela real) */
-    .tk-dl{position:relative;z-index:1;background:#fff;border:1.5px solid var(--bd-l);border-radius:24px;padding:40px 34px;text-align:center;max-width:300px;box-shadow:0 24px 56px rgba(4,42,38,.12)}
-    .tk-dl__ico{width:76px;height:76px;border-radius:22px;background:var(--grad-cool);display:flex;align-items:center;justify-content:center;font-size:2.1rem;color:#fff;margin:0 auto 18px}
-    .tk-dl h4{font-family:'Objective',sans-serif;font-size:1.1rem;color:var(--text);margin-bottom:8px}
-    .tk-dl p{font-size:.86rem;color:var(--muted);line-height:1.6;margin-bottom:18px}
-    .tk-dl__badges{display:flex;flex-direction:column;gap:10px;align-items:center}
-    .tk-dl__badges img{height:44px}
+    /* ── SIMULAÇÃO DO APP (autoplay, sem botões) ───────────────────── */
+    .tk-sim{display:grid;grid-template-columns:1fr 360px;gap:64px;align-items:center}
+    /* timeline passiva (sincronizada com a simulação) */
+    .tk-tl{display:flex;flex-direction:column}
+    .tk-tl__item{display:flex;gap:18px;align-items:flex-start;padding:15px 0;position:relative;opacity:.45;transition:opacity .45s}
+    .tk-tl__item.active,.tk-tl__item.done{opacity:1}
+    .tk-tl__dot{width:40px;height:40px;border-radius:50%;border:2px solid var(--bd-l);background:#fff;color:var(--muted);display:flex;align-items:center;justify-content:center;font-family:'Objective',sans-serif;font-weight:800;font-size:.9rem;flex-shrink:0;z-index:1;transition:all .45s}
+    .tk-tl__item.active .tk-tl__dot{border-color:transparent;background:var(--grad-cool);color:#fff;box-shadow:0 10px 24px rgba(37,149,145,.3)}
+    .tk-tl__item.done .tk-tl__dot{border-color:var(--teal);color:var(--teal)}
+    .tk-tl__item:not(:last-child)::before{content:'';position:absolute;left:19px;top:48px;bottom:-7px;width:2px;background:var(--bd-l);transition:background .45s}
+    .tk-tl__item.done:not(:last-child)::before{background:var(--teal)}
+    .tk-tl__c strong{display:block;font-family:'Objective',sans-serif;font-size:.98rem;color:var(--text);margin-bottom:3px}
+    .tk-tl__c span{font-size:.85rem;color:var(--muted);line-height:1.55}
+    /* palco do celular */
+    .tk-stage{position:relative;display:flex;flex-direction:column;align-items:center;gap:20px}
+    .tk-stage::before{content:'';position:absolute;top:36%;left:50%;transform:translate(-50%,-50%);width:330px;height:330px;border-radius:50%;background:radial-gradient(circle,rgba(37,149,145,.18),transparent 68%);pointer-events:none}
+    .tk-screens{position:relative;width:280px;height:600px}
+    .tk-screens img{position:absolute;left:50%;top:0;transform:translateX(-50%);height:600px;width:auto;opacity:0;transition:opacity .6s ease;filter:drop-shadow(0 26px 56px rgba(4,42,38,.26));z-index:1}
+    .tk-screens img.show{opacity:1}
+    .tk-tap{position:absolute;left:50%;top:78%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;border:3px solid rgba(127,227,221,.9);opacity:0;pointer-events:none;z-index:3}
+    .tk-tap.go{animation:tk-tap .75s ease-out}
+    @keyframes tk-tap{0%{opacity:.9;transform:translate(-50%,-50%) scale(.4)}100%{opacity:0;transform:translate(-50%,-50%) scale(1.6)}}
+    .tk-status{display:inline-flex;align-items:center;gap:9px;background:#0C1422;color:#fff;font-family:'Objective',sans-serif;font-weight:600;font-size:.85rem;padding:11px 20px;border-radius:40px;box-shadow:0 14px 30px rgba(4,42,38,.2);position:relative;z-index:2}
+    .tk-status i{color:#7FE3DD}
+    .tk-dots{display:flex;gap:8px}
+    .tk-dot{width:8px;height:8px;border-radius:50%;background:var(--bd-l);transition:all .35s}
+    .tk-dot.on{background:var(--teal);width:26px;border-radius:5px}
+    .tk-sim__hint{font-size:.76rem;color:var(--muted)}
 
     /* ── WHATSAPP ALT ──────────────────────────────────────────────── */
     .tk-wa{display:grid;grid-template-columns:1fr 300px;gap:48px;align-items:center;background:#fff;border:1.5px solid var(--bd-l);border-radius:var(--r);padding:40px 44px;box-shadow:0 20px 50px rgba(4,42,38,.06)}
@@ -57,7 +61,7 @@
     .tk-app-btns{display:flex;gap:13px;flex-wrap:wrap;margin-top:30px;justify-content:center}
     .tk-app-btns img{height:46px}
 
-    @media(max-width:900px){.tk-how{grid-template-columns:1fr;gap:36px}.tk-viewer{min-height:540px;order:-1}.tk-wa{grid-template-columns:1fr;gap:28px;text-align:center}.tk-wa__phone{order:-1}.tk-safe{grid-template-columns:1fr}}
+    @media(max-width:900px){.tk-sim{grid-template-columns:1fr;gap:40px}.tk-stage{order:-1}.tk-wa{grid-template-columns:1fr;gap:28px;text-align:center}.tk-wa__phone{order:-1}.tk-safe{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -129,32 +133,27 @@
 <section class="sec">
   <div class="wrap">
     <div style="text-align:center;margin-bottom:46px">
-      <span class="eyebrow">passo a passo</span>
-      <h2 class="h2">Gere o seu em <strong style="color:var(--orange)">4 passos</strong></h2>
-      <p style="color:var(--muted);font-size:.98rem;margin-top:12px">Toque em cada passo e veja a tela real do app Klini.</p>
+      <span class="eyebrow">veja em uso</span>
+      <h2 class="h2">Do login ao atendimento, <strong style="color:var(--orange)">em segundos</strong></h2>
+      <p style="color:var(--muted);font-size:.98rem;margin-top:12px">Acompanhe a simulação — é exatamente assim no app Klini.</p>
     </div>
-    <div class="tk-how">
-      <div class="tk-steps" id="tkSteps">
-        <button class="tk-step active" data-step="1"><div class="tk-step__n">1</div><div><strong>Baixe ou abra o app Klini</strong><span>Disponível para iOS e Android — comece em segundos.</span></div></button>
-        <button class="tk-step" data-step="2"><div class="tk-step__n">2</div><div><strong>Faça login com CPF e senha</strong><span>Ambiente 100% seguro e criptografado a cada sessão.</span></div></button>
-        <button class="tk-step" data-step="3"><div class="tk-step__n">3</div><div><strong>Toque em "Token" e gere o código</strong><span>O token é gerado na hora e expira automaticamente.</span></div></button>
-        <button class="tk-step" data-step="4"><div class="tk-step__n">4</div><div><strong>Apresente o token no atendimento</strong><span>Só você autoriza o seu próprio atendimento.</span></div></button>
+    <div class="tk-sim">
+      <div class="tk-tl" id="tkTl">
+        <div class="tk-tl__item done" data-st="1"><div class="tk-tl__dot">1</div><div class="tk-tl__c"><strong>Abra o app Klini</strong><span>Disponível para iOS e Android — comece em segundos.</span></div></div>
+        <div class="tk-tl__item" data-st="2"><div class="tk-tl__dot">2</div><div class="tk-tl__c"><strong>Faça login com CPF e senha</strong><span>Ambiente 100% seguro e criptografado a cada sessão.</span></div></div>
+        <div class="tk-tl__item" data-st="3"><div class="tk-tl__dot">3</div><div class="tk-tl__c"><strong>Gere o seu token</strong><span>Código exclusivo que expira e se renova automaticamente.</span></div></div>
+        <div class="tk-tl__item" data-st="4"><div class="tk-tl__dot">4</div><div class="tk-tl__c"><strong>Apresente no atendimento</strong><span>Só você autoriza o seu próprio atendimento.</span></div></div>
       </div>
-      <div class="tk-viewer" id="tkViewer">
-        <div class="tk-view show" data-view="1">
-          <div class="tk-dl">
-            <div class="tk-dl__ico"><i class="pi pi-download"></i></div>
-            <h4>Baixe o app Klini</h4>
-            <p>Grátis para iOS e Android. Em segundos você já tem o token na palma da mão.</p>
-            <div class="tk-dl__badges">
-              <a href="https://apps.apple.com/br/app/klini-saude/id6447484649" target="_blank" rel="noopener"><img src="assets/btn-appstore.png" alt="Baixar na App Store" /></a>
-              <a href="https://play.google.com/store/apps/details?id=br.com.klinisaude.klini_app" target="_blank" rel="noopener"><img src="assets/btn-googleplay.png" alt="Disponível no Google Play" /></a>
-            </div>
-          </div>
+      <div class="tk-stage">
+        <div class="tk-screens" id="tkScreens">
+          <img data-key="login" src="assets/token/login.webp" alt="Tela de login no app Klini" />
+          <img data-key="tokens" src="assets/token/tokens.webp" alt="Tela de token no app Klini" />
+          <img data-key="validado" src="assets/token/validado.webp" alt="Token validado no app Klini" />
+          <span class="tk-tap" id="tkTap" aria-hidden="true"></span>
         </div>
-        <div class="tk-view" data-view="2"><img src="assets/token/login.webp" alt="Tela de login no app Klini" loading="lazy" /></div>
-        <div class="tk-view" data-view="3"><img src="assets/token/tokens.webp" alt="Tela de token no app Klini" loading="lazy" /></div>
-        <div class="tk-view" data-view="4"><img src="assets/token/validado.webp" alt="Token validado no app Klini" loading="lazy" /></div>
+        <div class="tk-status" id="tkStatus"><i class="pi pi-lock"></i> <span>Entrando com segurança…</span></div>
+        <div class="tk-dots" id="tkDots"><span class="tk-dot on"></span><span class="tk-dot"></span><span class="tk-dot"></span></div>
+        <div class="tk-sim__hint">Demonstração automática · passe o mouse para pausar</div>
       </div>
     </div>
   </div>
@@ -263,17 +262,38 @@
     barNav.querySelectorAll('.nav__item--drop .nav__link').forEach(function(btn){ btn.addEventListener('click', function(){ btn.closest('.nav__item--drop').classList.toggle('open'); }); });
   }
 
-  /* stepper: troca a tela real do app ao clicar */
+  /* simulação automática do app — sem botões, como se a pessoa estivesse usando */
   (function(){
-    var steps=document.querySelectorAll('#tkSteps .tk-step');
-    var views=document.querySelectorAll('#tkViewer .tk-view');
-    function show(n){
-      steps.forEach(function(s){ s.classList.toggle('active', s.getAttribute('data-step')===n); });
-      views.forEach(function(v){ v.classList.toggle('show', v.getAttribute('data-view')===n); });
+    var wrap=document.getElementById('tkScreens'); if(!wrap) return;
+    var imgs=wrap.querySelectorAll('img[data-key]');
+    var statusEl=document.getElementById('tkStatus');
+    var dots=document.querySelectorAll('#tkDots .tk-dot');
+    var tlItems=document.querySelectorAll('#tkTl .tk-tl__item');
+    var tap=document.getElementById('tkTap');
+    var stages=[
+      {key:'login',    step:2, icon:'pi-lock',         status:'Entrando com segurança…', dur:2600},
+      {key:'tokens',   step:3, icon:'pi-shield',       status:'Token gerado',            dur:4000, countdown:true},
+      {key:'validado', step:4, icon:'pi-check-circle', status:'Atendimento autorizado',  dur:2600}
+    ];
+    var idx=0, mainT=null, cdT=null, paused=false;
+    function setStatus(icon,text){ statusEl.innerHTML='<i class="pi '+icon+'"></i> <span>'+text+'</span>'; }
+    function render(){
+      var s=stages[idx];
+      imgs.forEach(function(im){ im.classList.toggle('show', im.getAttribute('data-key')===s.key); });
+      dots.forEach(function(d,i){ d.classList.toggle('on', i===idx); });
+      tlItems.forEach(function(it){ var st=+it.getAttribute('data-st'); it.classList.remove('active','done'); if(st===s.step) it.classList.add('active'); else if(st<s.step) it.classList.add('done'); });
+      if(tap){ tap.classList.remove('go'); void tap.offsetWidth; tap.classList.add('go'); }
+      clearInterval(cdT);
+      if(s.countdown){
+        var sec=60; setStatus(s.icon,'Token gerado · expira em '+sec+'s');
+        cdT=setInterval(function(){ sec=sec<=1?60:sec-1; setStatus(s.icon,'Token gerado · expira em '+sec+'s'); },1000);
+      } else { setStatus(s.icon, s.status); }
     }
-    steps.forEach(function(s){ s.addEventListener('click', function(){ show(s.getAttribute('data-step')); }); });
-    var auto=1, timer=setInterval(function(){ auto = auto>=4?1:auto+1; show(String(auto)); }, 3400);
-    document.getElementById('tkSteps').addEventListener('click', function(){ clearInterval(timer); });
+    function schedule(){ clearTimeout(mainT); if(!paused) mainT=setTimeout(function(){ idx=(idx+1)%stages.length; render(); schedule(); }, stages[idx].dur); }
+    render(); schedule();
+    var stage=document.querySelector('.tk-stage');
+    stage.addEventListener('mouseenter', function(){ paused=true; clearTimeout(mainT); });
+    stage.addEventListener('mouseleave', function(){ paused=false; schedule(); });
   })();
 </script>
 </body>
