@@ -207,7 +207,7 @@ p{font-family:'Merriweather',Georgia,serif;line-height:1.75}
 @keyframes farm-shine{0%{left:-120%}100%{left:150%}}
 .farm__svg{max-width:72%;max-height:52px;width:auto;height:auto;display:block;margin:0 auto;object-fit:contain;transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
 /* marcas compactas (Drogasmil/Farmalife, ~1.5:1) usam mais altura p/ igualar o peso visual */
-.farm-logo--dml .farm__svg,.farm-logo--fml .farm__svg{max-width:80%;max-height:60px}
+.farm-logo--dml .farm__svg,.farm-logo--fml .farm__svg{max-width:90%;max-height:62px}
 .farm__logo-card:hover .farm__svg{transform:scale(1.14)}
 .farm__steps{display:flex;flex-direction:column;gap:20px;margin-top:32px}
 .farm__step{display:flex;gap:14px;align-items:flex-start}
@@ -513,7 +513,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
     </nav>
 
     <div class="bar__ctas">
-      <a href="https://site-dev.klinisaude.com.br/planos/#cotacao" class="btn-klini" target="_blank" rel="noopener">Quero ser Klini</a>
+      <a href="planos.html#cotacao" class="btn-klini" target="_blank" rel="noopener">Quero ser Klini</a>
       <a href="https://app.klinisaude.com.br" class="btn-area" target="_blank" rel="noopener"><i class="pi pi-user"></i> Acesse sua área</a>
     </div>
 
@@ -560,7 +560,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
           Saúde completa<br>com <span class="hero__accent">rede própria</span>
         </h1>
         <div class="hero__actions gs">
-          <a href="https://site-dev.klinisaude.com.br/planos/#cotacao" class="hero__btn-primary" target="_blank" rel="noopener">
+          <a href="planos.html#cotacao" class="hero__btn-primary" target="_blank" rel="noopener">
             Simular planos gratuitamente <i class="pi pi-arrow-right"></i>
           </a>
           <a href="https://app.klinisaude.com.br" class="hero__btn-ghost" target="_blank" rel="noopener">
@@ -664,11 +664,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
 
       <div class="pc gs">
         <div class="pc__img-wrap">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 82" class="pc__img" aria-label="Klini 350">
-            <text font-family="Objective,Arial,sans-serif" font-weight="800" font-size="40" fill="#ffffff" x="8" y="44">klini</text>
-            <rect x="8" y="51" width="92" height="3.5" rx="1.75" fill="rgba(255,255,255,0.55)"/>
-            <text font-family="Objective,Arial,sans-serif" font-weight="800" font-size="30" fill="#ffffff" x="100" y="76">350</text>
-          </svg>
+          <img src="assets/planos/plano-350.webp" alt="Klini 350" class="pc__img" />
         </div>
         <div class="pc__name">Klini 350</div>
         <p class="pc__tag">O plano que acompanha o crescimento da sua família</p>
@@ -729,25 +725,34 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
 
       <div class="pc gs">
         <div class="pc__img-wrap">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230 82" class="pc__img" aria-label="Klini Sênior 50+">
-            <text font-family="Objective,Arial,sans-serif" font-weight="800" font-size="40" fill="#ffffff" x="8" y="44">klini</text>
-            <rect x="8" y="51" width="92" height="3.5" rx="1.75" fill="rgba(255,255,255,0.55)"/>
-            <text font-family="Objective,Arial,sans-serif" font-weight="700" font-size="18" letter-spacing="2.5" fill="#ffffff" x="9" y="74">SÊNIOR</text>
-            <text font-family="Objective,Arial,sans-serif" font-weight="800" font-size="23" fill="#ffffff" x="104" y="76">50+</text>
-          </svg>
+          <img src="assets/planos/plano-hospitalar-w.webp" alt="Klini Hospitalar" class="pc__img" />
         </div>
-        <div class="pc__name">Klini Sênior</div>
-        <p class="pc__tag">Central exclusiva e cuidado especializado para o perfil 60+</p>
+        <div class="pc__name">Klini Hospitalar</div>
+        <p class="pc__tag">Foco em internações, urgência e cirurgias na Rede Casa Hospitalar</p>
         <ul class="pc__list">
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Central de atendimento 60+</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Ambulatorial + Hospitalar</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Teleconsulta inclusa</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Linhas de Cuidados (LCA)</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Internação na Rede Casa</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Urgência e emergência 24h</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Cirurgias e UTI</li>
+          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Teleconsulta 24h inclusa</li>
         </ul>
-        <a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Sênior." class="btn pc__btn pc__btn-out" target="_blank" rel="noopener">Solicitar Cotação</a>
+        <a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Hospitalar." class="btn pc__btn pc__btn-out" target="_blank" rel="noopener">Solicitar Cotação</a>
       </div>
 
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONHEÇA A KLINI (vídeo) ══════════════════════════════════════ -->
+<section class="sec sec--off" id="conheca">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:40px">
+      <p class="eyebrow gs">conheça a klini</p>
+      <h2 class="h2 gs">Veja a Klini <strong style="color:var(--teal)">por dentro</strong></h2>
+      <p class="gs" style="color:var(--muted);margin-top:12px;font-size:1.05rem">Rede própria, telemedicina 24h e cuidado humano — em pouco mais de um minuto.</p>
+    </div>
+    <div class="gs" style="position:relative;max-width:920px;margin:0 auto;aspect-ratio:16/9;border-radius:22px;overflow:hidden;box-shadow:0 24px 60px rgba(4,42,38,.16);border:1px solid var(--bd-l);background:#000">
+      <iframe style="position:absolute;inset:0;width:100%;height:100%;border:0" src="https://www.youtube.com/embed/gqo3ChsNoqI" title="Conheça a Klini Saúde" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
     </div>
   </div>
 </section>
@@ -836,7 +841,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
 
             <!-- Slide 2 — HC Evangélico -->
             <div class="casa-carousel__slide">
-              <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Unidades-Hospitais-Evangelico.png"
+              <img src="assets/hospitais/evangelico.webp"
                    alt="HC Evangélico" loading="lazy"
                    onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=900&q=70'}else{this.style.display='none'}" />
               <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#111111,#1a1a1a)">
@@ -851,7 +856,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
 
             <!-- Slide 3 — HC de Portugal -->
             <div class="casa-carousel__slide">
-              <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Unidades-Hospitais-de-Portugal.png"
+              <img src="assets/hospitais/casa-de-portugal.webp"
                    alt="HC de Portugal" loading="lazy"
                    onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=70'}else{this.style.display='none'}" />
               <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#111111,#1a1a1a)">
@@ -866,7 +871,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
 
             <!-- Slide 4 — HC Santa Cruz -->
             <div class="casa-carousel__slide">
-              <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Unidades-Hospitais-Santa-Cruz.png"
+              <img src="assets/hospitais/santa-cruz.webp"
                    alt="HC Santa Cruz" loading="lazy"
                    onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&w=900&q=70'}else{this.style.display='none'}" />
               <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#111111,#1a1a1a)">
@@ -881,7 +886,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
 
             <!-- Slide 5 — HC Ilha do Governador -->
             <div class="casa-carousel__slide">
-              <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Unidades-Hospitais-Ilha-do-Governador.png"
+              <img src="assets/hospitais/ilha-do-governador.webp"
                    alt="HC Ilha do Governador" loading="lazy"
                    onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=900&q=70'}else{this.style.display='none'}" />
               <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#111111,#1a1a1a)">
@@ -896,7 +901,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
 
             <!-- Slide 6 — HC Menssana -->
             <div class="casa-carousel__slide">
-              <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Unidades-Hospitais-Menssana.png"
+              <img src="assets/hospitais/menssana.webp"
                    alt="HC Menssana" loading="lazy"
                    onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=900&q=70'}else{this.style.display='none'}" />
               <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#111111,#1a1a1a)">
@@ -911,7 +916,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
 
             <!-- Slide 7 — HC Rio Laranjeiras -->
             <div class="casa-carousel__slide">
-              <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Unidades-Hospitais-Rio-Laranjeiras.png"
+              <img src="assets/hospitais/laranjeiras.webp"
                    alt="HC Rio Laranjeiras" loading="lazy"
                    onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=900&q=70'}else{this.style.display='none'}" />
               <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#111111,#1a1a1a)">
@@ -926,7 +931,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
 
             <!-- Slide 8 — HC São Bernardo -->
             <div class="casa-carousel__slide">
-              <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Unidades-Hospitais-Sao-Bernardo.png"
+              <img src="assets/hospitais/sao-bernardo.webp"
                    alt="HC São Bernardo" loading="lazy"
                    onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=900&q=70'}else{this.style.display='none'}" />
               <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#111111,#1a1a1a)">
@@ -941,7 +946,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
 
             <!-- Slide 9 — Oftalmocasa -->
             <div class="casa-carousel__slide">
-              <img src="https://site-dev.klinisaude.com.br/wp-content/uploads/2026/04/Unidades-Hospitais-Oftalmocasa.png"
+              <img src="assets/hospitais/oftalmocasa.webp"
                    alt="Oftalmocasa" loading="lazy"
                    onerror="if(!this.dataset.t){this.dataset.t=1;this.src='https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=70'}else{this.style.display='none'}" />
               <div class="casa-slide-fallback" style="background:linear-gradient(145deg,#111111,#1a1a1a)">

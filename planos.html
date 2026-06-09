@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Descubra o plano de saúde Klini exato para o seu momento — do Ambulatorial ao 600 e o Sênior. Telemedicina 24h, medicina preventiva e rede própria no RJ." />
+  <meta name="description" content="Descubra o plano de saúde Klini exato para o seu momento — do Ambulatorial ao 600 e o Hospitalar. Telemedicina 24h, medicina preventiva e rede própria no RJ." />
   <title>Planos de Saúde | Klini Saúde</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,18 +11,18 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons@7.0.0/primeicons.css" />
   <link rel="stylesheet" href="assets/klini.css" />
   <style>
-    /* ── FLYERS (pôsteres dos planos) ── */
-    .flyers{display:flex;flex-wrap:wrap;gap:26px;justify-content:center;perspective:1400px}
-    .flyer{width:238px;display:flex;flex-direction:column}
-    .flyer__poster{position:relative;aspect-ratio:187/300;border-radius:18px;overflow:hidden;box-shadow:0 18px 44px rgba(4,42,38,.16);transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s;background:var(--grad-cool);transform-style:preserve-3d;will-change:transform}
-    .flyer__poster img{width:100%;height:100%;object-fit:cover;display:block}
-    .flyer:hover .flyer__poster{box-shadow:0 34px 64px rgba(37,149,145,.28)}
-    .flyer__poster--senior{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;padding:24px}
-    .flyer__hot{position:absolute;top:12px;left:12px;background:var(--orange);color:#fff;font-size:.62rem;font-weight:800;padding:5px 12px;border-radius:50px;letter-spacing:.05em;text-transform:uppercase;z-index:2;box-shadow:0 6px 16px rgba(205,121,37,.4)}
-    .flyer__body{padding:18px 4px 0;text-align:center}
-    .flyer__body h3{font-size:1.06rem;color:var(--text);margin-bottom:4px}
-    .flyer__body p{font-size:.82rem;color:var(--muted);line-height:1.6;margin-bottom:12px;min-height:42px}
-    .flyer__cta{font-size:.84rem;font-weight:700;color:var(--teal);display:inline-flex;align-items:center;gap:6px;font-family:'Objective',sans-serif;transition:gap .2s}
+    /* ── CARDS DE PLANO (logo uniforme) ── */
+    .flyers{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .flyer{display:flex;flex-direction:column;background:#fff;border:1.5px solid var(--bd-l);border-radius:20px;overflow:hidden;transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s,border-color .25s}
+    .flyer:hover{transform:translateY(-5px);box-shadow:0 26px 54px rgba(4,42,38,.12);border-color:transparent}
+    .flyer__poster{position:relative;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:34px;background:var(--grad-cool)}
+    .flyer__poster img{max-width:88%;max-height:66px;width:auto;height:auto;object-fit:contain;display:block}
+    .flyer--hot .flyer__poster{background:var(--grad-warm)}
+    .flyer__hot{position:absolute;top:12px;left:12px;background:#fff;color:var(--orange);font-size:.62rem;font-weight:800;padding:5px 12px;border-radius:50px;letter-spacing:.05em;text-transform:uppercase;z-index:2;box-shadow:0 6px 16px rgba(4,42,38,.18);font-family:'Objective',sans-serif}
+    .flyer__body{padding:22px 22px 24px;text-align:center;display:flex;flex-direction:column;flex:1}
+    .flyer__body h3{font-size:1.06rem;color:var(--text);margin-bottom:5px}
+    .flyer__body p{font-size:.84rem;color:var(--muted);line-height:1.6;margin-bottom:16px;flex:1}
+    .flyer__cta{font-size:.84rem;font-weight:700;color:var(--teal);display:inline-flex;align-items:center;justify-content:center;gap:6px;font-family:'Objective',sans-serif;transition:gap .2s}
     .flyer:hover .flyer__cta{gap:10px}
     /* ── SELETOR DE PERFIL ── */
     .perfil{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:26px}
@@ -59,8 +59,8 @@
     .field:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(37,149,145,.12)}
     .cta-form__card .btn{margin-top:4px;justify-content:center;width:100%}
     .cta-form__note{font-size:.72rem;color:var(--muted);text-align:center;font-family:'Objective',sans-serif}
-    @media(max-width:880px){.cta-form{grid-template-columns:1fr;padding:32px}.perfil{grid-template-columns:1fr 1fr}.diffs{grid-template-columns:1fr 1fr}}
-    @media(max-width:560px){.perfil{grid-template-columns:1fr}.diffs{grid-template-columns:1fr}.flyer{width:70%;min-width:200px}}
+    @media(max-width:880px){.cta-form{grid-template-columns:1fr;padding:32px}.perfil{grid-template-columns:1fr 1fr}.diffs{grid-template-columns:1fr 1fr}.flyers{grid-template-columns:1fr 1fr}}
+    @media(max-width:560px){.perfil{grid-template-columns:1fr}.diffs{grid-template-columns:1fr}.flyers{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -70,24 +70,36 @@
   <div class="bar__inner">
     <a href="index.html" class="bar__logo"><img src="assets/logo-klini.webp" alt="Klini Saúde" /></a>
     <nav class="bar__nav" id="barNav">
+      <a href="sobre.html" class="nav__link nav__item">A Klini</a>
       <div class="nav__item nav__item--drop">
-        <span class="nav__link">Sobre a Klini <i class="pi pi-chevron-down nav__chev"></i></span>
+        <span class="nav__link">Serviços <i class="pi pi-chevron-down nav__chev"></i></span>
         <div class="nav__drop">
-          <a href="sobre.html">Nossa História</a>
-          <a href="transparencia.html">Transparência</a>
-          <a href="ouvidoria.html">Ouvidoria</a>
+          <a href="token-digital.html">Token digital</a>
+          <a href="desconto-farmacia.html">Desconto farmácia</a>
+          <a href="teleconsulta.html">Teleconsulta</a>
+          <a href="rede-credenciada.html">Busca de rede</a>
+          <a href="rede-credenciada.html#atualizacoes">Atualização de rede</a>
         </div>
       </div>
-      <div class="nav__item nav__item--drop">
-        <span class="nav__link">Rede Credenciada <i class="pi pi-chevron-down nav__chev"></i></span>
-        <div class="nav__drop">
-          <a href="rede-credenciada.html">Prestadores Credenciados</a>
-          <a href="unidades.html">Centros Médicos Klini</a>
-        </div>
-      </div>
-      <a href="unidades.html" class="nav__link nav__item">Nossas Unidades</a>
       <a href="planos.html" class="nav__link nav__item">Planos</a>
-      <a href="teleconsulta.html" class="nav__link nav__item">Teleconsulta</a>
+      <div class="nav__item nav__item--drop">
+        <span class="nav__link">Transparência <i class="pi pi-chevron-down nav__chev"></i></span>
+        <div class="nav__drop">
+          <a href="transparencia.html">Portal da transparência</a>
+          <a href="politica-de-privacidade.html">Política de privacidade</a>
+          <a href="codigo-de-conduta.html">Código de conduta</a>
+          <a href="termos-de-uso.html">Termos de uso</a>
+          <a href="idss.html">IDSS</a>
+        </div>
+      </div>
+      <div class="nav__item nav__item--drop">
+        <span class="nav__link">Atendimento <i class="pi pi-chevron-down nav__chev"></i></span>
+        <div class="nav__drop">
+          <a href="ouvidoria.html">Ouvidoria</a>
+          <a href="negocie-sua-divida.html">Negocie sua dívida</a>
+          <a href="quero-me-credenciar.html">Quero me credenciar</a>
+        </div>
+      </div>
     </nav>
     <div class="bar__ctas">
       <a href="#cotacao" class="btn-klini">Quero ser Klini</a>
@@ -121,41 +133,33 @@
     <div class="flyers" id="flyers">
 
       <div class="flyer">
-        <div class="flyer__poster"><img src="assets/flyer-200.png" alt="Flyer Klini 200" loading="lazy" /></div>
+        <div class="flyer__poster"><img src="assets/planos/plano-200-w.webp" alt="Logo Klini 200" loading="lazy" /></div>
         <div class="flyer__body"><h3>Klini 200</h3><p>A porta de entrada para proteção ampla com custo equilibrado.</p><a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20200." class="flyer__cta" target="_blank" rel="noopener">Solicitar cotação <i class="pi pi-arrow-right"></i></a></div>
       </div>
 
       <div class="flyer">
-        <div class="flyer__poster"><img src="assets/flyer-350.png" alt="Flyer Klini 350" loading="lazy" /></div>
+        <div class="flyer__poster"><img src="assets/planos/plano-350.webp" alt="Logo Klini 350" loading="lazy" /></div>
         <div class="flyer__body"><h3>Klini 350</h3><p>Acompanha o crescimento da sua família com rede mais ampla.</p><a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20350." class="flyer__cta" target="_blank" rel="noopener">Solicitar cotação <i class="pi pi-arrow-right"></i></a></div>
       </div>
 
-      <div class="flyer">
-        <div class="flyer__poster"><span class="flyer__hot">★ Mais escolhido</span><img src="assets/flyer-400.png" alt="Flyer Klini 400" loading="lazy" /></div>
+      <div class="flyer flyer--hot">
+        <div class="flyer__poster"><span class="flyer__hot">★ Mais escolhido</span><img src="assets/planos/plano-400-w.webp" alt="Logo Klini 400" loading="lazy" /></div>
         <div class="flyer__body"><h3>Klini 400</h3><p>Rede ampliada com Linhas de Cuidados — o mais escolhido.</p><a href="https://wa.me/552130550790?text=Olá!%20Quero%20simular%20o%20Klini%20400." class="flyer__cta" target="_blank" rel="noopener">Solicitar cotação <i class="pi pi-arrow-right"></i></a></div>
       </div>
 
       <div class="flyer">
-        <div class="flyer__poster"><img src="assets/flyer-600.png" alt="Flyer Klini 600" loading="lazy" /></div>
+        <div class="flyer__poster"><img src="assets/planos/plano-600-w.webp" alt="Logo Klini 600" loading="lazy" /></div>
         <div class="flyer__body"><h3>Klini 600</h3><p>O mais completo — máximo conforto, maior rede e cobertura total.</p><a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20600." class="flyer__cta" target="_blank" rel="noopener">Solicitar cotação <i class="pi pi-arrow-right"></i></a></div>
       </div>
 
       <div class="flyer">
-        <div class="flyer__poster"><img src="assets/flyer-ambulatorial.png" alt="Flyer Klini Ambulatorial" loading="lazy" /></div>
+        <div class="flyer__poster"><img src="assets/planos/plano-ambulatorial-w.webp" alt="Logo Klini Ambulatorial" loading="lazy" /></div>
         <div class="flyer__body"><h3>Ambulatorial</h3><p>O seu plano acessível, ideal para cobertura essencial e ágil.</p><a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Ambulatorial." class="flyer__cta" target="_blank" rel="noopener">Solicitar cotação <i class="pi pi-arrow-right"></i></a></div>
       </div>
 
       <div class="flyer">
-        <div class="flyer__poster flyer__poster--senior">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230 90" style="width:78%" aria-label="Klini Sênior 50+">
-            <text font-family="Objective,Arial,sans-serif" font-weight="800" font-size="42" fill="#fff" x="6" y="46">klini</text>
-            <rect x="6" y="53" width="96" height="3.6" rx="1.8" fill="rgba(255,255,255,0.55)"/>
-            <text font-family="Objective,Arial,sans-serif" font-weight="700" font-size="19" letter-spacing="2.5" fill="#fff" x="7" y="80">SÊNIOR</text>
-            <text font-family="Objective,Arial,sans-serif" font-weight="800" font-size="24" fill="#fff" x="108" y="82">50+</text>
-          </svg>
-          <span style="color:rgba(255,255,255,.85);font-family:'Merriweather',serif;font-style:italic;font-size:.82rem;text-align:center">Cuidado especializado para o perfil 60+</span>
-        </div>
-        <div class="flyer__body"><h3>Klini Sênior</h3><p>Central exclusiva e cuidado especializado para o perfil 60+.</p><a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Sênior." class="flyer__cta" target="_blank" rel="noopener">Solicitar cotação <i class="pi pi-arrow-right"></i></a></div>
+        <div class="flyer__poster"><img src="assets/planos/plano-hospitalar-w.webp" alt="Logo Klini Hospitalar" loading="lazy" /></div>
+        <div class="flyer__body"><h3>Klini Hospitalar</h3><p>Foco em internações, urgência e cirurgias na Rede Casa Hospitalar.</p><a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Hospitalar." class="flyer__cta" target="_blank" rel="noopener">Solicitar cotação <i class="pi pi-arrow-right"></i></a></div>
       </div>
 
     </div>
@@ -176,11 +180,11 @@
       <button class="perfil__btn" type="button" data-rec="Klini 350 &amp; Klini 400" data-msg="Rede ampliada, obstetrícia e Linhas de Cuidados para acompanhar a família inteira." data-wa="Olá! Tenho família e quero mais cobertura (Klini 350 ou 400).">
         <i class="pi pi-users"></i><strong>Tenho família</strong><small>Mais cobertura e rede ampla</small>
       </button>
-      <button class="perfil__btn" type="button" data-rec="Klini 600" data-msg="Hospitais de excelência, alto reembolso e a maior rede credenciada da Klini." data-wa="Olá! Priorizo uso hospitalar — quero conhecer o Klini 600.">
-        <i class="pi pi-building"></i><strong>Priorizo hospital</strong><small>Internações e rede premium</small>
+      <button class="perfil__btn" type="button" data-rec="Klini 600" data-msg="Hospitais de excelência, alto reembolso e a maior rede credenciada da Klini." data-wa="Olá! Quero o plano mais completo — o Klini 600.">
+        <i class="pi pi-star"></i><strong>Quero o mais completo</strong><small>Cobertura total e rede premium</small>
       </button>
-      <button class="perfil__btn" type="button" data-rec="Klini Sênior" data-msg="Central de atendimento exclusiva e cuidado especializado para quem tem 60+." data-wa="Olá! Tenho 60+ e quero conhecer o Klini Sênior.">
-        <i class="pi pi-heart"></i><strong>Tenho 60+</strong><small>Cuidado especializado sênior</small>
+      <button class="perfil__btn" type="button" data-rec="Klini Hospitalar" data-msg="Cobertura voltada a internações, urgências e cirurgias na Rede Casa Hospitalar." data-wa="Olá! Quero foco hospitalar — o Klini Hospitalar.">
+        <i class="pi pi-building"></i><strong>Foco hospitalar</strong><small>Internações, urgência e cirurgias</small>
       </button>
     </div>
     <div class="perfil__result" id="perfilResult">
@@ -235,7 +239,7 @@
           <select class="field" id="f-plano" name="plano">
             <option>Ainda não sei / quero ajuda</option>
             <option>Klini Ambulatorial</option><option>Klini 200</option><option>Klini 350</option>
-            <option>Klini 400</option><option>Klini 600</option><option>Klini Sênior</option>
+            <option>Klini 400</option><option>Klini 600</option><option>Klini Hospitalar</option>
           </select>
         </div>
         <button type="submit" class="btn btn-teal"><i class="pi pi-whatsapp"></i> Quero ser Klini</button>
@@ -264,11 +268,11 @@
         <p>Saúde com rede própria, telemedicina 24h e cuidado humano no Rio de Janeiro.</p>
       </div>
       <nav class="foot__links">
-        <a href="sobre.html">Sobre a Klini</a>
+        <a href="sobre.html">A Klini</a>
+        <a href="sobre.html#unidades">Nossas unidades</a>
         <a href="planos.html">Planos</a>
         <a href="teleconsulta.html">Teleconsulta</a>
-        <a href="unidades.html">Unidades</a>
-        <a href="rede-credenciada.html">Rede Credenciada</a>
+        <a href="rede-credenciada.html">Rede credenciada</a>
         <a href="transparencia.html">Transparência</a>
         <a href="ouvidoria.html">Ouvidoria</a>
         <a href="politica-de-privacidade.html">Privacidade</a>
@@ -308,17 +312,6 @@
     barHamb.addEventListener('click', function(){ barNav.classList.toggle('open'); });
     barNav.querySelectorAll('.nav__item--drop .nav__link').forEach(function(btn){ btn.addEventListener('click', function(){ btn.closest('.nav__item--drop').classList.toggle('open'); }); });
   }
-
-  /* tilt 3D nos flyers (segue o cursor) */
-  document.querySelectorAll('.flyer').forEach(function(card){
-    var poster = card.querySelector('.flyer__poster');
-    card.addEventListener('pointermove', function(e){
-      var r = card.getBoundingClientRect();
-      var px = (e.clientX - r.left)/r.width - .5, py = (e.clientY - r.top)/r.height - .5;
-      poster.style.transform = 'rotateY(' + (px*10) + 'deg) rotateX(' + (-py*12) + 'deg) translateY(-6px) scale(1.03)';
-    });
-    card.addEventListener('pointerleave', function(){ poster.style.transform = ''; });
-  });
 
   /* seletor "qual plano combina com você" */
   var perfilResult = document.getElementById('perfilResult');
