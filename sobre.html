@@ -98,11 +98,29 @@
     .unit-item.hidden{display:none}
     .map-wrap{position:relative}
     #map{height:100%;width:100%}
-    .map-controls{position:absolute;top:14px;right:14px;z-index:500}
+    .map-controls{position:absolute;top:14px;right:14px;z-index:500;display:flex;flex-direction:column;gap:8px}
     .map-reset{display:flex;align-items:center;gap:6px;padding:9px 14px;font-size:.74rem;font-weight:700;white-space:nowrap;background:#fff;border:1px solid var(--bd-l);border-radius:10px;color:var(--text);cursor:pointer;box-shadow:0 6px 18px rgba(4,42,38,.12);font-family:'Objective',sans-serif;transition:all .2s}
+    /* painel de detalhe deslizante */
+    .map-detail{position:absolute;left:16px;bottom:16px;z-index:600;width:300px;max-width:calc(100% - 32px);background:#fff;border:1px solid var(--bd-l);border-radius:16px;box-shadow:0 22px 54px rgba(4,42,38,.22);padding:20px 22px;transform:translateY(16px) scale(.98);opacity:0;pointer-events:none;transition:all .35s cubic-bezier(.22,1,.36,1)}
+    .map-detail.show{transform:none;opacity:1;pointer-events:auto}
+    .map-detail__close{position:absolute;top:12px;right:12px;width:28px;height:28px;border-radius:8px;border:none;background:var(--off);color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.8rem;transition:all .2s}
+    .map-detail__close:hover{background:var(--teal);color:#fff}
+    .map-detail__type{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Objective',sans-serif}
+    .map-detail.cmk .map-detail__type{color:var(--orange)}
+    .map-detail.hc .map-detail__type{color:var(--teal)}
+    .map-detail__name{font-family:'Objective',sans-serif;font-weight:800;font-size:1.08rem;color:var(--text);margin:4px 0 8px;line-height:1.25;padding-right:24px}
+    .map-detail__addr{font-size:.8rem;color:var(--muted);display:flex;gap:6px;align-items:flex-start;line-height:1.5;margin-bottom:12px}
+    .map-detail__addr i{color:var(--teal);margin-top:2px;flex-shrink:0}
+    .map-detail__spec{display:inline-flex;align-items:center;gap:5px;background:rgba(37,149,145,.1);border:1px solid rgba(37,149,145,.2);border-radius:20px;padding:4px 11px;font-size:.66rem;font-weight:700;color:var(--teal);font-family:'Objective',sans-serif;margin-bottom:14px}
+    .map-detail.cmk .map-detail__spec{background:rgba(205,121,37,.1);border-color:rgba(205,121,37,.22);color:var(--orange)}
+    .map-detail__btn{display:flex;align-items:center;justify-content:center;gap:7px;background:var(--grad-cool);color:#fff;font-family:'Objective',sans-serif;font-weight:700;font-size:.82rem;padding:11px;border-radius:10px;transition:filter .2s}
+    .map-detail__btn:hover{filter:brightness(1.08)}
     .map-reset:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
-    .kln-marker{cursor:pointer;transition:transform .2s}
-    .kln-marker:hover{transform:scale(1.18) translateY(-3px)}
+    .kln-marker{cursor:pointer;transition:transform .2s;animation:kln-drop .5s cubic-bezier(.34,1.56,.64,1) both}
+    @keyframes kln-drop{0%{opacity:0;transform:translateY(-20px) scale(.5)}100%{opacity:1;transform:none}}
+    .kln-marker:hover,.kln-marker.hot{transform:scale(1.28) translateY(-4px)}
+    .kln-marker.hot svg{filter:drop-shadow(0 7px 12px rgba(4,42,38,.45))}
+    .kln-marker.sel{transform:scale(1.32) translateY(-5px)}
     .leaflet-popup-content-wrapper{border-radius:14px;box-shadow:0 18px 44px rgba(4,42,38,.18);padding:0;overflow:hidden}
     .leaflet-popup-content{margin:0;font-family:'Objective',sans-serif}
     .popup-inner{padding:16px 18px 14px}
@@ -333,7 +351,17 @@
       <div class="map-wrap">
         <div id="map"></div>
         <div class="map-controls">
+          <button class="map-reset" onclick="nearMe()" title="Encontrar a unidade mais próxima"><i class="pi pi-compass"></i> Perto de mim</button>
           <button class="map-reset" onclick="resetMap()" title="Ver todas as unidades"><i class="pi pi-expand"></i> Ver todas</button>
+        </div>
+        <!-- painel de detalhe deslizante -->
+        <div class="map-detail" id="mapDetail" aria-live="polite">
+          <button class="map-detail__close" id="mapDetailClose" aria-label="Fechar detalhe"><i class="pi pi-times"></i></button>
+          <span class="map-detail__type" id="mdType"></span>
+          <div class="map-detail__name" id="mdName"></div>
+          <div class="map-detail__addr"><i class="pi pi-map-marker"></i> <span id="mdAddr"></span></div>
+          <span class="map-detail__spec" id="mdSpec"></span>
+          <a class="map-detail__btn" id="mdMaps" target="_blank" rel="noopener"><i class="pi pi-directions"></i> Como chegar</a>
         </div>
       </div>
     </div>
@@ -526,10 +554,28 @@
       '<a class="popup-maps '+mapsClass+'" href="'+mapsUrl+'" target="_blank" rel="noopener"><i class="pi pi-map"></i> Como chegar</a></div>';
   }
 
+  var byId={}; units.forEach(function(u){ byId[u.id]=u; });
+  var detail=document.getElementById('mapDetail'), selId=null;
+  function markerEl(id){ var m=markers[id]; return (m&&m._icon)?m._icon.querySelector('.kln-marker'):null; }
+  function markerHot(id,on){ var el=markerEl(id); if(el) el.classList.toggle('hot',on); }
+  function markerSel(id){ if(selId){ var p=markerEl(selId); if(p) p.classList.remove('sel'); } selId=id; var el=markerEl(id); if(el) el.classList.add('sel'); }
+  function showDetail(u){
+    detail.className='map-detail show '+u.type;
+    document.getElementById('mdType').textContent = u.type==='cmk'?'Centro Médico Klini':'Hospital Rede Casa';
+    document.getElementById('mdName').textContent = u.name;
+    document.getElementById('mdAddr').textContent = u.addr+' · '+u.city;
+    document.getElementById('mdSpec').innerHTML = '<i class="pi pi-star-fill"></i> '+u.spec;
+    document.getElementById('mdMaps').href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(u.name+' '+u.city+' '+u.addr);
+  }
+  function hideDetail(){ detail.classList.remove('show'); if(selId){ var p=markerEl(selId); if(p) p.classList.remove('sel'); selId=null; } }
+  function selectUnit(u){ map.flyTo([u.lat,u.lng],15,{duration:.8}); markerSel(u.id); highlightItem(u.id); showDetail(u); }
+
   var markers = {}, currentFilter='all', currentSearch='', bounds=L.latLngBounds();
   units.forEach(function(u){
-    var m=L.marker([u.lat,u.lng],{icon:makeIcon(u.type)}).addTo(map).bindPopup(makePopup(u),{maxWidth:280,className:''});
-    m.on('click',function(){ highlightItem(u.id); });
+    var m=L.marker([u.lat,u.lng],{icon:makeIcon(u.type)}).addTo(map);
+    m.on('click',function(){ selectUnit(u); });
+    m.on('mouseover',function(){ markerHot(u.id,true); highlightItem(u.id,true); });
+    m.on('mouseout',function(){ markerHot(u.id,false); });
     markers[u.id]=m; bounds.extend([u.lat,u.lng]);
   });
   map.fitBounds(bounds,{ padding:[40,40] });
@@ -546,17 +592,21 @@
       item.type='button'; item.setAttribute('aria-label', u.name+' — '+u.addr);
       item.className='unit-item '+u.type+(show?'':' hidden'); item.id='item-'+u.id;
       item.innerHTML='<div class="unit-dot unit-dot--'+u.type+'"></div><div><div class="unit-name">'+u.name+'</div><div class="unit-addr">'+u.addr+' · '+u.city+'</div><span class="unit-tag">'+u.spec+'</span></div>';
-      item.addEventListener('click',function(){ map.setView([u.lat,u.lng],15,{animate:true}); markers[u.id].openPopup(); highlightItem(u.id); });
+      item.addEventListener('click',function(){ selectUnit(u); });
+      item.addEventListener('mouseenter',function(){ markerHot(u.id,true); });
+      item.addEventListener('mouseleave',function(){ markerHot(u.id,false); });
+      item.addEventListener('focus',function(){ markerHot(u.id,true); });
+      item.addEventListener('blur',function(){ markerHot(u.id,false); });
       listEl.appendChild(item);
     });
     countEl.textContent=visible+' unidade'+(visible===1?'':'s');
   }
-  function highlightItem(id){
+  function highlightItem(id,noScroll){
     document.querySelectorAll('.unit-item').forEach(function(el){ el.classList.remove('active'); });
-    var el=document.getElementById('item-'+id); if(el){ el.classList.add('active'); el.scrollIntoView({behavior:'smooth',block:'nearest'}); }
+    var el=document.getElementById('item-'+id); if(el){ el.classList.add('active'); if(!noScroll) el.scrollIntoView({behavior:'smooth',block:'nearest'}); }
   }
   function filterUnits(type,btn){
-    currentFilter=type;
+    currentFilter=type; hideDetail();
     document.querySelectorAll('.filter-tab').forEach(function(t){ t.classList.remove('active'); });
     btn.classList.add('active');
     units.forEach(function(u){
@@ -567,10 +617,19 @@
     buildList();
     var b=L.latLngBounds();
     units.forEach(function(u){ if((type==='all')||(u.type===type)) b.extend([u.lat,u.lng]); });
-    if(b.isValid()) map.fitBounds(b,{padding:[40,40],animate:true});
+    if(b.isValid()) map.flyToBounds(b,{padding:[40,40],duration:.7});
   }
   function searchUnits(val){ currentSearch=val; buildList(); }
-  function resetMap(){ filterUnits('all',document.querySelector('.filter-tab[data-filter="all"]')); document.querySelector('.sidebar-search input').value=''; currentSearch=''; buildList(); }
+  function resetMap(){ hideDetail(); filterUnits('all',document.querySelector('.filter-tab[data-filter="all"]')); document.querySelector('.sidebar-search input').value=''; currentSearch=''; buildList(); }
+  function nearMe(){
+    if(!navigator.geolocation){ alert('Geolocalização não disponível no seu navegador.'); return; }
+    navigator.geolocation.getCurrentPosition(function(pos){
+      var la=pos.coords.latitude, lo=pos.coords.longitude, best=null, bd=Infinity;
+      units.forEach(function(u){ if(currentFilter!=='all'&&u.type!==currentFilter) return; var dx=u.lat-la, dy=u.lng-lo, d=dx*dx+dy*dy; if(d<bd){ bd=d; best=u; } });
+      if(best) selectUnit(best);
+    }, function(){ alert('Não foi possível obter a sua localização. Verifique a permissão do navegador.'); });
+  }
+  document.getElementById('mapDetailClose').addEventListener('click', hideDetail);
   buildList();
   setTimeout(function(){ map.invalidateSize(); }, 250);
 </script>
