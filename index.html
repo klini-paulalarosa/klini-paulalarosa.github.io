@@ -185,6 +185,52 @@ p{font-family:'Merriweather',Georgia,serif;line-height:1.75}
 .pc__btn-out{border:1.5px solid var(--bd-l);background:transparent;color:var(--teal)}
 .pc--feat .pc__btn-out{border-color:rgba(255,255,255,.2);color:#fff}
 
+/* ── PLANOS · cards D (foto do beneficiário + flip) ───────────── */
+.plans__track{perspective:1900px}
+.pcard{flex:0 0 calc((100% - 36px)/3);height:430px;cursor:pointer;position:relative}
+@media(max-width:980px){.pcard{flex-basis:calc((100% - 18px)/2)}}
+@media(max-width:600px){.pcard{flex-basis:100%}}
+.pcard__in{position:relative;width:100%;height:100%;transition:transform .68s cubic-bezier(.4,0,.2,1);transform-style:preserve-3d;border-radius:22px;box-shadow:0 16px 40px rgba(4,42,38,.16)}
+.pcard:hover .pcard__in{box-shadow:0 26px 56px rgba(4,42,38,.24)}
+.pcard.flip .pcard__in{transform:rotateY(180deg)}
+.pcface{position:absolute;inset:0;backface-visibility:hidden;border-radius:22px;overflow:hidden}
+.pcfront .pcdots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.16) 1.2px,transparent 1.5px);background-size:15px 15px;opacity:.5;-webkit-mask-image:linear-gradient(150deg,#000,transparent 60%);mask-image:linear-gradient(150deg,#000,transparent 60%);z-index:1}
+.pcfront .pcarc{position:absolute;top:-34px;left:-34px;width:120px;height:120px;z-index:1;opacity:.85;transition:transform .6s cubic-bezier(.22,1,.36,1)}
+.pcard:hover .pcfront .pcarc{transform:rotate(-12deg) scale(1.06)}
+.pctier{position:absolute;top:13px;right:13px;z-index:4;background:#fff;font-family:'Objective',sans-serif;font-weight:800;font-size:.66rem;letter-spacing:.02em;padding:5px 11px;border-radius:50px;box-shadow:0 6px 16px rgba(4,42,38,.18)}
+.pcperson{position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:90%;width:auto;z-index:2;filter:drop-shadow(0 10px 24px rgba(4,42,38,.32));transition:transform .5s cubic-bezier(.22,1,.36,1)}
+.pcard:hover .pcperson{transform:translateX(-50%) scale(1.05)}
+.pcscrim{position:absolute;left:0;right:0;bottom:0;height:60%;z-index:3;pointer-events:none}
+.pccap{position:absolute;left:18px;right:18px;bottom:18px;z-index:4;color:#fff}
+.pccap b{display:block;font-family:'Objective',sans-serif;font-weight:800;font-size:1.5rem;letter-spacing:-.02em;line-height:1}
+.pccap span{font-family:'Merriweather',Georgia,serif;font-size:.78rem;color:rgba(255,255,255,.85);display:block;margin:5px 0 12px;line-height:1.4}
+.pcmore{display:inline-flex;align-items:center;gap:7px;background:#fff;color:var(--teal);font-family:'Objective',sans-serif;font-weight:700;font-size:.8rem;padding:8px 16px;border-radius:50px;transition:gap .25s,padding .25s}
+.pcard:hover .pcmore{gap:11px;padding-right:20px}
+.pcbar4{position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--grad-brand);z-index:5}
+.pcfront::before{content:'';position:absolute;top:0;left:-130%;width:55%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.42),transparent);transform:skewX(-18deg);z-index:5;pointer-events:none}
+.pcard:hover .pcfront::before{animation:pc-shine .95s ease}
+@keyframes pc-shine{to{left:165%}}
+.pt200 .pcfront{background:linear-gradient(160deg,#6aa7ae,#88b9be)}.pt200 .pctier{color:var(--sea)}
+.pt350 .pcfront{background:linear-gradient(160deg,#259591,#51aaa7)}.pt350 .pctier{color:var(--teal)}
+.pt400 .pcfront{background:linear-gradient(160deg,#259591,#2f9d99 45%,#6aa7ae)}.pt400 .pctier{color:var(--teal)}
+.pt600 .pcfront{background:linear-gradient(160deg,#e05759,#cd7925)}.pt600 .pctier{color:var(--coral)}.pt600 .pcmore{color:var(--coral)}
+.ptamb .pcfront{background:linear-gradient(160deg,#7cbfbd,#a6cace)}.ptamb .pctier{color:var(--sea)}
+.pthosp .pcfront{background:linear-gradient(160deg,#cd7925,#d98f4a)}.pthosp .pctier{color:var(--orange)}.pthosp .pcmore{color:var(--orange)}
+.pcool .pcscrim{background:linear-gradient(0deg,rgba(20,90,86,.96) 6%,rgba(37,149,145,.4) 46%,transparent)}
+.pwarm .pcscrim{background:linear-gradient(0deg,rgba(176,72,55,.96) 6%,rgba(205,121,37,.38) 46%,transparent)}
+.pcfeat .pcard__in{box-shadow:0 18px 46px rgba(37,149,145,.34),0 0 0 3px rgba(37,149,145,.2)}
+.pcback{transform:rotateY(180deg);background:linear-gradient(150deg,#259591,#6aa7ae);color:#fff;padding:24px 20px;display:flex;flex-direction:column}
+.pwarm .pcback{background:linear-gradient(150deg,#cd7925,#e05759)}
+.pcback .pcarc{position:absolute;bottom:-40px;right:-40px;width:140px;height:140px;opacity:.22;z-index:0}
+.pcback h4{font-family:'Objective',sans-serif;font-weight:800;font-size:1.15rem;margin-bottom:14px;position:relative;z-index:1}
+.pcback ul{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:.84rem;flex:1;position:relative;z-index:1}
+.pcback li{display:flex;align-items:center;gap:9px}
+.pcback li i{background:rgba(255,255,255,.22);width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.6rem;flex-shrink:0}
+.pcback .pccta{display:flex;align-items:center;justify-content:center;gap:8px;background:#fff;color:var(--teal);border-radius:11px;padding:12px;font-family:'Objective',sans-serif;font-weight:800;font-size:.86rem;text-decoration:none;margin-top:10px;position:relative;z-index:1}
+.pwarm .pcback .pccta{color:var(--orange)}
+.pcback .pcflipback{position:absolute;top:13px;right:15px;z-index:2;font-size:.66rem;color:rgba(255,255,255,.8);font-family:'Merriweather',serif;font-style:italic}
+@media(prefers-reduced-motion:reduce){.pcard__in,.pcperson,.pcfront .pcarc,.pcmore{transition:none!important}.pcard:hover .pcfront::before{animation:none}}
+
 
 /* ── TELECONSULTA ────────────────────────────────────────────── */
 .tele{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
@@ -695,96 +741,119 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
     <div class="plans__viewport">
       <div class="plans__track" id="plansTrack">
 
-      <div class="pc gs">
-        <div class="pc__img-wrap">
-          <img src="assets/plan-200.webp" alt="Klini 200" class="pc__img" />
+      <div class="pcard gs pt200 pcool"><div class="pcard__in">
+        <div class="pcface pcfront">
+          <span class="pcdots"></span>
+          <svg class="pcarc" viewBox="0 0 120 120" aria-hidden="true"><path d="M60 12 A48 48 0 0 1 60 108" fill="none" stroke="rgba(255,255,255,.32)" stroke-width="16" stroke-linecap="square"/></svg>
+          <span class="pctier">Essencial</span>
+          <img class="pcperson" src="assets/campanha/pc-200.webp" alt="Beneficiário Klini" loading="lazy" />
+          <span class="pcscrim"></span>
+          <div class="pccap"><b>Klini 200</b><span>A porta de entrada para proteção ampla</span><span class="pcmore">Ver coberturas <i class="pi pi-arrow-right"></i></span></div>
+          <span class="pcbar4"></span>
         </div>
-        <div class="pc__name">Klini 200</div>
-        <p class="pc__tag">A porta de entrada para proteção ampla com custo equilibrado</p>
-        <ul class="pc__list">
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Ambulatorial + Hospitalar</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Obstetrícia inclusa</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Rede regional RJ</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Teleconsulta 24h</li>
-        </ul>
-        <a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20200." class="btn pc__btn pc__btn-out" target="_blank" rel="noopener">Solicitar Cotação</a>
-      </div>
+        <div class="pcface pcback">
+          <svg class="pcarc" viewBox="0 0 140 140" aria-hidden="true"><path d="M70 14 A56 56 0 0 1 70 126" fill="none" stroke="#fff" stroke-width="18" stroke-linecap="square"/></svg>
+          <span class="pcflipback">voltar</span>
+          <h4>Klini 200 cobre</h4>
+          <ul><li><i class="pi pi-check"></i> Ambulatorial + Hospitalar</li><li><i class="pi pi-check"></i> Obstetrícia inclusa</li><li><i class="pi pi-check"></i> Rede regional RJ</li><li><i class="pi pi-check"></i> Teleconsulta 24h</li></ul>
+          <a class="pccta" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20200." target="_blank" rel="noopener"><i class="pi pi-whatsapp"></i> Solicitar cotação</a>
+        </div>
+      </div></div>
 
-      <div class="pc gs">
-        <div class="pc__img-wrap">
-          <img src="assets/planos/plano-350.webp" alt="Klini 350" class="pc__img" />
+      <div class="pcard gs pt350 pcool"><div class="pcard__in">
+        <div class="pcface pcfront">
+          <span class="pcdots"></span>
+          <svg class="pcarc" viewBox="0 0 120 120" aria-hidden="true"><path d="M60 12 A48 48 0 0 1 60 108" fill="none" stroke="rgba(255,255,255,.32)" stroke-width="16" stroke-linecap="square"/></svg>
+          <span class="pctier">Família</span>
+          <img class="pcperson" src="assets/campanha/pc-350.webp" alt="Beneficiário Klini" loading="lazy" />
+          <span class="pcscrim"></span>
+          <div class="pccap"><b>Klini 350</b><span>Acompanha o crescimento da sua família</span><span class="pcmore">Ver coberturas <i class="pi pi-arrow-right"></i></span></div>
+          <span class="pcbar4"></span>
         </div>
-        <div class="pc__name">Klini 350</div>
-        <p class="pc__tag">O plano que acompanha o crescimento da sua família</p>
-        <ul class="pc__list">
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Ampla rede credenciada</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Hospitais de referência</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Obstetrícia inclusa</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Telemedicina</li>
-        </ul>
-        <a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20350." class="btn pc__btn pc__btn-out" target="_blank" rel="noopener">Solicitar Cotação</a>
-      </div>
+        <div class="pcface pcback">
+          <svg class="pcarc" viewBox="0 0 140 140" aria-hidden="true"><path d="M70 14 A56 56 0 0 1 70 126" fill="none" stroke="#fff" stroke-width="18" stroke-linecap="square"/></svg>
+          <span class="pcflipback">voltar</span>
+          <h4>Klini 350 cobre</h4>
+          <ul><li><i class="pi pi-check"></i> Ampla rede credenciada</li><li><i class="pi pi-check"></i> Hospitais de referência</li><li><i class="pi pi-check"></i> Obstetrícia inclusa</li><li><i class="pi pi-check"></i> Telemedicina 24h</li></ul>
+          <a class="pccta" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20350." target="_blank" rel="noopener"><i class="pi pi-whatsapp"></i> Solicitar cotação</a>
+        </div>
+      </div></div>
 
-      <div class="pc pc--feat gs">
-        <div class="pc__hot">✦ Mais Escolhido</div>
-        <div class="pc__img-wrap">
-          <img src="assets/plan-400.webp" alt="Klini 400" class="pc__img" />
+      <div class="pcard gs pt400 pcool pcfeat"><div class="pcard__in">
+        <div class="pcface pcfront">
+          <span class="pcdots"></span>
+          <svg class="pcarc" viewBox="0 0 120 120" aria-hidden="true"><path d="M60 12 A48 48 0 0 1 60 108" fill="none" stroke="rgba(255,255,255,.32)" stroke-width="16" stroke-linecap="square"/></svg>
+          <span class="pctier">★ Mais escolhido</span>
+          <img class="pcperson" src="assets/campanha/pc-400.webp" alt="Beneficiário Klini" loading="lazy" />
+          <span class="pcscrim"></span>
+          <div class="pccap"><b>Klini 400</b><span>Rede ampliada com Linhas de Cuidado</span><span class="pcmore">Ver coberturas <i class="pi pi-arrow-right"></i></span></div>
+          <span class="pcbar4"></span>
         </div>
-        <div class="pc__name">Klini 400</div>
-        <p class="pc__tag">Rede ampliada com Linhas de Cuidados para acompanhamento completo</p>
-        <ul class="pc__list">
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Ambulatorial + Hospitalar</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Obstetrícia inclusa</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Rede ampliada premium</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Linhas de Cuidados (LCA)</li>
-        </ul>
-        <a href="https://wa.me/552130550790?text=Olá!%20Quero%20simular%20o%20Klini%20400." class="btn pc__btn pc__btn-feat" target="_blank" rel="noopener">Simular Agora <i class="pi pi-arrow-right"></i></a>
-      </div>
+        <div class="pcface pcback">
+          <svg class="pcarc" viewBox="0 0 140 140" aria-hidden="true"><path d="M70 14 A56 56 0 0 1 70 126" fill="none" stroke="#fff" stroke-width="18" stroke-linecap="square"/></svg>
+          <span class="pcflipback">voltar</span>
+          <h4>Klini 400 cobre</h4>
+          <ul><li><i class="pi pi-check"></i> Ambulatorial + Hospitalar</li><li><i class="pi pi-check"></i> Rede ampliada premium</li><li><i class="pi pi-check"></i> Linhas de Cuidado (LCA)</li><li><i class="pi pi-check"></i> Teleconsulta 24h</li></ul>
+          <a class="pccta" href="https://wa.me/552130550790?text=Olá!%20Quero%20simular%20o%20Klini%20400." target="_blank" rel="noopener"><i class="pi pi-whatsapp"></i> Simular agora</a>
+        </div>
+      </div></div>
 
-      <div class="pc gs">
-        <div class="pc__img-wrap">
-          <img src="assets/plan-600.webp" alt="Klini 600" class="pc__img" />
+      <div class="pcard gs pt600 pwarm"><div class="pcard__in">
+        <div class="pcface pcfront">
+          <span class="pcdots"></span>
+          <svg class="pcarc" viewBox="0 0 120 120" aria-hidden="true"><path d="M60 12 A48 48 0 0 1 60 108" fill="none" stroke="rgba(255,255,255,.34)" stroke-width="16" stroke-linecap="square"/></svg>
+          <span class="pctier">Completo</span>
+          <img class="pcperson" src="assets/campanha/pc-600.webp" alt="Beneficiário Klini" loading="lazy" />
+          <span class="pcscrim"></span>
+          <div class="pccap"><b>Klini 600</b><span>Cobertura total, tranquilidade completa</span><span class="pcmore">Ver coberturas <i class="pi pi-arrow-right"></i></span></div>
+          <span class="pcbar4"></span>
         </div>
-        <div class="pc__name">Klini 600</div>
-        <p class="pc__tag">Cobertura total, tranquilidade completa</p>
-        <ul class="pc__list">
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Hospitais de excelência</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Alto reembolso</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Maior rede credenciada</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>LCA ao extremo</li>
-        </ul>
-        <a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20600." class="btn pc__btn pc__btn-out" target="_blank" rel="noopener">Solicitar Cotação</a>
-      </div>
+        <div class="pcface pcback">
+          <svg class="pcarc" viewBox="0 0 140 140" aria-hidden="true"><path d="M70 14 A56 56 0 0 1 70 126" fill="none" stroke="#fff" stroke-width="18" stroke-linecap="square"/></svg>
+          <span class="pcflipback">voltar</span>
+          <h4>Klini 600 cobre</h4>
+          <ul><li><i class="pi pi-check"></i> Hospitais de excelência</li><li><i class="pi pi-check"></i> Maior rede credenciada</li><li><i class="pi pi-check"></i> Alto reembolso</li><li><i class="pi pi-check"></i> LCA ao extremo</li></ul>
+          <a class="pccta" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20600." target="_blank" rel="noopener"><i class="pi pi-whatsapp"></i> Solicitar cotação</a>
+        </div>
+      </div></div>
 
-      <div class="pc gs">
-        <div class="pc__img-wrap">
-          <img src="assets/plan-ambulatorial.webp" alt="Klini Ambulatorial" class="pc__img" />
+      <div class="pcard gs ptamb pcool"><div class="pcard__in">
+        <div class="pcface pcfront">
+          <span class="pcdots"></span>
+          <svg class="pcarc" viewBox="0 0 120 120" aria-hidden="true"><path d="M60 12 A48 48 0 0 1 60 108" fill="none" stroke="rgba(255,255,255,.32)" stroke-width="16" stroke-linecap="square"/></svg>
+          <span class="pctier">Acessível</span>
+          <img class="pcperson" src="assets/campanha/pc-amb.webp" alt="Beneficiária Klini com bebê" loading="lazy" />
+          <span class="pcscrim"></span>
+          <div class="pccap"><b>Ambulatorial</b><span>Cobertura essencial, consultas e exames</span><span class="pcmore">Ver coberturas <i class="pi pi-arrow-right"></i></span></div>
+          <span class="pcbar4"></span>
         </div>
-        <div class="pc__name">Ambulatorial</div>
-        <p class="pc__tag">O seu plano acessível. Ideal para quem busca cobertura essencial</p>
-        <ul class="pc__list">
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Cobertura ambulatorial completa</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Consultas e exames</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Teleconsulta 24h inclusa</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Desconto em farmácias</li>
-        </ul>
-        <a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Ambulatorial." class="btn pc__btn pc__btn-out" target="_blank" rel="noopener">Solicitar Cotação</a>
-      </div>
+        <div class="pcface pcback">
+          <svg class="pcarc" viewBox="0 0 140 140" aria-hidden="true"><path d="M70 14 A56 56 0 0 1 70 126" fill="none" stroke="#fff" stroke-width="18" stroke-linecap="square"/></svg>
+          <span class="pcflipback">voltar</span>
+          <h4>Ambulatorial cobre</h4>
+          <ul><li><i class="pi pi-check"></i> Cobertura ambulatorial completa</li><li><i class="pi pi-check"></i> Consultas e exames</li><li><i class="pi pi-check"></i> Teleconsulta 24h inclusa</li><li><i class="pi pi-check"></i> Desconto em farmácias</li></ul>
+          <a class="pccta" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Ambulatorial." target="_blank" rel="noopener"><i class="pi pi-whatsapp"></i> Solicitar cotação</a>
+        </div>
+      </div></div>
 
-      <div class="pc gs">
-        <div class="pc__img-wrap">
-          <img src="assets/planos/plano-hospitalar-w.webp" alt="Klini Hospitalar" class="pc__img" />
+      <div class="pcard gs pthosp pwarm"><div class="pcard__in">
+        <div class="pcface pcfront">
+          <span class="pcdots"></span>
+          <svg class="pcarc" viewBox="0 0 120 120" aria-hidden="true"><path d="M60 12 A48 48 0 0 1 60 108" fill="none" stroke="rgba(255,255,255,.34)" stroke-width="16" stroke-linecap="square"/></svg>
+          <span class="pctier">Rede Casa</span>
+          <img class="pcperson" src="assets/campanha/pc-hosp.webp" alt="Beneficiário Klini" loading="lazy" />
+          <span class="pcscrim"></span>
+          <div class="pccap"><b>Hospitalar</b><span>Foco em internações, urgência e cirurgias</span><span class="pcmore">Ver coberturas <i class="pi pi-arrow-right"></i></span></div>
+          <span class="pcbar4"></span>
         </div>
-        <div class="pc__name">Klini Hospitalar</div>
-        <p class="pc__tag">Foco em internações, urgência e cirurgias na Rede Casa Hospitalar</p>
-        <ul class="pc__list">
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Internação na Rede Casa</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Urgência e emergência 24h</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Cirurgias e UTI</li>
-          <li><span class="pc__ck"><i class="pi pi-check"></i></span>Teleconsulta 24h inclusa</li>
-        </ul>
-        <a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Hospitalar." class="btn pc__btn pc__btn-out" target="_blank" rel="noopener">Solicitar Cotação</a>
-      </div>
+        <div class="pcface pcback">
+          <svg class="pcarc" viewBox="0 0 140 140" aria-hidden="true"><path d="M70 14 A56 56 0 0 1 70 126" fill="none" stroke="#fff" stroke-width="18" stroke-linecap="square"/></svg>
+          <span class="pcflipback">voltar</span>
+          <h4>Hospitalar cobre</h4>
+          <ul><li><i class="pi pi-check"></i> Internação na Rede Casa</li><li><i class="pi pi-check"></i> Urgência e emergência 24h</li><li><i class="pi pi-check"></i> Cirurgias e UTI</li><li><i class="pi pi-check"></i> Teleconsulta 24h inclusa</li></ul>
+          <a class="pccta" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Hospitalar." target="_blank" rel="noopener"><i class="pi pi-whatsapp"></i> Solicitar cotação</a>
+        </div>
+      </div></div>
 
       </div>
     </div>
@@ -1296,6 +1365,15 @@ document.querySelectorAll('.acess__card').forEach(card => {
   var sx = 0; track.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
   track.addEventListener('touchend', function (e) { var dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 40) { idx += dx > 0 ? -1 : 1; render(); } }, { passive: true });
   buildDots(); render();
+})();
+
+/* ── Planos: vira o card ao clicar (ignora o link do CTA) ── */
+(function(){
+  var track=document.getElementById('plansTrack'); if(!track) return;
+  track.addEventListener('click',function(e){
+    if(e.target.closest('a')) return;            // CTA do verso abre o WhatsApp
+    var c=e.target.closest('.pcard'); if(c) c.classList.toggle('flip');
+  });
 })();
 
 /* ── Smooth anchors ──────────────────────────────────── */
