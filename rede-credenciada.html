@@ -9,8 +9,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons@7.0.0/primeicons.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
   <link rel="stylesheet" href="assets/klini.css" />
   <style>
+    /* HERO com beneficiário (foto Rio + wash teal DS) — só nesta página */
+    .page-hero--people{background:#259591;position:relative;overflow:hidden}
+    .page-hero--people .ph-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:42% 28%;z-index:0}
+    .page-hero--people .ph-wash{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(95deg,rgba(37,149,145,.96) 0%,rgba(37,149,145,.8) 32%,rgba(37,149,145,.4) 52%,rgba(37,149,145,.05) 72%)}
+    .page-hero--people .wrap{position:relative;z-index:2}
+    .page-hero--people .wrap p{max-width:520px}
+    @media(max-width:760px){.page-hero--people .wrap p{max-width:none}.page-hero--people .ph-photo{object-position:38% 26%}.page-hero--people .ph-wash{background:linear-gradient(180deg,rgba(37,149,145,.94) 0%,rgba(37,149,145,.6) 42%,rgba(37,149,145,.12) 76%)}}
+
     /* ── Tabs Busca / Atualização ─────────────────────────────────── */
     .rc-toggle{display:inline-flex;background:var(--off);border:1px solid var(--bd-l);border-radius:40px;padding:5px;gap:4px;margin:0 auto 38px;justify-content:center}
     .rc-toggle__btn{display:inline-flex;align-items:center;gap:8px;border:none;background:transparent;cursor:pointer;font-family:'Objective',sans-serif;font-weight:700;font-size:.88rem;color:var(--muted);padding:11px 22px;border-radius:30px;transition:all .25s}
@@ -49,6 +58,97 @@
     .rc-up h4{font-family:'Objective',sans-serif;font-size:.95rem;color:var(--text);margin-bottom:6px}
     .rc-up p{font-size:.84rem;color:var(--muted);line-height:1.6}
 
+    /* mapa de unidades (rede própria) */
+    .map-section{display:grid;grid-template-columns:330px 1fr;height:580px;border:1px solid var(--bd-l);border-radius:22px;overflow:hidden;box-shadow:0 24px 60px rgba(4,42,38,.1);max-width:1040px;margin:0 auto}
+    .sidebar{background:#fff;border-right:1px solid var(--bd-l);display:flex;flex-direction:column;overflow:hidden}
+    .sidebar-head{padding:18px 18px 0;flex-shrink:0}
+    .filter-tabs{display:flex;gap:6px;margin-bottom:14px}
+    .filter-tab{padding:7px 15px;border-radius:30px;font-size:.76rem;font-weight:700;border:1.5px solid var(--bd-l);background:#fff;color:var(--muted);cursor:pointer;transition:all .22s;font-family:'Objective',sans-serif}
+    .filter-tab.active{border-color:var(--teal);color:var(--teal);background:rgba(37,149,145,.08)}
+    .sidebar-search{display:flex;align-items:center;gap:10px;background:var(--off);border:1px solid var(--bd-l);border-radius:10px;padding:9px 14px;margin-bottom:14px}
+    .sidebar-search i{color:var(--muted);font-size:.9rem;flex-shrink:0}
+    .sidebar-search input{background:none;border:none;outline:none;color:var(--text);font-family:'Objective',sans-serif;font-size:.86rem;width:100%;caret-color:var(--teal)}
+    .sidebar-count{font-size:.68rem;color:var(--muted);font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:0 18px 10px;border-bottom:1px solid var(--bd-l)}
+    .unit-list{overflow-y:auto;flex:1}
+    .unit-item{width:100%;text-align:left;background:transparent;border:0;border-bottom:1px solid var(--bd-l);font-family:inherit;color:inherit;padding:15px 18px;cursor:pointer;transition:background .2s;display:flex;gap:12px;align-items:flex-start}
+    .unit-item:hover{background:var(--off)}
+    .unit-item.active{background:rgba(37,149,145,.07);border-left:3px solid var(--teal)}
+    .unit-item.active.cmk{background:rgba(205,121,37,.07);border-left-color:var(--orange)}
+    .unit-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;margin-top:4px}
+    .unit-dot--cmk{background:var(--orange)}
+    .unit-dot--hc{background:var(--teal)}
+    .unit-name{font-family:'Objective',sans-serif;font-size:.88rem;font-weight:700;color:var(--text);margin-bottom:3px;line-height:1.3}
+    .unit-addr{font-size:.75rem;color:var(--muted);line-height:1.5}
+    .unit-tag{display:inline-block;background:rgba(37,149,145,.1);border:1px solid rgba(37,149,145,.2);border-radius:20px;padding:2px 9px;font-size:.6rem;font-weight:700;color:var(--teal);margin-top:5px;letter-spacing:.03em;font-family:'Objective',sans-serif}
+    .unit-item.cmk .unit-tag{background:rgba(205,121,37,.09);border-color:rgba(205,121,37,.22);color:var(--orange)}
+    .unit-item.hidden{display:none}
+    .map-wrap{position:relative}
+    #map{height:100%;width:100%}
+    .map-controls{position:absolute;top:14px;right:14px;z-index:500;display:flex;flex-direction:column;gap:8px}
+    .map-reset{display:flex;align-items:center;gap:6px;padding:9px 14px;font-size:.74rem;font-weight:700;white-space:nowrap;background:#fff;border:1px solid var(--bd-l);border-radius:10px;color:var(--text);cursor:pointer;box-shadow:0 6px 18px rgba(4,42,38,.12);font-family:'Objective',sans-serif;transition:all .2s}
+    .map-reset:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+    .map-detail{position:absolute;left:16px;bottom:16px;z-index:600;width:300px;max-width:calc(100% - 32px);background:#fff;border:1px solid var(--bd-l);border-radius:16px;box-shadow:0 22px 54px rgba(4,42,38,.22);padding:20px 22px;transform:translateY(16px) scale(.98);opacity:0;pointer-events:none;transition:all .35s cubic-bezier(.22,1,.36,1)}
+    .map-detail.show{transform:none;opacity:1;pointer-events:auto}
+    .map-detail__close{position:absolute;top:12px;right:12px;width:28px;height:28px;border-radius:8px;border:none;background:var(--off);color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.8rem;transition:all .2s}
+    .map-detail__close:hover{background:var(--teal);color:#fff}
+    .map-detail__type{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Objective',sans-serif}
+    .map-detail.cmk .map-detail__type{color:var(--orange)}
+    .map-detail.hc .map-detail__type{color:var(--teal)}
+    .map-detail__name{font-family:'Objective',sans-serif;font-weight:800;font-size:1.08rem;color:var(--text);margin:4px 0 8px;line-height:1.25;padding-right:24px}
+    .map-detail__addr{font-size:.8rem;color:var(--muted);display:flex;gap:6px;align-items:flex-start;line-height:1.5;margin-bottom:12px}
+    .map-detail__addr i{color:var(--teal);margin-top:2px;flex-shrink:0}
+    .map-detail__spec{display:inline-flex;align-items:center;gap:5px;background:rgba(37,149,145,.1);border:1px solid rgba(37,149,145,.2);border-radius:20px;padding:4px 11px;font-size:.66rem;font-weight:700;color:var(--teal);font-family:'Objective',sans-serif;margin-bottom:14px}
+    .map-detail.cmk .map-detail__spec{background:rgba(205,121,37,.1);border-color:rgba(205,121,37,.22);color:var(--orange)}
+    .map-detail__btn{display:flex;align-items:center;justify-content:center;gap:7px;background:var(--grad-cool);color:#fff;font-family:'Objective',sans-serif;font-weight:700;font-size:.82rem;padding:11px;border-radius:10px;transition:filter .2s}
+    .map-detail__btn:hover{filter:brightness(1.08)}
+    .kln-marker{cursor:pointer;transition:transform .2s;animation:kln-drop .5s cubic-bezier(.34,1.56,.64,1) both}
+    @keyframes kln-drop{0%{opacity:0;transform:translateY(-20px) scale(.5)}100%{opacity:1;transform:none}}
+    .kln-marker:hover,.kln-marker.hot{transform:scale(1.28) translateY(-4px)}
+    .kln-marker.hot svg{filter:drop-shadow(0 7px 12px rgba(4,42,38,.45))}
+    .kln-marker.sel{transform:scale(1.32) translateY(-5px)}
+    .leaflet-popup-content-wrapper{border-radius:14px;box-shadow:0 18px 44px rgba(4,42,38,.18);padding:0;overflow:hidden}
+    .leaflet-popup-content{margin:0;font-family:'Objective',sans-serif}
+    .popup-inner{padding:16px 18px 14px}
+    .popup-type{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
+    .popup-type--cmk{color:var(--orange)}
+    .popup-type--hc{color:var(--teal)}
+    .popup-name{font-weight:800;font-size:1rem;color:var(--text);margin-bottom:6px;line-height:1.3}
+    .popup-addr{font-size:.75rem;color:var(--muted);display:flex;align-items:flex-start;gap:5px;margin-bottom:12px;line-height:1.5}
+    .popup-addr i{color:var(--teal);flex-shrink:0;margin-top:1px}
+    .popup-spec{display:inline-flex;align-items:center;gap:4px;background:rgba(37,149,145,.12);border:1px solid rgba(37,149,145,.22);border-radius:20px;padding:3px 10px;font-size:.63rem;font-weight:700;color:var(--teal);margin-bottom:10px}
+    .popup-spec--cmk{background:rgba(205,121,37,.1);border-color:rgba(205,121,37,.22);color:var(--orange)}
+    .popup-maps{display:inline-flex;align-items:center;gap:6px;background:var(--teal);color:#fff;font-size:.76rem;font-weight:700;padding:8px 14px;border-radius:8px;transition:filter .2s;text-decoration:none}
+    .popup-maps:hover{filter:brightness(.92)}
+    .popup-maps--cmk{background:var(--orange)}
+    @media(max-width:760px){.map-section{grid-template-columns:1fr;height:auto}.sidebar{border-right:none;border-bottom:1px solid var(--bd-l)}.unit-list{max-height:260px}.map-wrap{height:420px}}
+
+    /* timeline de alterações da rede */
+    .rc-tl{max-width:860px;margin:30px auto 0}
+    .rc-tl__head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+    .rc-tl__head h3{font-family:'Objective',sans-serif;font-size:1rem;color:var(--text)}
+    .rc-tl__count{font-size:.78rem;font-weight:700;color:var(--teal);font-family:'Objective',sans-serif}
+    .rc-tl__list{display:flex;flex-direction:column;gap:10px}
+    .rc-tl__item{display:grid;grid-template-columns:108px 1fr;gap:16px;background:#fff;border:1.5px solid var(--bd-l);border-radius:14px;padding:16px 18px;transition:all .25s;animation:rc-unit-in .3s ease both}
+    .rc-tl__item:hover{border-color:var(--teal);box-shadow:0 12px 28px rgba(37,149,145,.08)}
+    .rc-tl__item[hidden]{display:none}
+    .rc-tl__date{font-size:.74rem;color:var(--muted);font-family:'Objective',sans-serif;font-weight:600;display:flex;align-items:center;gap:6px}
+    .rc-tl__date i{color:var(--teal);font-size:.7rem}
+    .rc-tl__body{display:flex;flex-direction:column;gap:5px}
+    .rc-tl__top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .rc-tl__tag{font-size:.64rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;border-radius:30px;padding:3px 10px;font-family:'Objective',sans-serif}
+    .rc-tl__tag--inc{background:rgba(37,149,145,.12);color:var(--teal)}
+    .rc-tl__tag--sub{background:rgba(205,121,37,.12);color:var(--orange)}
+    .rc-tl__tag--exc{background:rgba(224,87,89,.12);color:var(--coral,#e05759)}
+    .rc-tl__rede{font-size:.7rem;font-weight:700;color:var(--muted);font-family:'Objective',sans-serif}
+    .rc-tl__name{font-family:'Objective',sans-serif;font-weight:700;font-size:.92rem;color:var(--text);line-height:1.35}
+    .rc-tl__name .arrow{color:var(--orange);font-weight:800;margin:0 4px}
+    .rc-tl__local{font-size:.74rem;color:var(--teal);display:flex;align-items:center;gap:5px}
+    .rc-tl__empty{text-align:center;padding:36px 24px;color:var(--muted)}
+    .rc-tl__empty i{font-size:1.9rem;display:block;margin-bottom:10px;opacity:.35}
+    .rc-tl__note{font-size:.76rem;color:var(--muted);text-align:center;margin-top:18px;line-height:1.6}
+    .rc-tl__note a{color:var(--teal);font-weight:600}
+    @media(max-width:560px){.rc-tl__item{grid-template-columns:1fr;gap:8px}}
+
     /* cross-link teleconsulta */
     .rc-cross{position:relative;overflow:hidden;background:var(--grad-cool);border-radius:var(--r);padding:40px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:60px}
     .rc-cross h2{color:#fff;font-family:'Objective',sans-serif;font-weight:800;font-size:1.35rem;margin-bottom:8px}
@@ -75,7 +175,6 @@
           <a href="desconto-farmacia.html">Desconto farmácia</a>
           <a href="teleconsulta.html">Teleconsulta</a>
           <a href="rede-credenciada.html">Busca de rede</a>
-          <a href="rede-credenciada.html#atualizacoes">Atualização de rede</a>
         </div>
       </div>
       <a href="planos.html" class="nav__link nav__item">Planos</a>
@@ -107,7 +206,9 @@
 </header>
 
 <!-- ══ HERO ═════════════════════════════════════════════════════════ -->
-<section class="page-hero">
+<section class="page-hero page-hero--people">
+  <img class="ph-photo" src="assets/campanha/hero-rede.webp" alt="Beneficiário Klini no Rio de Janeiro" />
+  <div class="ph-wash"></div>
   <div class="wrap">
     <span class="eyebrow">rede credenciada</span>
     <h1 class="h1">Encontre atendimento<br><strong>onde você estiver</strong></h1>
@@ -194,23 +295,43 @@
         <div class="rc-type"><div class="rc-type__ico"><i class="pi pi-shopping-bag"></i></div><strong>Farmácias conveniadas</strong></div>
       </div>
 
-      <!-- ── PRÉVIA DA REDE PRÓPRIA — busca ao vivo ───────────────── -->
-      <div class="rc-quick">
-        <div class="rc-quick__bar">
-          <div class="rc-quick__label">
-            <span class="eyebrow">rede própria klini</span>
-            <p>CMK Centros Médicos e Hospitais Rede Casa — busque por nome, especialidade ou cidade.</p>
+      <!-- ── REDE PRÓPRIA — mapa interativo das unidades ──────────── -->
+      <div class="rc-intro" style="margin-top:64px">
+        <span class="eyebrow">rede própria klini</span>
+        <h2 class="h2">Encontre a unidade <strong style="color:var(--orange)">mais perto de você</strong></h2>
+        <p>10 Centros Médicos Klini (CMK) e 9 Hospitais da Rede Casa (HC) no mapa — filtre, busque por bairro e trace a rota. Para a rede credenciada completa, use o <a href="https://klinisaude.com.br/rede-credenciada/" target="_blank" rel="noopener" style="color:var(--teal);font-weight:600">portal oficial</a>.</p>
+      </div>
+      <div class="map-section">
+        <aside class="sidebar">
+          <div class="sidebar-head">
+            <div class="filter-tabs">
+              <button class="filter-tab active" data-filter="all" onclick="filterUnits('all',this)">Todos (19)</button>
+              <button class="filter-tab" data-filter="cmk" onclick="filterUnits('cmk',this)">CMK (10)</button>
+              <button class="filter-tab" data-filter="hc" onclick="filterUnits('hc',this)">HC (9)</button>
+            </div>
+            <div class="sidebar-search">
+              <i class="pi pi-search"></i>
+              <input type="text" placeholder="Buscar bairro ou unidade…" oninput="searchUnits(this.value)" autocomplete="off" />
+            </div>
           </div>
-          <div class="rc-quick__search">
-            <i class="pi pi-search"></i>
-            <input type="text" id="rcSearch" placeholder="Nome, especialidade ou cidade…" autocomplete="off" />
-            <span class="rc-quick__count" id="rcCount">19 unidades</span>
+          <div class="sidebar-count" id="sidebarCount">19 unidades</div>
+          <div class="unit-list" id="unitList"></div>
+        </aside>
+        <div class="map-wrap">
+          <div id="map"></div>
+          <div class="map-controls">
+            <button class="map-reset" onclick="nearMe()" title="Encontrar a unidade mais próxima"><i class="pi pi-compass"></i> Perto de mim</button>
+            <button class="map-reset" onclick="resetMap()" title="Ver todas as unidades"><i class="pi pi-expand"></i> Ver todas</button>
+          </div>
+          <div class="map-detail" id="mapDetail" aria-live="polite">
+            <button class="map-detail__close" id="mapDetailClose" aria-label="Fechar detalhe"><i class="pi pi-times"></i></button>
+            <span class="map-detail__type" id="mdType"></span>
+            <div class="map-detail__name" id="mdName"></div>
+            <div class="map-detail__addr"><i class="pi pi-map-marker"></i> <span id="mdAddr"></span></div>
+            <span class="map-detail__spec" id="mdSpec"></span>
+            <a class="map-detail__btn" id="mdMaps" target="_blank" rel="noopener"><i class="pi pi-directions"></i> Como chegar</a>
           </div>
         </div>
-        <div class="rc-quick__grid" id="rcGrid"></div>
-        <p style="font-size:.76rem;color:var(--muted);text-align:center;margin-top:16px">
-          Rede própria Klini. Para a rede credenciada completa, use o <a href="https://klinisaude.com.br/rede-credenciada/" target="_blank" rel="noopener" style="color:var(--teal);font-weight:600">portal oficial</a>.
-        </p>
       </div>
     </div>
 
@@ -237,10 +358,70 @@
           </div>
         </div>
         <div class="rc-actions">
-          <span class="rc-note"><i class="pi pi-info-circle"></i> As alterações vigentes são publicadas no portal oficial da Klini, conforme normas da ANS.</span>
-          <button type="submit" class="btn btn-teal"><i class="pi pi-sync"></i> Consultar alterações</button>
+          <span class="rc-note"><i class="pi pi-info-circle"></i> Filtre as alterações recentes abaixo. As alterações vigentes são publicadas no portal oficial da Klini, conforme normas da ANS.</span>
+          <button type="button" id="rcAtualizaBtn" class="btn btn-teal"><i class="pi pi-sync"></i> Filtrar alterações</button>
         </div>
       </form>
+
+      <!-- timeline de alterações recentes (ilustrativa, filtrável) -->
+      <div class="rc-tl">
+        <div class="rc-tl__head">
+          <h3>Alterações recentes da rede</h3>
+          <span class="rc-tl__count" id="rcTlCount">6 alterações</span>
+        </div>
+        <div class="rc-tl__list" id="rcTlList">
+          <div class="rc-tl__item" data-rede="Klini 400" data-tipo="Inclusão" data-local="Nova Iguaçu">
+            <div class="rc-tl__date"><i class="pi pi-calendar"></i> 12 mai 2026</div>
+            <div class="rc-tl__body">
+              <div class="rc-tl__top"><span class="rc-tl__tag rc-tl__tag--inc">Inclusão</span><span class="rc-tl__rede">Klini 400</span></div>
+              <div class="rc-tl__name">Clínica VidaSaúde — Ortopedia e Fisioterapia</div>
+              <div class="rc-tl__local"><i class="pi pi-map-marker" style="font-size:.7rem"></i> Nova Iguaçu</div>
+            </div>
+          </div>
+          <div class="rc-tl__item" data-rede="Klini 350" data-tipo="Substituição" data-local="Campos">
+            <div class="rc-tl__date"><i class="pi pi-calendar"></i> 28 abr 2026</div>
+            <div class="rc-tl__body">
+              <div class="rc-tl__top"><span class="rc-tl__tag rc-tl__tag--sub">Substituição</span><span class="rc-tl__rede">Klini 350</span></div>
+              <div class="rc-tl__name">Lab Diagnóstico Central <span class="arrow">→</span> Laboratório Sérgio Franco</div>
+              <div class="rc-tl__local"><i class="pi pi-map-marker" style="font-size:.7rem"></i> Campos dos Goytacazes</div>
+            </div>
+          </div>
+          <div class="rc-tl__item" data-rede="Klini 200" data-tipo="Exclusão" data-local="Itaperuna">
+            <div class="rc-tl__date"><i class="pi pi-calendar"></i> 15 abr 2026</div>
+            <div class="rc-tl__body">
+              <div class="rc-tl__top"><span class="rc-tl__tag rc-tl__tag--exc">Exclusão</span><span class="rc-tl__rede">Klini 200</span></div>
+              <div class="rc-tl__name">Clínica OrtoVida — descredenciamento</div>
+              <div class="rc-tl__local"><i class="pi pi-map-marker" style="font-size:.7rem"></i> Itaperuna</div>
+            </div>
+          </div>
+          <div class="rc-tl__item" data-rede="Hospitalar" data-tipo="Inclusão" data-local="Macaé">
+            <div class="rc-tl__date"><i class="pi pi-calendar"></i> 02 abr 2026</div>
+            <div class="rc-tl__body">
+              <div class="rc-tl__top"><span class="rc-tl__tag rc-tl__tag--inc">Inclusão</span><span class="rc-tl__rede">Hospitalar</span></div>
+              <div class="rc-tl__name">Hospital Santa Mônica — Pronto-socorro 24h</div>
+              <div class="rc-tl__local"><i class="pi pi-map-marker" style="font-size:.7rem"></i> Macaé</div>
+            </div>
+          </div>
+          <div class="rc-tl__item" data-rede="Klini 600" data-tipo="Substituição" data-local="Niterói">
+            <div class="rc-tl__date"><i class="pi pi-calendar"></i> 20 mar 2026</div>
+            <div class="rc-tl__body">
+              <div class="rc-tl__top"><span class="rc-tl__tag rc-tl__tag--sub">Substituição</span><span class="rc-tl__rede">Klini 600</span></div>
+              <div class="rc-tl__name">Imagem RJ <span class="arrow">→</span> CDPI Diagnósticos</div>
+              <div class="rc-tl__local"><i class="pi pi-map-marker" style="font-size:.7rem"></i> Niterói</div>
+            </div>
+          </div>
+          <div class="rc-tl__item" data-rede="Ambulatorial" data-tipo="Inclusão" data-local="São Gonçalo">
+            <div class="rc-tl__date"><i class="pi pi-calendar"></i> 08 mar 2026</div>
+            <div class="rc-tl__body">
+              <div class="rc-tl__top"><span class="rc-tl__tag rc-tl__tag--inc">Inclusão</span><span class="rc-tl__rede">Ambulatorial</span></div>
+              <div class="rc-tl__name">Clínica Bem-Estar — Clínica geral e Pediatria</div>
+              <div class="rc-tl__local"><i class="pi pi-map-marker" style="font-size:.7rem"></i> São Gonçalo</div>
+            </div>
+          </div>
+          <div class="rc-tl__empty" id="rcTlEmpty" hidden><i class="pi pi-search"></i><p>Nenhuma alteração para os filtros selecionados. Veja todas no <a href="https://klinisaude.com.br/rede-credenciada/" target="_blank" rel="noopener">portal oficial</a>.</p></div>
+        </div>
+        <p class="rc-tl__note">Lista ilustrativa das alterações mais recentes. A relação completa e vigente, com as datas oficiais, está sempre disponível no <a href="https://klinisaude.com.br/rede-credenciada/" target="_blank" rel="noopener">portal oficial da Klini</a>, conforme as normas da ANS.</p>
+      </div>
 
       <div class="rc-up-info">
         <div class="rc-up"><div class="rc-up__ico"><i class="pi pi-plus-circle"></i></div><h4>Inclusões</h4><p>Novos prestadores credenciados que passam a atender o seu plano na região.</p></div>
@@ -340,65 +521,172 @@
     if (location.hash === '#atualizacoes') activate('atualizacoes');
   })();
 </script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <script>
-/* ── Live filter — rede própria Klini ── */
+/* ── Mapa de unidades — rede própria Klini ── */
 (function(){
-  var UNITS=[
-    {name:'CMK Praça da Bandeira',  cls:'cmk',  type:'CMK',  spec:'Clínica geral · Ginecologia · Pediatria', local:'Praça da Bandeira, Rio de Janeiro'},
-    {name:'CMK Centro',             cls:'cmk',  type:'CMK',  spec:'Clínica geral · Ortopedia · Cardiologia',  local:'Centro, Rio de Janeiro'},
-    {name:'CMK Tijuca',             cls:'cmk',  type:'CMK',  spec:'Clínica geral · Dermatologia',             local:'Tijuca, Rio de Janeiro'},
-    {name:'CMK Madureira',          cls:'cmk',  type:'CMK',  spec:'Clínica geral · Ortopedia',                local:'Madureira, Rio de Janeiro'},
-    {name:'CMK Vila Valqueire',     cls:'cmk',  type:'CMK',  spec:'Clínica geral · Psiquiatria',              local:'Vila Valqueire, Rio de Janeiro'},
-    {name:'CMK Jacarepaguá',        cls:'cmk',  type:'CMK',  spec:'Clínica geral · Neurologia',               local:'Jacarepaguá, Rio de Janeiro'},
-    {name:'CMK Barra da Tijuca',    cls:'cmk',  type:'CMK',  spec:'Clínica geral · Ginecologia · Pediatria',  local:'Barra da Tijuca, Rio de Janeiro'},
-    {name:'CMK Recreio',            cls:'cmk',  type:'CMK',  spec:'Clínica geral · Dermatologia',             local:'Recreio, Rio de Janeiro'},
-    {name:'CMK Campo Grande',       cls:'cmk',  type:'CMK',  spec:'Clínica geral · Ginecologia',              local:'Campo Grande, Rio de Janeiro'},
-    {name:'CMK Nova Iguaçu',        cls:'cmk',  type:'CMK',  spec:'Clínica geral · Pediatria · Ortopedia',    local:'Nova Iguaçu'},
-    {name:'RCASA Ilha do Governador',cls:'rcasa',type:'Hospital',spec:'Cirurgia · Urgência · UTI',            local:'Ilha do Governador, Rio de Janeiro'},
-    {name:'RCASA Laranjeiras',      cls:'rcasa',type:'Hospital',spec:'Maternidade · Obstetrícia · UTI',       local:'Laranjeiras, Rio de Janeiro'},
-    {name:'RCASA Santa Cruz',       cls:'rcasa',type:'Hospital',spec:'Clínica geral · Cirurgia · Urgência',   local:'Santa Cruz, Rio de Janeiro'},
-    {name:'Hospital Egas Moniz',    cls:'rcasa',type:'Hospital',spec:'Cirurgia · Oncologia · UTI',            local:'Rio de Janeiro'},
-    {name:'Hospital Evangélico',    cls:'rcasa',type:'Hospital',spec:'Urgência · Cirurgia · Maternidade',     local:'Nova Iguaçu'},
-    {name:'MensSana',               cls:'rcasa',type:'Hospital',spec:'Saúde mental · Psiquiatria',            local:'Rio de Janeiro'},
-    {name:'RCASA Rio Botafogo',     cls:'rcasa',type:'Hospital',spec:'Cirurgia · Ortopedia · Urgência',       local:'Botafogo, Rio de Janeiro'},
-    {name:'Hospital Premium',       cls:'rcasa',type:'Hospital',spec:'Oncologia · Cirurgia · UTI',            local:'Rio de Janeiro'},
-    {name:'Casa de Portugal',       cls:'rcasa',type:'Hospital',spec:'Clínica geral · Cirurgia · Maternidade',local:'Rio de Janeiro'}
+  if(!document.getElementById('map')||typeof L==='undefined') return;
+  var units = [
+    { id:'cmk-nova-iguacu', type:'cmk', name:'CMK Nova Iguaçu', addr:'Rua Dom Walmor, 383, 4º andar — Centro', city:'Nova Iguaçu', lat:-22.7574, lng:-43.4524, spec:'Centro Médico' },
+    { id:'cmk-ilha', type:'cmk', name:'CMK Ilha do Governador', addr:'Estrada do Dendê, 1086 — Tauá', city:'Rio de Janeiro', lat:-22.7882, lng:-43.1741, spec:'Centro Médico' },
+    { id:'cmk-bangu', type:'cmk', name:'CMK Bangu', addr:'Rua Fonseca, 580, 5º andar — Bangu', city:'Rio de Janeiro', lat:-22.8783, lng:-43.4637, spec:'Centro Médico' },
+    { id:'cmk-madureira', type:'cmk', name:'CMK Madureira', addr:'Rua Guarapari, 25 — Madureira', city:'Rio de Janeiro', lat:-22.8765, lng:-43.3395, spec:'Centro Médico' },
+    { id:'cmk-santa-cruz', type:'cmk', name:'CMK Santa Cruz', addr:'Rua Visconde de Sepetiba, 22C — Santa Cruz', city:'Rio de Janeiro', lat:-22.9063, lng:-43.6966, spec:'Centro Médico' },
+    { id:'cmk-campo-grande', type:'cmk', name:'CMK Campo Grande', addr:'Rua Ivo do Prado, 79 — Campo Grande', city:'Rio de Janeiro', lat:-22.9019, lng:-43.5529, spec:'Centro Médico' },
+    { id:'cmk-centro', type:'cmk', name:'CMK Centro', addr:'Rua Riachuelo, 350 — Centro', city:'Rio de Janeiro', lat:-22.9073, lng:-43.1813, spec:'Centro Médico' },
+    { id:'cmk-tijuca', type:'cmk', name:'CMK Tijuca', addr:'Rua Major Ávila, 260, 8º andar — Tijuca', city:'Rio de Janeiro', lat:-22.9265, lng:-43.2497, spec:'Centro Médico' },
+    { id:'cmk-angra', type:'cmk', name:'CMK Angra dos Reis', addr:'Rua Ilha dos Coqueiros, 571 — Ribeira', city:'Angra dos Reis', lat:-23.0062, lng:-44.3174, spec:'Centro Médico' },
+    { id:'cmk-barra', type:'cmk', name:'CMK Barra da Tijuca', addr:'Av. das Américas, 3200 — Barra da Tijuca', city:'Rio de Janeiro', lat:-23.0003, lng:-43.3623, spec:'Sede + Centro Médico' },
+    { id:'hc-ilha', type:'hc', name:'HC Ilha do Governador', addr:'Estrada do Dendê, 668 — Tauá', city:'Rio de Janeiro', lat:-22.7893, lng:-43.1808, spec:'Geral' },
+    { id:'hc-santa-cruz', type:'hc', name:'HC Santa Cruz', addr:'Rua Nestor, 131 — Santa Cruz', city:'Rio de Janeiro', lat:-22.9075, lng:-43.6973, spec:'Pronto Atendimento 24h' },
+    { id:'hc-menssana', type:'hc', name:'HC Menssana', addr:'Rua Marechal Jofre, 30 — Grajaú', city:'Rio de Janeiro', lat:-22.9139, lng:-43.2914, spec:'Saúde Mental' },
+    { id:'hc-evangelico', type:'hc', name:'HC Evangélico', addr:'Rua Bom Pastor, 295 — Tijuca', city:'Rio de Janeiro', lat:-22.9237, lng:-43.2417, spec:'Alta Complexidade' },
+    { id:'hc-portugal', type:'hc', name:'HC de Portugal', addr:'Rua do Bispo, 72 — Rio Comprido', city:'Rio de Janeiro', lat:-22.9113, lng:-43.1916, spec:'Clínico & Cirúrgico' },
+    { id:'hc-premium', type:'hc', name:'HC Premium', addr:'Rua do Bispo, 18 — Rio Comprido', city:'Rio de Janeiro', lat:-22.9110, lng:-43.1912, spec:'Oncologia' },
+    { id:'hc-laranjeiras', type:'hc', name:'HC Rio Laranjeiras', addr:'Rua das Laranjeiras, 72 — Laranjeiras', city:'Rio de Janeiro', lat:-22.9299, lng:-43.1833, spec:'Cirúrgico' },
+    { id:'hc-sao-bernardo', type:'hc', name:'HC São Bernardo', addr:'Av. das Américas, 3250 — Barra da Tijuca', city:'Rio de Janeiro', lat:-23.0009, lng:-43.3618, spec:'UTI Especializada' },
+    { id:'hc-oftalmocasa', type:'hc', name:'Oftalmocasa', addr:'Av. das Américas, 3200 — Barra da Tijuca', city:'Rio de Janeiro', lat:-23.0003, lng:-43.3625, spec:'Oftalmologia' }
   ];
 
-  var grid=document.getElementById('rcGrid');
-  var search=document.getElementById('rcSearch');
-  var countEl=document.getElementById('rcCount');
-  if(!grid||!search)return;
+  var map = L.map('map', { center:[-22.88,-43.55], zoom:10, zoomControl:false, scrollWheelZoom:false });
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    subdomains:'abcd', maxZoom:18
+  }).addTo(map);
+  L.control.zoom({ position:'bottomright' }).addTo(map);
 
-  // Render cards
-  UNITS.forEach(function(u){
-    var el=document.createElement('div');
-    el.className='rc-unit';
-    el.innerHTML='<span class="rc-unit__badge rc-unit__badge--'+u.cls+'">'+u.type+'</span>'
-      +'<div class="rc-unit__name">'+u.name+'</div>'
-      +'<div class="rc-unit__spec">'+u.spec+'</div>'
-      +'<div class="rc-unit__local"><i class="pi pi-map-marker" style="font-size:.7rem"></i> '+u.local+'</div>';
-    grid.appendChild(el);
-  });
-
-  var cards=Array.prototype.slice.call(grid.querySelectorAll('.rc-unit'));
-
-  function filter(q){
-    var terms=q.trim().toLowerCase().split(/\s+/).filter(Boolean);
-    var n=0;
-    cards.forEach(function(card,i){
-      var u=UNITS[i];
-      var hay=(u.name+' '+u.type+' '+u.spec+' '+u.local).toLowerCase();
-      var match=!terms.length||terms.every(function(t){return hay.indexOf(t)>=0});
-      card.hidden=!match;
-      if(match)n++;
-    });
-    countEl.textContent=n+' unidade'+(n!==1?'s':'');
+  function makeIcon(type){
+    var color = type==='cmk' ? '#CD7925' : '#259591';
+    var svg = '<svg viewBox="0 0 32 42" xmlns="http://www.w3.org/2000/svg"><path d="M16 0C7.2 0 0 7.2 0 16c0 11.2 16 26 16 26S32 27.2 32 16C32 7.2 24.8 0 16 0z" fill="'+color+'"/><circle cx="16" cy="16" r="6.5" fill="#fff"/></svg>';
+    return L.divIcon({ html:'<div class="kln-marker">'+svg+'</div>', className:'', iconSize:[32,42], iconAnchor:[16,42], popupAnchor:[0,-44] });
+  }
+  function makePopup(u){
+    var label = u.type==='cmk' ? 'Centro Médico Klini' : 'Hospital Rede Casa';
+    var typeClass = u.type==='cmk' ? 'popup-type--cmk' : 'popup-type--hc';
+    var specClass = u.type==='cmk' ? 'popup-spec--cmk' : '';
+    var mapsClass = u.type==='cmk' ? 'popup-maps--cmk' : '';
+    var mapsUrl = 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(u.name+' '+u.city+' '+u.addr);
+    return '<div class="popup-inner"><div class="popup-type '+typeClass+'">'+label+'</div>'+
+      '<div class="popup-name">'+u.name+'</div>'+
+      '<div class="popup-addr"><i class="pi pi-map-marker"></i>'+u.addr+' · '+u.city+'</div>'+
+      '<div class="popup-spec '+specClass+'"><i class="pi pi-star-fill"></i> '+u.spec+'</div><br>'+
+      '<a class="popup-maps '+mapsClass+'" href="'+mapsUrl+'" target="_blank" rel="noopener"><i class="pi pi-map"></i> Como chegar</a></div>';
   }
 
-  search.addEventListener('input',function(){filter(this.value)});
-  // Initial state
-  countEl.textContent=UNITS.length+' unidades';
+  var detail=document.getElementById('mapDetail'), selId=null;
+  function markerEl(id){ var m=markers[id]; return (m&&m._icon)?m._icon.querySelector('.kln-marker'):null; }
+  function markerHot(id,on){ var el=markerEl(id); if(el) el.classList.toggle('hot',on); }
+  function markerSel(id){ if(selId){ var p=markerEl(selId); if(p) p.classList.remove('sel'); } selId=id; var el=markerEl(id); if(el) el.classList.add('sel'); }
+  function showDetail(u){
+    detail.className='map-detail show '+u.type;
+    document.getElementById('mdType').textContent = u.type==='cmk'?'Centro Médico Klini':'Hospital Rede Casa';
+    document.getElementById('mdName').textContent = u.name;
+    document.getElementById('mdAddr').textContent = u.addr+' · '+u.city;
+    document.getElementById('mdSpec').innerHTML = '<i class="pi pi-star-fill"></i> '+u.spec;
+    document.getElementById('mdMaps').href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(u.name+' '+u.city+' '+u.addr);
+  }
+  function hideDetail(){ detail.classList.remove('show'); if(selId){ var p=markerEl(selId); if(p) p.classList.remove('sel'); selId=null; } }
+  function selectUnit(u){ map.flyTo([u.lat,u.lng],15,{duration:.8}); markerSel(u.id); highlightItem(u.id); showDetail(u); }
+
+  var markers = {}, currentFilter='all', currentSearch='', bounds=L.latLngBounds();
+  units.forEach(function(u){
+    var m=L.marker([u.lat,u.lng],{icon:makeIcon(u.type)}).addTo(map);
+    m.bindPopup(makePopup(u));
+    m.on('click',function(){ selectUnit(u); });
+    m.on('mouseover',function(){ markerHot(u.id,true); highlightItem(u.id,true); });
+    m.on('mouseout',function(){ markerHot(u.id,false); });
+    markers[u.id]=m; bounds.extend([u.lat,u.lng]);
+  });
+  map.fitBounds(bounds,{ padding:[40,40] });
+
+  var listEl=document.getElementById('unitList'), countEl=document.getElementById('sidebarCount');
+  function buildList(){
+    listEl.innerHTML=''; var visible=0;
+    units.forEach(function(u){
+      var matchFilter=(currentFilter==='all')||(currentFilter===u.type);
+      var q=currentSearch.toLowerCase();
+      var matchSearch=!q||u.name.toLowerCase().indexOf(q)>-1||u.addr.toLowerCase().indexOf(q)>-1||u.city.toLowerCase().indexOf(q)>-1;
+      var show=matchFilter&&matchSearch; if(show) visible++;
+      var item=document.createElement('button');
+      item.type='button'; item.setAttribute('aria-label', u.name+' — '+u.addr);
+      item.className='unit-item '+u.type+(show?'':' hidden'); item.id='item-'+u.id;
+      item.innerHTML='<div class="unit-dot unit-dot--'+u.type+'"></div><div><div class="unit-name">'+u.name+'</div><div class="unit-addr">'+u.addr+' · '+u.city+'</div><span class="unit-tag">'+u.spec+'</span></div>';
+      item.addEventListener('click',function(){ selectUnit(u); });
+      item.addEventListener('mouseenter',function(){ markerHot(u.id,true); });
+      item.addEventListener('mouseleave',function(){ markerHot(u.id,false); });
+      item.addEventListener('focus',function(){ markerHot(u.id,true); });
+      item.addEventListener('blur',function(){ markerHot(u.id,false); });
+      listEl.appendChild(item);
+    });
+    countEl.textContent=visible+' unidade'+(visible===1?'':'s');
+  }
+  function highlightItem(id,noScroll){
+    document.querySelectorAll('.unit-item').forEach(function(el){ el.classList.remove('active'); });
+    var el=document.getElementById('item-'+id); if(el){ el.classList.add('active'); if(!noScroll) el.scrollIntoView({behavior:'smooth',block:'nearest'}); }
+  }
+  window.filterUnits=function(type,btn){
+    currentFilter=type; hideDetail();
+    document.querySelectorAll('.filter-tab').forEach(function(t){ t.classList.remove('active'); });
+    btn.classList.add('active');
+    units.forEach(function(u){
+      var show=(type==='all')||(u.type===type);
+      if(show){ if(!map.hasLayer(markers[u.id])) markers[u.id].addTo(map); }
+      else { if(map.hasLayer(markers[u.id])) map.removeLayer(markers[u.id]); }
+    });
+    buildList();
+    var b=L.latLngBounds();
+    units.forEach(function(u){ if((type==='all')||(u.type===type)) b.extend([u.lat,u.lng]); });
+    if(b.isValid()) map.flyToBounds(b,{padding:[40,40],duration:.7});
+  };
+  window.searchUnits=function(val){ currentSearch=val; buildList(); };
+  window.resetMap=function(){ hideDetail(); window.filterUnits('all',document.querySelector('.filter-tab[data-filter="all"]')); document.querySelector('.sidebar-search input').value=''; currentSearch=''; buildList(); };
+  window.nearMe=function(){
+    if(!navigator.geolocation){ alert('Geolocalização não disponível no seu navegador.'); return; }
+    navigator.geolocation.getCurrentPosition(function(pos){
+      var la=pos.coords.latitude, lo=pos.coords.longitude, best=null, bd=Infinity;
+      units.forEach(function(u){ if(currentFilter!=='all'&&u.type!==currentFilter) return; var dx=u.lat-la, dy=u.lng-lo, d=dx*dx+dy*dy; if(d<bd){ bd=d; best=u; } });
+      if(best) selectUnit(best);
+    }, function(){ alert('Não foi possível obter a sua localização. Verifique a permissão do navegador.'); });
+  };
+  document.getElementById('mapDetailClose').addEventListener('click', hideDetail);
+  buildList();
+  setTimeout(function(){ map.invalidateSize(); }, 250);
+})();
+</script>
+<script>
+/* ── Filtro da timeline de alterações da rede ── */
+(function(){
+  var form=document.getElementById('rcAtualiza');
+  var list=document.getElementById('rcTlList');
+  if(!form||!list)return;
+  var items=Array.prototype.slice.call(list.querySelectorAll('.rc-tl__item'));
+  var empty=document.getElementById('rcTlEmpty');
+  var countEl=document.getElementById('rcTlCount');
+  var selRede=form.querySelector('[name=rede]');
+  var selTipo=form.querySelector('[name=tipo]');
+  var inpLocal=form.querySelector('[name=local]');
+
+  function norm(s){return (s||'').toLowerCase().trim();}
+  function apply(){
+    var rede=norm(selRede.value), tipo=norm(selTipo.value), loc=norm(inpLocal.value);
+    var n=0;
+    items.forEach(function(it){
+      var mr=!rede||norm(it.dataset.rede)===rede;
+      var mt=!tipo||norm(it.dataset.tipo)===tipo;
+      var ml=!loc||norm(it.dataset.local).indexOf(loc)>=0;
+      var match=mr&&mt&&ml;
+      it.hidden=!match;
+      if(match)n++;
+    });
+    if(empty)empty.hidden=n!==0;
+    countEl.textContent=n+' alteraç'+(n!==1?'ões':'ão');
+  }
+  form.addEventListener('submit',function(e){e.preventDefault();apply();});
+  selRede.addEventListener('change',apply);
+  selTipo.addEventListener('change',apply);
+  inpLocal.addEventListener('input',apply);
+  var btn=document.getElementById('rcAtualizaBtn');
+  if(btn)btn.addEventListener('click',apply);
 })();
 </script>
 <script src="assets/reveal.js"></script>
