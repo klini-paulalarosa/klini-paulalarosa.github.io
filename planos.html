@@ -11,6 +11,11 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons@7.0.0/primeicons.css" />
   <link rel="stylesheet" href="assets/klini.css" />
   <style>
+    /* HERO da página com beneficiário (foto Rio + wash teal DS) — só nesta página */
+    .page-hero--people{background:#259591}
+    .page-hero--people .ph-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 26%;z-index:0}
+    .page-hero--people .ph-wash{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(95deg,rgba(37,149,145,.96) 0%,rgba(37,149,145,.8) 32%,rgba(37,149,145,.4) 52%,rgba(37,149,145,.05) 72%)}
+    @media(max-width:760px){.page-hero--people .ph-photo{object-position:66% 22%}.page-hero--people .ph-wash{background:linear-gradient(180deg,rgba(37,149,145,.94) 0%,rgba(37,149,145,.6) 42%,rgba(37,149,145,.12) 76%)}}
     /* ── FLYERS (pôsteres dos planos) ── */
     .flyers{display:flex;flex-wrap:wrap;gap:26px;justify-content:center;perspective:1400px}
     .flyer{width:238px;display:flex;flex-direction:column}
@@ -124,7 +129,9 @@
 </header>
 
 <!-- HERO -->
-<section class="page-hero">
+<section class="page-hero page-hero--people">
+  <img class="ph-photo" src="assets/campanha/hero-planos.webp" alt="Beneficiário Klini no Rio de Janeiro" />
+  <div class="ph-wash"></div>
   <div class="wrap">
     <span class="eyebrow">planos klini</span>
     <h1 class="h1">Descubra o plano exato<br>para o seu <strong>momento</strong></h1>
