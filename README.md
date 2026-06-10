@@ -123,7 +123,7 @@ Site: **https://klini-paulalarosa.github.io/**
 
 ## Pendências conhecidas
 
-- [ ] Hospedar a fonte **Objective** no próprio repo (hoje vem de GitHub Pages de terceiro)
+- [x] Fonte **Objective** hospedada no repo (`assets/fonts/`, licença OFL) — `@font-face` local
 - [ ] Apontar os links de **IDSS** e **Transparência** para os documentos/PDFs oficiais da ANS (hoje vão para a homepage — ver comentários `TODO` no HTML)
 - [ ] Analytics (Google Analytics / Plausible)
 - [ ] `sitemap.xml` e `robots.txt`
