@@ -10,3 +10,7 @@ Thumbs.db
 .idea/
 *.swp
 *~
+
+# Rascunhos / laboratórios (não vão pra produção)
+_*.html
+_*.py
