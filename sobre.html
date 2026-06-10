@@ -397,6 +397,15 @@
         <span>Piratininga, Niterói – RJ</span>
         <span>CNPJ 34.539.000/0001-86</span>
       </div>
+      <div class="citem" id="imprensa">
+        <div class="citem__ico"><i class="pi pi-megaphone"></i></div>
+        <strong>Assessoria de Imprensa</strong>
+        <span>Lorena Vazquez</span>
+        <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
+          <button type="button" class="js-contact" data-type="wa" data-val="5521993584032" style="display:inline-flex;align-items:center;gap:7px;background:var(--off);border:1.5px solid var(--bd-l);color:var(--teal);font-family:'Objective',sans-serif;font-weight:700;font-size:.82rem;padding:9px 16px;border-radius:50px;cursor:pointer"><i class="pi pi-whatsapp"></i> WhatsApp</button>
+          <button type="button" class="js-contact" data-type="mail" data-val="lorena.vazquez@klinisaude.com.br" data-subj="Imprensa — Klini Saúde" style="display:inline-flex;align-items:center;gap:7px;background:var(--off);border:1.5px solid var(--bd-l);color:var(--teal);font-family:'Objective',sans-serif;font-weight:700;font-size:.82rem;padding:9px 16px;border-radius:50px;cursor:pointer"><i class="pi pi-envelope"></i> Enviar e-mail</button>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -443,16 +452,31 @@
         <a href="index.html"><img src="assets/logo-klini.webp" alt="Klini Saúde" style="height:44px" /></a>
         <p>Saúde com rede própria, telemedicina 24h e cuidado humano no Rio de Janeiro.</p>
       </div>
-      <nav class="foot__links">
-        <a href="sobre.html">A Klini</a>
-        <a href="sobre.html#unidades">Nossas unidades</a>
-        <a href="planos.html">Planos</a>
-        <a href="teleconsulta.html">Teleconsulta</a>
-        <a href="rede-credenciada.html">Rede credenciada</a>
-        <a href="transparencia.html">Transparência</a>
-        <a href="ouvidoria.html">Ouvidoria</a>
-        <a href="politica-de-privacidade.html">Privacidade</a>
-      </nav>
+      <div class="foot__cols">
+        <nav class="foot__col">
+          <span class="foot__col-h">Institucional</span>
+          <a href="sobre.html">A Klini</a>
+          <a href="sobre.html#unidades">Nossas unidades</a>
+          <a href="planos.html">Planos</a>
+          <a href="teleconsulta.html">Teleconsulta</a>
+          <a href="rede-credenciada.html">Rede credenciada</a>
+        </nav>
+        <nav class="foot__col">
+          <span class="foot__col-h">Atendimento</span>
+          <a href="ouvidoria.html">Ouvidoria</a>
+          <a href="sobre.html#imprensa">Imprensa</a>
+          <a href="negocie-sua-divida.html">Negocie sua dívida</a>
+          <a href="quero-me-credenciar.html">Quero me credenciar</a>
+        </nav>
+        <nav class="foot__col">
+          <span class="foot__col-h">Transparência &amp; Legal</span>
+          <a href="transparencia.html">Transparência</a>
+          <a href="idss.html">IDSS</a>
+          <a href="codigo-de-conduta.html">Código de conduta</a>
+          <a href="politica-de-privacidade.html">Privacidade</a>
+          <a href="termos-de-uso.html">Termos de uso</a>
+        </nav>
+      </div>
       <div class="foot__socials">
         <a href="https://www.instagram.com/klinisaude/" class="soc" target="_blank" rel="noopener" aria-label="Instagram"><i class="pi pi-instagram"></i></a>
         <a href="https://www.facebook.com/klinisaudematriz" class="soc" target="_blank" rel="noopener" aria-label="Facebook"><i class="pi pi-facebook"></i></a>
@@ -504,6 +528,15 @@
     window.addEventListener('resize', go, {passive:true});
     go();
   })();
+
+  /* contatos de imprensa — abrem no clique, sem expor número/e-mail no texto ou no hover */
+  document.querySelectorAll('.js-contact').forEach(function(b){
+    b.addEventListener('click', function(){
+      var v = b.dataset.val;
+      if (b.dataset.type === 'wa') window.open('https://wa.me/' + v, '_blank', 'noopener');
+      else window.location.href = 'mailto:' + v + (b.dataset.subj ? '?subject=' + encodeURIComponent(b.dataset.subj) : '');
+    });
+  });
 </script>
 <script src="assets/reveal.js"></script>
 </body>

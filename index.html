@@ -279,8 +279,13 @@ footer{background:#fff;color:var(--muted);padding:52px 0 28px;position:relative}
    "sobe" acompanhando a curva, com a linha das 4 cores por cima */
 .foot-arc{position:absolute;left:0;bottom:100%;width:100%;height:54px;margin-bottom:-1px;line-height:0;pointer-events:none}
 .foot-arc svg{display:block;width:100%;height:100%}
-.foot__top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;padding-bottom:28px;border-bottom:1px solid var(--bd-l);margin-bottom:28px}
+.foot__top{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:32px;padding-bottom:28px;border-bottom:1px solid var(--bd-l);margin-bottom:28px}
 .foot__logo img{height:26px;filter:none}
+.foot__cols{display:flex;gap:44px;flex-wrap:wrap;flex:1 1 auto;justify-content:center}
+.foot__col{display:flex;flex-direction:column;gap:9px}
+.foot__col-h{font-family:'Objective',sans-serif;font-weight:800;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text);margin-bottom:4px}
+.foot__col a{font-size:.82rem;color:var(--muted);transition:color .2s}
+.foot__col a:hover{color:var(--teal)}
 .foot__links{display:flex;gap:22px;flex-wrap:wrap}
 .foot__links a{font-size:.8rem;color:var(--muted);transition:color .2s}
 .foot__links a:hover{color:var(--teal)}
@@ -458,7 +463,7 @@ footer{background:#fff;color:var(--muted);padding:52px 0 28px;position:relative}
 
 /* ── CANAIS BENTO ─────────────────────────────────────────────── */
 /* grid limpo 3×2 — alturas pelo conteúdo (sem row-span = sem espaço sobrando) */
-.canais-bento{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px;align-items:start}
+.canais-bento{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:48px;align-items:start}
 .canal--wa{background:linear-gradient(150deg,rgba(37,149,145,.07),rgba(106,167,174,.03));border-color:rgba(37,149,145,.3)}
 .canal--wa .canal__ico{width:50px;height:50px;font-size:1.25rem}
 .canal--wa .canal__name{font-size:1.1rem}
@@ -1096,7 +1101,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
         <span class="canal__badge canal__badge--orange"><i class="pi pi-clock"></i> SEG a SEX, 8h às 17h</span>
       </div>
 
-      <!-- SAC (col 4-5, row 2) -->
+      <!-- SAC + Def. Auditivo -->
       <div class="canal canal--sac gs">
         <div class="canal__head">
           <div class="canal__ico" style="background:rgba(106,167,174,.12);color:var(--sea)"><i class="pi pi-phone"></i></div>
@@ -1105,22 +1110,13 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
         <a href="tel:02130550790" class="canal__info">(21) 3055-0790</a>
         <p class="canal__desc">Capitais e regiões metropolitanas</p>
         <a href="tel:08000210320" class="canal__info">0800 021 0320</a>
-        <p class="canal__desc" style="margin-bottom:0">Demais regiões</p>
+        <p class="canal__desc">Demais regiões</p>
+        <a href="tel:08009419601" class="canal__info">0800 941 9601</a>
+        <p class="canal__desc" style="margin-bottom:0">Exclusivo para deficientes auditivos</p>
         <span class="canal__badge canal__badge--green" style="margin-top:10px"><i class="pi pi-circle-fill" style="font-size:.45rem"></i> Disponível 24h</span>
       </div>
 
-      <!-- Def. Auditivo (col 6, row 2) -->
-      <div class="canal canal--deaf gs">
-        <div class="canal__head" style="flex-direction:column;align-items:flex-start;gap:9px">
-          <div class="canal__ico" style="background:rgba(205,121,37,.1);color:var(--orange)"><i class="pi pi-phone"></i></div>
-          <span class="canal__name" style="font-size:.88rem">Def. Auditivo</span>
-        </div>
-        <a href="tel:08009419601" class="canal__info" style="font-size:.8rem">0800 941 9601</a>
-        <p class="canal__desc" style="margin-bottom:0">Atendimento exclusivo para deficientes auditivos.</p>
-        <span class="canal__badge canal__badge--green" style="margin-top:10px"><i class="pi pi-circle-fill" style="font-size:.45rem"></i> 24h</span>
-      </div>
-
-      <!-- Ouvidoria (col 1-3, row 3) -->
+      <!-- Ouvidoria -->
       <div class="canal canal--ouv gs">
         <div class="canal__head">
           <div class="canal__ico" style="background:rgba(224,87,89,.1);color:var(--coral)"><i class="pi pi-flag"></i></div>
@@ -1128,17 +1124,6 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
         </div>
         <a href="ouvidoria.html" class="canal__info">Acessar Ouvidoria <i class="pi pi-arrow-right" style="font-size:.75rem"></i></a>
         <p class="canal__desc" style="margin-bottom:0">Para demandas não resolvidas pelos canais regulares de atendimento.</p>
-      </div>
-
-      <!-- Imprensa (col 4-6, row 3) -->
-      <div class="canal canal--imp gs">
-        <div class="canal__head">
-          <div class="canal__ico" style="background:var(--off);color:var(--muted)"><i class="pi pi-send"></i></div>
-          <span class="canal__name">Imprensa</span>
-        </div>
-        <span class="canal__info" style="color:var(--text);font-weight:600">Lorena Vazquez</span>
-        <a href="tel:02199358-4032" class="canal__info">(21) 99358-4032</a>
-        <a href="mailto:lorena.vazquez@klinisaude.com.br" class="canal__info" style="font-size:.78rem;word-break:break-all">lorena.vazquez@klinisaude.com.br</a>
       </div>
 
     </div>
@@ -1170,16 +1155,31 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
         <a href="index.html"><img src="assets/logo-klini.webp" alt="Klini Saúde" style="height:44px" /></a>
         <p style="font-size:.82rem;color:var(--muted);margin-top:14px;max-width:250px;line-height:1.6">Saúde com rede própria, telemedicina 24h e cuidado humano no Rio de Janeiro.</p>
       </div>
-      <nav class="foot__links">
-        <a href="sobre.html">Sobre a Klini</a>
-        <a href="planos.html">Planos</a>
-        <a href="teleconsulta.html">Teleconsulta</a>
-        <a href="sobre.html#unidades">Unidades</a>
-        <a href="rede-credenciada.html">Rede Credenciada</a>
-        <a href="transparencia.html">Transparência</a>
-        <a href="ouvidoria.html">Ouvidoria</a>
-        <a href="politica-de-privacidade.html">Privacidade</a>
-      </nav>
+      <div class="foot__cols">
+        <nav class="foot__col">
+          <span class="foot__col-h">Institucional</span>
+          <a href="sobre.html">A Klini</a>
+          <a href="sobre.html#unidades">Nossas unidades</a>
+          <a href="planos.html">Planos</a>
+          <a href="teleconsulta.html">Teleconsulta</a>
+          <a href="rede-credenciada.html">Rede credenciada</a>
+        </nav>
+        <nav class="foot__col">
+          <span class="foot__col-h">Atendimento</span>
+          <a href="ouvidoria.html">Ouvidoria</a>
+          <a href="sobre.html#imprensa">Imprensa</a>
+          <a href="negocie-sua-divida.html">Negocie sua dívida</a>
+          <a href="quero-me-credenciar.html">Quero me credenciar</a>
+        </nav>
+        <nav class="foot__col">
+          <span class="foot__col-h">Transparência &amp; Legal</span>
+          <a href="transparencia.html">Transparência</a>
+          <a href="idss.html">IDSS</a>
+          <a href="codigo-de-conduta.html">Código de conduta</a>
+          <a href="politica-de-privacidade.html">Privacidade</a>
+          <a href="termos-de-uso.html">Termos de uso</a>
+        </nav>
+      </div>
       <div class="foot__socials">
         <a href="https://www.instagram.com/klinisaude/" class="soc" target="_blank" rel="noopener" aria-label="Instagram"><i class="pi pi-instagram"></i></a>
         <a href="https://www.facebook.com/klinisaudematriz" class="soc" target="_blank" rel="noopener" aria-label="Facebook"><i class="pi pi-facebook"></i></a>
