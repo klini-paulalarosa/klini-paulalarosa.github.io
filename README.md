@@ -87,7 +87,7 @@ Segue os tokens do **@klini-saude/ds v2.0.0** (prefixo `kln`):
 | SAC 24h | 0800 021 0320 |
 | Ouvidoria | 0800 021 0320 |
 | WhatsApp | (21) 3055-0790 |
-| Sede | Av. das Américas, 3200 — Sala 114, Barra da Tijuca, RJ |
+| Sede | Av. Estrada Francisco da Cruz Nunes, 5982 – Loja 204, Piratininga, Niterói – RJ |
 | Simulador | https://site-dev.klinisaude.com.br/planos/#cotacao |
 
 ---

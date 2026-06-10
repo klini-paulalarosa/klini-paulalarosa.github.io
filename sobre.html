@@ -11,13 +11,19 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons@7.0.0/primeicons.css" />
   <link rel="stylesheet" href="assets/klini.css" />
   <style>
-    /* HERO com beneficiária (foto Rio + wash teal DS) — só nesta página */
-    .page-hero--people{background:#259591;position:relative;overflow:hidden}
-    .page-hero--people .ph-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 32%;z-index:0}
-    .page-hero--people .ph-wash{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(95deg,rgba(37,149,145,.96) 0%,rgba(37,149,145,.8) 32%,rgba(37,149,145,.4) 52%,rgba(37,149,145,.05) 72%)}
-    .page-hero--people .wrap{position:relative;z-index:2}
-    .page-hero--people .wrap p{max-width:520px}
-    @media(max-width:760px){.page-hero--people .wrap p{max-width:none}.page-hero--people .ph-photo{object-position:72% 45%}.page-hero--people .ph-wash{background:linear-gradient(180deg,rgba(37,149,145,.94) 0%,rgba(37,149,145,.6) 42%,rgba(37,149,145,.12) 76%)}}
+    /* HERO card flutuante (a Klini — Ana @ Candelária) */
+    .page-hero--people{background:#259591;position:relative;overflow:hidden;padding:82px 0 108px}
+    .page-hero--people::before{display:none}
+    .page-hero--people .ph-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:42% 62%;z-index:0}
+    .page-hero--people .ph-wash{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(270deg,rgba(4,20,18,.30) 0%,transparent 38%),radial-gradient(ellipse at 28% 55%,transparent 42%,rgba(4,20,18,.18) 100%)}
+    .page-hero--people .wrap{position:relative;z-index:2;max-width:1200px;display:flex;justify-content:flex-end}
+    .ph-d-card{position:relative;display:inline-flex;flex-direction:column;background:#259591;border-radius:22px;padding:32px 38px 38px;max-width:440px;box-shadow:0 28px 64px rgba(4,42,38,.38),0 0 0 1px rgba(255,255,255,.12)}
+    /* perninha de balão de fala — aponta à esquerda, rumo à Ana */
+    .ph-d-card::after{content:'';position:absolute;left:-15px;top:54%;width:22px;height:30px;background:#259591;clip-path:polygon(100% 0,100% 100%,0 42%);filter:drop-shadow(-3px 2px 4px rgba(4,42,38,.18))}
+    .ph-d-card .ph-k-card{display:block;width:40px;margin-bottom:18px;opacity:.88;filter:brightness(40) saturate(0)}
+    .page-hero--people .ph-cta{display:inline-flex;align-items:center;gap:8px;margin-top:24px;background:#fff;color:#259591;font-family:'Objective',sans-serif;font-weight:700;font-size:.95rem;padding:13px 28px;border-radius:50px;text-decoration:none;transition:all .22s;box-shadow:0 8px 28px rgba(4,42,38,.18);align-self:flex-start}
+    .page-hero--people .ph-cta:hover{background:#FFE0B5;transform:translateY(-2px);box-shadow:0 14px 36px rgba(4,42,38,.24)}
+    @media(max-width:760px){.page-hero--people{padding:80px 0 80px}.page-hero--people .wrap{justify-content:center}.ph-d-card{max-width:100%;border-radius:16px;padding:24px 24px 28px}.ph-d-card::after{display:none}.page-hero--people .ph-photo{object-position:46% 22%}.page-hero--people .ph-wash{background:linear-gradient(180deg,rgba(4,20,18,.12) 0%,rgba(4,20,18,.42) 100%)}}
 
     /* ── chips de âncora no hero ──────────────────────────────────── */
     .akl-jump{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
@@ -244,13 +250,11 @@
   <img class="ph-photo" src="assets/campanha/hero-sobre.webp" alt="Beneficiária Klini no Rio de Janeiro" />
   <div class="ph-wash"></div>
   <div class="wrap">
-    <span class="eyebrow">a klini</span>
-    <h1 class="h1">Cuidado integral.<br>Estrutura <strong>própria</strong>.</h1>
-    <p>A Klini é uma operadora de saúde suplementar com DNA carioca — nascida no Rio de Janeiro para cuidar de quem vive no Rio de Janeiro. Rede própria, equipe qualificada e atendimento humano em cada ponto de contato.</p>
-    <div class="akl-jump">
-      <a href="#essencia"><i class="pi pi-heart"></i> Quem somos</a>
-      <a href="#unidades"><i class="pi pi-map-marker"></i> Nossas unidades</a>
-      <a href="#trabalhe"><i class="pi pi-briefcase"></i> Trabalhe conosco</a>
+    <div class="ph-d-card">
+      <img class="ph-k-card" src="assets/k-mark.svg" alt=""/>
+      <span class="eyebrow">a klini</span>
+      <h1 class="h1">Cuidado integral.<br>Estrutura <strong>própria</strong>.</h1>
+      <a href="#essencia" class="ph-cta">Conhecer a Klini <i class="pi pi-arrow-right"></i></a>
     </div>
   </div>
   <div class="page-hero__divider">
@@ -389,8 +393,8 @@
       <div class="citem">
         <div class="citem__ico"><i class="pi pi-map-marker"></i></div>
         <strong>Sede Klini</strong>
-        <span>Av. das Américas, 3200 — Sala 114</span>
-        <span>Barra da Tijuca, Rio de Janeiro — RJ</span>
+        <span>Av. Estrada Francisco da Cruz Nunes, 5982 – Loja 204</span>
+        <span>Piratininga, Niterói – RJ</span>
         <span>CNPJ 34.539.000/0001-86</span>
       </div>
     </div>
@@ -461,7 +465,7 @@
       </div>
     </div>
     <div class="foot__bottom">
-      <p>© 2020–2026 Klini Planos de Saúde Ltda. · CNPJ 34.539.000/0001-86 · Barra da Tijuca, Rio de Janeiro, RJ</p>
+      <p>© 2020–2026 Klini Planos de Saúde Ltda. · CNPJ 34.539.000/0001-86 · Piratininga, Niterói, RJ</p>
       <div class="seals">
         <span class="seal ans-badge">ANS – Nº 42.202-9</span>
         <span class="seal">LGPD</span>

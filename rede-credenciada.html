@@ -12,13 +12,19 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
   <link rel="stylesheet" href="assets/klini.css" />
   <style>
-    /* HERO com beneficiário (foto Rio + wash teal DS) — só nesta página */
-    .page-hero--people{background:#259591;position:relative;overflow:hidden}
-    .page-hero--people .ph-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 32%;z-index:0}
-    .page-hero--people .ph-wash{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(95deg,rgba(37,149,145,.96) 0%,rgba(37,149,145,.8) 32%,rgba(37,149,145,.4) 52%,rgba(37,149,145,.05) 72%)}
-    .page-hero--people .wrap{position:relative;z-index:2}
-    .page-hero--people .wrap p{max-width:520px}
-    @media(max-width:760px){.page-hero--people .wrap p{max-width:none}.page-hero--people .ph-photo{object-position:72% 45%}.page-hero--people .ph-wash{background:linear-gradient(180deg,rgba(37,149,145,.94) 0%,rgba(37,149,145,.6) 42%,rgba(37,149,145,.12) 76%)}}
+    /* HERO card flutuante (rede — Michel @ Theatro Municipal) */
+    .page-hero--people{background:#259591;position:relative;overflow:hidden;padding:82px 0 108px}
+    .page-hero--people::before{display:none}
+    .page-hero--people .ph-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:32% 60%;z-index:0}
+    .page-hero--people .ph-wash{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(270deg,rgba(4,20,18,.30) 0%,transparent 38%),radial-gradient(ellipse at 22% 55%,transparent 42%,rgba(4,20,18,.18) 100%)}
+    .page-hero--people .wrap{position:relative;z-index:2;max-width:1200px;display:flex;justify-content:flex-end}
+    .ph-d-card{position:relative;display:inline-flex;flex-direction:column;background:#259591;border-radius:22px;padding:32px 38px 38px;max-width:440px;box-shadow:0 28px 64px rgba(4,42,38,.38),0 0 0 1px rgba(255,255,255,.12)}
+    /* perninha de balão de fala — aponta à esquerda, rumo ao Michel */
+    .ph-d-card::after{content:'';position:absolute;left:-15px;top:36%;width:22px;height:30px;background:#259591;clip-path:polygon(100% 0,100% 100%,0 42%);filter:drop-shadow(-3px 2px 4px rgba(4,42,38,.18))}
+    .ph-d-card .ph-k-card{display:block;width:40px;margin-bottom:18px;opacity:.88;filter:brightness(40) saturate(0)}
+    .page-hero--people .ph-cta{display:inline-flex;align-items:center;gap:8px;margin-top:24px;background:#fff;color:#259591;font-family:'Objective',sans-serif;font-weight:700;font-size:.95rem;padding:13px 28px;border-radius:50px;text-decoration:none;transition:all .22s;box-shadow:0 8px 28px rgba(4,42,38,.18);align-self:flex-start}
+    .page-hero--people .ph-cta:hover{background:#FFE0B5;transform:translateY(-2px);box-shadow:0 14px 36px rgba(4,42,38,.24)}
+    @media(max-width:760px){.page-hero--people{padding:80px 0 80px}.page-hero--people .wrap{justify-content:center}.ph-d-card{max-width:100%;border-radius:16px;padding:24px 24px 28px}.ph-d-card::after{display:none}.page-hero--people .ph-photo{object-position:38% 28%}.page-hero--people .ph-wash{background:linear-gradient(180deg,rgba(4,20,18,.12) 0%,rgba(4,20,18,.42) 100%)}}
 
     /* ── Tabs Busca / Atualização ─────────────────────────────────── */
     .rc-toggle{display:inline-flex;background:var(--off);border:1px solid var(--bd-l);border-radius:40px;padding:5px;gap:4px;margin:0 auto 38px;justify-content:center}
@@ -210,9 +216,12 @@
   <img class="ph-photo" src="assets/campanha/hero-rede.webp" alt="Beneficiário Klini no Rio de Janeiro" />
   <div class="ph-wash"></div>
   <div class="wrap">
-    <span class="eyebrow">rede credenciada</span>
-    <h1 class="h1">Encontre atendimento<br><strong>onde você estiver</strong></h1>
-    <p>Hospitais, clínicas, laboratórios e profissionais credenciados ao seu plano nas regiões Norte, Noroeste e Baixada Fluminense do Rio de Janeiro — e as atualizações recentes da rede, tudo em um só lugar.</p>
+    <div class="ph-d-card">
+      <img class="ph-k-card" src="assets/k-mark.svg" alt=""/>
+      <span class="eyebrow">rede credenciada</span>
+      <h1 class="h1">Encontre atendimento<br><strong>onde você estiver</strong></h1>
+      <a href="#rcBuscar" class="ph-cta">Buscar na rede <i class="pi pi-search"></i></a>
+    </div>
   </div>
   <div class="page-hero__divider">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -485,7 +494,7 @@
       </div>
     </div>
     <div class="foot__bottom">
-      <p>© 2020–2026 Klini Planos de Saúde Ltda. · CNPJ 34.539.000/0001-86 · Barra da Tijuca, Rio de Janeiro, RJ</p>
+      <p>© 2020–2026 Klini Planos de Saúde Ltda. · CNPJ 34.539.000/0001-86 · Piratininga, Niterói, RJ</p>
       <div class="seals">
         <span class="seal ans-badge">ANS – Nº 42.202-9</span>
         <span class="seal">LGPD</span>
@@ -536,7 +545,7 @@
     { id:'cmk-centro', type:'cmk', name:'CMK Centro', addr:'Rua Riachuelo, 350 — Centro', city:'Rio de Janeiro', lat:-22.9073, lng:-43.1813, spec:'Centro Médico' },
     { id:'cmk-tijuca', type:'cmk', name:'CMK Tijuca', addr:'Rua Major Ávila, 260, 8º andar — Tijuca', city:'Rio de Janeiro', lat:-22.9265, lng:-43.2497, spec:'Centro Médico' },
     { id:'cmk-angra', type:'cmk', name:'CMK Angra dos Reis', addr:'Rua Ilha dos Coqueiros, 571 — Ribeira', city:'Angra dos Reis', lat:-23.0062, lng:-44.3174, spec:'Centro Médico' },
-    { id:'cmk-barra', type:'cmk', name:'CMK Barra da Tijuca', addr:'Av. das Américas, 3200 — Barra da Tijuca', city:'Rio de Janeiro', lat:-23.0003, lng:-43.3623, spec:'Sede + Centro Médico' },
+    { id:'cmk-barra', type:'cmk', name:'CMK Barra da Tijuca', addr:'Av. das Américas, 3200 — Barra da Tijuca', city:'Rio de Janeiro', lat:-23.0003, lng:-43.3623, spec:'Centro Médico' },
     { id:'hc-ilha', type:'hc', name:'HC Ilha do Governador', addr:'Estrada do Dendê, 668 — Tauá', city:'Rio de Janeiro', lat:-22.7893, lng:-43.1808, spec:'Geral' },
     { id:'hc-santa-cruz', type:'hc', name:'HC Santa Cruz', addr:'Rua Nestor, 131 — Santa Cruz', city:'Rio de Janeiro', lat:-22.9075, lng:-43.6973, spec:'Pronto Atendimento 24h' },
     { id:'hc-menssana', type:'hc', name:'HC Menssana', addr:'Rua Marechal Jofre, 30 — Grajaú', city:'Rio de Janeiro', lat:-22.9139, lng:-43.2914, spec:'Saúde Mental' },
