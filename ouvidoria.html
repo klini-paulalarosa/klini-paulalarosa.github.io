@@ -80,6 +80,10 @@
     .ouv-form__body{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.4,0,.2,1),opacity .3s ease;opacity:0}
     .ouv-form--open .ouv-form__body{max-height:3200px;opacity:1}
     .ouv-form--open .ouv-form__hd{padding-bottom:18px;border-bottom:1.5px solid var(--bd-l);margin-bottom:2px}
+    .ouv-success{text-align:center;padding:36px 28px}
+    .ouv-success i{font-size:2.4rem;color:var(--teal);display:block;margin-bottom:14px}
+    .ouv-success h3{margin-bottom:8px}
+    .ouv-success p{color:var(--muted);font-size:.9rem;line-height:1.7}
     @media(max-width:880px){.ouv-grid{grid-template-columns:1fr;gap:30px}.ouv-types{grid-template-columns:1fr}.ouv-aside{position:static}}
     @media(max-width:560px){.ouv-row{grid-template-columns:1fr}}
   </style>
@@ -187,8 +191,12 @@
           <i class="pi pi-chevron-down ouv-form__chev"></i>
         </button>
         <div class="ouv-form__body" id="ouvFormBody">
-        <form id="ouvForm">
-        <p>Preencha os dados abaixo. Ao enviar, abrimos o WhatsApp da Ouvidoria com sua manifestação pronta para registro.</p>
+        <form id="ouvForm" action="https://formsubmit.co/suporteti@klinisaude.com.br" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="_subject" value="Ouvidoria — Klini Saúde">
+        <input type="hidden" name="_next" value="https://klini-paulalarosa.github.io/ouvidoria.html?enviado=1">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="box">
+        <p>Preencha os campos abaixo. Sua manifestação será enviada por e-mail e respondida em até 5 dias úteis, conforme as normas da ANS.</p>
         <div class="ouv-row">
           <div class="ouv-field"><label>Nome completo <span>*</span></label><input name="nome" placeholder="Seu nome" required /></div>
           <div class="ouv-field"><label>CPF <span>*</span></label><input name="cpf" placeholder="000.000.000-00" required /></div>
@@ -355,51 +363,16 @@
     ouvFileLabel.textContent = ouvFile.files.length ? ouvFile.files[0].name : 'Anexar documento ou imagem';
   });
 
-  /* formulário da ouvidoria → compõe mensagem no WhatsApp (site estático) */
-  var ouv = document.getElementById('ouvForm');
-  var ouvToast = document.getElementById('ouvToast');
-  function showToast(toast, sub, cb) {
-    if (toast) {
-      toast.querySelector('.form-toast__sub').textContent = sub || '';
-      toast.classList.add('show');
-      setTimeout(function(){ toast.classList.remove('show'); }, 4200);
+  /* sucesso após envio via FormSubmit */
+  if (new URLSearchParams(window.location.search).get('enviado') === '1') {
+    var ouvCard = document.getElementById('ouvFormCard');
+    if (ouvCard) {
+      ouvCard.innerHTML = '<div class="ouv-success"><i class="pi pi-check-circle"></i><h3>Manifestação enviada!</h3><p>Sua manifestação foi registrada e será respondida em até 5 dias úteis, conforme as normas da ANS. Você receberá uma confirmação no e-mail informado.</p></div>';
     }
-    setTimeout(cb || function(){}, 750);
   }
-  if (ouv) ouv.addEventListener('submit', function(e){
-    e.preventDefault();
-    if (!ouv.checkValidity()) { ouv.reportValidity(); return; }
-    var d = new FormData(ouv);
-    var anexo = ouvFile && ouvFile.files.length ? ouvFile.files[0].name : '';
-    var txt = 'Olá! Manifestação para a Ouvidoria Klini.
-'
-            + 'Tipo: ' + (d.get('tipo')||'') + '
-'
-            + 'Nome: ' + (d.get('nome')||'') + '
-'
-            + 'CPF: ' + (d.get('cpf')||'') + '
-'
-            + 'E-mail: ' + (d.get('email')||'') + '
-'
-            + 'Telefone: ' + (d.get('telefone')||'') + '
-'
-            + 'Cartão/beneficiário: ' + (d.get('cartao')||'—') + '
-'
-            + 'Mensagem: ' + (d.get('mensagem')||'')
-            + (anexo ? '
-Anexo: ' + anexo + ' (vou enviar nesta conversa)' : '');
-    var url = 'https://wa.me/552130550790?text=' + encodeURIComponent(txt);
-    showToast(ouvToast, 'Abrindo WhatsApp…', function(){ window.open(url, '_blank'); });
-  });
+
 </script>
 
-<div class="form-toast" id="ouvToast" role="status" aria-live="polite">
-  <div class="form-toast__ico"><i class="pi pi-check"></i></div>
-  <div>
-    <span class="form-toast__title">Manifestação enviada!</span>
-    <span class="form-toast__sub"></span>
-  </div>
-</div>
 <script src="assets/reveal.js"></script>
 </body>
 </html>

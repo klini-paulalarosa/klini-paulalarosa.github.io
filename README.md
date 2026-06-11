@@ -47,7 +47,12 @@ klini-landing/
     ├── logo-klini.webp, k-mark.svg
     ├── campanha/               # Fotos/vídeos da campanha (heroes, planos, LCA)
     ├── farmacias/ · parceiros/ · hospitais/ · token/   # Logos e imagens de seções
-    └── flyer-*.png             # Pôsteres dos planos
+    ├── flyer-*.png             # Pôsteres dos planos
+    └── docs/
+        ├── idss/               # PDFs IDSS 2022–2025 (auto-hospedados)
+        ├── rn/                 # Cartilhas RN 368/438/497/509/561/565
+        ├── financeiro/         # Demonstrações financeiras 2021–2025
+        └── igualdade/          # Relatórios de igualdade salarial 2025
 ```
 
 > A estrutura é **flat** de propósito (padrão de site GitHub Pages). Mover páginas para subpastas quebraria os links internos.
@@ -122,7 +127,7 @@ Site: **https://klini-paulalarosa.github.io/**
 ## Pendências conhecidas
 
 - [x] Fonte **Objective** hospedada no repo (`assets/fonts/`, licença OFL) — `@font-face` local
-- [ ] Apontar os links de **IDSS** e **Transparência** para os documentos/PDFs oficiais da ANS (hoje vão para a homepage — ver comentários `TODO` no HTML)
+- [x] PDFs de **IDSS** e **Transparência** auto-hospedados em `assets/docs/` (45 arquivos) — independentes do WordPress da Klini
 - [ ] Analytics (Google Analytics / Plausible)
 - [ ] `sitemap.xml` e `robots.txt`
 
