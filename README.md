@@ -16,11 +16,9 @@ Site **estático** (HTML/CSS/JS), sem framework e sem etapa de _build_, publicad
 | Deploy | GitHub Pages (branch `main`) — publica automático no push |
 | Ícones | PrimeIcons v7 (CDN jsDelivr) |
 | Mapa da rede | Leaflet.js 1.9.4 (CDN unpkg) — em `rede-credenciada.html` |
-| Tipografia | Objective (`@font-face` externo¹) + Merriweather (Google Fonts) |
+| Tipografia | Objective (self-hosted em `assets/fonts/`, licença OFL) + Merriweather (Google Fonts) |
 | Animação de entrada | `assets/reveal.js` — scroll reveal com IntersectionObserver |
 | Estilos | `assets/klini.css` + blocos `<style>` por página |
-
-> ¹ **Atenção:** a fonte Objective é carregada de `https://brenosousaf13.github.io/...` (GitHub Pages de terceiro). É uma dependência externa frágil — recomenda-se hospedar os `.woff2` no próprio repositório (`assets/fonts/`) e apontar o `@font-face` para caminho relativo.
 
 ---
 

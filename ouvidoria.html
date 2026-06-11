@@ -41,7 +41,7 @@
     /* formulário */
     .ouv-form{background:#fff;border:1.5px solid var(--bd-l);border-radius:22px;padding:34px;box-shadow:0 24px 60px rgba(4,42,38,.07)}
     .ouv-form h3{font-family:'Objective',sans-serif;font-size:1.15rem;color:var(--text);margin-bottom:4px}
-    .ouv-form>p{font-size:.85rem;color:var(--muted);margin-bottom:22px}
+    .ouv-form__body>form>p:first-child{font-size:.85rem;color:var(--muted);margin-bottom:22px;margin-top:18px}
     .ouv-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
     .ouv-field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
     .ouv-field label{font-family:'Objective',sans-serif;font-weight:600;font-size:.8rem;color:var(--text)}
@@ -71,6 +71,15 @@
     .ouv-hours strong{font-family:'Objective',sans-serif;font-size:.9rem;color:var(--text);display:block}
     .ouv-hours span{font-size:.82rem;color:var(--muted)}
 
+    /* collapsible form toggle */
+    .ouv-form__hd{display:flex;align-items:center;justify-content:space-between;cursor:pointer;background:none;border:none;width:100%;padding:0;text-align:left;gap:12px;font-family:inherit}
+    .ouv-form__hd h3{margin:0}
+    .ouv-form__hd-sub{display:block;font-size:.8rem;color:var(--muted);margin-top:3px;font-weight:400;font-family:'Objective',sans-serif}
+    .ouv-form__chev{color:var(--teal);font-size:.9rem;transition:transform .32s ease;flex-shrink:0}
+    .ouv-form--open .ouv-form__chev{transform:rotate(180deg)}
+    .ouv-form__body{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.4,0,.2,1),opacity .3s ease;opacity:0}
+    .ouv-form--open .ouv-form__body{max-height:3200px;opacity:1}
+    .ouv-form--open .ouv-form__hd{padding-bottom:18px;border-bottom:1.5px solid var(--bd-l);margin-bottom:2px}
     @media(max-width:880px){.ouv-grid{grid-template-columns:1fr;gap:30px}.ouv-types{grid-template-columns:1fr}.ouv-aside{position:static}}
     @media(max-width:560px){.ouv-row{grid-template-columns:1fr}}
   </style>
@@ -129,7 +138,7 @@
       <img class="ph-k-card" src="assets/k-mark.svg" alt=""/>
       <span class="eyebrow">ouvidoria</span>
       <h1 class="h1">Um canal exclusivo<br>para <strong>você ser ouvido</strong></h1>
-      <a href="#ouvForm" class="ph-cta">Registrar manifestação <i class="pi pi-comment"></i></a>
+      <a href="#ouvFormCard" class="ph-cta" id="heroOuvCta">Registrar manifestação <i class="pi pi-comment"></i></a>
     </div>
   </div>
   <div class="page-hero__divider">
@@ -172,8 +181,13 @@
   <div class="wrap">
     <div class="ouv-grid">
       <!-- FORM -->
-      <form class="ouv-form" id="ouvForm">
-        <h3>Registrar manifestação</h3>
+      <div class="ouv-form" id="ouvFormCard">
+        <button class="ouv-form__hd" id="ouvToggle" type="button" aria-expanded="false" aria-controls="ouvFormBody">
+          <div><h3>Registrar manifestação</h3><span class="ouv-form__hd-sub">Clique para abrir o formulário</span></div>
+          <i class="pi pi-chevron-down ouv-form__chev"></i>
+        </button>
+        <div class="ouv-form__body" id="ouvFormBody">
+        <form id="ouvForm">
         <p>Preencha os dados abaixo. Ao enviar, abrimos o WhatsApp da Ouvidoria com sua manifestação pronta para registro.</p>
         <div class="ouv-row">
           <div class="ouv-field"><label>Nome completo <span>*</span></label><input name="nome" placeholder="Seu nome" required /></div>
@@ -200,7 +214,9 @@
         </div>
         <button type="submit" class="btn btn-teal"><i class="pi pi-send"></i> Enviar manifestação</button>
         <p class="ouv-form__note">Seus dados serão tratados em conformidade com a <a href="politica-de-privacidade.html">Política de Privacidade</a> da Klini Saúde e com a Lei nº 13.709/2018 (LGPD), sendo utilizados exclusivamente para o atendimento desta manifestação.</p>
-      </form>
+        </form>
+        </div>
+      </div>
 
       <!-- SAC -->
       <aside class="ouv-aside">
@@ -301,6 +317,37 @@
     barHamb.addEventListener('click', function(){ barNav.classList.toggle('open'); });
     barNav.querySelectorAll('.nav__item--drop .nav__link').forEach(function(btn){ btn.addEventListener('click', function(){ btn.closest('.nav__item--drop').classList.toggle('open'); }); });
   }
+
+  /* toggle do formulário colapsável */
+  var ouvCard = document.getElementById('ouvFormCard');
+  var ouvToggle = document.getElementById('ouvToggle');
+  function openOuvForm() {
+    if (!ouvCard) return;
+    ouvCard.classList.add('ouv-form--open');
+    if (ouvToggle) ouvToggle.setAttribute('aria-expanded', 'true');
+    var sub = ouvToggle && ouvToggle.querySelector('.ouv-form__hd-sub');
+    if (sub) sub.textContent = 'Clique para fechar';
+  }
+  if (ouvToggle) {
+    ouvToggle.addEventListener('click', function() {
+      var isOpen = ouvCard.classList.contains('ouv-form--open');
+      if (isOpen) {
+        ouvCard.classList.remove('ouv-form--open');
+        ouvToggle.setAttribute('aria-expanded', 'false');
+        var sub = ouvToggle.querySelector('.ouv-form__hd-sub');
+        if (sub) sub.textContent = 'Clique para abrir o formulário';
+      } else { openOuvForm(); }
+    });
+  }
+  var heroOuvCta = document.getElementById('heroOuvCta');
+  if (heroOuvCta) {
+    heroOuvCta.addEventListener('click', function(e) {
+      e.preventDefault();
+      openOuvForm();
+      if (ouvCard) setTimeout(function(){ ouvCard.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 40);
+    });
+  }
+  if (window.location.hash === '#ouvForm' || window.location.hash === '#ouvFormCard') openOuvForm();
 
   /* label do anexo */
   var ouvFile = document.getElementById('ouvFile'), ouvFileLabel = document.getElementById('ouvFileLabel');

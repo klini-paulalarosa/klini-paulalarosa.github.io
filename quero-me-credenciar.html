@@ -22,7 +22,7 @@
     /* form */
     .cred-form{background:#fff;border:1.5px solid var(--bd-l);border-radius:22px;padding:34px;box-shadow:0 24px 60px rgba(4,42,38,.07)}
     .cred-form h3{font-family:'Objective',sans-serif;font-size:1.15rem;color:var(--text);margin-bottom:4px}
-    .cred-form>p{font-size:.85rem;color:var(--muted);margin-bottom:22px}
+    .cred-form__body>form>p:first-child{font-size:.85rem;color:var(--muted);margin-bottom:22px;margin-top:18px}
     .cred-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
     .cred-field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
     .cred-field label{font-family:'Objective',sans-serif;font-weight:600;font-size:.8rem;color:var(--text)}
@@ -39,6 +39,19 @@
     .cred-form .btn{width:100%;justify-content:center;margin-top:6px}
     .cred-form__note{font-size:.74rem;color:var(--muted);text-align:center;margin-top:12px;line-height:1.6}
     .cred-form__note a{color:var(--teal);font-weight:600}
+    /* collapsible form toggle */
+    .cred-form__hd{display:flex;align-items:center;justify-content:space-between;cursor:pointer;background:none;border:none;width:100%;padding:0;text-align:left;gap:12px;font-family:inherit}
+    .cred-form__hd h3{margin:0}
+    .cred-form__hd-sub{display:block;font-size:.8rem;color:var(--muted);margin-top:3px;font-weight:400;font-family:'Objective',sans-serif}
+    .cred-form__chev{color:var(--teal);font-size:.9rem;transition:transform .32s ease;flex-shrink:0}
+    .cred-form--open .cred-form__chev{transform:rotate(180deg)}
+    .cred-form__body{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.4,0,.2,1),opacity .3s ease;opacity:0}
+    .cred-form--open .cred-form__body{max-height:3200px;opacity:1}
+    .cred-form--open .cred-form__hd{padding-bottom:18px;border-bottom:1.5px solid var(--bd-l);margin-bottom:2px}
+    .cred-success{text-align:center;padding:36px 28px}
+    .cred-success i{font-size:2.4rem;color:var(--teal);display:block;margin-bottom:14px}
+    .cred-success h3{margin-bottom:8px}
+    .cred-success p{color:var(--muted);font-size:.9rem;line-height:1.7}
     @media(max-width:880px){.cred-grid{grid-template-columns:1fr;gap:30px}}
     @media(max-width:560px){.cred-row{grid-template-columns:1fr}}
   </style>
@@ -118,9 +131,18 @@
       </div>
 
       <!-- FORM -->
-      <form class="cred-form" id="credForm">
-        <h3>Solicitação de credenciamento</h3>
-        <p>Preencha os dados do prestador. Ao enviar, abrimos seu e-mail com a solicitação pronta para a equipe de credenciamento.</p>
+      <div class="cred-form" id="credFormCard">
+        <button class="cred-form__hd" id="credToggle" type="button" aria-expanded="false" aria-controls="credFormBody">
+          <div><h3>Solicitação de credenciamento</h3><span class="cred-form__hd-sub">Clique para abrir o formulário</span></div>
+          <i class="pi pi-chevron-down cred-form__chev"></i>
+        </button>
+        <div class="cred-form__body" id="credFormBody">
+        <form id="credForm" action="https://formsubmit.co/tayna.melo@klinisaude.com.br" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="_subject" value="Credenciamento — Klini Saúde">
+          <input type="hidden" name="_next" value="https://klini-paulalarosa.github.io/quero-me-credenciar.html?enviado=1">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="box">
+        <p>Preencha os dados do prestador. Ao clicar em enviar, sua solicitação e os documentos anexos são enviados diretamente para a equipe de credenciamento.</p>
         <div class="cred-row">
           <div class="cred-field"><label>Nome completo <span>*</span></label><input name="nome" placeholder="Responsável" required /></div>
           <div class="cred-field"><label>CPF / CNPJ <span>*</span></label><input name="doc" placeholder="000.000.000-00" required /></div>
@@ -152,7 +174,9 @@
         </div>
         <button type="submit" class="btn btn-teal"><i class="pi pi-send"></i> Enviar solicitação</button>
         <p class="cred-form__note">Seus dados serão tratados em conformidade com a <a href="politica-de-privacidade.html">Política de Privacidade</a> da Klini Saúde e com a Lei nº 13.709/2018 (LGPD), sendo utilizados exclusivamente para a análise do credenciamento.</p>
-      </form>
+        </form>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -245,46 +269,34 @@
     credFileLabel.textContent = credFile.files.length ? credFile.files[0].name : 'Anexar documento';
   });
 
-  /* formulário → compõe e-mail para credenciamento (site estático) */
-  var cred = document.getElementById('credForm');
-  var credToast = document.getElementById('credToast');
-  function showCredToast(sub, cb) {
-    if (credToast) {
-      credToast.querySelector('.form-toast__sub').textContent = sub || '';
-      credToast.classList.add('show');
-      setTimeout(function(){ credToast.classList.remove('show'); }, 4200);
-    }
-    setTimeout(cb || function(){}, 750);
+  /* toggle do formulário colapsável */
+  var credCard = document.getElementById('credFormCard');
+  var credToggle = document.getElementById('credToggle');
+  function openCredForm() {
+    if (!credCard) return;
+    credCard.classList.add('cred-form--open');
+    if (credToggle) credToggle.setAttribute('aria-expanded', 'true');
+    var sub = credToggle && credToggle.querySelector('.cred-form__hd-sub');
+    if (sub) sub.textContent = 'Clique para fechar';
   }
-  if (cred) cred.addEventListener('submit', function(e){
-    e.preventDefault();
-    if (!cred.checkValidity()) { cred.reportValidity(); return; }
-    var d = new FormData(cred);
-    var anexo = credFile && credFile.files.length ? credFile.files[0].name : '';
-    var subject = 'Credenciamento — ' + (d.get('estabelecimento')||'');
-    var body = 'Solicitação de credenciamento à rede Klini
+  if (credToggle) {
+    credToggle.addEventListener('click', function() {
+      var isOpen = credCard.classList.contains('cred-form--open');
+      if (isOpen) {
+        credCard.classList.remove('cred-form--open');
+        credToggle.setAttribute('aria-expanded', 'false');
+        var sub = credToggle.querySelector('.cred-form__hd-sub');
+        if (sub) sub.textContent = 'Clique para abrir o formulário';
+      } else { openCredForm(); }
+    });
+  }
+  /* sucesso após envio via FormSubmit */
+  if (new URLSearchParams(window.location.search).get('enviado') === '1') {
+    if (credCard) {
+      credCard.innerHTML = '<div class="cred-success"><i class="pi pi-check-circle"></i><h3>Solicitação enviada!</h3><p>Sua solicitação foi enviada para a equipe Klini. Retornaremos em breve pelo e-mail ou telefone informados.</p></div>';
+    }
+  }
 
-'
-            + 'Nome: ' + (d.get('nome')||'') + '
-'
-            + 'CPF/CNPJ: ' + (d.get('doc')||'') + '
-'
-            + 'E-mail: ' + (d.get('email')||'') + '
-'
-            + 'Telefone: ' + (d.get('telefone')||'') + '
-'
-            + 'Estabelecimento: ' + (d.get('estabelecimento')||'') + '
-'
-            + 'Endereço: ' + (d.get('endereco')||'') + '
-'
-            + 'Especialidade/tipo: ' + (d.get('tipo')||'') + '
-'
-            + 'Serviços: ' + (d.get('servicos')||'—')
-            + (anexo ? '
-Anexo: ' + anexo + ' (anexar a este e-mail)' : '');
-    var href = 'mailto:credenciamento@klinisaude.com.br?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-    showCredToast('Abrindo cliente de e-mail…', function(){ window.location.href = href; });
-  });
 </script>
 
 <div class="form-toast" id="credToast" role="status" aria-live="polite">
