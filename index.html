@@ -603,7 +603,29 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
 
     <div class="bar__ctas">
       <a href="planos.html" class="btn-klini">Quero ser Klini</a>
-      <a href="https://app.klinisaude.com.br" class="btn-area" target="_blank" rel="noopener"><i class="pi pi-user"></i> Acesse sua área</a>
+      <div class="bar__area-wrap">
+        <button class="btn-area" type="button" aria-expanded="false" aria-haspopup="true">
+          <i class="pi pi-user"></i> Acesse sua área <i class="pi pi-chevron-down area__chev"></i>
+        </button>
+        <div class="area-drop">
+          <a href="https://beneficiario.klinisaude.com.br/" target="_blank" rel="noopener" class="area-drop__item">
+            <div class="area-drop__ico"><i class="pi pi-heart"></i></div>
+            <div><strong>Beneficiário</strong><span>Plano, autorizações e app</span></div>
+          </a>
+          <a href="https://portalplano.klinisaude.com.br/" target="_blank" rel="noopener" class="area-drop__item">
+            <div class="area-drop__ico"><i class="pi pi-building"></i></div>
+            <div><strong>Empresa</strong><span>Contratos e cobranças</span></div>
+          </a>
+          <a href="portal-prestador.html" class="area-drop__item">
+            <div class="area-drop__ico"><i class="pi pi-id-card"></i></div>
+            <div><strong>Prestador</strong><span>TISS, guias e faturamento</span></div>
+          </a>
+          <a href="espaco-corretor.html" class="area-drop__item">
+            <div class="area-drop__ico"><i class="pi pi-briefcase"></i></div>
+            <div><strong>Corretor</strong><span>Materiais e portal de vendas</span></div>
+          </a>
+        </div>
+      </div>
     </div>
 
     <button class="bar__hamburger" id="barHamb" aria-label="Menu">

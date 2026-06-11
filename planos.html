@@ -129,7 +129,29 @@
     </nav>
     <div class="bar__ctas">
       <a href="#cotacao" class="btn-klini">Quero ser Klini</a>
-      <a href="https://app.klinisaude.com.br" class="btn-area" target="_blank" rel="noopener"><i class="pi pi-user"></i> Acesse sua área</a>
+      <div class="bar__area-wrap">
+        <button class="btn-area" type="button" aria-expanded="false" aria-haspopup="true">
+          <i class="pi pi-user"></i> Acesse sua área <i class="pi pi-chevron-down area__chev"></i>
+        </button>
+        <div class="area-drop">
+          <a href="https://beneficiario.klinisaude.com.br/" target="_blank" rel="noopener" class="area-drop__item">
+            <div class="area-drop__ico"><i class="pi pi-heart"></i></div>
+            <div><strong>Beneficiário</strong><span>Plano, autorizações e app</span></div>
+          </a>
+          <a href="https://portalplano.klinisaude.com.br/" target="_blank" rel="noopener" class="area-drop__item">
+            <div class="area-drop__ico"><i class="pi pi-building"></i></div>
+            <div><strong>Empresa</strong><span>Contratos e cobranças</span></div>
+          </a>
+          <a href="portal-prestador.html" class="area-drop__item">
+            <div class="area-drop__ico"><i class="pi pi-id-card"></i></div>
+            <div><strong>Prestador</strong><span>TISS, guias e faturamento</span></div>
+          </a>
+          <a href="espaco-corretor.html" class="area-drop__item">
+            <div class="area-drop__ico"><i class="pi pi-briefcase"></i></div>
+            <div><strong>Corretor</strong><span>Materiais e portal de vendas</span></div>
+          </a>
+        </div>
+      </div>
     </div>
     <button class="bar__hamburger" id="barHamb" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
@@ -370,6 +392,14 @@
     barHamb.addEventListener('click', function(){ barNav.classList.toggle('open'); });
     barNav.querySelectorAll('.nav__item--drop .nav__link').forEach(function(btn){ btn.addEventListener('click', function(){ btn.closest('.nav__item--drop').classList.toggle('open'); }); });
   }
+  /* area dropdown */
+  (function(){
+    var wrap = document.querySelector('.bar__area-wrap');
+    if (!wrap) return;
+    var btn = wrap.querySelector('.btn-area');
+    document.addEventListener('click', function(e){ if (!wrap.contains(e.target)){ wrap.classList.remove('open'); if(btn) btn.setAttribute('aria-expanded','false'); } });
+    if (btn) btn.addEventListener('click', function(e){ e.stopPropagation(); var o=wrap.classList.toggle('open'); btn.setAttribute('aria-expanded', o?'true':'false'); });
+  })();
 
   /* tilt 3D nos flyers (segue o cursor) */
   document.querySelectorAll('.flyer').forEach(function(card){

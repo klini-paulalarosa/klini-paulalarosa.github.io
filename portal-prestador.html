@@ -3,17 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Termos de Uso do aplicativo e serviços Klini Saúde — definições, responsabilidades, propriedade intelectual, vigência e foro. ANS nº 42.202-9." />
-  <title>Termos de Uso | Klini Saúde</title>
+  <meta name="description" content="Portal do Prestador Klini Saúde — acesso ao Portal do Plano e ao Portal Médico para prestadores credenciados." />
+  <title>Portal do Prestador | Klini Saúde</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons@7.0.0/primeicons.css" />
   <link rel="stylesheet" href="assets/klini.css" />
+  <style>
+    .prest-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:48px}
+    .prest-card{background:#fff;border:1.5px solid var(--bd-l);border-radius:22px;padding:40px 36px;display:flex;flex-direction:column;gap:16px;transition:all .28s;text-decoration:none;color:inherit}
+    .prest-card:hover{border-color:var(--teal);transform:translateY(-5px);box-shadow:0 22px 52px rgba(4,42,38,.1)}
+    .prest-card__ico{width:58px;height:58px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+    .prest-card__ico--teal{background:rgba(37,149,145,.12);color:var(--teal)}
+    .prest-card__ico--sea{background:rgba(106,167,174,.14);color:var(--sea)}
+    .prest-card h3{font-family:'Objective',sans-serif;font-size:1.18rem;color:var(--text);margin:0}
+    .prest-card p{font-size:.9rem;color:var(--muted);line-height:1.75;margin:0;flex:1}
+    .prest-card__cta{display:inline-flex;align-items:center;gap:8px;font-family:'Objective',sans-serif;font-weight:700;font-size:.88rem;color:var(--teal);margin-top:4px}
+    .prest-card:hover .prest-card__cta{gap:12px}
+    .prest-note{background:var(--off);border:1.5px solid var(--bd-l);border-radius:16px;padding:22px 26px;display:flex;gap:14px;align-items:flex-start;margin-top:40px}
+    .prest-note i{color:var(--teal);font-size:1.1rem;flex-shrink:0;margin-top:2px}
+    .prest-note p{font-size:.87rem;color:var(--muted);line-height:1.75;margin:0}
+    .prest-note a{color:var(--teal);font-weight:600}
+    @media(max-width:680px){.prest-grid{grid-template-columns:1fr}}
+  </style>
 </head>
 <body>
 
-<!-- ══ TOP BAR (padrão Klini) ═══════════════════════════════════════ -->
+<!-- ══ TOP BAR ══════════════════════════════════════════════════════ -->
 <header class="bar" id="bar">
   <div class="bar__inner">
     <a href="index.html" class="bar__logo"><img src="assets/logo-klini.webp" alt="Klini Saúde" /></a>
@@ -49,7 +66,7 @@
       </div>
     </nav>
     <div class="bar__ctas">
-      <a href="planos.html#cotacao" class="btn-klini">Quero ser Klini</a>
+      <a href="planos.html" class="btn-klini">Quero ser Klini</a>
       <div class="bar__area-wrap">
         <button class="btn-area" type="button" aria-expanded="false" aria-haspopup="true">
           <i class="pi pi-user"></i> Acesse sua área <i class="pi pi-chevron-down area__chev"></i>
@@ -78,12 +95,12 @@
   </div>
 </header>
 
-<!-- ══ HERO ═════════════════════════════════════════════════════════ -->
+<!-- ══ HERO ══════════════════════════════════════════════════════════ -->
 <section class="page-hero">
   <div class="wrap">
-    <span class="eyebrow">termos & condições</span>
-    <h1 class="h1">Termos de <strong>Uso</strong></h1>
-    <p>As regras que regem o uso do aplicativo e dos serviços digitais da Klini Saúde — direitos e deveres do usuário e da operadora.</p>
+    <span class="eyebrow">portal do prestador</span>
+    <h1 class="h1">Acesso aos portais<br>da <strong>rede Klini</strong></h1>
+    <p>Selecione abaixo o portal correspondente ao seu perfil de atendimento na rede credenciada Klini Saúde.</p>
   </div>
   <div class="page-hero__divider">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -92,81 +109,35 @@
   </div>
 </section>
 
-<!-- ══ CONTEÚDO ═════════════════════════════════════════════════════ -->
+<!-- ══ ACESSOS ════════════════════════════════════════════════════════ -->
 <section class="sec">
   <div class="wrap">
-    <span class="legal__updated"><i class="pi pi-calendar"></i> Última atualização: 03/04/2023 · Klini Planos de Saúde Ltda. · ANS nº 42.202-9</span>
-    <div class="legal">
-      <aside class="legal__toc">
-        <strong>Nesta página</strong>
-        <a href="#identificacao">Identificação</a>
-        <a href="#definicoes">1. Definições</a>
-        <a href="#responsabilidades">2. Responsabilidades</a>
-        <a href="#propriedade">3. Propriedade intelectual</a>
-        <a href="#vigencia">4. Vigência</a>
-        <a href="#foro">5. Lei aplicável e foro</a>
-      </aside>
-      <div class="legal__body">
-        <section id="identificacao">
-          <h2>Identificação da empresa</h2>
-          <div class="legal__contact">
-            <p style="margin:0"><strong>Razão social:</strong> Klini Planos de Saúde Ltda.<br>
-            <strong>Endereço:</strong> Av. Estrada Francisco da Cruz Nunes, 5982 – Loja 204, Piratininga, Niterói – RJ<br>
-            <strong>CNPJ:</strong> 34.539.000/0001-86<br>
-            <strong>Registro ANS:</strong> 42.202-9</p>
-          </div>
-        </section>
-        <section id="definicoes">
-          <h2>1. Definições</h2>
-          <p>Para os fins destes Termos de Uso, os termos abaixo têm os seguintes significados:</p>
-          <ul>
-            <li><strong>Aplicativo Klini:</strong> software gratuito disponível para dispositivos iOS e Android, por meio do qual são oferecidos os serviços Klini aos usuários cadastrados.</li>
-            <li><strong>Browser:</strong> programa utilizado para acessar e navegar em páginas e conteúdos na internet.</li>
-            <li><strong>Dispositivos móveis:</strong> equipamentos portáteis habilitados para comunicação via telecomunicações, como smartphones e tablets.</li>
-            <li><strong>Operadora de serviços de telecomunicação:</strong> empresa licenciada para prestação de serviços de telecomunicações ao usuário.</li>
-            <li><strong>Senha:</strong> combinação de caracteres utilizada para validar a identidade do usuário no acesso aos serviços.</li>
-            <li><strong>SMS:</strong> serviço de envio e recebimento de mensagens de texto por meio de dispositivos móveis.</li>
-            <li><strong>Serviços:</strong> conjunto de funcionalidades e benefícios disponibilizados ao usuário por meio do Aplicativo Klini.</li>
-            <li><strong>Usuário:</strong> pessoa física que realizou o download e o cadastro no Aplicativo Klini e faz uso dos serviços oferecidos.</li>
-          </ul>
-        </section>
-        <section id="responsabilidades">
-          <h2>2. Responsabilidades da empresa e do usuário</h2>
-          <h3>Responsabilidades do usuário</h3>
-          <ul>
-            <li>Providenciar os equipamentos e a conexão à internet necessários para utilização do aplicativo, sendo de sua exclusiva responsabilidade eventuais atrasos ou interrupções decorrentes de falhas na transmissão.</li>
-            <li>Problemas causados por incompatibilidade de browser ou equipamentos são de inteira responsabilidade do usuário.</li>
-            <li>Zelar pela guarda e confidencialidade da senha de acesso e pelo uso adequado do dispositivo onde o aplicativo estiver instalado.</li>
-            <li>Assumir responsabilidade por eventuais danos causados por vírus ou softwares maliciosos que não decorram de falha da Klini.</li>
-            <li>Ao utilizar o aplicativo, o usuário declara ter lido, compreendido e aceito integralmente todos os termos aqui dispostos.</li>
-          </ul>
-          <h3>Responsabilidades da Klini</h3>
-          <ul>
-            <li>A Klini não garante a disponibilidade ininterrupta do aplicativo nem a cobertura do serviço em todas as regiões geográficas.</li>
-            <li>A Klini poderá rescindir o acesso aos serviços em caso de suspeita de uso indevido, sem necessidade de aviso prévio.</li>
-          </ul>
-        </section>
-        <section id="propriedade">
-          <h2>3. Propriedade intelectual</h2>
-          <p>Todo o conteúdo disponível no Aplicativo Klini — incluindo textos, imagens, logotipos, código-fonte e demais elementos — é de propriedade exclusiva da Klini Planos de Saúde Ltda. e protegido pela legislação de direitos autorais e propriedade intelectual vigente no Brasil.</p>
-          <p>As marcas e logotipos da Klini são de uso exclusivo da empresa. A reprodução, distribuição ou uso não autorizado de qualquer elemento de propriedade intelectual da Klini constitui violação à legislação aplicável, sujeitando o infrator às responsabilidades civis e penais cabíveis.</p>
-          <p>O usuário assume responsabilidade civil e criminal por qualquer uso indevido de conteúdo de propriedade intelectual da Klini.</p>
-        </section>
-        <section id="vigencia">
-          <h2>4. Vigência</h2>
-          <p>A vigência dos presentes Termos de Uso está vinculada ao prazo de validade do contrato firmado entre o usuário e a Klini Saúde. O encerramento do contrato implica a cessação do acesso aos serviços disponibilizados pelo aplicativo, ressalvadas as obrigações que, por sua natureza, devam subsistir após o término do vínculo contratual.</p>
-        </section>
-        <section id="foro">
-          <h2>5. Lei aplicável e foro</h2>
-          <p>A coleta e o tratamento de dados pessoais realizados por meio dos serviços Klini seguem a legislação brasileira, em especial a Lei nº 13.709/2018 (Lei Geral de Proteção de Dados — LGPD).</p>
-          <p>Estes Termos de Uso são regidos exclusivamente pelas leis da República Federativa do Brasil. Para a resolução de quaisquer controvérsias decorrentes deste instrumento, fica eleito o foro da comarca do Rio de Janeiro, RJ, com exclusão de qualquer outro, por mais privilegiado que seja.</p>
-        </section>
-      </div>
+    <div class="prest-grid">
+
+      <a href="https://portalplano.klinisaude.com.br/" target="_blank" rel="noopener" class="prest-card gs">
+        <div class="prest-card__ico prest-card__ico--teal"><i class="pi pi-id-card"></i></div>
+        <h3>Prestador / Clínica</h3>
+        <p>Acesso ao Portal do Plano para clínicas, laboratórios e demais prestadores da rede Klini — envio de guias TISS, acompanhamento de faturamento e glosas.</p>
+        <span class="prest-card__cta">Acessar portal <i class="pi pi-arrow-right"></i></span>
+      </a>
+
+      <a href="https://portalmedico.klinisaude.com.br/home" target="_blank" rel="noopener" class="prest-card gs">
+        <div class="prest-card__ico prest-card__ico--sea"><i class="pi pi-heart"></i></div>
+        <h3>Médico Credenciado</h3>
+        <p>Acesso ao Portal Médico para profissionais de saúde credenciados individualmente — agenda, laudos, histórico de atendimentos e comunicados da operadora.</p>
+        <span class="prest-card__cta">Acessar portal <i class="pi pi-arrow-right"></i></span>
+      </a>
+
+    </div>
+
+    <div class="prest-note gs">
+      <i class="pi pi-info-circle"></i>
+      <p>Dúvidas sobre credenciamento ou suporte técnico? Entre em contato pelo <a href="tel:02130550790">(21) 3055-0790</a> ou acesse a página <a href="quero-me-credenciar.html">Quero me credenciar</a> para solicitações de novos credenciamentos.</p>
     </div>
   </div>
 </section>
 
-<!-- ══ FOOTER (padrão Klini) ════════════════════════════════════════ -->
+<!-- ══ FOOTER ═════════════════════════════════════════════════════════ -->
 <footer>
   <div class="foot-arc" aria-hidden="true">
     <svg viewBox="0 0 1440 54" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
@@ -236,7 +207,7 @@
 
 <div class="wa-f">
   <span class="wa-tip">Falar com a Klini</span>
-  <a href="https://wa.me/552130550790?text=Olá!%20Tenho%20uma%20dúvida%20sobre%20os%20Termos%20de%20Uso%20Klini." class="wa-btn" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="pi pi-whatsapp" style="font-size:1.5rem;color:#fff;line-height:1"></i></a>
+  <a href="https://wa.me/552130550790?text=Olá!%20Sou%20prestador%20credenciado%20e%20preciso%20de%20suporte." class="wa-btn" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="pi pi-whatsapp" style="font-size:1.5rem;color:#fff;line-height:1"></i></a>
 </div>
 
 <script>
