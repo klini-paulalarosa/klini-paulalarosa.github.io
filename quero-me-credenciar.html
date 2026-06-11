@@ -54,6 +54,14 @@
     .cred-success p{color:var(--muted);font-size:.9rem;line-height:1.7}
     @media(max-width:880px){.cred-grid{grid-template-columns:1fr;gap:30px}}
     @media(max-width:560px){.cred-row{grid-template-columns:1fr}}
+
+    /* ── HERO foto ────────────────────────────────────────────────── */
+    .page-hero--people{background:#259591;position:relative;overflow:hidden;padding:168px 0 100px}
+    .page-hero--people::before{display:none}
+    .page-hero--people .ph-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%;z-index:0}
+    .page-hero--people .ph-wash{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(4,20,18,.85) 0%,rgba(37,149,145,.80) 22%,rgba(37,149,145,.52) 48%,rgba(37,149,145,.18) 68%,rgba(37,149,145,0) 84%)}
+    .page-hero--people .wrap{position:relative;z-index:2}
+    @media(max-width:760px){.page-hero--people{padding:120px 0 80px}.page-hero--people .ph-photo{object-position:50% 22%}}
   </style>
 </head>
 <body>
@@ -124,7 +132,9 @@
 </header>
 
 <!-- ══ HERO ═════════════════════════════════════════════════════════ -->
-<section class="page-hero">
+<section class="page-hero page-hero--people">
+  <img class="ph-photo" src="assets/fotos%20headers/GettyImages-2208547132.jpg" alt="Médica examinando criança com estetoscópio na rede Klini" />
+  <div class="ph-wash"></div>
   <div class="wrap">
     <span class="eyebrow">quero me credenciar</span>
     <h1 class="h1">Faça parte da<br><strong>rede Klini</strong></h1>
