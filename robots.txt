@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://klini-paulalarosa.github.io/sitemap.xml

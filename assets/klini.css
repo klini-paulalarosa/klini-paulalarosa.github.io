@@ -230,3 +230,8 @@ html.sr .gs.vis,html.sr [data-reveal].vis{opacity:1!important;transform:none!imp
 .rc-quick__empty a{color:var(--teal);font-weight:600}
 @media(max-width:760px){.rc-quick__grid{grid-template-columns:1fr 1fr}}
 @media(max-width:480px){.rc-quick__grid{grid-template-columns:1fr}.rc-quick__search{max-width:100%}}
+
+/* ── Acessibilidade: skip link + foco visível ── */
+.skip-link{position:absolute;left:-9999px;top:0;z-index:200;background:#259591;color:#fff;font-family:'Objective',sans-serif;font-weight:700;font-size:.9rem;padding:12px 22px;border-radius:0 0 12px 0}
+.skip-link:focus{left:0}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #259591;outline-offset:2px;border-radius:4px}
