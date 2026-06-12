@@ -25,19 +25,13 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
   <link rel="stylesheet" href="assets/klini.css" />
   <style>
-    /* HERO card flutuante (rede — Michel @ Theatro Municipal) */
-    .page-hero--people{background:#259591;position:relative;overflow:hidden;padding:82px 0 108px}
-    .page-hero--people::before{display:none}
-    .page-hero--people .ph-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:32% 60%;z-index:0}
-    .page-hero--people .ph-wash{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(270deg,rgba(4,20,18,.30) 0%,transparent 38%),radial-gradient(ellipse at 22% 55%,transparent 42%,rgba(4,20,18,.18) 100%)}
-    .page-hero--people .wrap{position:relative;z-index:2;max-width:1200px;display:flex;justify-content:flex-end}
-    .ph-d-card{position:relative;display:inline-flex;flex-direction:column;background:#259591;border-radius:22px;padding:32px 38px 38px;max-width:440px;box-shadow:0 28px 64px rgba(4,42,38,.38),0 0 0 1px rgba(255,255,255,.12)}
-    /* perninha de balão de fala — aponta à esquerda, rumo ao Michel */
+    /* ── hero overrides específicos (foto, wash, perninha) ── */
+    .page-hero--people .ph-photo{object-position:32% 60%}
+    .page-hero--people .ph-wash{background:linear-gradient(270deg,rgba(4,20,18,.30) 0%,transparent 38%),radial-gradient(ellipse at 22% 55%,transparent 42%,rgba(4,20,18,.18) 100%)}
+    .page-hero--people .wrap{justify-content:flex-end}
+    .ph-d-card{max-width:440px}
     .ph-d-card::after{content:'';position:absolute;left:-15px;top:36%;width:22px;height:30px;background:#259591;clip-path:polygon(100% 0,100% 100%,0 42%);filter:drop-shadow(-3px 2px 4px rgba(4,42,38,.18))}
-    .ph-d-card .ph-k-card{display:block;width:40px;margin-bottom:18px;opacity:.88;filter:brightness(40) saturate(0)}
-    .page-hero--people .ph-cta{display:inline-flex;align-items:center;gap:8px;margin-top:24px;background:#fff;color:#259591;font-family:'Objective',sans-serif;font-weight:700;font-size:.95rem;padding:13px 28px;border-radius:50px;text-decoration:none;transition:all .22s;box-shadow:0 8px 28px rgba(4,42,38,.18);align-self:flex-start}
-    .page-hero--people .ph-cta:hover{background:#FFE0B5;transform:translateY(-2px);box-shadow:0 14px 36px rgba(4,42,38,.24)}
-    @media(max-width:760px){.page-hero--people{padding:80px 0 80px}.page-hero--people .wrap{justify-content:center}.ph-d-card{max-width:100%;border-radius:16px;padding:24px 24px 28px}.ph-d-card::after{display:none}.page-hero--people .ph-photo{object-position:38% 28%}.page-hero--people .ph-wash{background:linear-gradient(180deg,rgba(4,20,18,.12) 0%,rgba(4,20,18,.42) 100%)}}
+    @media(max-width:760px){.page-hero--people .ph-photo{object-position:38% 28%}}
 
     /* ── Tabs Busca / Atualização ─────────────────────────────────── */
     .rc-toggle{display:inline-flex;background:var(--off);border:1px solid var(--bd-l);border-radius:40px;padding:5px;gap:4px;margin:0 auto 38px;justify-content:center}

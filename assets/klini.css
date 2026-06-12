@@ -124,6 +124,27 @@ p{font-family:'Merriweather',Georgia,serif;line-height:1.75}
 .ph-d-card .h1{font-size:clamp(1.45rem,3vw,1.95rem);line-height:1.12;letter-spacing:-.02em}
 .ph-d-card .eyebrow{margin-bottom:6px}
 
+/* ── HERO FOTOGRÁFICO (page-hero--people + card-balão) ────────────────────────
+   Substitui o fundo gradiente sólido por foto de fundo + card flutuante.
+   Overrides específicos (object-position, gradient wash, perninha) ficam inline.  */
+.page-hero--people{background:#259591;padding:82px 0 108px}
+.page-hero--people::before{display:none}
+.page-hero--people .ph-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.page-hero--people .ph-wash{position:absolute;inset:0;z-index:1;pointer-events:none}
+.page-hero--people .wrap{max-width:1200px;display:flex}
+.ph-d-card{position:relative;display:inline-flex;flex-direction:column;background:#259591;border-radius:22px;padding:32px 38px 38px;max-width:460px;box-shadow:0 28px 64px rgba(4,42,38,.38),0 0 0 1px rgba(255,255,255,.12)}
+.ph-d-card .ph-k-card{display:block;width:40px;margin-bottom:18px;opacity:.88;filter:brightness(40) saturate(0)}
+.ph-d-card p{color:rgba(255,255,255,.92);font-size:.95rem;line-height:1.7;margin-top:10px}
+.page-hero--people .ph-cta{display:inline-flex;align-items:center;gap:8px;margin-top:24px;background:#fff;color:#259591;font-family:'Objective',sans-serif;font-weight:700;font-size:.95rem;padding:13px 28px;border-radius:50px;text-decoration:none;transition:all .22s;box-shadow:0 8px 28px rgba(4,42,38,.18);align-self:flex-start}
+.page-hero--people .ph-cta:hover{background:#FFE0B5;transform:translateY(-2px);box-shadow:0 14px 36px rgba(4,42,38,.24)}
+@media(max-width:760px){
+  .page-hero--people{padding:80px 0 80px}
+  .page-hero--people .wrap{justify-content:center}
+  .ph-d-card{max-width:100%;border-radius:16px;padding:24px 24px 28px}
+  .ph-d-card::after{display:none}
+  .page-hero--people .ph-wash{background:linear-gradient(180deg,rgba(4,20,18,.12) 0%,rgba(4,20,18,.42) 100%)}
+}
+
 /* ── FOOTER (igual à home, com arco + 4 cores) ── */
 footer{background:#fff;color:var(--muted);padding:52px 0 28px;position:relative}
 .foot-arc{position:absolute;left:0;bottom:100%;width:100%;height:54px;margin-bottom:-1px;line-height:0;pointer-events:none}
@@ -238,3 +259,45 @@ html.sr .gs.vis,html.sr [data-reveal].vis{opacity:1!important;transform:none!imp
 .skip-link{position:absolute;left:-9999px;top:0;z-index:200;background:#259591;color:#fff;font-family:'Objective',sans-serif;font-weight:700;font-size:.9rem;padding:12px 22px;border-radius:0 0 12px 0}
 .skip-link:focus{left:0}
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #259591;outline-offset:2px;border-radius:4px}
+
+/* ── FORMULÁRIOS COLAPSÁVEIS (ouvidoria + quero-me-credenciar) ────────────────
+   Regras idênticas extraídas de ambas as páginas via seletores combinados.
+   Cada página mantém apenas min-height do textarea e breakpoints específicos. */
+.ouv-form,.cred-form{background:#fff;border:1.5px solid var(--bd-l);border-radius:22px;padding:34px;box-shadow:0 24px 60px rgba(4,42,38,.07)}
+.ouv-form h3,.cred-form h3{font-family:'Objective',sans-serif;font-size:1.15rem;color:var(--text);margin-bottom:4px}
+.ouv-form__body>form>p:first-child,.cred-form__body>form>p:first-child{font-size:.85rem;color:var(--muted);margin-bottom:22px;margin-top:18px}
+.ouv-row,.cred-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ouv-field,.cred-field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.ouv-field label,.cred-field label{font-family:'Objective',sans-serif;font-weight:600;font-size:.8rem;color:var(--text)}
+.ouv-field label span,.cred-field label span{color:var(--coral)}
+.ouv-field input,.ouv-field select,.ouv-field textarea,.cred-field input,.cred-field select,.cred-field textarea{width:100%;font-family:'Objective',sans-serif;font-size:.9rem;color:var(--text);background:var(--off);border:1.5px solid var(--bd-l);border-radius:11px;padding:12px 14px;transition:all .2s}
+.ouv-field textarea,.cred-field textarea{resize:vertical;font-family:'Merriweather',Georgia,serif}
+.ouv-field select,.cred-field select{-webkit-appearance:none;appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23637585' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;background-size:16px;padding-right:38px}
+.ouv-field input:focus,.ouv-field select:focus,.ouv-field textarea:focus,.cred-field input:focus,.cred-field select:focus,.cred-field textarea:focus{outline:none;border-color:var(--teal);background-color:#fff;box-shadow:0 0 0 3px rgba(37,149,145,.12)}
+.ouv-file,.cred-file{display:flex;align-items:center;gap:12px;background:var(--off);border:1.5px dashed var(--bd-l);border-radius:11px;padding:12px 14px;cursor:pointer;transition:all .2s}
+.ouv-file:hover,.cred-file:hover{border-color:var(--teal);background:rgba(37,149,145,.04)}
+.ouv-file i,.cred-file i{color:var(--teal);font-size:1.1rem}
+.ouv-file span,.cred-file span{font-family:'Objective',sans-serif;font-size:.85rem;color:var(--muted)}
+.ouv-file input,.cred-file input{display:none}
+.ouv-form .btn,.cred-form .btn{width:100%;justify-content:center;margin-top:6px}
+.ouv-form__note,.cred-form__note{font-size:.74rem;color:var(--muted);text-align:center;margin-top:12px;line-height:1.6}
+.ouv-form__note a,.cred-form__note a{color:var(--teal);font-weight:600}
+.ouv-form__hd,.cred-form__hd{display:flex;align-items:center;justify-content:space-between;cursor:pointer;background:none;border:none;width:100%;padding:0;text-align:left;gap:12px;font-family:inherit}
+.ouv-form__hd h3,.cred-form__hd h3{margin:0}
+.ouv-form__hd-sub,.cred-form__hd-sub{display:block;font-size:.8rem;color:var(--muted);margin-top:3px;font-weight:400;font-family:'Objective',sans-serif}
+.ouv-form__chev,.cred-form__chev{color:var(--teal);font-size:.9rem;transition:transform .32s ease;flex-shrink:0}
+.ouv-form--open .ouv-form__chev,.cred-form--open .cred-form__chev{transform:rotate(180deg)}
+.ouv-form__body,.cred-form__body{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.4,0,.2,1),opacity .3s ease;opacity:0}
+.ouv-form--open .ouv-form__body,.cred-form--open .cred-form__body{max-height:3200px;opacity:1}
+.ouv-form--open .ouv-form__hd,.cred-form--open .cred-form__hd{padding-bottom:18px;border-bottom:1.5px solid var(--bd-l);margin-bottom:2px}
+.ouv-success,.cred-success{text-align:center;padding:36px 28px}
+.ouv-success i,.cred-success i{font-size:2.4rem;color:var(--teal);display:block;margin-bottom:14px}
+.ouv-success h3,.cred-success h3{margin-bottom:8px}
+.ouv-success p,.cred-success p{color:var(--muted);font-size:.9rem;line-height:1.7}
+
+/* ── CROSS-SELL CTA BANNER warm (teleconsulta + token-digital + desconto-farmacia) */
+.xs-cta,.df-cta{position:relative;overflow:hidden;background:var(--grad-warm);border-radius:var(--r);padding:42px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;justify-content:space-between;color:#fff;margin-top:60px}
+.xs-cta h2,.df-cta h2{font-family:'Objective',sans-serif;font-weight:800;font-size:1.4rem;margin-bottom:8px}
+.xs-cta p,.df-cta p{color:rgba(255,255,255,.94);font-size:.95rem;line-height:1.7;max-width:540px}
+.xs-cta .btn,.df-cta .btn{background:#fff;color:var(--orange);flex-shrink:0}
+.xs-cta .btn:hover,.df-cta .btn:hover{background:#0C1422;color:#fff}
