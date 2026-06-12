@@ -18,7 +18,7 @@
   <link rel="preload" href="assets/fonts/Objective-Bold.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons@7.0.0/primeicons.css" />
   <link rel="stylesheet" href="assets/klini.css" />
@@ -70,13 +70,20 @@
     @media(max-width:860px){.ec-plans{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:600px){.ec-plans{grid-template-columns:1fr}.ec-links{grid-template-columns:1fr}}
 
-    /* ── HERO foto ────────────────────────────────────────────────── */
-    .page-hero--people{background:#259591;position:relative;overflow:hidden;padding:168px 0 100px}
+    /* ── HERO card-balão (padrão Klini) ── */
+    .page-hero--people{background:#259591;position:relative;overflow:hidden;padding:82px 0 108px}
     .page-hero--people::before{display:none}
-    .page-hero--people .ph-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 28%;z-index:0}
-    .page-hero--people .ph-wash{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(4,20,18,.85) 0%,rgba(37,149,145,.80) 22%,rgba(37,149,145,.52) 48%,rgba(37,149,145,.18) 68%,rgba(37,149,145,0) 84%)}
-    .page-hero--people .wrap{position:relative;z-index:2}
-    @media(max-width:760px){.page-hero--people{padding:120px 0 80px}.page-hero--people .ph-photo{object-position:50% 28%}}
+    .page-hero--people .ph-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:35% 30%;z-index:0}
+    .page-hero--people .ph-wash{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(270deg,rgba(4,20,18,.30) 0%,transparent 38%),radial-gradient(ellipse at 25% 50%,transparent 42%,rgba(4,20,18,.22) 100%)}
+    .page-hero--people .wrap{position:relative;z-index:2;max-width:1200px;display:flex;justify-content:flex-end}
+    .ph-d-card{position:relative;display:inline-flex;flex-direction:column;background:#259591;border-radius:22px;padding:32px 38px 38px;max-width:460px;box-shadow:0 28px 64px rgba(4,42,38,.38),0 0 0 1px rgba(255,255,255,.12)}
+    /* perninha de balão de fala — aponta à esquerda, rumo à pessoa da foto */
+    .ph-d-card::after{content:'';position:absolute;left:-15px;top:36%;width:22px;height:30px;background:#259591;clip-path:polygon(100% 0,100% 100%,0 42%);filter:drop-shadow(-3px 2px 4px rgba(4,42,38,.18))}
+    .ph-d-card .ph-k-card{display:block;width:40px;margin-bottom:18px;opacity:.88;filter:brightness(40) saturate(0)}
+    .ph-d-card p{color:rgba(255,255,255,.92);font-size:.95rem;line-height:1.7;margin-top:10px}
+    .page-hero--people .ph-cta{display:inline-flex;align-items:center;gap:8px;margin-top:22px;background:#fff;color:#259591;font-family:'Objective',sans-serif;font-weight:700;font-size:.95rem;padding:13px 28px;border-radius:50px;text-decoration:none;transition:all .22s;box-shadow:0 8px 28px rgba(4,42,38,.18);align-self:flex-start}
+    .page-hero--people .ph-cta:hover{background:#FFE0B5;transform:translateY(-2px);box-shadow:0 14px 36px rgba(4,42,38,.24)}
+    @media(max-width:760px){.page-hero--people{padding:80px 0 80px}.page-hero--people .wrap{justify-content:center}.ph-d-card{max-width:100%;border-radius:16px;padding:24px 24px 28px}.ph-d-card::after{display:none}.page-hero--people .ph-photo{object-position:45% 30%}.page-hero--people .ph-wash{background:linear-gradient(180deg,rgba(4,20,18,.12) 0%,rgba(4,20,18,.42) 100%)}}
   </style>
 </head>
 <body>
@@ -153,9 +160,13 @@
   <img class="ph-photo" src="assets/fotos%20headers/GettyImages-1481859667.webp" alt="Família com avós e netos — beneficiários protegidos pelo plano Klini" />
   <div class="ph-wash"></div>
   <div class="wrap">
-    <span class="eyebrow">espaço do corretor</span>
-    <h1 class="h1">Criamos este espaço<br><strong>para você vender mais</strong></h1>
-    <p>Aqui você encontra materiais de apoio, normativas, informações dos planos e acesso direto ao portal de vendas Klini.</p>
+    <div class="ph-d-card">
+      <img class="ph-k-card" src="assets/k-mark.svg" alt=""/>
+      <span class="eyebrow">espaço do corretor</span>
+      <h1 class="h1">Criamos este espaço<br><strong>para você vender mais</strong></h1>
+      <p>Materiais de apoio, normativas, informações dos planos e acesso direto ao portal de vendas Klini.</p>
+      <a href="#portal" class="ph-cta">Acessar o portal de vendas <i class="pi pi-arrow-right"></i></a>
+    </div>
   </div>
   <div class="page-hero__divider">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -165,7 +176,7 @@
 </section>
 
 <!-- ══ ACESSO AO PORTAL ═══════════════════════════════════════════════ -->
-<section class="sec">
+<section class="sec" id="portal">
   <div class="wrap">
     <div class="ec-access gs">
       <div class="ec-access__text">

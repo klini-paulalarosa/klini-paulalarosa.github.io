@@ -38,7 +38,7 @@ a{text-decoration:none;color:inherit}
 .sec{padding:96px 0}
 .sec--off{background-color:var(--off);background-image:radial-gradient(rgba(37,149,145,.06) 1.1px,transparent 1.1px);background-size:26px 26px}
 
-/* ── TIPOGRAFIA — Objective em títulos/UI, Merriweather no corpo ── */
+/* ── TIPOGRAFIA — Objective em títulos/UI, Inter no corpo ── */
 .h1{font-family:'Objective',sans-serif;font-weight:800;font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.04;letter-spacing:-.035em;color:var(--muted)}
 .h1 strong{font-weight:800;color:var(--teal)}
 .h2{font-family:'Objective',sans-serif;font-weight:400;font-size:clamp(1.7rem,3.6vw,2.7rem);line-height:1.08;letter-spacing:-.03em;color:var(--muted)}
@@ -46,7 +46,7 @@ a{text-decoration:none;color:inherit}
 .h3{font-family:'Objective',sans-serif;font-weight:700;font-size:1.12rem;color:var(--text)}
 .eyebrow{font-family:'Objective',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:10px}
 .grad{background:var(--grad-cool);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-p{font-family:'Merriweather',Georgia,serif;line-height:1.75}
+p{font-family:'Inter',system-ui,sans-serif;line-height:1.75}
 
 /* ── BOTÕES ── */
 .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:50px;font-weight:700;font-size:.95rem;cursor:pointer;transition:all .22s ease;text-decoration:none;border:none;white-space:nowrap;font-family:'Objective',sans-serif}
@@ -116,7 +116,7 @@ p{font-family:'Merriweather',Georgia,serif;line-height:1.75}
 .page-hero .eyebrow{color:rgba(255,255,255,.85)}
 .page-hero h1{color:#fff;margin-bottom:16px}
 .page-hero h1 strong{color:#FFE0B5}
-.page-hero p{color:rgba(255,255,255,.9);font-size:1.05rem;line-height:1.8;max-width:600px;font-family:'Merriweather',Georgia,serif}
+.page-hero p{color:rgba(255,255,255,.9);font-size:1.05rem;line-height:1.8;max-width:600px;font-family:'Inter',system-ui,sans-serif}
 /* divisor em arco do hero */
 .page-hero__divider{position:absolute;left:0;right:0;bottom:-1px;width:100%;line-height:0;z-index:3;pointer-events:none}
 .page-hero__divider svg{display:block;width:100%;height:clamp(36px,5vw,64px)}
