@@ -5,10 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Rede credenciada Klini Saúde — busque hospitais, clínicas, laboratórios e profissionais do seu plano e consulte as atualizações recentes da rede." />
   <title>Rede Credenciada | Klini Saúde</title>
+  <link rel="canonical" href="https://klini-paulalarosa.github.io/rede-credenciada.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Klini Saúde" />
+  <meta property="og:title" content="Rede Credenciada | Klini Saúde" />
+  <meta property="og:description" content="Rede credenciada Klini Saúde — busque hospitais, clínicas, laboratórios e profissionais do seu plano e consulte as atualizações recentes da rede." />
+  <meta property="og:url" content="https://klini-paulalarosa.github.io/rede-credenciada.html" />
+  <meta property="og:image" content="https://klini-paulalarosa.github.io/assets/fotos%20headers/GettyImages-1344733616.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preload" href="assets/fonts/Objective-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/Objective-Bold.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons@7.0.0/primeicons.css" />
+  <link rel="preconnect" href="https://unpkg.com" crossorigin />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
   <link rel="stylesheet" href="assets/klini.css" />
   <style>
@@ -129,31 +142,6 @@
     @media(max-width:760px){.map-section{grid-template-columns:1fr;height:auto}.sidebar{border-right:none;border-bottom:1px solid var(--bd-l)}.unit-list{max-height:260px}.map-wrap{height:420px}}
 
     /* timeline de alterações da rede */
-    .rc-tl{max-width:860px;margin:30px auto 0}
-    .rc-tl__head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px}
-    .rc-tl__head h3{font-family:'Objective',sans-serif;font-size:1rem;color:var(--text)}
-    .rc-tl__count{font-size:.78rem;font-weight:700;color:var(--teal);font-family:'Objective',sans-serif}
-    .rc-tl__list{display:flex;flex-direction:column;gap:10px}
-    .rc-tl__item{display:grid;grid-template-columns:108px 1fr;gap:16px;background:#fff;border:1.5px solid var(--bd-l);border-radius:14px;padding:16px 18px;transition:all .25s;animation:rc-unit-in .3s ease both}
-    .rc-tl__item:hover{border-color:var(--teal);box-shadow:0 12px 28px rgba(37,149,145,.08)}
-    .rc-tl__item[hidden]{display:none}
-    .rc-tl__date{font-size:.74rem;color:var(--muted);font-family:'Objective',sans-serif;font-weight:600;display:flex;align-items:center;gap:6px}
-    .rc-tl__date i{color:var(--teal);font-size:.7rem}
-    .rc-tl__body{display:flex;flex-direction:column;gap:5px}
-    .rc-tl__top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-    .rc-tl__tag{font-size:.64rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;border-radius:30px;padding:3px 10px;font-family:'Objective',sans-serif}
-    .rc-tl__tag--inc{background:rgba(37,149,145,.12);color:var(--teal)}
-    .rc-tl__tag--sub{background:rgba(205,121,37,.12);color:var(--orange)}
-    .rc-tl__tag--exc{background:rgba(224,87,89,.12);color:var(--coral,#e05759)}
-    .rc-tl__rede{font-size:.7rem;font-weight:700;color:var(--muted);font-family:'Objective',sans-serif}
-    .rc-tl__name{font-family:'Objective',sans-serif;font-weight:700;font-size:.92rem;color:var(--text);line-height:1.35}
-    .rc-tl__name .arrow{color:var(--orange);font-weight:800;margin:0 4px}
-    .rc-tl__local{font-size:.74rem;color:var(--teal);display:flex;align-items:center;gap:5px}
-    .rc-tl__empty{text-align:center;padding:36px 24px;color:var(--muted)}
-    .rc-tl__empty i{font-size:1.9rem;display:block;margin-bottom:10px;opacity:.35}
-    .rc-tl__note{font-size:.76rem;color:var(--muted);text-align:center;margin-top:18px;line-height:1.6}
-    .rc-tl__note a{color:var(--teal);font-weight:600}
-    @media(max-width:560px){.rc-tl__item{grid-template-columns:1fr;gap:8px}}
 
     /* cross-link teleconsulta */
     .rc-cross{position:relative;overflow:hidden;background:var(--grad-cool);border-radius:var(--r);padding:40px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:60px}
@@ -167,6 +155,7 @@
   </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
 
 <!-- ══ TOP BAR (padrão Klini) ═══════════════════════════════════════ -->
 <header class="bar" id="bar">
@@ -232,6 +221,7 @@
     <button class="bar__hamburger" id="barHamb" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </header>
+<main id="main">
 
 <!-- ══ HERO ═════════════════════════════════════════════════════════ -->
 <section class="page-hero page-hero--people">
@@ -373,85 +363,11 @@
         <h2 class="h2">Transparência sobre <strong>mudanças na rede</strong></h2>
         <p>A rede credenciada é dinâmica: prestadores podem ser incluídos, substituídos ou excluídos. A Klini comunica essas alterações conforme as regras da ANS.</p>
       </div>
-      <form class="rc-card" id="rcAtualiza" target="_blank" rel="noopener" action="https://klinisaude.com.br/rede-credenciada/" method="get">
-        <div class="rc-form">
-          <div class="rc-field">
-            <label><i class="pi pi-id-card"></i> Rede / plano</label>
-            <select name="rede"><option value="">Todas as redes</option><option>Klini 200</option><option>Klini 350</option><option>Klini 400</option><option>Klini 600</option><option>Ambulatorial</option><option>Hospitalar</option></select>
-          </div>
-          <div class="rc-field">
-            <label><i class="pi pi-tag"></i> Tipo de alteração</label>
-            <select name="tipo"><option value="">Todas</option><option>Exclusão</option><option>Substituição</option><option>Inclusão</option></select>
-          </div>
-          <div class="rc-field rc-field--full">
-            <label><i class="pi pi-map-marker"></i> Cidade ou bairro</label>
-            <input type="text" name="local" placeholder="Ex.: Campos, Itaperuna, Nova Iguaçu…" />
-          </div>
-        </div>
-        <div class="rc-actions">
-          <span class="rc-note"><i class="pi pi-info-circle"></i> Filtre as alterações recentes abaixo. As alterações vigentes são publicadas no portal oficial da Klini, conforme normas da ANS.</span>
-          <button type="button" id="rcAtualizaBtn" class="btn btn-teal"><i class="pi pi-sync"></i> Filtrar alterações</button>
-        </div>
-      </form>
-
-      <!-- timeline de alterações recentes (ilustrativa, filtrável) -->
-      <div class="rc-tl">
-        <div class="rc-tl__head">
-          <h3>Alterações recentes da rede</h3>
-          <span class="rc-tl__count" id="rcTlCount">6 alterações</span>
-        </div>
-        <div class="rc-tl__list" id="rcTlList">
-          <div class="rc-tl__item" data-rede="Klini 400" data-tipo="Inclusão" data-local="Nova Iguaçu">
-            <div class="rc-tl__date"><i class="pi pi-calendar"></i> 12 mai 2026</div>
-            <div class="rc-tl__body">
-              <div class="rc-tl__top"><span class="rc-tl__tag rc-tl__tag--inc">Inclusão</span><span class="rc-tl__rede">Klini 400</span></div>
-              <div class="rc-tl__name">Clínica VidaSaúde — Ortopedia e Fisioterapia</div>
-              <div class="rc-tl__local"><i class="pi pi-map-marker" style="font-size:.7rem"></i> Nova Iguaçu</div>
-            </div>
-          </div>
-          <div class="rc-tl__item" data-rede="Klini 350" data-tipo="Substituição" data-local="Campos">
-            <div class="rc-tl__date"><i class="pi pi-calendar"></i> 28 abr 2026</div>
-            <div class="rc-tl__body">
-              <div class="rc-tl__top"><span class="rc-tl__tag rc-tl__tag--sub">Substituição</span><span class="rc-tl__rede">Klini 350</span></div>
-              <div class="rc-tl__name">Lab Diagnóstico Central <span class="arrow">→</span> Laboratório Sérgio Franco</div>
-              <div class="rc-tl__local"><i class="pi pi-map-marker" style="font-size:.7rem"></i> Campos dos Goytacazes</div>
-            </div>
-          </div>
-          <div class="rc-tl__item" data-rede="Klini 200" data-tipo="Exclusão" data-local="Itaperuna">
-            <div class="rc-tl__date"><i class="pi pi-calendar"></i> 15 abr 2026</div>
-            <div class="rc-tl__body">
-              <div class="rc-tl__top"><span class="rc-tl__tag rc-tl__tag--exc">Exclusão</span><span class="rc-tl__rede">Klini 200</span></div>
-              <div class="rc-tl__name">Clínica OrtoVida — descredenciamento</div>
-              <div class="rc-tl__local"><i class="pi pi-map-marker" style="font-size:.7rem"></i> Itaperuna</div>
-            </div>
-          </div>
-          <div class="rc-tl__item" data-rede="Hospitalar" data-tipo="Inclusão" data-local="Macaé">
-            <div class="rc-tl__date"><i class="pi pi-calendar"></i> 02 abr 2026</div>
-            <div class="rc-tl__body">
-              <div class="rc-tl__top"><span class="rc-tl__tag rc-tl__tag--inc">Inclusão</span><span class="rc-tl__rede">Hospitalar</span></div>
-              <div class="rc-tl__name">Hospital Santa Mônica — Pronto-socorro 24h</div>
-              <div class="rc-tl__local"><i class="pi pi-map-marker" style="font-size:.7rem"></i> Macaé</div>
-            </div>
-          </div>
-          <div class="rc-tl__item" data-rede="Klini 600" data-tipo="Substituição" data-local="Niterói">
-            <div class="rc-tl__date"><i class="pi pi-calendar"></i> 20 mar 2026</div>
-            <div class="rc-tl__body">
-              <div class="rc-tl__top"><span class="rc-tl__tag rc-tl__tag--sub">Substituição</span><span class="rc-tl__rede">Klini 600</span></div>
-              <div class="rc-tl__name">Imagem RJ <span class="arrow">→</span> CDPI Diagnósticos</div>
-              <div class="rc-tl__local"><i class="pi pi-map-marker" style="font-size:.7rem"></i> Niterói</div>
-            </div>
-          </div>
-          <div class="rc-tl__item" data-rede="Ambulatorial" data-tipo="Inclusão" data-local="São Gonçalo">
-            <div class="rc-tl__date"><i class="pi pi-calendar"></i> 08 mar 2026</div>
-            <div class="rc-tl__body">
-              <div class="rc-tl__top"><span class="rc-tl__tag rc-tl__tag--inc">Inclusão</span><span class="rc-tl__rede">Ambulatorial</span></div>
-              <div class="rc-tl__name">Clínica Bem-Estar — Clínica geral e Pediatria</div>
-              <div class="rc-tl__local"><i class="pi pi-map-marker" style="font-size:.7rem"></i> São Gonçalo</div>
-            </div>
-          </div>
-          <div class="rc-tl__empty" id="rcTlEmpty" hidden><i class="pi pi-search"></i><p>Nenhuma alteração para os filtros selecionados. Veja todas no <a href="https://klinisaude.com.br/rede-credenciada/" target="_blank" rel="noopener">portal oficial</a>.</p></div>
-        </div>
-        <p class="rc-tl__note">Lista ilustrativa das alterações mais recentes. A relação completa e vigente, com as datas oficiais, está sempre disponível no <a href="https://klinisaude.com.br/rede-credenciada/" target="_blank" rel="noopener">portal oficial da Klini</a>, conforme as normas da ANS.</p>
+      <div class="rc-card" style="text-align:center;padding:44px 28px">
+        <div style="font-size:1.7rem;color:var(--teal);margin-bottom:10px"><i class="pi pi-sync"></i></div>
+        <h3 style="margin:0 0 10px">Alterações da rede credenciada</h3>
+        <p style="max-width:580px;margin:0 auto 22px">As inclusões, substituições e exclusões de prestadores são publicadas no portal oficial da Klini, com as datas e os prazos de comunicação previstos nas normas da ANS.</p>
+        <a class="btn btn-teal" href="https://klinisaude.com.br/rede-credenciada/" target="_blank" rel="noopener"><i class="pi pi-external-link"></i> Consultar alterações vigentes</a>
       </div>
 
       <div class="rc-up-info">
@@ -477,6 +393,7 @@
 </section>
 
 <!-- ══ FOOTER (padrão Klini) ════════════════════════════════════════ -->
+</main>
 <footer>
   <div class="foot-arc" aria-hidden="true">
     <svg viewBox="0 0 1440 54" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
@@ -709,42 +626,6 @@
   document.getElementById('mapDetailClose').addEventListener('click', hideDetail);
   buildList();
   setTimeout(function(){ map.invalidateSize(); }, 250);
-})();
-</script>
-<script>
-/* ── Filtro da timeline de alterações da rede ── */
-(function(){
-  var form=document.getElementById('rcAtualiza');
-  var list=document.getElementById('rcTlList');
-  if(!form||!list)return;
-  var items=Array.prototype.slice.call(list.querySelectorAll('.rc-tl__item'));
-  var empty=document.getElementById('rcTlEmpty');
-  var countEl=document.getElementById('rcTlCount');
-  var selRede=form.querySelector('[name=rede]');
-  var selTipo=form.querySelector('[name=tipo]');
-  var inpLocal=form.querySelector('[name=local]');
-
-  function norm(s){return (s||'').toLowerCase().trim();}
-  function apply(){
-    var rede=norm(selRede.value), tipo=norm(selTipo.value), loc=norm(inpLocal.value);
-    var n=0;
-    items.forEach(function(it){
-      var mr=!rede||norm(it.dataset.rede)===rede;
-      var mt=!tipo||norm(it.dataset.tipo)===tipo;
-      var ml=!loc||norm(it.dataset.local).indexOf(loc)>=0;
-      var match=mr&&mt&&ml;
-      it.hidden=!match;
-      if(match)n++;
-    });
-    if(empty)empty.hidden=n!==0;
-    countEl.textContent=n+' alteraç'+(n!==1?'ões':'ão');
-  }
-  form.addEventListener('submit',function(e){e.preventDefault();apply();});
-  selRede.addEventListener('change',apply);
-  selTipo.addEventListener('change',apply);
-  inpLocal.addEventListener('input',apply);
-  var btn=document.getElementById('rcAtualizaBtn');
-  if(btn)btn.addEventListener('click',apply);
 })();
 </script>
 <script src="assets/reveal.js"></script>

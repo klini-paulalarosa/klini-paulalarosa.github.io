@@ -5,9 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Token digital Klini — a chave de 8 dígitos que autoriza com segurança suas consultas, exames e procedimentos. Renovado a cada 60 segundos no app." />
   <title>Token Digital | Klini Saúde</title>
+  <link rel="canonical" href="https://klini-paulalarosa.github.io/token-digital.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Klini Saúde" />
+  <meta property="og:title" content="Token Digital | Klini Saúde" />
+  <meta property="og:description" content="Token digital Klini — a chave de 8 dígitos que autoriza com segurança suas consultas, exames e procedimentos. Renovado a cada 60 segundos no app." />
+  <meta property="og:url" content="https://klini-paulalarosa.github.io/token-digital.html" />
+  <meta property="og:image" content="https://klini-paulalarosa.github.io/assets/fotos%20headers/GettyImages-1344733616.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preload" href="assets/fonts/Objective-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/Objective-Bold.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons@7.0.0/primeicons.css" />
   <link rel="stylesheet" href="assets/klini.css" />
   <style>
@@ -70,9 +82,16 @@
     .page-hero--people .ph-wash{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(4,20,18,.85) 0%,rgba(37,149,145,.80) 22%,rgba(37,149,145,.52) 48%,rgba(37,149,145,.18) 68%,rgba(37,149,145,0) 84%)}
     .page-hero--people .wrap{position:relative;z-index:2}
     @media(max-width:760px){.page-hero--people{padding:120px 0 80px}.page-hero--people .ph-photo{object-position:40% 28%}}
+      /* CTA cross-sell (padrao df-cta) */
+    .xs-cta{position:relative;overflow:hidden;background:var(--grad-warm);border-radius:var(--r);padding:42px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;justify-content:space-between;color:#fff;margin-top:60px}
+    .xs-cta h2{font-family:'Objective',sans-serif;font-weight:800;font-size:1.4rem;margin-bottom:8px}
+    .xs-cta p{color:rgba(255,255,255,.94);font-size:.95rem;line-height:1.7;max-width:540px}
+    .xs-cta .btn{background:#fff;color:var(--orange);flex-shrink:0}
+    .xs-cta .btn:hover{background:#0C1422;color:#fff}
   </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
 
 <!-- ══ TOP BAR (padrão Klini) ═══════════════════════════════════════ -->
 <header class="bar" id="bar">
@@ -138,6 +157,7 @@
     <button class="bar__hamburger" id="barHamb" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </header>
+<main id="main">
 
 <!-- ══ HERO ═════════════════════════════════════════════════════════ -->
 <section class="page-hero page-hero--people">
@@ -229,7 +249,21 @@
   </div>
 </section>
 
+<!-- ══ CROSS-SELL (ainda nao e Klini) ═══════════════════════ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="xs-cta">
+      <div>
+        <h2>Ainda não é Klini?</h2>
+        <p>O token digital é só um dos recursos do app. Conheça os planos Klini e tenha carteirinha, teleconsulta 24h e toda a sua saúde na palma da mão.</p>
+      </div>
+      <a href="planos.html" class="btn"><i class="pi pi-arrow-right"></i> Conhecer os planos</a>
+    </div>
+  </div>
+</section>
+
 <!-- ══ FOOTER (padrão Klini) ════════════════════════════════════════ -->
+</main>
 <footer>
   <div class="foot-arc" aria-hidden="true">
     <svg viewBox="0 0 1440 54" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">

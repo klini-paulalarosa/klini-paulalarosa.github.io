@@ -5,10 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Klini Saúde — Cotação gratuita em 2 minutos. 15 unidades próprias no RJ, telemedicina 24h, planos individuais, familiares e empresariais. Regulamentado pela ANS." />
   <title>Klini Saúde | Cotação Gratuita em 2 Minutos</title>
+  <link rel="canonical" href="https://klini-paulalarosa.github.io/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Klini Saúde" />
+  <meta property="og:title" content="Klini Saúde | Cotação Gratuita em 2 Minutos" />
+  <meta property="og:description" content="Klini Saúde — Cotação gratuita em 2 minutos. 15 unidades próprias no RJ, telemedicina 24h, planos individuais, familiares e empresariais. Regulamentado pela ANS." />
+  <meta property="og:url" content="https://klini-paulalarosa.github.io/" />
+  <meta property="og:image" content="https://klini-paulalarosa.github.io/assets/fotos%20headers/GettyImages-1344733616.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preload" href="assets/fonts/Objective-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/Objective-Bold.woff2" as="font" type="font/woff2" crossorigin />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons@7.0.0/primeicons.css" />
 
   <style>
@@ -320,53 +332,6 @@ footer{background:#fff;color:var(--muted);padding:52px 0 28px;position:relative}
 /* ── BRAND ARCS — Semicírculos do guia de marca Klini ──────── */
 .kln-arcs{position:absolute;top:0;right:0;height:100%;width:auto;pointer-events:none;z-index:1}
 
-/* ── REDE CASA ────────────────────────────────────────────────── */
-.casa-sec{overflow:hidden;position:relative}
-.casa-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
-.casa__hospitals{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.casa__hospital{border-radius:14px;overflow:hidden;position:relative;box-shadow:0 8px 28px rgba(0,0,0,.32)}
-.casa__hospital img{width:100%;height:176px;object-fit:cover;filter:brightness(.8);transition:filter .4s}
-.casa__hospital:hover img{filter:brightness(.97)}
-.casa__hospital-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.74));padding:22px 14px 12px;font-size:.77rem;font-weight:700;color:#fff;letter-spacing:.02em}
-.casa__hospital:first-child img{height:220px}
-.casa__hosp-txt{background:#fff;border:1.5px solid var(--bd-l);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:6px;transition:border-color .25s}
-.casa__hosp-txt:hover{border-color:var(--teal)}
-.casa__hosp-txt strong{color:var(--text);font-size:.94rem;font-weight:700;display:block}
-.casa__hosp-txt span{color:var(--muted);font-size:.8rem;line-height:1.5}
-.casa-tag{display:inline-flex;align-items:center;gap:7px;background:rgba(37,149,145,.1);border:1px solid rgba(37,149,145,.22);border-radius:50px;padding:5px 16px;font-size:.74rem;font-weight:600;color:var(--teal);margin-bottom:20px;letter-spacing:.04em}
-.casa__stats{display:flex;gap:32px;flex-wrap:wrap;margin-top:36px;padding-top:32px;border-top:1px solid var(--bd-l)}
-.casa__stat-n{font-family:'Objective',sans-serif;font-weight:800;font-size:2.1rem;background:linear-gradient(135deg,var(--teal),var(--sea));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:4px}
-.casa__stat-l{font-size:.76rem;color:var(--muted);line-height:1.5}
-
-/* ── REDE CASA: toggle Hospitais / Centros Médicos ──────────── */
-.casa-toggle{display:inline-flex;gap:6px;background:var(--off);border:1px solid var(--bd-l);border-radius:50px;padding:5px;margin-bottom:38px}
-.casa-toggle__btn{border:none;background:transparent;color:var(--muted);font-family:'Objective',sans-serif;font-weight:700;font-size:.9rem;padding:9px 20px;border-radius:50px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:all .25s}
-.casa-toggle__btn.active{background:var(--grad-cool);color:#fff;box-shadow:0 6px 18px rgba(37,149,145,.28)}
-.casa-tab[hidden]{display:none}
-.casa__map-btn{margin-top:26px;width:fit-content}
-.casa-fb--cmk{background:linear-gradient(150deg,#259591,#6aa7ae)!important}
-.casa-fb--cmk i{font-size:3.4rem;color:rgba(255,255,255,.5)}
-.casa-slide--cmk img{display:none}
-
-/* ── HOSPITAL CAROUSEL ───────────────────────────────────────── */
-.casa-carousel{position:relative;border-radius:20px;overflow:hidden;width:100%;user-select:none}
-.casa-carousel__track{display:flex;transition:transform .52s cubic-bezier(.4,0,.2,1);will-change:transform}
-.casa-carousel__slide{min-width:100%;height:400px;position:relative;overflow:hidden;flex-shrink:0}
-.casa-carousel__slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.68);transition:transform .7s ease}
-.casa-carousel__slide:hover img{transform:scale(1.04)}
-.casa-slide-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-.casa-slide-info{position:absolute;bottom:0;left:0;right:0;padding:32px 22px 20px;background:linear-gradient(transparent,rgba(0,0,0,.82))}
-.casa-slide-tag{display:inline-flex;align-items:center;gap:5px;background:rgba(37,149,145,.2);border:1px solid rgba(37,149,145,.35);border-radius:30px;padding:3px 11px;font-size:.61rem;font-weight:700;color:var(--teal);letter-spacing:.04em;margin-bottom:7px;text-transform:uppercase}
-.casa-slide-name{font-weight:800;font-size:1.05rem;color:#fff;letter-spacing:-.01em}
-.casa-slide-addr{font-size:.73rem;color:rgba(255,255,255,.52);margin-top:5px;display:flex;align-items:center;gap:5px}
-.casa-carousel__prev,.casa-carousel__next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.38);border:1px solid rgba(255,255,255,.2);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.9rem;cursor:pointer;transition:all .22s;z-index:10;backdrop-filter:blur(8px);padding:0;outline:none;line-height:1}
-.casa-carousel__prev:hover,.casa-carousel__next:hover{background:var(--teal);border-color:var(--teal)}
-.casa-carousel__prev{left:12px}
-.casa-carousel__next{right:12px}
-.casa-carousel__dots{display:flex;gap:6px;justify-content:center;padding-top:13px}
-.casa-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.22);transition:all .3s;cursor:pointer;border:none;padding:0;flex-shrink:0;display:inline-block}
-.casa-dot.active{background:var(--teal);width:18px;border-radius:3px}
-
 /* ── TELE ZOOM WRAPPER ────────────────────────────────────────── */
 .tele__img-wrap{position:relative;z-index:1;display:flex;justify-content:flex-end}
 .tele__screen-glow{position:absolute;top:10%;left:50%;transform:translateX(-50%);width:160px;height:240px;border-radius:40px;background:radial-gradient(ellipse,rgba(37,149,145,.22),transparent 70%);pointer-events:none;animation:tele-pulse 3s ease-in-out infinite 1.2s}
@@ -411,8 +376,6 @@ footer{background:#fff;color:var(--muted);padding:52px 0 28px;position:relative}
 .pc--feat{background:radial-gradient(circle at 16% 96%, rgba(255,255,255,.12), transparent 46%),linear-gradient(150deg,#259591 0%,#6AA7AE 100%)}
 .pc--feat .pc__img{filter:drop-shadow(0 5px 14px rgba(0,0,0,.28))}
 
-@media(max-width:1024px){.casa-grid{grid-template-columns:1fr;gap:40px}}
-@media(max-width:600px){.casa__hospitals{grid-template-columns:1fr}.casa__hospital:last-child{grid-column:span 1}}
 
 /* ── ACESSOS RÁPIDOS ─────────────────────────────────────────── */
 .acess{position:relative;overflow:hidden;padding:88px 0;background-color:#fff;background-image:radial-gradient(rgba(37,149,145,.06) 1.1px,transparent 1.1px);background-size:26px 26px}
@@ -526,17 +489,6 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
 .hero__divider{position:absolute;left:0;right:0;bottom:-1px;width:100%;line-height:0;z-index:4;pointer-events:none}
 .hero__divider svg{display:block;width:100%;height:clamp(40px,6vw,78px)}
 
-/* ── MARQUEE (faixa de hospitais — viva no navegador real, estática no preview) ── */
-.marquee{overflow:hidden;padding:18px 0;border-top:1px solid var(--bd-l);border-bottom:1px solid var(--bd-l);-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
-.marquee__track{display:inline-flex;align-items:center;gap:30px;white-space:nowrap;animation:marquee-scroll 34s linear infinite}
-.marquee:hover .marquee__track{animation-play-state:paused}
-.marquee__item{font-family:'Objective',sans-serif;font-weight:700;font-size:1.02rem;color:var(--teal);letter-spacing:-.01em}
-.marquee__dot{color:var(--orange);font-size:.7rem}
-@keyframes marquee-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-/* ── TAP TARGETS ≥40px (mobile/acessibilidade) ── */
-.casa-dot{box-sizing:content-box;padding:9px;background-clip:content-box}
-@media(prefers-reduced-motion:reduce){.marquee__track{animation:none}}
 
 /* ── RESPONSIVE ──────────────────────────────────────────────── */
 @media(max-width:1024px){
@@ -566,9 +518,28 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
   .steps{grid-template-columns:1fr;gap:28px}
   .steps::before{display:none}
 }
+
+/* ── Acessibilidade: skip link + foco visível ── */
+.skip-link{position:absolute;left:-9999px;top:0;z-index:200;background:#259591;color:#fff;font-family:'Objective',sans-serif;font-weight:700;font-size:.9rem;padding:12px 22px;border-radius:0 0 12px 0}
+.skip-link:focus{left:0}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #259591;outline-offset:2px;border-radius:4px}
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalOrganization",
+    "name": "Klini Saúde",
+    "legalName": "Klini Planos de Saúde Ltda",
+    "url": "https://klini-paulalarosa.github.io/",
+    "logo": "https://klini-paulalarosa.github.io/assets/logo-klini.webp",
+    "telephone": "+55-21-3055-0790",
+    "address": {"@type": "PostalAddress", "addressLocality": "Niterói", "addressRegion": "RJ", "addressCountry": "BR"},
+    "sameAs": ["https://www.instagram.com/klinisaude/", "https://www.facebook.com/klinisaudematriz", "https://br.linkedin.com/company/klinisaude", "https://www.youtube.com/@KliniSaude"]
+  }
+  </script>
 </head>
 <body>
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
 
 <!-- ══ TOP BAR ═══════════════════════════════════════════════════ -->
 <header class="bar" id="bar">
@@ -610,7 +581,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
     </nav>
 
     <div class="bar__ctas">
-      <a href="planos.html" class="btn-klini">Quero ser Klini</a>
+      <a href="planos.html#cotacao" class="btn-klini">Quero ser Klini</a>
       <div class="bar__area-wrap">
         <button class="btn-area" type="button" aria-expanded="false" aria-haspopup="true">
           <i class="pi pi-user"></i> Acesse sua área <i class="pi pi-chevron-down area__chev"></i>
@@ -641,6 +612,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
     </button>
   </div>
 </header>
+<main id="main">
 
 <!-- ══ HERO ═══════════════════════════════════════════════════════ -->
 <section class="hero" id="hero">
@@ -773,7 +745,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
       <!-- Klini 200 -->
       <div class="vcard gs"><div class="vcard__in">
         <div class="vcface vcfront">
-          <video class="vc-vid" src="assets/campanha/vid-planos-01.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+          <video class="vc-vid" data-src="assets/campanha/vid-planos-01.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
           <div class="vc-scrim"></div>
           <svg class="vc-k" viewBox="0 0 858.5 789" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect fill="rgba(255,255,255,.92)" x="298.4" y="199.02" width="96.05" height="390.96"/><polygon fill="rgba(255,255,255,.72)" points="560.1 303.23 456.72 303.23 378.66 446.6 456.72 589.98 560.1 589.98 481.96 446.6 560.1 303.23"/></svg>
           <span class="vc-tier">Essencial</span>
@@ -793,7 +765,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
       <!-- Klini 350 -->
       <div class="vcard gs"><div class="vcard__in">
         <div class="vcface vcfront">
-          <video class="vc-vid" src="assets/campanha/vid-planos-02.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+          <video class="vc-vid" data-src="assets/campanha/vid-planos-02.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
           <div class="vc-scrim"></div>
           <svg class="vc-k" viewBox="0 0 858.5 789" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect fill="rgba(255,255,255,.92)" x="298.4" y="199.02" width="96.05" height="390.96"/><polygon fill="rgba(255,255,255,.72)" points="560.1 303.23 456.72 303.23 378.66 446.6 456.72 589.98 560.1 589.98 481.96 446.6 560.1 303.23"/></svg>
           <span class="vc-tier">Família</span>
@@ -814,7 +786,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
       <div class="vcard gs vcfeat"><div class="vcard__in">
         <div class="vcface vcfront">
           <span class="vc-ribbon">✦ Mais escolhido</span>
-          <video class="vc-vid" src="assets/campanha/vid-planos-03.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+          <video class="vc-vid" data-src="assets/campanha/vid-planos-03.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
           <div class="vc-scrim"></div>
           <svg class="vc-k" viewBox="0 0 858.5 789" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect fill="rgba(255,255,255,.92)" x="298.4" y="199.02" width="96.05" height="390.96"/><polygon fill="rgba(255,255,255,.72)" points="560.1 303.23 456.72 303.23 378.66 446.6 456.72 589.98 560.1 589.98 481.96 446.6 560.1 303.23"/></svg>
           <div class="vc-body"><div class="vc-name">Klini 400</div><span class="vc-tag">Rede ampliada com Linhas de Cuidado</span><span class="vc-hint">Ver coberturas <i class="pi pi-arrow-right"></i></span></div>
@@ -833,7 +805,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
       <!-- Klini 600 — amigos correndo -->
       <div class="vcard gs vcwarm"><div class="vcard__in">
         <div class="vcface vcfront">
-          <video class="vc-vid" src="assets/campanha/vid-planos-07.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+          <video class="vc-vid" data-src="assets/campanha/vid-planos-07.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
           <div class="vc-scrim"></div>
           <svg class="vc-k" viewBox="0 0 858.5 789" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect fill="rgba(255,255,255,.92)" x="298.4" y="199.02" width="96.05" height="390.96"/><polygon fill="rgba(255,255,255,.72)" points="560.1 303.23 456.72 303.23 378.66 446.6 456.72 589.98 560.1 589.98 481.96 446.6 560.1 303.23"/></svg>
           <span class="vc-tier">Completo</span>
@@ -853,7 +825,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
       <!-- Ambulatorial -->
       <div class="vcard gs"><div class="vcard__in">
         <div class="vcface vcfront">
-          <video class="vc-vid" src="assets/campanha/vid-planos-06.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+          <video class="vc-vid" data-src="assets/campanha/vid-planos-06.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
           <div class="vc-scrim"></div>
           <svg class="vc-k" viewBox="0 0 858.5 789" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect fill="rgba(255,255,255,.92)" x="298.4" y="199.02" width="96.05" height="390.96"/><polygon fill="rgba(255,255,255,.72)" points="560.1 303.23 456.72 303.23 378.66 446.6 456.72 589.98 560.1 589.98 481.96 446.6 560.1 303.23"/></svg>
           <span class="vc-tier">Acessível</span>
@@ -873,7 +845,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
       <!-- Hospitalar -->
       <div class="vcard gs vcwarm"><div class="vcard__in">
         <div class="vcface vcfront">
-          <video class="vc-vid" src="assets/campanha/vid-planos-05.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+          <video class="vc-vid" data-src="assets/campanha/vid-planos-05.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
           <div class="vc-scrim"></div>
           <svg class="vc-k" viewBox="0 0 858.5 789" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect fill="rgba(255,255,255,.92)" x="298.4" y="199.02" width="96.05" height="390.96"/><polygon fill="rgba(255,255,255,.72)" points="560.1 303.23 456.72 303.23 378.66 446.6 456.72 589.98 560.1 589.98 481.96 446.6 560.1 303.23"/></svg>
           <span class="vc-tier">Rede Casa</span>
@@ -1157,6 +1129,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
 </section>
 
 <!-- ══ FOOTER ════════════════════════════════════════════════════════ -->
+</main>
 <footer>
   <div class="foot-arc" aria-hidden="true">
     <svg viewBox="0 0 1440 54" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
@@ -1260,79 +1233,6 @@ if (barHamb && barNav) {
   });
 })();
 
-/* ── Counters [data-count] — animam ao entrar na tela; valor final no HTML
-   serve de fallback (nunca mostra 0 se o ambiente não animar) ── */
-(function () {
-  const els = Array.prototype.slice.call(document.querySelectorAll('[data-count]'));
-  if (!els.length) return;
-  function fmt(el, n) {
-    n = Math.round(n);
-    const pre = el.dataset.prefix || '', suf = el.dataset.suffix || '';
-    return pre + (el.dataset.sep === '1' ? n.toLocaleString('pt-BR') : String(n)) + suf;
-  }
-  function animate(el) {
-    if (el._done) return; el._done = true;
-    const target = parseFloat(el.dataset.count); let cur = 0; const step = target / 42;
-    const iv = setInterval(() => {
-      cur = Math.min(cur + step, target); el.textContent = fmt(el, cur);
-      if (cur >= target) { clearInterval(iv); el.textContent = fmt(el, target); }
-    }, 22);
-  }
-  function check() {
-    els.forEach(el => {
-      const r = el.getBoundingClientRect();
-      if (!el._done && r.top < (window.innerHeight || 800) * 0.88 && r.bottom > 0) animate(el);
-    });
-  }
-  window.addEventListener('scroll', check, { passive: true });
-  // não chamamos check() no load (evitaria reset p/ 0 em ambiente sem animação)
-  // salvaguarda: após 2,5s garante o valor final formatado, sem animar
-  setTimeout(() => els.forEach(el => { el.textContent = fmt(el, parseFloat(el.dataset.count)); }), 2500);
-})();
-
-
-/* ── Carrosséis Rede Casa (Hospitais + Centros Médicos) ── */
-document.querySelectorAll('.casa-carousel').forEach(function (carousel) {
-  var track = carousel.querySelector('.casa-carousel__track');
-  if (!track) return;
-  var slides = track.querySelectorAll('.casa-carousel__slide');
-  var dotsWrap = carousel.parentElement.querySelector('.casa-carousel__dots');
-  var prevBtn = carousel.querySelector('.casa-carousel__prev');
-  var nextBtn = carousel.querySelector('.casa-carousel__next');
-  var idx = 0, timer;
-  if (dotsWrap) {
-    slides.forEach(function (_, i) {
-      var d = document.createElement('button');
-      d.className = 'casa-dot' + (i === 0 ? ' active' : '');
-      d.setAttribute('aria-label', 'Item ' + (i + 1));
-      d.addEventListener('click', function () { go(i); rest(); });
-      dotsWrap.appendChild(d);
-    });
-  }
-  function go(n) {
-    idx = ((n % slides.length) + slides.length) % slides.length;
-    track.style.transform = 'translateX(-' + (idx * 100) + '%)';
-    if (dotsWrap) dotsWrap.querySelectorAll('.casa-dot').forEach(function (d, i) { d.classList.toggle('active', i === idx); });
-  }
-  function rest() { clearTimeout(timer); auto(); }
-  function auto() { timer = setTimeout(function () { go(idx + 1); auto(); }, 5200); }
-  if (prevBtn) prevBtn.addEventListener('click', function () { go(idx - 1); rest(); });
-  if (nextBtn) nextBtn.addEventListener('click', function () { go(idx + 1); rest(); });
-  var sx = 0;
-  track.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
-  track.addEventListener('touchend', function (e) { var dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 40) { go(idx + (dx > 0 ? -1 : 1)); rest(); } }, { passive: true });
-  auto();
-});
-
-/* ── Toggle Hospitais / Centros Médicos ── */
-document.querySelectorAll('.casa-toggle__btn').forEach(function (btn) {
-  btn.addEventListener('click', function () {
-    var tab = btn.dataset.tab;
-    document.querySelectorAll('.casa-toggle__btn').forEach(function (b) { b.classList.toggle('active', b === btn); });
-    document.querySelectorAll('.casa-tab').forEach(function (p) { p.hidden = (p.dataset.tab !== tab); });
-  });
-});
-
 /* ── Teleconsulta: zoom leve ligado ao scroll + balões em sequência ── */
 (function () {
   const sec = document.getElementById('teleconsulta');
@@ -1419,6 +1319,31 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (el) window.scrollTo({ top: el.offsetTop - 72, behavior: 'smooth' });
   });
 });
+</script>
+<script>
+/* ── Lazy-load dos vídeos do carrossel de planos (~12MB) — só baixam
+   quando a seção se aproxima da viewport; pausam quando saem ── */
+(function () {
+  var vids = Array.prototype.slice.call(document.querySelectorAll('.vc-vid[data-src]'));
+  if (!vids.length) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return; // CSS já os esconde
+  if (!('IntersectionObserver' in window)) {
+    vids.forEach(function (v) { v.src = v.dataset.src; v.play().catch(function(){}); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      var v = e.target;
+      if (e.isIntersecting) {
+        if (!v.src) v.src = v.dataset.src;
+        v.play().catch(function(){});
+      } else if (v.src) {
+        v.pause();
+      }
+    });
+  }, { rootMargin: '300px 0px' });
+  vids.forEach(function (v) { io.observe(v); });
+})();
 </script>
 <script src="assets/reveal.js"></script>
 </body>
