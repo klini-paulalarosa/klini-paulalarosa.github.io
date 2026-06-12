@@ -120,6 +120,9 @@ p{font-family:'Merriweather',Georgia,serif;line-height:1.75}
 /* divisor em arco do hero */
 .page-hero__divider{position:absolute;left:0;right:0;bottom:-1px;width:100%;line-height:0;z-index:3;pointer-events:none}
 .page-hero__divider svg{display:block;width:100%;height:clamp(36px,5vw,64px)}
+/* ── card-balão: h1 calibrado para espaço do card (460px), não para full-width ── */
+.ph-d-card .h1{font-size:clamp(1.45rem,3vw,1.95rem);line-height:1.12;letter-spacing:-.02em}
+.ph-d-card .eyebrow{margin-bottom:6px}
 
 /* ── FOOTER (igual à home, com arco + 4 cores) ── */
 footer{background:#fff;color:var(--muted);padding:52px 0 28px;position:relative}
