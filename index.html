@@ -58,7 +58,7 @@ a{text-decoration:none;color:inherit}
 
 /* ── TYPE ────────────────────────────────────────────────────── */
 .h1{font-family:'Objective',sans-serif;font-weight:800;font-size:clamp(3rem,6.8vw,5.8rem);line-height:.98;letter-spacing:-.045em}
-.h2{font-family:'Objective',sans-serif;font-weight:400;font-size:clamp(2.2rem,4.8vw,3.8rem);line-height:1.06;letter-spacing:-.035em;color:var(--muted)}
+.h2{font-family:'Objective',sans-serif;font-weight:400;font-size:clamp(2.2rem,4.8vw,3.8rem);line-height:1.06;letter-spacing:-.035em;color:var(--muted);text-wrap:balance}
 .h2 strong{font-weight:800;color:var(--teal)}
 .h3{font-family:'Objective',sans-serif;font-weight:700;font-size:clamp(1.1rem,2vw,1.35rem)}
 .eyebrow{font-family:'Objective',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal)}
@@ -146,8 +146,8 @@ p{font-family:'Objective',sans-serif;line-height:1.7}
 .hero__left::after{content:'';position:absolute;bottom:-20%;left:-5%;width:380px;height:380px;border-radius:50%;background:radial-gradient(ellipse,rgba(255,255,255,.07) 0%,transparent 60%);animation:hero-float 20s ease-in-out infinite reverse;pointer-events:none}
 .hero__right{position:relative;overflow:hidden}
 .hero__inner{position:relative;z-index:2;max-width:520px;display:flex;flex-direction:column;align-items:flex-start}
-.hero__title{color:#fff;margin:0 0 20px;font-size:clamp(2.4rem,4.8vw,4rem);line-height:1.06;letter-spacing:-.04em}
-.hero__accent{font-family:'Newsreader',Georgia,serif;font-style:italic;font-weight:600;color:#FFE0B5}
+.hero__title{color:#fff;margin:0 0 20px;font-size:clamp(2.4rem,4.8vw,4rem);line-height:1.06;letter-spacing:-.04em;text-wrap:balance}
+.hero__accent{font-family:'Newsreader',Georgia,serif;font-style:italic;font-weight:600;color:#FFE0B5;white-space:nowrap}
 .hero__sub{font-family:'Objective',sans-serif;font-weight:400;color:rgba(255,255,255,.78);font-size:1rem;line-height:1.65;max-width:440px;margin-bottom:36px}
 .hero__actions{display:flex;gap:14px;flex-wrap:wrap}
 .hero__btn-primary{display:inline-flex;align-items:center;gap:9px;background:var(--orange);color:#fff;font-weight:700;font-size:1rem;padding:16px 32px;border-radius:50px;transition:all .25s;font-family:'Objective',sans-serif;letter-spacing:-.01em;line-height:1}
@@ -725,7 +725,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     <div class="hero__left">
       <div class="hero__inner">
         <h1 class="h1 hero__title">
-          Saúde completa<br>para <span class="hero__accent">toda a família</span>
+          Saúde completa para <span class="hero__accent">toda a família</span>
         </h1>
         <p class="hero__sub">Rede própria, telemedicina 24h e Linhas de Cuidado para cada fase da sua vida.</p>
         <div class="hero__actions">
@@ -813,7 +813,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     <div class="plans__aside">
       <div class="plans__head-txt">
         <p class="eyebrow gs">nossos planos</p>
-        <h2 class="h2 gs">O plano certo para<br>cada <strong style="color:var(--orange)">momento da vida</strong></h2>
+        <h2 class="h2 gs">O plano certo para cada <strong style="color:var(--orange);white-space:nowrap">momento da vida</strong></h2>
         <p class="gs" style="color:var(--muted);margin-top:12px;font-size:1.05rem">Do essencial ao completo — todos com telemedicina 24h inclusos.</p>
         <a href="planos.html" class="btn btn-teal plans__cta gs">Comparar planos <i class="pi pi-arrow-right"></i></a>
       </div>
@@ -997,7 +997,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     <div class="tele">
       <div class="gs">
         <p class="eyebrow">teleconsulta klini</p>
-        <h2 class="h2" style="margin-top:10px">Atendimento médico<br><strong style="color:var(--coral)">onde você estiver</strong></h2>
+        <h2 class="h2" style="margin-top:10px">Atendimento médico <strong style="color:var(--coral);white-space:nowrap">onde você estiver</strong></h2>
         <p style="color:var(--muted);font-size:1.05rem;margin-top:12px">Disponível 24h por dia, 7 dias por semana, inclusive feriados. Receitas, atestados e pedidos de exame emitidos digitalmente com validade legal.</p>
         <div class="tele__steps">
           <div class="tele__step">
