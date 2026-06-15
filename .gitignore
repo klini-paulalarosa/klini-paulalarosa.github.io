@@ -17,3 +17,6 @@ _*.py
 
 # Vídeo-fonte do header (80MB+, NÃO commitar — só a versão comprimida em assets/campanha/)
 assets/fotos headers/
+
+# Vídeos-fonte de banco de imagem (pesados) — só as versões comprimidas (lca-*.mp4) entram
+assets/campanha/GettyImages-*.mp4
