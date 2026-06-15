@@ -180,6 +180,7 @@ section .h2 strong{font-family:var(--serif);font-style:italic;font-weight:600;le
 .plans__layout{display:grid;grid-template-columns:minmax(290px,330px) 1fr;gap:48px;align-items:center}
 .plans__aside{display:flex;flex-direction:column;align-items:flex-start}
 .plans__head-txt{max-width:420px}
+.plans__head-txt .h2{font-size:clamp(1.45rem,3vw,2.4rem)}
 .plans__cta{margin-top:26px}
 .plans__nav{display:flex;align-items:center;gap:10px;margin-top:28px}
 .plans__dots{display:flex;gap:6px;align-items:center}
@@ -514,11 +515,6 @@ html.sr .gs.vis{opacity:1!important;transform:none!important}
 @media(max-width:760px){.deco-arcs{opacity:.55;transform:scale(.72);transform-origin:top right}}
 @media(prefers-reduced-motion:reduce){.kln-spin,.kln-spin-rev{animation:none}}
 
-/* Arco grande decorativo no hero (atrás do conteúdo) */
-.hero__arc{position:absolute;z-index:0;pointer-events:none;opacity:.5}
-.hero__arc--big{top:50%;left:18%;width:680px;height:680px;transform-origin:50% 50%;margin:-340px 0 0 -340px}
-.hero__arc--sm{bottom:-60px;right:34%;width:230px;height:230px;margin:0;opacity:.4}
-@media(max-width:900px){.hero__arc{display:none}}
 
 /* Conteúdo SEMPRE visível — sem hide-then-reveal (robusto em qualquer ambiente) */
 .gs{opacity:1}
@@ -717,8 +713,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 <!-- ══ HERO ═══════════════════════════════════════════════════════ -->
 <section class="hero" id="hero">
   <!-- Semicírculos da marca girando, atrás do conteúdo -->
-  <svg class="hero__arc hero__arc--big kln-spin" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M120 16 A104 104 0 0 1 120 224" fill="none" stroke="rgba(255,255,255,.30)" stroke-width="24" stroke-linecap="butt"/></svg>
-  <svg class="hero__arc hero__arc--sm kln-spin-rev" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M120 24 A96 96 0 0 0 120 216" fill="none" stroke="rgba(255,224,181,.5)" stroke-width="22" stroke-linecap="butt"/></svg>
   <div class="hero__split">
 
     <!-- ── Painel esquerdo: texto (sem vídeo por baixo) ── -->
@@ -813,7 +807,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     <div class="plans__aside">
       <div class="plans__head-txt">
         <p class="eyebrow gs">nossos planos</p>
-        <h2 class="h2 gs">O plano certo para cada <strong style="color:var(--orange);white-space:nowrap">momento da vida</strong></h2>
+        <h2 class="h2 gs">O plano certo para cada <strong style="color:var(--orange)">momento da vida</strong></h2>
         <p class="gs" style="color:var(--muted);margin-top:12px;font-size:1.05rem">Do essencial ao completo — todos com telemedicina 24h inclusos.</p>
         <a href="planos.html" class="btn btn-teal plans__cta gs">Comparar planos <i class="pi pi-arrow-right"></i></a>
       </div>
@@ -997,7 +991,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     <div class="tele">
       <div class="gs">
         <p class="eyebrow">teleconsulta klini</p>
-        <h2 class="h2" style="margin-top:10px">Atendimento médico <strong style="color:var(--coral);white-space:nowrap">onde você estiver</strong></h2>
+        <h2 class="h2" style="margin-top:10px">Atendimento médico<br><strong style="color:var(--coral);white-space:nowrap">onde você estiver</strong></h2>
         <p style="color:var(--muted);font-size:1.05rem;margin-top:12px">Disponível 24h por dia, 7 dias por semana, inclusive feriados. Receitas, atestados e pedidos de exame emitidos digitalmente com validade legal.</p>
         <div class="tele__steps">
           <div class="tele__step">
