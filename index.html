@@ -523,8 +523,6 @@ html.sr .gs.vis{opacity:1!important;transform:none!important}
 body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;opacity:.045;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 
 /* ── DIVISOR EM ARCO (hero → próxima seção) ── */
-.hero__divider{position:absolute;left:0;right:0;bottom:-1px;width:100%;line-height:0;z-index:4;pointer-events:none}
-.hero__divider svg{display:block;width:100%;height:clamp(40px,6vw,78px)}
 
 
 /* ── RESPONSIVE ──────────────────────────────────────────────── */
@@ -741,12 +739,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
   </div>
 
-  <!-- Divisor em arco -->
-  <div class="hero__divider">
-    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M0,80 L0,42 C 420,86 1020,86 1440,42 L1440,80 Z" fill="#fff"/>
-    </svg>
-  </div>
 </section>
 
 
@@ -991,7 +983,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     <div class="tele">
       <div class="gs">
         <p class="eyebrow">teleconsulta klini</p>
-        <h2 class="h2" style="margin-top:10px">Atendimento médico<br><strong style="color:var(--coral);white-space:nowrap">onde você estiver</strong></h2>
+        <h2 class="h2" style="margin-top:10px;font-size:clamp(1.6rem,3.2vw,2.8rem)">Atendimento médico<br><strong style="color:var(--coral);white-space:nowrap">onde você estiver</strong></h2>
         <p style="color:var(--muted);font-size:1.05rem;margin-top:12px">Disponível 24h por dia, 7 dias por semana, inclusive feriados. Receitas, atestados e pedidos de exame emitidos digitalmente com validade legal.</p>
         <div class="tele__steps">
           <div class="tele__step">
