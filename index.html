@@ -146,7 +146,7 @@ p{font-family:'Objective',sans-serif;line-height:1.7}
 .hero__pill{display:inline-flex;align-items:center;gap:8px;background:rgba(37,149,145,.1);border:1px solid rgba(37,149,145,.22);border-radius:50px;padding:5px 14px;font-size:.74rem;font-weight:600;color:var(--teal);margin-bottom:22px;letter-spacing:.06em}
 .hero__pill-dot{width:7px;height:7px;background:var(--teal);border-radius:50%;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.5)}}
-.hero__title{color:#fff;margin:0 0 38px}
+.hero__title{color:#fff;margin:0 0 34px;font-size:clamp(2.6rem,6.2vw,4.7rem);line-height:1.02;letter-spacing:-.04em}
 .hero__accent{color:#FFE0B5}
 .hero__sub{font-family:'Objective',sans-serif;font-weight:400;color:rgba(255,255,255,.72);font-size:1.18rem;line-height:1.6;max-width:600px;margin:0 auto 38px}
 .hero__actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:flex-start;margin-bottom:0}
@@ -472,11 +472,8 @@ html.sr .gs.vis{opacity:1!important;transform:none!important}
 .hero__inner>*:nth-child(2){animation-delay:.11s}
 @media(prefers-reduced-motion:reduce){.hero__inner>*{animation:none}}
 /* ── BRAND ARC ROTATION ──────────────────────────────────── */
-@keyframes kln-arc-cw  { to { transform: rotate( 360deg); } }
-@keyframes kln-arc-ccw { to { transform: rotate(-360deg); } }
-.arc-cw  { transform-box: view-box; animation: kln-arc-cw  linear infinite; }
-.arc-ccw { transform-box: view-box; animation: kln-arc-ccw linear infinite; }
-@media(prefers-reduced-motion:reduce){.arc-cw,.arc-ccw{animation:none}}
+/* Arcos da marca no hero — estáticos (sem rotação perpétua), p/ um hero mais clean */
+.arc-cw, .arc-ccw { transform-box: view-box; }
 @media(max-width:760px){.deco-arcs{opacity:.55;transform:scale(.72);transform-origin:top right}}
 
 /* Conteúdo SEMPRE visível — sem hide-then-reveal (robusto em qualquer ambiente) */
@@ -1364,6 +1361,28 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   }, { rootMargin: '300px 0px' });
   vids.forEach(function (v) { io.observe(v); });
 })();
+</script>
+<!-- ── GSAP: momento-assinatura de scroll-zoom no hero ──────────────────
+     Progressive enhancement: a página funciona 100% sem isto. A mídia do
+     hero dá um zoom suave e o conteúdo sobe/desvanece ao rolar para a
+     próxima seção. Só transform/opacity (GPU), sem pin (mobile-safe),
+     desligado sob prefers-reduced-motion. -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+<script defer>
+window.addEventListener('load', function () {
+  if (!window.gsap || !window.ScrollTrigger) return;
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', function () {
+    var hero = document.getElementById('hero');
+    if (!hero) return;
+    var media = hero.querySelectorAll('.hero__photo, .hero__video');
+    var inner = hero.querySelector('.hero__inner');
+    var st = { trigger: hero, start: 'top top', end: 'bottom top', scrub: true };
+    if (media.length) gsap.to(media, { scale: 1.16, ease: 'none', scrollTrigger: st });
+    if (inner) gsap.to(inner, { y: -40, opacity: 0.5, ease: 'none', scrollTrigger: st });
+  });
+});
 </script>
 <script src="assets/reveal.js"></script>
 </body>
