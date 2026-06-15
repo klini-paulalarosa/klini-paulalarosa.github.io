@@ -14,3 +14,6 @@ Thumbs.db
 # Rascunhos / laboratórios (não vão pra produção)
 _*.html
 _*.py
+
+# Vídeo-fonte do header (80MB+, NÃO commitar — só a versão comprimida em assets/campanha/)
+assets/fotos headers/

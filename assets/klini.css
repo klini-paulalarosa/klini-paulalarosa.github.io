@@ -38,7 +38,7 @@ a{text-decoration:none;color:inherit}
 .sec{padding:96px 0}
 .sec--off{background-color:var(--off);background-image:radial-gradient(rgba(37,149,145,.06) 1.1px,transparent 1.1px);background-size:26px 26px}
 
-/* ── TIPOGRAFIA — Objective em títulos/UI, Merriweather no corpo ── */
+/* ── TIPOGRAFIA — Objective em tudo (família única, look clean) ── */
 .h1{font-family:'Objective',sans-serif;font-weight:800;font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.04;letter-spacing:-.035em;color:var(--muted)}
 .h1 strong{font-weight:800;color:var(--teal)}
 .h2{font-family:'Objective',sans-serif;font-weight:400;font-size:clamp(1.7rem,3.6vw,2.7rem);line-height:1.08;letter-spacing:-.03em;color:var(--muted)}
@@ -46,7 +46,7 @@ a{text-decoration:none;color:inherit}
 .h3{font-family:'Objective',sans-serif;font-weight:700;font-size:1.12rem;color:var(--text)}
 .eyebrow{font-family:'Objective',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:10px}
 .grad{background:var(--grad-cool);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-p{font-family:'Merriweather',Georgia,serif;line-height:1.75}
+p{font-family:'Objective',sans-serif;line-height:1.7}
 
 /* ── BOTÕES ── */
 .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:50px;font-weight:700;font-size:.95rem;cursor:pointer;transition:all .22s ease;text-decoration:none;border:none;white-space:nowrap;font-family:'Objective',sans-serif;line-height:1}
@@ -116,7 +116,7 @@ p{font-family:'Merriweather',Georgia,serif;line-height:1.75}
 .page-hero .eyebrow{color:rgba(255,255,255,.85)}
 .page-hero h1{color:#fff;margin-bottom:16px}
 .page-hero h1 strong{color:#FFE0B5}
-.page-hero p{color:rgba(255,255,255,.9);font-size:1.05rem;line-height:1.8;max-width:600px;font-family:'Merriweather',Georgia,serif}
+.page-hero p{color:rgba(255,255,255,.9);font-size:1.05rem;line-height:1.7;max-width:600px;font-family:'Objective',sans-serif}
 /* divisor em arco do hero */
 .page-hero__divider{position:absolute;left:0;right:0;bottom:-1px;width:100%;line-height:0;z-index:3;pointer-events:none}
 .page-hero__divider svg{display:block;width:100%;height:clamp(36px,5vw,64px)}
@@ -271,7 +271,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .ouv-field label,.cred-field label{font-family:'Objective',sans-serif;font-weight:600;font-size:.8rem;color:var(--text)}
 .ouv-field label span,.cred-field label span{color:var(--coral)}
 .ouv-field input,.ouv-field select,.ouv-field textarea,.cred-field input,.cred-field select,.cred-field textarea{width:100%;font-family:'Objective',sans-serif;font-size:.9rem;color:var(--text);background:var(--off);border:1.5px solid var(--bd-l);border-radius:11px;padding:12px 14px;transition:all .2s}
-.ouv-field textarea,.cred-field textarea{resize:vertical;font-family:'Merriweather',Georgia,serif}
+.ouv-field textarea,.cred-field textarea{resize:vertical;font-family:'Objective',sans-serif}
 .ouv-field select,.cred-field select{-webkit-appearance:none;appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23637585' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;background-size:16px;padding-right:38px}
 .ouv-field input:focus,.ouv-field select:focus,.ouv-field textarea:focus,.cred-field input:focus,.cred-field select:focus,.cred-field textarea:focus{outline:none;border-color:var(--teal);background-color:#fff;box-shadow:0 0 0 3px rgba(37,149,145,.12)}
 .ouv-file,.cred-file{display:flex;align-items:center;gap:12px;background:var(--off);border:1.5px dashed var(--bd-l);border-radius:11px;padding:12px 14px;cursor:pointer;transition:all .2s}
