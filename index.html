@@ -220,6 +220,7 @@ p{font-family:'Objective',sans-serif;line-height:1.7}
 .vcfeat .vcard__in{box-shadow:0 18px 46px rgba(37,149,145,.34),0 0 0 3px rgba(37,149,145,.2)!important}
 .vcface{position:absolute;inset:0;backface-visibility:hidden;border-radius:22px;overflow:hidden}
 .vc-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.vc-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%;z-index:0}
 .vc-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(0deg,rgba(4,20,18,.92) 6%,rgba(37,149,145,.28) 55%,transparent)}
 .vcwarm .vc-scrim{background:linear-gradient(0deg,rgba(120,40,20,.9) 6%,rgba(176,80,40,.26) 55%,transparent)}
 .vc-k{position:absolute;z-index:2;width:80px;top:20px;right:20px;opacity:.9;pointer-events:none;animation:vc-k-float 5s ease-in-out infinite}
@@ -245,7 +246,7 @@ p{font-family:'Objective',sans-serif;line-height:1.7}
 .vcback .vccta{display:flex;align-items:center;justify-content:center;gap:8px;background:#fff;color:var(--teal);border-radius:12px;padding:13px;font-family:'Objective',sans-serif;font-weight:800;font-size:.88rem;text-decoration:none;box-shadow:0 8px 22px rgba(4,42,38,.22);position:relative;z-index:1;line-height:1}
 .vcwarm .vcback .vccta{color:var(--orange)}
 .vcback .vcflipback{font-size:.66rem;color:rgba(255,255,255,.65);font-family:'Objective',sans-serif;text-align:right;position:relative;z-index:1;margin-top:-6px}
-@media(prefers-reduced-motion:reduce){.vcard__in{transition:none!important}.vc-k{transition:none}.vc-vid{display:none}.vcard{background:linear-gradient(160deg,#259591,#6aa7ae)}.vcwarm{background:linear-gradient(160deg,#e05759,#cd7925)}}
+@media(prefers-reduced-motion:reduce){.vcard__in{transition:none!important}.vc-k{transition:none}}
 
 
 /* ── TELECONSULTA ────────────────────────────────────────────── */
@@ -744,7 +745,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       <!-- Klini 200 -->
       <div class="vcard gs"><div class="vcard__in">
         <div class="vcface vcfront">
-          <video class="vc-vid" data-src="assets/campanha/vid-planos-01.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+          <img class="vc-photo" src="assets/campanha/pc-200.webp" alt="Beneficiário Klini" loading="eager" decoding="async" />
           <div class="vc-scrim"></div>
           <svg class="vc-k" viewBox="0 0 858.5 789" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect fill="rgba(255,255,255,.92)" x="298.4" y="199.02" width="96.05" height="390.96"/><polygon fill="rgba(255,255,255,.72)" points="560.1 303.23 456.72 303.23 378.66 446.6 456.72 589.98 560.1 589.98 481.96 446.6 560.1 303.23"/></svg>
           <span class="vc-tier">Essencial</span>
@@ -764,7 +765,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       <!-- Klini 350 -->
       <div class="vcard gs"><div class="vcard__in">
         <div class="vcface vcfront">
-          <video class="vc-vid" data-src="assets/campanha/vid-planos-02.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+          <img class="vc-photo" src="assets/campanha/pc-350.webp" alt="Beneficiário Klini" loading="eager" decoding="async" />
           <div class="vc-scrim"></div>
           <svg class="vc-k" viewBox="0 0 858.5 789" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect fill="rgba(255,255,255,.92)" x="298.4" y="199.02" width="96.05" height="390.96"/><polygon fill="rgba(255,255,255,.72)" points="560.1 303.23 456.72 303.23 378.66 446.6 456.72 589.98 560.1 589.98 481.96 446.6 560.1 303.23"/></svg>
           <span class="vc-tier">Família</span>
@@ -785,7 +786,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       <div class="vcard gs vcfeat"><div class="vcard__in">
         <div class="vcface vcfront">
           <span class="vc-ribbon">✦ Mais escolhido</span>
-          <video class="vc-vid" data-src="assets/campanha/vid-planos-03.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+          <img class="vc-photo" src="assets/campanha/pc-400.webp" alt="Beneficiário Klini" loading="eager" decoding="async" />
           <div class="vc-scrim"></div>
           <svg class="vc-k" viewBox="0 0 858.5 789" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect fill="rgba(255,255,255,.92)" x="298.4" y="199.02" width="96.05" height="390.96"/><polygon fill="rgba(255,255,255,.72)" points="560.1 303.23 456.72 303.23 378.66 446.6 456.72 589.98 560.1 589.98 481.96 446.6 560.1 303.23"/></svg>
           <div class="vc-body"><div class="vc-name">Klini 400</div><span class="vc-tag">Rede ampliada com Linhas de Cuidado</span><span class="vc-hint">Ver coberturas <i class="pi pi-arrow-right"></i></span></div>
@@ -804,7 +805,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       <!-- Klini 600 — amigos correndo -->
       <div class="vcard gs vcwarm"><div class="vcard__in">
         <div class="vcface vcfront">
-          <video class="vc-vid" data-src="assets/campanha/vid-planos-07.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+          <img class="vc-photo" src="assets/campanha/pc-600.webp" alt="Beneficiário Klini" loading="eager" decoding="async" />
           <div class="vc-scrim"></div>
           <svg class="vc-k" viewBox="0 0 858.5 789" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect fill="rgba(255,255,255,.92)" x="298.4" y="199.02" width="96.05" height="390.96"/><polygon fill="rgba(255,255,255,.72)" points="560.1 303.23 456.72 303.23 378.66 446.6 456.72 589.98 560.1 589.98 481.96 446.6 560.1 303.23"/></svg>
           <span class="vc-tier">Completo</span>
@@ -824,7 +825,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       <!-- Ambulatorial -->
       <div class="vcard gs"><div class="vcard__in">
         <div class="vcface vcfront">
-          <video class="vc-vid" data-src="assets/campanha/vid-planos-06.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+          <img class="vc-photo" src="assets/campanha/pc-amb.webp" alt="Beneficiária Klini com bebê" loading="eager" decoding="async" />
           <div class="vc-scrim"></div>
           <svg class="vc-k" viewBox="0 0 858.5 789" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect fill="rgba(255,255,255,.92)" x="298.4" y="199.02" width="96.05" height="390.96"/><polygon fill="rgba(255,255,255,.72)" points="560.1 303.23 456.72 303.23 378.66 446.6 456.72 589.98 560.1 589.98 481.96 446.6 560.1 303.23"/></svg>
           <span class="vc-tier">Acessível</span>
@@ -844,7 +845,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       <!-- Hospitalar -->
       <div class="vcard gs vcwarm"><div class="vcard__in">
         <div class="vcface vcfront">
-          <video class="vc-vid" data-src="assets/campanha/vid-planos-05.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+          <img class="vc-photo" src="assets/campanha/pc-hosp.webp" alt="Beneficiário Klini" loading="eager" decoding="async" />
           <div class="vc-scrim"></div>
           <svg class="vc-k" viewBox="0 0 858.5 789" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect fill="rgba(255,255,255,.92)" x="298.4" y="199.02" width="96.05" height="390.96"/><polygon fill="rgba(255,255,255,.72)" points="560.1 303.23 456.72 303.23 378.66 446.6 456.72 589.98 560.1 589.98 481.96 446.6 560.1 303.23"/></svg>
           <span class="vc-tier">Rede Casa</span>
@@ -1337,30 +1338,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   }
   if (document.readyState === 'complete') start();
   else window.addEventListener('load', start, { once: true });
-})();
-
-/* ── Lazy-load dos vídeos do carrossel de planos (~12MB) — só baixam
-   quando a seção se aproxima da viewport; pausam quando saem ── */
-(function () {
-  var vids = Array.prototype.slice.call(document.querySelectorAll('.vc-vid[data-src]'));
-  if (!vids.length) return;
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return; // CSS já os esconde
-  if (!('IntersectionObserver' in window)) {
-    vids.forEach(function (v) { v.src = v.dataset.src; v.play().catch(function(){}); });
-    return;
-  }
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      var v = e.target;
-      if (e.isIntersecting) {
-        if (!v.src) v.src = v.dataset.src;
-        v.play().catch(function(){});
-      } else if (v.src) {
-        v.pause();
-      }
-    });
-  }, { rootMargin: '300px 0px' });
-  vids.forEach(function (v) { io.observe(v); });
 })();
 </script>
 <!-- ── GSAP: momento-assinatura de scroll-zoom no hero ──────────────────
