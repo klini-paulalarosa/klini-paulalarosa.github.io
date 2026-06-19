@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
@@ -105,9 +105,9 @@ p{font-family:'Objective',sans-serif;line-height:1.7}
 .bar__ctas{display:flex;align-items:center;gap:9px;flex-shrink:0}
 .btn-klini{display:inline-flex;align-items:center;gap:7px;background:var(--coral);color:#fff;font-weight:700;font-size:.83rem;padding:10px 19px;border-radius:8px;transition:all .22s;white-space:nowrap;letter-spacing:-.01em;font-family:'Objective',sans-serif;line-height:1}
 .btn-klini:hover{background:#c94445;transform:translateY(-1px);box-shadow:0 8px 24px rgba(224,87,89,.3)}
-.btn-area{display:inline-flex;align-items:center;gap:6px;background:none;cursor:pointer;border:1.5px solid var(--orange);color:rgba(255,255,255,.8);font-weight:600;font-size:.83rem;padding:9px 17px;border-radius:8px;transition:all .22s;white-space:nowrap;font-family:'Objective',sans-serif;line-height:1}
+.btn-area{display:inline-flex;align-items:center;gap:6px;background:#fff;cursor:pointer;border:1.5px solid var(--orange);color:var(--orange);font-weight:600;font-size:.83rem;padding:9px 17px;border-radius:8px;transition:all .22s;white-space:nowrap;font-family:'Objective',sans-serif;line-height:1}
 .bar.solid .btn-area{color:var(--orange)}
-.btn-area:hover{background:rgba(205,121,37,.1);color:var(--orange)}
+.btn-area:hover{background:var(--orange);color:#fff;border-color:var(--orange)}
 /* área dropdown */
 .bar__area-wrap{position:relative}
 .area-drop{position:absolute;top:calc(100% + 8px);right:0;background:#fff;border:1px solid var(--bd-l);border-radius:14px;padding:7px;min-width:252px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;box-shadow:0 16px 40px rgba(4,42,38,.12);z-index:100;transform:translateY(-6px)}
@@ -635,7 +635,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 <body>
 <a class="skip-link" href="#main">Pular para o conteúdo</a>
 
-<!-- ══ TOP BAR ═══════════════════════════════════════════════════ -->
+
 <header class="bar" id="bar">
   <div class="bar__inner">
     <a href="index.html" class="bar__logo">
@@ -708,12 +708,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 </header>
 <main id="main">
 
-<!-- ══ HERO ═══════════════════════════════════════════════════════ -->
+
 <section class="hero" id="hero">
-  <!-- Semicírculos da marca girando, atrás do conteúdo -->
+  
   <div class="hero__split">
 
-    <!-- ── Painel esquerdo: texto (sem vídeo por baixo) ── -->
+    
     <div class="hero__left">
       <div class="hero__inner">
         <h1 class="h1 hero__title">
@@ -731,7 +731,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       </div>
     </div>
 
-    <!-- ── Painel direito: vídeo (sem texto por cima) ── -->
+    
     <div class="hero__right">
       <img class="hero__photo" src="assets/campanha/hero-home-poster.webp" alt="" aria-hidden="true" />
       <video class="hero__video" data-src="assets/campanha/hero-home.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
@@ -742,16 +742,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 </section>
 
 
-<!-- ══ ACESSOS RÁPIDOS ════════════════════════════════════════════ -->
+
 <section class="acess" id="acessos">
   <svg class="acess__arc kln-spin" viewBox="0 0 330 330" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M165 24 A141 141 0 0 1 165 306" fill="none" stroke="rgba(37,149,145,.12)" stroke-width="40" stroke-linecap="butt"/></svg>
   <svg class="acess__arc2 kln-spin-rev" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M150 22 A128 128 0 0 0 150 278" fill="none" stroke="rgba(205,121,37,.1)" stroke-width="36" stroke-linecap="butt"/></svg>
   <div class="wrap">
-    <div style="text-align:center;margin-bottom:48px">
-      <p class="eyebrow gs">acesso rápido</p>
-      <h2 class="h2 gs">O que você precisa,<br><strong style="color:var(--teal)">quando precisa</strong></h2>
-      <p class="gs" style="color:var(--muted);margin-top:12px;font-size:1rem">Serviços e portais disponíveis para beneficiários e parceiros Klini.</p>
-    </div>
     <div class="acess__grid">
 
       <a class="acess__card gs" href="rede-credenciada.html">
@@ -793,7 +788,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
 </section>
 
-<!-- ══ PLANOS ══════════════════════════════════════════════════════ -->
+
 <section class="sec" id="planos">
   <div class="wrap plans__layout">
     <div class="plans__aside">
@@ -816,7 +811,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     <div class="plans__viewport">
       <div class="plans__track" id="plansTrack">
 
-      <!-- Klini 200 -->
+      
       <div class="vcard gs vc200"><div class="vcard__in">
         <div class="vcface vcfront">
           <img class="vc-photo" src="assets/campanha/pc-200.webp" alt="Beneficiário Klini" loading="eager" decoding="async" />
@@ -838,7 +833,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         </div>
       </div></div>
 
-      <!-- Klini 350 -->
+      
       <div class="vcard gs vc350"><div class="vcard__in">
         <div class="vcface vcfront">
           <img class="vc-photo" src="assets/campanha/pc-350.webp" alt="Beneficiário Klini" loading="eager" decoding="async" />
@@ -860,7 +855,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         </div>
       </div></div>
 
-      <!-- Klini 400 — mais escolhido -->
+      
       <div class="vcard gs vcfeat"><div class="vcard__in">
         <div class="vcface vcfront">
           <span class="vc-ribbon">✦ Mais escolhido</span>
@@ -882,7 +877,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         </div>
       </div></div>
 
-      <!-- Klini 600 — amigos correndo -->
+      
       <div class="vcard gs vcwarm"><div class="vcard__in">
         <div class="vcface vcfront">
           <img class="vc-photo" src="assets/campanha/pc-600.webp" alt="Beneficiário Klini" loading="eager" decoding="async" />
@@ -904,7 +899,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         </div>
       </div></div>
 
-      <!-- Ambulatorial -->
+      
       <div class="vcard gs"><div class="vcard__in">
         <div class="vcface vcfront">
           <img class="vc-photo" src="assets/campanha/pc-amb.webp" alt="Beneficiária Klini com bebê" loading="eager" decoding="async" />
@@ -926,7 +921,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         </div>
       </div></div>
 
-      <!-- Hospitalar -->
+      
       <div class="vcard gs vcwarm"><div class="vcard__in">
         <div class="vcface vcfront">
           <img class="vc-photo" src="assets/campanha/pc-hosp.webp" alt="Beneficiário Klini" loading="eager" decoding="async" />
@@ -948,13 +943,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         </div>
       </div></div>
       </div></div>
-    </div><!-- /plans__carousel-wrap -->
+    </div>
 
     </div>
   </div>
 </section>
 
-<!-- ══ CONHEÇA A KLINI + REDE CASA (vídeo) ══════════════════════════ -->
+
 <section class="sec sec--off" id="conheca">
   <div class="wrap">
     <div style="text-align:center;margin-bottom:40px">
@@ -977,7 +972,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
 </section>
 
-<!-- ══ TELECONSULTA ════════════════════════════════════════════════ -->
+
 <section class="sec sec--off" id="teleconsulta">
   <div class="wrap">
     <div class="tele">
@@ -1015,7 +1010,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
           <img src="assets/app-mockup.webp" alt="App Klini Saúde" class="tele__img" loading="eager" />
           <div class="tele__screen-glow"></div>
 
-          <!-- Balões de notificação — surgem em sequência simulando uso do app -->
+          
           <div class="tele__notif tele__notif--1">
             <span class="tele__notif-ico" style="background:rgba(37,149,145,.12);color:var(--teal)"><i class="pi pi-check"></i></span>
             <div><strong>Consulta confirmada</strong><span>Clínico geral · agora</span></div>
@@ -1034,7 +1029,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
 </section>
 
-<!-- ══ FARMÁCIA ════════════════════════════════════════════════════ -->
+
 <section class="sec sec--off" id="farmacia">
   <div class="wrap">
     <div style="text-align:center;margin-bottom:56px">
@@ -1044,7 +1039,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     </div>
     <div class="farm-bento">
 
-      <!-- Card info: col 1-2, row 1-2 -->
+      
       <div class="farm-bento__info gs">
         <p class="eyebrow" style="margin-bottom:10px">como usar</p>
         <h3 class="h3" style="margin-bottom:22px;color:var(--text)">3 passos simples</h3>
@@ -1055,37 +1050,37 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         </div>
       </div>
 
-      <!-- Drogasil (col 3, row 1) -->
+      
       <a class="farm__logo-card gs" href="https://www.drogasil.com.br" target="_blank" rel="noopener" aria-label="Drogasil">
         <img class="farm__svg" src="assets/farm-drogasil.png" alt="Drogasil" loading="lazy" />
       </a>
 
-      <!-- Raia (col 4, row 1) -->
+      
       <a class="farm__logo-card gs" href="https://www.raia.com.br" target="_blank" rel="noopener" aria-label="Droga Raia">
         <img class="farm__svg" src="assets/farm-raia.png" alt="Droga Raia" loading="lazy" />
       </a>
 
-      <!-- Pacheco (col 3, row 2) -->
+      
       <a class="farm__logo-card gs" href="https://www.drogariaspacheco.com.br" target="_blank" rel="noopener" aria-label="Drogarias Pacheco">
         <img class="farm__svg" src="assets/farm-pacheco.png" alt="Drogarias Pacheco" loading="lazy" />
       </a>
 
-      <!-- Drogaria São Paulo (col 4, row 2) -->
+      
       <a class="farm__logo-card gs" href="https://www.drogariasaopaulo.com.br" target="_blank" rel="noopener" aria-label="Drogaria São Paulo">
         <img class="farm__svg" src="assets/farm-saopaulo.png" alt="Drogaria São Paulo" loading="lazy" />
       </a>
 
-      <!-- Venâncio (col 1, row 3) -->
+      
       <a class="farm__logo-card gs" href="https://www.drogariavenancio.com.br" target="_blank" rel="noopener" aria-label="Drogaria Venâncio">
         <img class="farm__svg" src="assets/farm-venancio.png" alt="Drogaria Venâncio" loading="lazy" />
       </a>
 
-      <!-- Drogasmil (col 2, row 3) -->
+      
       <a class="farm__logo-card farm-logo--dml gs" href="https://www.drogasmil.com.br" target="_blank" rel="noopener" aria-label="Drogasmil">
         <img class="farm__svg" src="assets/farm-drogasmil.png" alt="Drogasmil" loading="lazy" />
       </a>
 
-      <!-- Farmalife (col 3-4, row 3 — span 2) -->
+      
       <a class="farm__logo-card farm-logo--far farm-logo--fml gs" href="https://www.farmalife.com.br" target="_blank" rel="noopener" aria-label="Farmalife">
         <img class="farm__svg" src="assets/farm-farmalife.png" alt="Farmalife" loading="lazy" />
       </a>
@@ -1094,7 +1089,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
 </section>
 
-<!-- ══ LINHAS DE CUIDADO ════════════════════════════════════════ -->
+
 <section class="mv" id="linhas-cuidado">
   <div class="wrap">
     <p class="eyebrow gs">linhas de cuidado</p>
@@ -1141,7 +1136,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
     </div>
 
-    <!-- Porta de entrada -->
+    
     <div class="ldc__entry gs">
       <div class="ldc__entry-icon"><i class="pi pi-building"></i></div>
       <div>
@@ -1154,7 +1149,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 </section>
 
 
-<!-- ══ CANAIS DE ATENDIMENTO ══════════════════════════════════════ -->
+
 <section class="canais" id="canais-atendimento">
   <div class="wrap">
     <div style="text-align:center;margin-bottom:8px">
@@ -1164,7 +1159,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     </div>
     <div class="canais-bento">
 
-      <!-- WhatsApp: grande (col 1-3, row 1-2) -->
+      
       <div class="canal canal--wa gs">
         <div class="canal__head">
           <div class="canal__ico" style="background:rgba(37,211,102,.12);color:#1da851"><i class="pi pi-whatsapp"></i></div>
@@ -1176,7 +1171,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <a href="https://wa.me/552130550790?text=Olá!%20Gostaria%20de%20conhecer%20os%20planos%20Klini%20Saúde." target="_blank" rel="noopener" class="btn btn-teal" style="display:inline-flex;width:fit-content;font-size:.85rem;padding:11px 24px;margin-top:auto"><i class="pi pi-whatsapp"></i> Falar agora</a>
       </div>
 
-      <!-- Presencial (col 4-6, row 1) -->
+      
       <div class="canal canal--pres gs">
         <div class="canal__head">
           <div class="canal__ico" style="background:rgba(37,149,145,.1);color:var(--teal)"><i class="pi pi-map-marker"></i></div>
@@ -1186,7 +1181,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <span class="canal__badge canal__badge--orange"><i class="pi pi-clock"></i> SEG a SEX, 8h às 17h</span>
       </div>
 
-      <!-- SAC + Def. Auditivo -->
+      
       <div class="canal canal--sac gs">
         <div class="canal__head">
           <div class="canal__ico" style="background:rgba(106,167,174,.12);color:var(--sea)"><i class="pi pi-phone"></i></div>
@@ -1201,7 +1196,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <span class="canal__badge canal__badge--green" style="margin-top:10px"><i class="pi pi-circle-fill" style="font-size:.45rem"></i> Disponível 24h</span>
       </div>
 
-      <!-- Ouvidoria -->
+      
       <div class="canal canal--ouv gs">
         <div class="canal__head">
           <div class="canal__ico" style="background:rgba(224,87,89,.1);color:var(--coral)"><i class="pi pi-flag"></i></div>
@@ -1215,7 +1210,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
 </section>
 
-<!-- ══ FOOTER ════════════════════════════════════════════════════════ -->
+
 </main>
 <footer>
   <div class="foot-arc" aria-hidden="true">
@@ -1284,13 +1279,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
 </footer>
 
-<!-- ══ WA FLOAT ═══════════════════════════════════════════════════ -->
+
 <div class="wa-f">
   <span class="wa-tip">Falar com especialista</span>
   <a href="https://wa.me/552130550790?text=Olá!%20Gostaria%20de%20conhecer%20os%20planos%20Klini%20Saúde." class="wa-btn" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="pi pi-whatsapp" style="font-size:1.5rem;color:#fff;line-height:1"></i></a>
 </div>
 
-<!-- ══ PAGE INTERACTIONS ═══════════════════════════════════════════ -->
+
 <script>
 /* ── Topbar opacity ─────────────────────────────────── */
 const bar = document.getElementById('bar');
@@ -1459,9 +1454,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   vids.forEach(function (v) { io.observe(v); });
 })();
 </script>
-<!-- ── GSAP scroll: efeitos em todas as seções da home ──────────────────
-     Sem defer (scripts no fim do body = ordem garantida).
-     Progressive enhancement: 100% funcional sem JS. -->
+
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
 <script>
