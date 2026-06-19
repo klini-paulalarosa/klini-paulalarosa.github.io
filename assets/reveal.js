@@ -5,7 +5,7 @@
   document.documentElement.classList.add('sr');
 
   if(!pref){
-    ['acess__grid','plans__track','mv__grid','canais-bento','farm-bento'].forEach(function(c){
+    ['acess__grid','plans__track','mv__grid','canais-bento','farm__steps--row'].forEach(function(c){
       var p=document.querySelector('.'+c);
       if(!p)return;
       p.querySelectorAll('.gs').forEach(function(el,i){
