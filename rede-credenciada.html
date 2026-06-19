@@ -22,14 +22,6 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
   <link rel="stylesheet" href="assets/klini.css" />
   <style>
-    /* ── hero overrides específicos (foto, wash, perninha) ── */
-    .page-hero--people .ph-photo{object-position:32% 60%}
-    .page-hero--people .ph-wash{background:linear-gradient(270deg,rgba(4,20,18,.30) 0%,transparent 38%),radial-gradient(ellipse at 22% 55%,transparent 42%,rgba(4,20,18,.18) 100%)}
-    .page-hero--people .wrap{justify-content:flex-end}
-    .ph-d-card{max-width:440px}
-    .ph-d-card::after{content:'';position:absolute;left:-15px;top:36%;width:22px;height:30px;background:#259591;clip-path:polygon(100% 0,100% 100%,0 42%);filter:drop-shadow(-3px 2px 4px rgba(4,42,38,.18))}
-    @media(max-width:760px){.page-hero--people .ph-photo{object-position:38% 28%}}
-
     /* ── Tabs Busca / Atualização ─────────────────────────────────── */
     .rc-toggle{display:inline-flex;background:var(--off);border:1px solid var(--bd-l);border-radius:40px;padding:5px;gap:4px;margin:0 auto 38px;justify-content:center}
     .rc-toggle__btn{display:inline-flex;align-items:center;gap:8px;border:none;background:transparent;cursor:pointer;font-family:'Objective',sans-serif;font-weight:700;font-size:.88rem;color:var(--muted);padding:11px 22px;border-radius:30px;transition:all .25s}
@@ -215,9 +207,7 @@
 <main id="main">
 
 <!-- ══ HERO ═════════════════════════════════════════════════════════ -->
-<section class="page-hero page-hero--people">
-  <img class="ph-photo" src="assets/campanha/hero-rede.webp" alt="Beneficiário Klini no Rio de Janeiro" />
-  <div class="ph-wash"></div>
+<section class="page-hero">
   <div class="wrap">
     <div class="ph-d-card">
       <img class="ph-k-card" src="assets/k-mark.svg" alt=""/>
@@ -225,11 +215,6 @@
       <h1 class="h1">Encontre atendimento<br><strong>onde você estiver</strong></h1>
       <a href="#rcBuscar" class="ph-cta">Buscar na rede <i class="pi pi-search"></i></a>
     </div>
-  </div>
-  <div class="page-hero__divider">
-    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M0,80 L0,42 C 420,86 1020,86 1440,42 L1440,80 Z" fill="#fff"/>
-    </svg>
   </div>
 </section>
 

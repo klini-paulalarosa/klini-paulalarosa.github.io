@@ -20,13 +20,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons@7.0.0/primeicons.css" />
   <link rel="stylesheet" href="assets/klini.css" />
   <style>
-    /* ── hero overrides específicos (foto, wash, perninha — Dirceu à direita) ── */
-    .page-hero--people .ph-photo{object-position:68% 22%}
-    .page-hero--people .ph-wash{background:linear-gradient(90deg,rgba(4,20,18,.22) 0%,transparent 36%),radial-gradient(ellipse at 82% 50%,transparent 40%,rgba(4,20,18,.2) 100%)}
-    .ph-d-card{max-width:476px}
-    .ph-d-card::after{content:'';position:absolute;right:-15px;top:36%;width:22px;height:30px;background:#259591;clip-path:polygon(0 0,0 100%,100% 42%);filter:drop-shadow(3px 2px 4px rgba(4,42,38,.18))}
-    @media(max-width:760px){.page-hero--people .ph-photo{object-position:78% 22%}}
-
     /* intro de conformidade */
     .ouv-lead{max-width:760px;margin:0 auto;text-align:center}
     .ouv-lead p{font-size:1.05rem;line-height:1.9;color:var(--muted)}
@@ -127,9 +120,7 @@
 <main id="main">
 
 <!-- ══ HERO ═════════════════════════════════════════════════════════ -->
-<section class="page-hero page-hero--people">
-  <img class="ph-photo" src="assets/campanha/hero-ouvidoria.webp" alt="Beneficiário Klini no Rio de Janeiro" />
-  <div class="ph-wash"></div>
+<section class="page-hero">
   <div class="wrap">
     <div class="ph-d-card">
       <img class="ph-k-card" src="assets/k-mark.svg" alt=""/>
@@ -137,11 +128,6 @@
       <h1 class="h1">Um canal exclusivo<br>para <strong>você ser ouvido</strong></h1>
       <a href="#ouvFormCard" class="ph-cta" id="heroOuvCta">Registrar manifestação <i class="pi pi-comment"></i></a>
     </div>
-  </div>
-  <div class="page-hero__divider">
-    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M0,80 L0,42 C 420,86 1020,86 1440,42 L1440,80 Z" fill="#fff"/>
-    </svg>
   </div>
 </section>
 

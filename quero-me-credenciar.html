@@ -32,12 +32,6 @@
     @media(max-width:880px){.cred-grid{grid-template-columns:1fr;gap:30px}}
     @media(max-width:560px){.cred-row{grid-template-columns:1fr}}
 
-    /* ── hero overrides específicos (foto, wash, perninha) ── */
-    .page-hero--people .ph-photo{object-position:30% 30%}
-    .page-hero--people .ph-wash{background:linear-gradient(270deg,rgba(4,20,18,.30) 0%,transparent 38%),radial-gradient(ellipse at 25% 50%,transparent 42%,rgba(4,20,18,.22) 100%)}
-    .page-hero--people .wrap{justify-content:flex-end}
-    .ph-d-card::after{content:'';position:absolute;left:-15px;top:36%;width:22px;height:30px;background:#259591;clip-path:polygon(100% 0,100% 100%,0 42%);filter:drop-shadow(-3px 2px 4px rgba(4,42,38,.18))}
-    @media(max-width:760px){.page-hero--people .ph-photo{object-position:38% 28%}}
   </style>
 </head>
 <body>
@@ -110,9 +104,7 @@
 <main id="main">
 
 <!-- ══ HERO ═════════════════════════════════════════════════════════ -->
-<section class="page-hero page-hero--people" style="--page-accent:#C8F5F3">
-  <img class="ph-photo" src="assets/fotos%20headers/GettyImages-2208547132.webp" alt="Médica examinando criança com estetoscópio na rede Klini" />
-  <div class="ph-wash"></div>
+<section class="page-hero">
   <div class="wrap">
     <div class="ph-d-card">
       <img class="ph-k-card" src="assets/k-mark.svg" alt=""/>
@@ -121,11 +113,6 @@
       <p>Hospitais, clínicas, laboratórios e profissionais de saúde: junte-se à rede credenciada Klini e atenda nossos beneficiários no Rio de Janeiro.</p>
       <a href="#credenciamento" class="ph-cta">Enviar solicitação <i class="pi pi-arrow-right"></i></a>
     </div>
-  </div>
-  <div class="page-hero__divider">
-    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M0,80 L0,42 C 420,86 1020,86 1440,42 L1440,80 Z" fill="#fff"/>
-    </svg>
   </div>
 </section>
 
