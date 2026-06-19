@@ -22,32 +22,32 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons@7.0.0/primeicons.css" />
 
   <style>
-/* ── OBJECTIVE (Klini DS primary font) ──────────────────────── */
+
 @font-face{font-family:'Objective';src:url('assets/fonts/Objective-Regular.woff2')format('woff2');font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:'Objective';src:url('assets/fonts/Objective-Medium.woff2')format('woff2');font-weight:500;font-style:normal;font-display:swap}
 @font-face{font-family:'Objective';src:url('assets/fonts/Objective-Bold.woff2')format('woff2');font-weight:700;font-style:normal;font-display:swap}
 @font-face{font-family:'Objective';src:url('assets/fonts/Objective-ExtraBold.woff2')format('woff2');font-weight:800;font-style:normal;font-display:swap}
 
-/* ── TOKENS — alinhado ao @klini-saude/ds v2 ─────────────────── */
+
 :root{
-  --ink:#111111;  --ink2:#1C1C1E;                       /* fundos escuros — neutro */
-  --teal:#259591; --teal-dim:rgba(37,149,145,.22);     /* DS primária — verde */
-  --sea:#6AA7AE;  --sea-dim:rgba(106,167,174,.22);     /* DS primária — sea  */
-  --orange:#CD7925;                                     /* DS primária — laranja */
-  --coral:#E05759;                                      /* DS primária — coral */
+  --ink:#111111;  --ink2:#1C1C1E;                       
+  --teal:#259591; --teal-dim:rgba(37,149,145,.22);     
+  --sea:#6AA7AE;  --sea-dim:rgba(106,167,174,.22);     
+  --orange:#CD7925;                                     
+  --coral:#E05759;                                      
   --white:#fff; --off:#F5F9FF;
-  --serif:'Newsreader',Georgia,serif;                   /* serifada de contraste (acento de títulos) */
-  --text:#333333; --muted:#666666;                      /* DS — texto / texto secundário */
-  /* Degradês oficiais da marca */
-  --grad-cool:linear-gradient(135deg,#259591,#6AA7AE);           /* verde → sea */
-  --grad-warm:linear-gradient(135deg,#CD7925,#E05759);           /* laranja → coral */
-  --grad-brand:linear-gradient(90deg,#259591,#6AA7AE,#CD7925,#E05759); /* 4 cores */
-  --grad-soft:linear-gradient(180deg,#E1EDEF,#FFFFFF);           /* verde claro → branco */
+  --serif:'Newsreader',Georgia,serif;                   
+  --text:#333333; --muted:#666666;                      
+  
+  --grad-cool:linear-gradient(135deg,#259591,#6AA7AE);           
+  --grad-warm:linear-gradient(135deg,#CD7925,#E05759);           
+  --grad-brand:linear-gradient(90deg,#259591,#6AA7AE,#CD7925,#E05759); 
+  --grad-soft:linear-gradient(180deg,#E1EDEF,#FFFFFF);           
   --bd-d:rgba(255,255,255,.08); --bd-l:rgba(4,42,38,.08);
   --r:16px; --r-s:10px;
 }
 
-/* ── RESET ───────────────────────────────────────────────────── */
+
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;overflow-x:hidden}
 body{font-family:'Objective',sans-serif;color:var(--text);background:#fff;overflow-x:hidden}
@@ -56,24 +56,24 @@ a{text-decoration:none;color:inherit}
 ::-webkit-scrollbar{width:3px}
 ::-webkit-scrollbar-thumb{background:var(--teal);border-radius:2px}
 
-/* ── TYPE ────────────────────────────────────────────────────── */
+
 .h1{font-family:'Objective',sans-serif;font-weight:800;font-size:clamp(3rem,6.8vw,5.8rem);line-height:.98;letter-spacing:-.045em}
 .h2{font-family:'Objective',sans-serif;font-weight:400;font-size:clamp(2.2rem,4.8vw,3.8rem);line-height:1.06;letter-spacing:-.035em;color:var(--muted);text-wrap:balance}
 .h2 strong{font-weight:800;color:var(--teal)}
 .h3{font-family:'Objective',sans-serif;font-weight:700;font-size:clamp(1.1rem,2vw,1.35rem)}
 .eyebrow{font-family:'Objective',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal)}
-/* DS — Objective em tudo (família única, look clean) */
+
 p{font-family:'Objective',sans-serif;line-height:1.7}
 .grad{background:linear-gradient(105deg,var(--teal),var(--sea));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
-/* ── LAYOUT ──────────────────────────────────────────────────── */
+
 .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
 .sec{padding:100px 0}
 .sec--dark{background:var(--ink);color:#fff}
 .sec--ink2{background:#fff;color:var(--text)}
 .sec--off{background-color:var(--off);background-image:radial-gradient(rgba(37,149,145,.08) 1.1px,transparent 1.1px);background-size:26px 26px}
 
-/* ── BUTTONS ─────────────────────────────────────────────────── */
+
 .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:50px;font-weight:700;font-size:.95rem;cursor:pointer;transition:all .22s ease;text-decoration:none;border:none;white-space:nowrap;font-family:'Objective',sans-serif}
 .btn-teal{background:var(--grad-warm);color:#fff}
 .btn-teal:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(205,121,37,.45)}
@@ -82,14 +82,14 @@ p{font-family:'Objective',sans-serif;line-height:1.7}
 .btn-outline{background:transparent;border:1.5px solid var(--bd-l);color:var(--teal)}
 .btn-outline:hover{border-color:var(--teal);background:rgba(37,149,145,.06)}
 
-/* ── TOP BAR ─────────────────────────────────────────────────── */
+
 .bar{position:fixed;top:0;width:100%;z-index:900;padding:11px 0;transition:background .3s,box-shadow .3s;border-top:3px solid;border-image:var(--grad-brand) 1;background:rgba(255,255,255,0)}
 .bar.solid{background:#fff;box-shadow:0 1px 0 var(--bd-l)}
 .bar__inner{display:flex;align-items:center;gap:20px;max-width:1200px;margin:0 auto;padding:0 24px}
 .bar__logo{flex-shrink:0}
 .bar__logo img{height:32px;width:auto;display:block;transition:filter .3s}
 .bar:not(.solid) .bar__logo img{filter:brightness(0) invert(1)}
-/* Nav */
+
 .bar__nav{display:flex;align-items:center;gap:2px;flex:1;justify-content:center}
 .nav__item{position:relative}
 .nav__link{display:inline-flex;align-items:center;gap:5px;padding:8px 13px;border-radius:8px;font-size:.84rem;font-weight:600;color:rgba(255,255,255,.85);cursor:pointer;transition:color .2s,background .2s;white-space:nowrap;text-decoration:none;font-family:'Objective',sans-serif}
@@ -101,14 +101,14 @@ p{font-family:'Objective',sans-serif;line-height:1.7}
 .nav__item--drop:hover .nav__drop{opacity:1;pointer-events:all;transform:translateX(-50%) translateY(0)}
 .nav__drop a{display:block;padding:9px 13px;border-radius:8px;font-size:.83rem;color:var(--text);transition:background .2s,color .2s;white-space:nowrap;font-family:'Objective',sans-serif;font-weight:500}
 .nav__drop a:hover{background:rgba(37,149,145,.08);color:var(--teal)}
-/* CTAs */
+
 .bar__ctas{display:flex;align-items:center;gap:9px;flex-shrink:0}
 .btn-klini{display:inline-flex;align-items:center;gap:7px;background:var(--coral);color:#fff;font-weight:700;font-size:.83rem;padding:10px 19px;border-radius:8px;transition:all .22s;white-space:nowrap;letter-spacing:-.01em;font-family:'Objective',sans-serif;line-height:1}
 .btn-klini:hover{background:#c94445;transform:translateY(-1px);box-shadow:0 8px 24px rgba(224,87,89,.3)}
 .btn-area{display:inline-flex;align-items:center;gap:6px;background:#fff;cursor:pointer;border:1.5px solid var(--orange);color:var(--orange);font-weight:600;font-size:.83rem;padding:9px 17px;border-radius:8px;transition:all .22s;white-space:nowrap;font-family:'Objective',sans-serif;line-height:1}
 .bar.solid .btn-area{color:var(--orange)}
 .btn-area:hover{background:var(--orange);color:#fff;border-color:var(--orange)}
-/* área dropdown */
+
 .bar__area-wrap{position:relative}
 .area-drop{position:absolute;top:calc(100% + 8px);right:0;background:#fff;border:1px solid var(--bd-l);border-radius:14px;padding:7px;min-width:252px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;box-shadow:0 16px 40px rgba(4,42,38,.12);z-index:100;transform:translateY(-6px)}
 .area-drop::before{content:'';position:absolute;left:0;right:0;top:-10px;height:10px}
@@ -120,11 +120,11 @@ p{font-family:'Objective',sans-serif;line-height:1.7}
 .area-drop__ico{width:34px;height:34px;border-radius:9px;background:rgba(37,149,145,.1);display:flex;align-items:center;justify-content:center;font-size:.9rem;color:var(--teal);flex-shrink:0}
 .area__chev{font-size:.52rem;transition:transform .22s;margin-top:1px}
 .bar__area-wrap:hover .area__chev,.bar__area-wrap.open .area__chev{transform:rotate(180deg)}
-/* Hamburger */
+
 .bar__hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;margin-left:auto}
 .bar__hamburger span{display:block;width:22px;height:2px;background:rgba(255,255,255,.8);border-radius:1px;transition:all .2s}
 .bar.solid .bar__hamburger span{background:var(--text)}
-/* Mobile nav */
+
 @media(max-width:900px){
   .bar__nav{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:1px solid var(--bd-l);padding:12px 24px;flex-direction:column;align-items:flex-start;gap:4px}
   .bar__nav.open{display:flex}
@@ -136,8 +136,8 @@ p{font-family:'Objective',sans-serif;line-height:1.7}
   .nav__item--drop.open .nav__chev{transform:rotate(180deg)}
 }
 
-/* ── HERO ────────────────────────────────────────────────────── */
-/* ── HERO SPLIT: texto à esquerda, vídeo à direita (sem sobreposição) ── */
+
+
 .hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#1d8280 0%,#259591 50%,#6AA7AE 100%)}
 @keyframes hero-float{0%,100%{transform:translate(0,0)}33%{transform:translate(28px,-38px)}66%{transform:translate(-18px,22px)}}
 .hero__split{display:grid;grid-template-columns:1fr 1fr;min-height:clamp(420px,60vh,560px)}
@@ -166,17 +166,15 @@ p{font-family:'Objective',sans-serif;line-height:1.7}
   .hero__photo,.hero__video{-webkit-mask-image:none;mask-image:none}
 }
 
-/* ── TÍTULOS DE SEÇÃO (escopo da home) ──────────────────────────
-   Corpo do título em Objective 800 (presença) + palavra-acento em
-   Newsreader itálico, mantendo a cor de marca de cada seção. */
+
 .sec .eyebrow,.acess .eyebrow{position:relative;padding-left:34px}
 .sec .eyebrow::before,.acess .eyebrow::before{content:'';position:absolute;left:0;top:50%;width:24px;height:2px;background:currentColor;transform:translateY(-50%);opacity:.7}
 section .h2{font-weight:800;letter-spacing:-.035em}
 section .h2 strong{font-family:var(--serif);font-style:italic;font-weight:600;letter-spacing:-.01em}
 
 
-/* ── PLANS ───────────────────────────────────────────────────── */
-/* Planos — carrossel (3 visíveis, controles no topo) */
+
+
 .plans__layout{display:grid;grid-template-columns:minmax(290px,330px) 1fr;gap:48px;align-items:center}
 .plans__aside{display:flex;flex-direction:column;align-items:flex-start}
 .plans__head-txt{max-width:420px}
@@ -222,7 +220,7 @@ section .h2 strong{font-family:var(--serif);font-style:italic;font-weight:600;le
 .pc__btn-out{border:1.5px solid var(--bd-l);background:transparent;color:var(--teal)}
 .pc--feat .pc__btn-out{border-color:rgba(255,255,255,.2);color:#fff}
 
-/* ── PLANOS · cards com vídeo + flip ─────────────────────── */
+
 .vcard{flex:0 0 calc((100% - 36px)/2.5);height:430px;cursor:pointer;position:relative}
 @media(max-width:900px){.plans__layout{grid-template-columns:1fr;gap:30px}.plans__head-txt{max-width:100%}.plans__nav{margin-top:18px}.vcard{flex-basis:calc((100% - 22px)/1.6)}}
 @media(max-width:600px){.vcard{flex-basis:calc((100% - 16px)/1.12)}}
@@ -254,7 +252,7 @@ section .h2 strong{font-family:var(--serif);font-style:italic;font-weight:600;le
 .vcwarm .vcback{background:radial-gradient(circle at 86% 10%,rgba(255,255,255,.22),transparent 46%),linear-gradient(150deg,#b86a20 0%,#CD7925 100%)}
 .vcfeat .vcback{background:radial-gradient(circle at 86% 10%,rgba(255,255,255,.20),transparent 46%),linear-gradient(155deg,#CD7925 0%,#E05759 55%,#cd4545 100%)}
 .vcback::before{content:'';position:absolute;inset:0;z-index:0;background-image:radial-gradient(rgba(255,255,255,.16) 1px,transparent 1.6px);background-size:15px 15px;opacity:.5;-webkit-mask-image:linear-gradient(150deg,#000,transparent 70%);mask-image:linear-gradient(150deg,#000,transparent 70%);pointer-events:none}
-/* Klini 200 — teal profundo, identidade essencial */
+
 .vc200 .vcfront{background:radial-gradient(circle at 82% 14%,rgba(255,255,255,.18),transparent 48%),linear-gradient(155deg,#a85c18 0%,#CD7925 60%,#d98a3c 100%)}
 .vc200 .vcback{background:radial-gradient(circle at 86% 10%,rgba(255,255,255,.18),transparent 46%),linear-gradient(150deg,#a85c18 0%,#CD7925 100%);color:#fff}
 .vc200 .vc-scrim{background:linear-gradient(0deg,rgba(80,35,8,.94) 6%,rgba(140,70,20,.24) 55%,transparent)}
@@ -279,7 +277,7 @@ section .h2 strong{font-family:var(--serif);font-style:italic;font-weight:600;le
 @media(prefers-reduced-motion:reduce){.vcard__in{transition:none!important}.vc-k{transition:none}}
 
 
-/* ── TELECONSULTA ────────────────────────────────────────────── */
+
 .tele{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
 .tele__steps{display:flex;flex-direction:column;gap:26px;margin-top:38px}
 .tele__step{display:flex;gap:18px;align-items:flex-start}
@@ -292,8 +290,8 @@ section .h2 strong{font-family:var(--serif);font-style:italic;font-weight:600;le
 .tele__app-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
 .tele__app-btns img{height:42px}
 
-/* ── FARMÁCIA ────────────────────────────────────────────────── */
-/* Logo fallback — badge teal quando imagem falha */
+
+
 .farm{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
 .farm__logo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .farm__logo-card{background:#fff;border:1.5px solid var(--bd-l);border-radius:18px;padding:30px 18px;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:transform .35s cubic-bezier(.34,1.56,.64,1),box-shadow .32s,border-color .28s;position:relative;overflow:hidden;min-height:106px}
@@ -304,7 +302,7 @@ section .h2 strong{font-family:var(--serif);font-style:italic;font-weight:600;le
 .farm__logo-card:hover::before{animation:farm-shine .9s ease}
 @keyframes farm-shine{0%{left:-120%}100%{left:150%}}
 .farm__svg{max-width:72%;max-height:52px;width:auto;height:auto;display:block;margin:0 auto;object-fit:contain;transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
-/* marcas compactas (Drogasmil/Farmalife, ~1.5:1) usam mais altura p/ igualar o peso visual */
+
 .farm-logo--dml .farm__svg,.farm-logo--fml .farm__svg{max-width:90%;max-height:62px}
 .farm__logo-card:hover .farm__svg{transform:scale(1.14)}
 .farm__steps{display:flex;flex-direction:column;gap:20px;margin-top:32px}
@@ -313,7 +311,7 @@ section .h2 strong{font-family:var(--serif);font-style:italic;font-weight:600;le
 .farm__step strong{display:block;font-size:.92rem;font-weight:600;margin-bottom:3px}
 .farm__step span{font-size:.82rem;color:var(--muted)}
 
-/* ── LINHAS DE CUIDADO ───────────────────────────────────────── */
+
 .mv{background:var(--grad-soft);padding:100px 0}
 .mv__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:56px}
 .mv__card{background:#fff;border:1px solid var(--bd-l);border-radius:20px;padding:0;overflow:hidden;text-align:left;transition:all .3s;box-shadow:10px 10px 0 0 rgba(37,149,145,.2)}
@@ -329,9 +327,9 @@ section .h2 strong{font-family:var(--serif);font-style:italic;font-weight:600;le
 .ldc__entry h4{font-family:'Objective',sans-serif;font-weight:700;font-size:.96rem;color:var(--text);margin-bottom:6px}
 .ldc__entry p{font-size:.83rem;color:var(--muted);line-height:1.7;margin:0}
 
-/* ── FOOTER ──────────────────────────────────────────────────── */
+
 footer{background:#fff;color:var(--muted);padding:52px 0 28px;position:relative}
-/* ── RODAPÉ (espelha assets/klini.css das demais páginas — index é autocontido) ── */
+
 .foot-arc{position:absolute;left:0;bottom:100%;width:100%;height:54px;margin-bottom:-1px;line-height:0;pointer-events:none}
 .foot-arc svg{display:block;width:100%;height:100%}
 .foot__top{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:32px;padding-bottom:28px;border-bottom:1px solid var(--bd-l);margin-bottom:28px}
@@ -353,7 +351,7 @@ footer{background:#fff;color:var(--muted);padding:52px 0 28px;position:relative}
 .seal{background:var(--off);border-radius:6px;padding:4px 10px;font-size:.68rem;font-weight:700;letter-spacing:.04em;color:var(--text)}
 .ans-badge{background:#0A0A0A;color:#fff;border:1px solid #2A2A2A;font-weight:800;letter-spacing:.03em;font-size:.67rem}
 
-/* ── WA FLOAT ────────────────────────────────────────────────── */
+
 .wa-f{position:fixed;bottom:28px;right:28px;z-index:950;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
 .wa-tip{background:#fff;border-radius:10px;padding:7px 14px;font-size:.79rem;font-weight:600;color:var(--text);box-shadow:0 8px 24px rgba(0,0,0,.12);white-space:nowrap;opacity:0;transform:translateX(6px);transition:all .25s;pointer-events:none}
 .wa-f:hover .wa-tip{opacity:1;transform:none}
@@ -361,16 +359,16 @@ footer{background:#fff;color:var(--muted);padding:52px 0 28px;position:relative}
 @keyframes wab{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
 .wa-btn:hover{background:#1da851;animation:none;transform:scale(1.12)!important;box-shadow:0 12px 32px rgba(37,211,102,.6)}
 
-/* ── BRAND ARCS — Semicírculos do guia de marca Klini ──────── */
+
 .kln-arcs{position:absolute;top:0;right:0;height:100%;width:auto;pointer-events:none;z-index:1}
 
-/* ── TELE ZOOM WRAPPER ────────────────────────────────────────── */
+
 .tele__img-wrap{position:relative;z-index:1;display:flex;justify-content:flex-end}
 .tele__screen-glow{position:absolute;top:10%;left:50%;transform:translateX(-50%);width:160px;height:240px;border-radius:40px;background:radial-gradient(ellipse,rgba(37,149,145,.22),transparent 70%);pointer-events:none;animation:tele-pulse 3s ease-in-out infinite 1.2s}
 @keyframes tele-pulse{0%,100%{opacity:.6;transform:translateX(-50%) scale(1)}50%{opacity:1;transform:translateX(-50%) scale(1.08)}}
 
-/* ── PLAN CARD IMAGE WRAPPER ──────────────────────────────────── */
-/* header com textura: arcos concêntricos da marca + pontilhado + gloss + shine */
+
+
 .pc__img-wrap{
   position:relative;overflow:hidden;
   background:
@@ -382,18 +380,18 @@ footer{background:#fff;color:var(--muted);padding:52px 0 28px;position:relative}
   border-radius:var(--r) var(--r) 0 0;margin:-26px -26px 20px;padding:28px 20px 24px;
   display:flex;align-items:center;justify-content:center;min-height:104px
 }
-/* sweep de luz no hover */
+
 .pc__img-wrap::before{content:'';position:absolute;top:0;left:-130%;width:58%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.38),transparent);transform:skewX(-18deg);pointer-events:none;z-index:1}
 .pc:hover .pc__img-wrap::before{animation:pc-shine .95s ease}
 @keyframes pc-shine{to{left:165%}}
-/* textura pontilhada com fade diagonal */
+
 .pc__img-wrap::after{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.16) 1px,transparent 1.5px);background-size:13px 13px;opacity:.5;pointer-events:none;-webkit-mask-image:linear-gradient(125deg,#000,transparent 70%);mask-image:linear-gradient(125deg,#000,transparent 70%)}
 .pc__img{position:relative;z-index:2;height:60px;object-fit:contain;margin:0;filter:drop-shadow(0 5px 12px rgba(0,0,0,.22))}
 @media(prefers-reduced-motion:reduce){.pc:hover .pc__img-wrap::before{animation:none}}
 
-/* corpo do card com leve profundidade + brilho de canto */
+
 .pc{background:radial-gradient(circle at 100% 100%, rgba(37,149,145,.055), transparent 40%),#fff;box-shadow:0 6px 22px rgba(4,42,38,.05)}
-/* card destaque (Klini 400): header em vidro fosco com mesma textura */
+
 .pc--feat .pc__img-wrap{
   background:
     radial-gradient(circle at 100% 0%, transparent 46px, rgba(255,255,255,.22) 47px 60px, transparent 61px),
@@ -406,7 +404,7 @@ footer{background:#fff;color:var(--muted);padding:52px 0 28px;position:relative}
 .pc--feat .pc__img{filter:drop-shadow(0 5px 14px rgba(0,0,0,.28))}
 
 
-/* ── ACESSOS RÁPIDOS ─────────────────────────────────────────── */
+
 .acess{position:relative;overflow:hidden;padding:88px 0;background-color:#fff;background-image:radial-gradient(rgba(37,149,145,.06) 1.1px,transparent 1.1px);background-size:26px 26px}
 .acess::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(37,149,145,.05),transparent 28%,transparent 76%,rgba(106,167,174,.06));pointer-events:none}
 .acess__arc{position:absolute;top:-90px;right:-90px;width:330px;height:330px;opacity:.5;pointer-events:none;z-index:0}
@@ -414,9 +412,9 @@ footer{background:#fff;color:var(--muted);padding:52px 0 28px;position:relative}
 .acess>.wrap{position:relative;z-index:1}
 .acess__grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:48px}
 .acess__card{--mx:50%;--my:50%;background:#fff;border:1.5px solid var(--bd-l);border-radius:22px;padding:30px 20px 26px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:13px;transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s,border-color .3s;text-decoration:none;color:inherit;position:relative;overflow:hidden;isolation:isolate;box-shadow:10px 10px 0 0 rgba(37,149,145,.18)}
-/* barra de acento que cresce no topo */
+
 .acess__card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--sea));transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.22,1,.36,1);z-index:2}
-/* spotlight que segue o cursor */
+
 .acess__card::after{content:'';position:absolute;inset:0;background:radial-gradient(220px circle at var(--mx) var(--my),rgba(37,149,145,.16),transparent 62%);opacity:0;transition:opacity .35s;pointer-events:none;z-index:0}
 .acess__card>*{position:relative;z-index:1}
 .acess__card:hover{border-color:rgba(37,149,145,.5);box-shadow:0 18px 44px rgba(37,149,145,.14);transform:translateY(-6px)}
@@ -430,7 +428,7 @@ footer{background:#fff;color:var(--muted);padding:52px 0 28px;position:relative}
 .acess__cta{font-family:'Objective',sans-serif;font-size:.78rem;font-weight:700;color:var(--teal);display:inline-flex;align-items:center;gap:6px;margin-top:4px;background:rgba(37,149,145,.08);border:1px solid rgba(37,149,145,.2);padding:7px 15px;border-radius:50px;transition:gap .25s,background .25s;line-height:1}
 .acess__card:hover .acess__cta{gap:10px;background:rgba(37,149,145,.14)}
 
-/* ── CANAIS DE ATENDIMENTO ───────────────────────────────────── */
+
 .canais{padding:100px 0;background-color:var(--off);background-image:radial-gradient(rgba(37,149,145,.07) 1.1px,transparent 1.1px);background-size:26px 26px}
 .canais__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:56px}
 .canal{background:#fff;border:1.5px solid var(--bd-l);border-radius:18px;padding:24px 24px;transition:all .3s;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-start}
@@ -451,7 +449,7 @@ footer{background:#fff;color:var(--muted);padding:52px 0 28px;position:relative}
 @media(max-width:600px){.acess__grid{grid-template-columns:1fr 1fr}.canais__grid{grid-template-columns:1fr}}
 
 
-/* ── FARMÁCIA TICKER ──────────────────────────────────────────── */
+
 @keyframes farm-ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 .farm__ticker-wrap{overflow:hidden;position:relative;margin-top:48px;padding:12px 0}
 .farm__ticker-wrap::before,.farm__ticker-wrap::after{content:'';position:absolute;top:0;bottom:0;width:100px;z-index:2;pointer-events:none}
@@ -465,8 +463,8 @@ footer{background:#fff;color:var(--muted);padding:52px 0 28px;position:relative}
 .farm__steps--row{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:0}
 @media(max-width:640px){.farm__steps--row{grid-template-columns:1fr}}
 
-/* ── CANAIS BENTO ─────────────────────────────────────────────── */
-/* grid limpo 3×2 — alturas pelo conteúdo (sem row-span = sem espaço sobrando) */
+
+
 .canais-bento{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:48px;align-items:stretch}
 .canal--wa{background:linear-gradient(150deg,rgba(37,149,145,.07),rgba(106,167,174,.03));border-color:rgba(37,149,145,.3)}
 .canal--wa .canal__ico{width:50px;height:50px;font-size:1.25rem}
@@ -475,11 +473,11 @@ footer{background:#fff;color:var(--muted);padding:52px 0 28px;position:relative}
 @media(max-width:900px){.canais-bento{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.canais-bento{grid-template-columns:1fr}}
 
-/* ── TELECONSULTA — zoom sutil + balões de notificação ───────── */
+
 #teleconsulta{overflow:hidden}
 .tele__side{position:relative}
 .tele__img{transform-origin:50% 42%}
-/* balões que surgem como se alguém estivesse usando o app */
+
 .tele__notif{position:absolute;display:flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--bd-l);border-radius:12px;padding:8px 14px 8px 9px;box-shadow:0 12px 30px rgba(4,42,38,.14);z-index:4;white-space:nowrap;opacity:0;transform:translateY(14px) scale(.96);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)}
 @keyframes tele-float{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-7px) rotate(-.7deg)}}
 .tele__notif.show{opacity:1;transform:none;animation:tele-float 4s ease-in-out .5s infinite}
@@ -489,26 +487,26 @@ footer{background:#fff;color:var(--muted);padding:52px 0 28px;position:relative}
 .tele__notif strong{display:block;font-size:.74rem;font-weight:700;color:var(--text);line-height:1.2}
 .tele__notif span{font-size:.63rem;color:var(--muted)}
 .tele__notif-ico{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.78rem;flex-shrink:0}
-/* posicionados na borda esquerda do mockup, com pouca sobreposição */
-/* ancoradas pela direita: ficam à ESQUERDA do mockup, fora do conteúdo/logo */
+
+
 .tele__notif--1{top:14%;left:auto;right:calc(100% - 52px)}
 .tele__notif--2{top:46%;left:auto;right:calc(100% - 22px)}
 .tele__notif--3{top:78%;left:auto;right:calc(100% - 48px)}
 @media(max-width:1024px){.tele__notif--1{right:calc(100% - 40px)}.tele__notif--2{right:calc(100% - 14px)}.tele__notif--3{right:calc(100% - 36px)}}
 @media(max-width:560px){.tele__notif{white-space:normal;max-width:60%}.tele__notif strong,.tele__notif span{white-space:normal}.tele__notif--1{top:3%;left:0;right:auto}.tele__notif--2{top:47%;left:0;right:auto}.tele__notif--3{top:91%;left:0;right:auto}}
 
-/* ── SCROLL REVEAL (html.sr via reveal.js) ──────────────────── */
+
 html.sr .gs{opacity:0!important;transform:translateY(22px);transition:opacity .55s cubic-bezier(.4,0,.2,1),transform .55s cubic-bezier(.4,0,.2,1)}
 html.sr .gs.vis{opacity:1!important;transform:none!important}
 @media(prefers-reduced-motion:reduce){html.sr .gs{transition:none!important}}
 
-/* ── HERO ENTRY — above fold, pure CSS animation ─────────────── */
+
 @keyframes hero-in{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
 .hero__inner>*{animation:hero-in .68s cubic-bezier(.4,0,.2,1) both}
 .hero__inner>*:nth-child(2){animation-delay:.11s}
 @media(prefers-reduced-motion:reduce){.hero__inner>*{animation:none}}
-/* ── BRAND ARC ROTATION ──────────────────────────────────── */
-/* Semicírculos da marca girando lentamente (decorativos, alguns pontos da home) */
+
+
 @keyframes kln-spin{to{transform:rotate(360deg)}}
 @keyframes kln-spin-rev{to{transform:rotate(-360deg)}}
 .kln-spin{animation:kln-spin 64s linear infinite;transform-origin:50% 50%}
@@ -518,16 +516,16 @@ html.sr .gs.vis{opacity:1!important;transform:none!important}
 @media(prefers-reduced-motion:reduce){.kln-spin,.kln-spin-rev{animation:none}}
 
 
-/* Conteúdo SEMPRE visível — sem hide-then-reveal (robusto em qualquer ambiente) */
+
 .gs{opacity:1}
 
-/* ── TEXTURA: grão sutil global (tira o ar "flat de template") ── */
+
 body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;opacity:.045;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 
-/* ── DIVISOR EM ARCO (hero → próxima seção) ── */
 
 
-/* ── RESPONSIVE ──────────────────────────────────────────────── */
+
+
 @media(max-width:1024px){
   .hero__sub{font-size:1.05rem}
   .hero__sub{max-width:100%}
@@ -556,27 +554,27 @@ body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;o
   .steps::before{display:none}
 }
 
-/* ── Acessibilidade: skip link + foco visível ── */
+
 .skip-link{position:absolute;left:-9999px;top:0;z-index:200;background:#259591;color:#fff;font-family:'Objective',sans-serif;font-weight:700;font-size:.9rem;padding:12px 22px;border-radius:0 0 12px 0}
 .skip-link:focus{left:0}
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #259591;outline-offset:2px;border-radius:4px}
 
-/* ── RESPONSIVE EXTRAS ────────────────────────────────────────── */
-/* Touch targets ≥44px: nav links e hamburger (boas práticas WCAG) */
+
+
 @media(max-width:900px){
   .nav__link{padding:14px 16px}
   .bar__hamburger{padding:10px 8px}
   .plans__cta{margin-top:18px}
   .plans__layout{gap:24px}
 }
-/* ≤768px: acess e hero extras */
+
 @media(max-width:768px){
   .acess{padding:70px 0}
   .hero__sub{margin-bottom:28px}
   .vcard{height:415px}
   .canais{padding:70px 0}
 }
-/* ≤600px: carousel card menor + back mais compacto */
+
 @media(max-width:600px){
   .vcard{height:400px}
   .vcback{padding:15px 16px 16px}
@@ -586,7 +584,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .plans__aside{text-align:center;align-items:center}
   .plans__head-txt{text-align:left}
 }
-/* ≤480px: mobile — densidade, sizing, breathing room */
+
 @media(max-width:480px){
   .sec{padding:56px 0}
   .acess{padding:56px 0}
@@ -608,7 +606,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .plans__layout{gap:18px}
   .vcback-badge span{font-size:.8rem}
 }
-/* ≤360px: telas muito pequenas (iPhone SE, Android compactos) */
+
 @media(max-width:360px){
   .bar__inner{padding:0 16px}
   .bar__ctas .btn-klini{font-size:.76rem;padding:8px 12px}
@@ -1235,12 +1233,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
 
 <script>
-/* ── Topbar opacity ─────────────────────────────────── */
+
 const bar = document.getElementById('bar');
 window.addEventListener('scroll', () =>
   bar.classList.toggle('solid', scrollY > 50), { passive: true });
 
-/* ── Mobile nav hamburger ─────────────────────────── */
+
 const barHamb = document.getElementById('barHamb');
 const barNav  = document.getElementById('barNav');
 if (barHamb && barNav) {
@@ -1250,7 +1248,7 @@ if (barHamb && barNav) {
   });
 }
 
-/* ── Stagger suave da entrada (estético; o conteúdo já é visível via CSS) ── */
+
 (function () {
   document.querySelectorAll('.acess__grid, .plans__track, .mv__grid, .canais-bento, .farm__steps--row').forEach(grid => {
     let i = 0;
@@ -1263,13 +1261,13 @@ if (barHamb && barNav) {
   });
 })();
 
-/* ── Teleconsulta: zoom leve ligado ao scroll + balões em sequência ── */
+
 (function () {
   const sec = document.getElementById('teleconsulta');
   if (!sec) return;
   const phone = sec.querySelector('.tele__img');
   const notifs = Array.prototype.slice.call(sec.querySelectorAll('.tele__notif'));
-  // cada balão surge conforme o scroll avança na seção
+
   const th = [0.30, 0.42, 0.54];
   function onScroll() {
     const r = sec.getBoundingClientRect(), vh = window.innerHeight || 800;
@@ -1280,11 +1278,11 @@ if (barHamb && barNav) {
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll, { passive: true });
   onScroll();
-  // salvaguarda: garante os balões visíveis mesmo sem eventos de scroll (preview)
+
   setTimeout(() => { notifs.forEach(n => n.classList.add('show')); }, 2200);
 })();
 
-/* ── Spotlight que segue o cursor nos cards de acesso rápido ── */
+
 document.querySelectorAll('.acess__card').forEach(card => {
   card.addEventListener('pointermove', e => {
     const r = card.getBoundingClientRect();
@@ -1293,7 +1291,7 @@ document.querySelectorAll('.acess__card').forEach(card => {
   });
 });
 
-/* ── Carrossel de planos (3 visíveis, prev/next + dots) ── */
+
 (function () {
   var track = document.getElementById('plansTrack');
   if (!track) return;
@@ -1321,20 +1319,20 @@ document.querySelectorAll('.acess__card').forEach(card => {
     if (dotsWrap) { var d = dotsWrap.children; for (var i = 0; i < d.length; i++) d[i].classList.toggle('active', i === idx); }
     if (prev) prev.disabled = idx <= 0;
     if (next) next.disabled = idx >= maxIdx();
-    // esconde o fade branco da direita quando chega no último (não há continuidade)
+
     var vp = track.parentElement; if (vp) vp.classList.toggle('at-end', idx >= maxIdx());
   }
   if (prev) prev.addEventListener('click', function () { idx--; render(); });
   if (next) next.addEventListener('click', function () { idx++; render(); });
   var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { buildDots(); render(); }, 160); });
-  // arraste/swipe no mobile
+
   var sx = 0; track.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
   track.addEventListener('touchend', function (e) { var dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 40) { idx += dx > 0 ? -1 : 1; render(); } }, { passive: true });
   buildDots(); render();
 })();
 
 
-/* ── Planos: flip ao clicar (ignora clique no CTA) ── */
+
 (function(){
   var track=document.getElementById('plansTrack'); if(!track) return;
   track.addEventListener('click',function(e){
@@ -1343,7 +1341,7 @@ document.querySelectorAll('.acess__card').forEach(card => {
   });
 })();
 
-/* ── Smooth anchors ──────────────────────────────────── */
+
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const id = a.getAttribute('href');
@@ -1355,8 +1353,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 });
 </script>
 <script>
-/* ── Vídeo do hero — carrega só depois do load (poster pinta primeiro),
-   respeitando reduced-motion e economia de dados ── */
+
 (function () {
   var v = document.querySelector('.hero__video[data-src]');
   if (!v) return;
@@ -1368,7 +1365,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     v.addEventListener('canplay', function () {
       v.play().then(function () {
         v.classList.add('on');
-        if (poster) poster.classList.add('faded'); /* tira a foto fixa por baixo (sem fantasma) */
+        if (poster) poster.classList.add('faded'); 
       }).catch(function(){});
     }, { once: true });
     v.load();
@@ -1377,8 +1374,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   else window.addEventListener('load', start, { once: true });
 })();
 
-/* ── Linhas de cuidado: vídeos só carregam/tocam quando visíveis;
-   pausam ao sair. Sob reduced-motion ficam no poster (não carregam) ── */
+
 (function () {
   var vids = Array.prototype.slice.call(document.querySelectorAll('.lca-vid[data-src]'));
   if (!vids.length) return;
@@ -1411,7 +1407,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   gsap.registerPlugin(ScrollTrigger);
 
-  /* ── 1. Hero: foto expande 30%, texto sobe e desvanece ── */
+  
   var hero = document.getElementById('hero');
   if (hero) {
     var heroST = { trigger: hero, start: 'top top', end: 'bottom top', scrub: 1 };
@@ -1421,9 +1417,9 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (inner) gsap.to(inner, { y: -80, opacity: 0, ease: 'none', scrollTrigger: heroST });
   }
 
-  /* (Acessos: arcos agora giram via CSS — sem parallax que sobrescreveria o transform) */
+  
 
-  /* ── 3. Planos: coluna de texto faz parallax de profundidade ── */
+  
   var plansAside = document.querySelector('#planos .plans__aside');
   if (plansAside) {
     gsap.to(plansAside, { y: -50, ease: 'none',
@@ -1431,7 +1427,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     });
   }
 
-  /* ── 4. Conheça: container do YouTube cresce ao entrar ── */
+  
   var ytWrap = document.querySelector('#conheca [style*="aspect-ratio"]');
   if (ytWrap) {
     gsap.from(ytWrap, { scale: 0.88, ease: 'power1.out',
@@ -1439,7 +1435,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     });
   }
 
-  /* ── 5. Teleconsulta: mockup flutua para cima (parallax) ── */
+  
   var teleWrap = document.querySelector('.tele__img-wrap');
   if (teleWrap) {
     gsap.to(teleWrap, { y: -60, ease: 'none',

@@ -2,10 +2,8 @@
   if(!window.IntersectionObserver)return;
   var pref=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
 
-  // Add html.sr so the CSS reveal rules activate
   document.documentElement.classList.add('sr');
 
-  // Auto-stagger siblings inside known grid containers (index.html)
   if(!pref){
     ['acess__grid','plans__track','mv__grid','canais-bento','farm-bento'].forEach(function(c){
       var p=document.querySelector('.'+c);
@@ -27,7 +25,7 @@
   },{threshold:.08,rootMargin:'0px 0px -48px 0px'});
 
   document.querySelectorAll('.gs,[data-reveal]').forEach(function(el){
-    // Elements already in the viewport get revealed immediately (no transition)
+
     var r=el.getBoundingClientRect();
     if(r.bottom<=window.innerHeight+10){el.classList.add('vis');return}
     io.observe(el);

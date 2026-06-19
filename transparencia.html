@@ -23,13 +23,13 @@
     .tr-sec-head{margin-bottom:26px}
     .tr-sec-head .h3{font-size:1.3rem}
     .tr-sec-head p{color:var(--muted);font-size:.92rem;margin-top:8px;max-width:640px}
-    /* normas ANS */
+    
     .tr-rn{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
     .tr-rn__item{background:#fff;border:1.5px solid var(--bd-l);border-radius:14px;padding:18px 20px;display:flex;gap:14px;align-items:flex-start;transition:all .25s}
     .tr-rn__item:hover{border-color:var(--teal);transform:translateY(-2px);box-shadow:0 12px 28px rgba(4,42,38,.07)}
     .tr-rn__n{font-family:'Objective',sans-serif;font-weight:800;font-size:.82rem;color:#fff;background:var(--teal);border-radius:8px;padding:5px 9px;flex-shrink:0;white-space:nowrap}
     .tr-rn__t{font-size:.86rem;color:var(--text);font-family:'Objective',sans-serif;font-weight:600;line-height:1.4}
-    /* demonstrações por ano */
+    
     .tr-years{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
     .tr-year{background:#fff;border:1.5px solid var(--bd-l);border-radius:18px;padding:26px 28px;transition:all .25s}
     .tr-year:hover{border-color:var(--teal);box-shadow:0 16px 36px rgba(4,42,38,.07)}
@@ -40,14 +40,14 @@
     .tr-year li{display:flex;gap:8px;align-items:flex-start;font-size:.82rem;color:var(--muted);line-height:1.5}
     .tr-year li i{color:var(--teal);font-size:.75rem;margin-top:4px;flex-shrink:0}
     .tr-year .btn{width:100%;justify-content:center}
-    /* relatórios igualdade */
+    
     .tr-reports{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
     .tr-report{display:flex;align-items:center;gap:14px;background:#fff;border:1.5px solid var(--bd-l);border-radius:14px;padding:20px 22px;transition:all .25s}
     .tr-report:hover{border-color:var(--teal);transform:translateY(-2px);box-shadow:0 12px 28px rgba(4,42,38,.07)}
     .tr-report i{width:44px;height:44px;border-radius:11px;background:rgba(37,149,145,.1);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:1.05rem;flex-shrink:0}
     .tr-report strong{display:block;font-family:'Objective',sans-serif;font-size:.92rem;color:var(--text)}
     .tr-report span{font-size:.8rem;color:var(--teal);font-weight:600}
-    /* banner ANS */
+    
     .tr-banner{position:relative;overflow:hidden;background:var(--grad-cool);border-radius:var(--r);padding:40px;display:flex;gap:24px;align-items:center;flex-wrap:wrap;justify-content:space-between;color:#fff;margin-top:8px}
     .tr-banner__txt{max-width:560px}
     .tr-banner h3{font-family:'Objective',sans-serif;font-weight:800;font-size:1.3rem;margin-bottom:8px}
@@ -68,7 +68,7 @@
 <body>
 <a class="skip-link" href="#main">Pular para o conteúdo</a>
 
-<!-- ══ TOP BAR (padrão Klini) ═══════════════════════════════════════ -->
+
 <header class="bar" id="bar">
   <div class="bar__inner">
     <a href="index.html" class="bar__logo"><img src="assets/logo-klini.webp" alt="Klini Saúde" /></a>
@@ -134,7 +134,7 @@
 </header>
 <main id="main">
 
-<!-- ══ HERO ═════════════════════════════════════════════════════════ -->
+
 <section class="page-hero">
   <div class="wrap">
     <span class="eyebrow">portal da transparência</span>
@@ -144,7 +144,7 @@
 
 </section>
 
-<!-- ══ NORMAS ANS ═══════════════════════════════════════════════════ -->
+
 <section class="sec">
   <div class="wrap">
     <div class="tr-sec-head">
@@ -166,7 +166,7 @@
   </div>
 </section>
 
-<!-- ══ DEMONSTRAÇÕES FINANCEIRAS ════════════════════════════════════ -->
+
 <section class="sec sec--off">
   <div class="wrap">
     <div class="tr-sec-head">
@@ -237,7 +237,7 @@
   </div>
 </section>
 
-<!-- ══ IGUALDADE SALARIAL ═══════════════════════════════════════════ -->
+
 <section class="sec">
   <div class="wrap">
     <div class="tr-sec-head">
@@ -252,7 +252,7 @@
   </div>
 </section>
 
-<!-- ══ NOTA ══════════════════════════════════════════════════════════ -->
+
 <section class="sec sec--off">
   <div class="wrap">
     <div class="tr-note">
@@ -262,7 +262,7 @@
   </div>
 </section>
 
-<!-- ══ FOOTER (padrão Klini) ════════════════════════════════════════ -->
+
 </main>
 
 <footer>
@@ -345,7 +345,7 @@
     barHamb.addEventListener('click', function(){ barNav.classList.toggle('open'); });
     barNav.querySelectorAll('.nav__item--drop .nav__link').forEach(function(btn){ btn.addEventListener('click', function(){ btn.closest('.nav__item--drop').classList.toggle('open'); }); });
   }
-  /* area dropdown */
+  
   (function(){
     var wrap = document.querySelector('.bar__area-wrap');
     if (!wrap) return;

@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons@7.0.0/primeicons.css" />
   <link rel="stylesheet" href="assets/klini.css" />
   <style>
-    /* ── hero overrides específicos (foto, wash, perninha) ── */
+    
     .page-hero--people .ph-photo{object-position:42% 62%}
     .page-hero--people .ph-wash{background:linear-gradient(270deg,rgba(4,20,18,.30) 0%,transparent 38%),radial-gradient(ellipse at 28% 55%,transparent 42%,rgba(4,20,18,.18) 100%)}
     .page-hero--people .wrap{justify-content:flex-end}
@@ -28,14 +28,14 @@
     .ph-d-card::after{content:'';position:absolute;left:-15px;top:54%;width:22px;height:30px;background:#259591;clip-path:polygon(100% 0,100% 100%,0 42%);filter:drop-shadow(-3px 2px 4px rgba(4,42,38,.18))}
     @media(max-width:760px){.page-hero--people .ph-photo{object-position:46% 22%}}
 
-    /* ── chips de âncora no hero ──────────────────────────────────── */
+    
     .akl-jump{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
     .akl-jump a{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);color:#fff;font-family:'Objective',sans-serif;font-weight:600;font-size:.84rem;padding:10px 18px;border-radius:40px;backdrop-filter:blur(4px);transition:all .22s}
     .akl-jump a:hover{background:#fff;color:var(--teal)}
     .akl-jump a i{font-size:.9rem;color:#FFE0B5}
     .akl-jump a:hover i{color:var(--teal)}
 
-    /* ── essência / estrutura / contato (mantido) ─────────────────── */
+    
     .essencia{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
     .essencia__card{background:#fff;border:1.5px solid var(--bd-l);border-radius:var(--r);padding:32px;transition:all .3s}
     .essencia__card:hover{border-color:var(--teal);transform:translateY(-4px);box-shadow:0 20px 40px rgba(37,149,145,.1)}
@@ -55,7 +55,7 @@
     .stat__n{font-family:'Objective',sans-serif;font-weight:800;font-size:2.4rem;line-height:1;background:var(--grad-cool);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
     .stat__lbl{font-size:.82rem;color:var(--muted);line-height:1.5}
 
-    /* ── Rede Casa ────────────────────────────────────────────────── */
+    
     .casa-light{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
     .casa-light__quote{border-left:3px solid var(--teal);padding-left:24px;margin:22px 0}
     .casa-light__quote p{font-style:italic;font-size:1rem;line-height:1.85;color:var(--text)}
@@ -69,7 +69,7 @@
     .casa-card strong{display:block;margin-bottom:4px;color:var(--text)}
     .casa-card span{font-size:.85rem;color:var(--muted)}
 
-    /* ── carrossel de fotos dos hospitais ─────────────────────────── */
+    
     .hosp{margin-top:56px}
     .hosp__head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:22px;flex-wrap:wrap}
     .hosp__nav{display:flex;gap:8px}
@@ -82,14 +82,14 @@
     .hosp__slide:hover img{transform:scale(1.06)}
     .hosp__slide figcaption{position:absolute;left:0;right:0;bottom:0;padding:30px 16px 14px;background:linear-gradient(transparent,rgba(6,9,15,.82));color:#fff;font-family:'Objective',sans-serif;font-weight:700;font-size:.92rem}
 
-    /* ── NOSSAS UNIDADES (mapa claro) ─────────────────────────────── */
+    
     .uni-intro{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;margin-bottom:40px}
     .uni-legend{display:flex;gap:22px;flex-wrap:wrap;margin-top:22px}
     .leg{display:flex;align-items:center;gap:9px;font-family:'Objective',sans-serif;font-weight:600;font-size:.82rem;color:var(--text)}
     .leg-dot{width:13px;height:13px;border-radius:50%;flex-shrink:0}
     .leg-dot--cmk{background:var(--orange)}
     .leg-dot--hc{background:var(--teal)}
-    /* resumo + CTA das unidades (mapa vive na busca de rede) */
+    
     .uni-cta{background:var(--grad-cool);border-radius:22px;padding:40px 44px;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:36px;flex-wrap:wrap;box-shadow:0 24px 60px rgba(4,42,38,.12)}
     .uni-cta__nums{display:flex;gap:36px;flex-wrap:wrap}
     .uni-cta__num{display:flex;flex-direction:column;gap:4px}
@@ -127,7 +127,7 @@
     #map{height:100%;width:100%}
     .map-controls{position:absolute;top:14px;right:14px;z-index:500;display:flex;flex-direction:column;gap:8px}
     .map-reset{display:flex;align-items:center;gap:6px;padding:9px 14px;font-size:.74rem;font-weight:700;white-space:nowrap;background:#fff;border:1px solid var(--bd-l);border-radius:10px;color:var(--text);cursor:pointer;box-shadow:0 6px 18px rgba(4,42,38,.12);font-family:'Objective',sans-serif;transition:all .2s}
-    /* painel de detalhe deslizante */
+    
     .map-detail{position:absolute;left:16px;bottom:16px;z-index:600;width:300px;max-width:calc(100% - 32px);background:#fff;border:1px solid var(--bd-l);border-radius:16px;box-shadow:0 22px 54px rgba(4,42,38,.22);padding:20px 22px;transform:translateY(16px) scale(.98);opacity:0;pointer-events:none;transition:all .35s cubic-bezier(.22,1,.36,1)}
     .map-detail.show{transform:none;opacity:1;pointer-events:auto}
     .map-detail__close{position:absolute;top:12px;right:12px;width:28px;height:28px;border-radius:8px;border:none;background:var(--off);color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.8rem;transition:all .2s}
@@ -163,7 +163,7 @@
     .popup-maps:hover{background:#1e7d7a}
     .popup-maps--cmk{background:var(--orange)}
 
-    /* ── trabalhe conosco ─────────────────────────────────────────── */
+    
     .tc-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
     .tc-perks{display:flex;flex-direction:column;gap:14px;margin-top:24px}
     .tc-perk{display:flex;gap:13px;align-items:center;font-size:.92rem;color:var(--text);line-height:1.45}
@@ -176,7 +176,7 @@
     .tc-card .btn-ghost{background:transparent;border:1.5px solid rgba(255,255,255,.6);color:#fff;margin-left:10px}
     .tc-card .btn-ghost:hover{background:rgba(255,255,255,.12)}
 
-    /* ── contato ──────────────────────────────────────────────────── */
+    
     .contact__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
     .citem{background:#fff;border:1.5px solid var(--bd-l);border-radius:var(--r);padding:28px;transition:border-color .2s}
     .citem:hover{border-color:var(--teal)}
@@ -206,7 +206,7 @@
 <body>
 <a class="skip-link" href="#main">Pular para o conteúdo</a>
 
-<!-- ══ TOP BAR (padrão Klini) ═══════════════════════════════════════ -->
+
 <header class="bar" id="bar">
   <div class="bar__inner">
     <a href="index.html" class="bar__logo"><img src="assets/logo-klini.webp" alt="Klini Saúde" /></a>
@@ -272,7 +272,7 @@
 </header>
 <main id="main">
 
-<!-- ══ HERO ═════════════════════════════════════════════════════════ -->
+
 <section class="page-hero page-hero--people">
   <img class="ph-photo" src="assets/campanha/hero-sobre.webp" alt="Beneficiária Klini no Rio de Janeiro" />
   <div class="ph-wash"></div>
@@ -287,7 +287,7 @@
 
 </section>
 
-<!-- ══ STATS ════════════════════════════════════════════════════════ -->
+
 <div class="wrap">
   <div class="stats">
     <div class="stat"><div class="stat__n">10</div><div class="stat__lbl">Centros Médicos<br>próprios (CMK)</div></div>
@@ -297,7 +297,7 @@
   </div>
 </div>
 
-<!-- ══ ESSÊNCIA ═════════════════════════════════════════════════════ -->
+
 <section class="sec sec--off" id="essencia">
   <div class="wrap">
     <div style="margin-bottom:48px">
@@ -324,7 +324,7 @@
   </div>
 </section>
 
-<!-- ══ ESTRUTURA + REDE CASA (vídeo) ════════════════════════════════ -->
+
 <section class="sec">
   <div class="wrap">
     <div class="estrutura__grid">
@@ -357,7 +357,7 @@
   </div>
 </section>
 
-<!-- ══ NOSSAS UNIDADES (mapa + vídeo CMK) ═══════════════════════════ -->
+
 <section class="sec" id="unidades">
   <div class="wrap">
     <div class="uni-intro">
@@ -377,7 +377,7 @@
       </div>
     </div>
 
-    <!-- RESUMO DAS UNIDADES + CTA para o mapa na busca de rede -->
+    
     <div class="uni-cta">
       <div class="uni-cta__nums">
         <div class="uni-cta__num"><strong>10</strong><span>Centros Médicos<br>Klini (CMK)</span></div>
@@ -392,7 +392,7 @@
   </div>
 </section>
 
-<!-- ══ CONTATO ══════════════════════════════════════════════════════ -->
+
 <section class="sec sec--off">
   <div class="wrap">
     <div style="margin-bottom:40px">
@@ -433,7 +433,7 @@
   </div>
 </section>
 
-<!-- ══ TRABALHE CONOSCO ═════════════════════════════════════════════ -->
+
 <section class="sec" id="trabalhe">
   <div class="wrap">
     <div class="tc-grid">
@@ -457,7 +457,7 @@
   </div>
 </section>
 
-<!-- ══ FOOTER (padrão Klini) ════════════════════════════════════════ -->
+
 </main>
 <footer>
   <div class="foot-arc" aria-hidden="true">
@@ -532,7 +532,7 @@
 </div>
 
 <script>
-  /* header solid no scroll + menu mobile */
+  
   var bar = document.getElementById('bar');
   window.addEventListener('scroll', function(){ bar.classList.toggle('solid', window.scrollY > 50); }, { passive:true });
   var barHamb = document.getElementById('barHamb'), barNav = document.getElementById('barNav');
@@ -540,7 +540,7 @@
     barHamb.addEventListener('click', function(){ barNav.classList.toggle('open'); });
     barNav.querySelectorAll('.nav__item--drop .nav__link').forEach(function(btn){ btn.addEventListener('click', function(){ btn.closest('.nav__item--drop').classList.toggle('open'); }); });
   }
-  /* area dropdown */
+  
   (function(){
     var wrap = document.querySelector('.bar__area-wrap');
     if (!wrap) return;
@@ -549,7 +549,7 @@
     if (btn) btn.addEventListener('click', function(e){ e.stopPropagation(); var o=wrap.classList.toggle('open'); btn.setAttribute('aria-expanded', o?'true':'false'); });
   })();
 
-  /* carrossel de fotos dos hospitais */
+  
   (function(){
     var track=document.getElementById('hospTrack'), prev=document.getElementById('hospPrev'), next=document.getElementById('hospNext');
     if(!track) return;
@@ -565,7 +565,7 @@
     go();
   })();
 
-  /* contatos de imprensa — abrem no clique, sem expor número/e-mail no texto ou no hover */
+  
   document.querySelectorAll('.js-contact').forEach(function(b){
     b.addEventListener('click', function(){
       var v = b.dataset.val;

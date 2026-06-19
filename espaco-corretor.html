@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons@7.0.0/primeicons.css" />
   <link rel="stylesheet" href="assets/klini.css" />
   <style>
-    /* ── acesso rápido ── */
+    
     .ec-access{display:flex;align-items:center;justify-content:space-between;gap:28px;background:var(--grad-cool);border-radius:20px;padding:32px 40px;color:#fff;margin-top:48px}
     .ec-access__text strong{display:block;font-family:'Objective',sans-serif;font-size:1.18rem;font-weight:800;margin-bottom:4px}
     .ec-access__text span{font-size:.9rem;opacity:.82}
@@ -28,23 +28,23 @@
     .ec-access .btn:hover{background:#f0fafa;box-shadow:0 6px 22px rgba(37,149,145,.18)}
     @media(max-width:680px){.ec-access{flex-direction:column;align-items:flex-start;padding:26px 26px}.ec-access .btn{width:100%;justify-content:center}}
 
-    /* ── section titles ── */
+    
     .ec-sec-hd{margin-bottom:28px}
     .ec-sec-hd h2{font-family:'Objective',sans-serif;font-size:1.25rem;color:var(--text);margin:4px 0 6px}
     .ec-sec-hd p{font-size:.9rem;color:var(--muted);line-height:1.7}
 
-    /* ── material / normas grid ── */
+    
     .ec-files{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
     .ec-file{display:flex;align-items:center;gap:14px;background:#fff;border:1.5px solid var(--bd-l);border-radius:14px;padding:16px 18px;text-decoration:none;color:inherit;transition:all .22s}
     .ec-file:hover{border-color:var(--teal);box-shadow:0 10px 28px rgba(4,42,38,.07);transform:translateY(-2px)}
     .ec-file__ico{width:40px;height:40px;border-radius:11px;background:rgba(37,149,145,.1);display:flex;align-items:center;justify-content:center;font-size:1.05rem;color:var(--teal);flex-shrink:0}
     .ec-file strong{display:block;font-family:'Objective',sans-serif;font-size:.87rem;color:var(--text);font-weight:700;line-height:1.35}
     .ec-file span{font-size:.74rem;color:var(--muted)}
-    /* placeholder */
+    
     .ec-file--soon{opacity:.55;cursor:default}
     .ec-file--soon:hover{transform:none;box-shadow:none;border-color:var(--bd-l)}
 
-    /* ── planos ── */
+    
     .ec-plans{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px}
     .ec-plan{background:#fff;border:1.5px solid var(--bd-l);border-radius:18px;padding:24px 20px;display:flex;flex-direction:column;gap:10px;transition:all .25s}
     .ec-plan:hover{border-color:var(--teal);transform:translateY(-4px);box-shadow:0 16px 36px rgba(4,42,38,.08)}
@@ -54,7 +54,7 @@
     .ec-plan a{display:inline-flex;align-items:center;gap:6px;font-family:'Objective',sans-serif;font-weight:700;font-size:.82rem;color:#fff;background:var(--teal);border-radius:8px;padding:10px 16px;text-decoration:none;transition:background .2s;margin-top:4px;justify-content:center}
     .ec-plan a:hover{background:#1d7a76}
 
-    /* ── quick links ── */
+    
     .ec-links{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
     .ec-link{display:flex;align-items:center;gap:16px;background:#fff;border:1.5px solid var(--bd-l);border-radius:16px;padding:22px 24px;text-decoration:none;color:inherit;transition:all .22s}
     .ec-link:hover{border-color:var(--teal);transform:translateY(-3px);box-shadow:0 12px 30px rgba(4,42,38,.07)}
@@ -67,7 +67,7 @@
     @media(max-width:860px){.ec-plans{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:600px){.ec-plans{grid-template-columns:1fr}.ec-links{grid-template-columns:1fr}}
 
-    /* ── hero overrides específicos (foto, wash, perninha) ── */
+    
     .page-hero--people .ph-photo{object-position:35% 30%}
     .page-hero--people .ph-wash{background:linear-gradient(270deg,rgba(4,20,18,.30) 0%,transparent 38%),radial-gradient(ellipse at 25% 50%,transparent 42%,rgba(4,20,18,.22) 100%)}
     .page-hero--people .wrap{justify-content:flex-end}
@@ -78,7 +78,7 @@
 <body>
 <a class="skip-link" href="#main">Pular para o conteúdo</a>
 
-<!-- ══ TOP BAR ══════════════════════════════════════════════════════ -->
+
 <header class="bar" id="bar">
   <div class="bar__inner">
     <a href="index.html" class="bar__logo"><img src="assets/logo-klini.webp" alt="Klini Saúde" /></a>
@@ -144,7 +144,7 @@
 </header>
 <main id="main">
 
-<!-- ══ HERO ══════════════════════════════════════════════════════════ -->
+
 <section class="page-hero page-hero--people">
   <img class="ph-photo" src="assets/fotos%20headers/GettyImages-1481859667.webp" alt="Família com avós e netos — beneficiários protegidos pelo plano Klini" />
   <div class="ph-wash"></div>
@@ -160,7 +160,7 @@
 
 </section>
 
-<!-- ══ ACESSO AO PORTAL ═══════════════════════════════════════════════ -->
+
 <section class="sec" id="portal">
   <div class="wrap">
     <div class="ec-access gs">
@@ -175,7 +175,7 @@
   </div>
 </section>
 
-<!-- ══ MATERIAL DE APOIO ══════════════════════════════════════════════ -->
+
 <section class="sec sec--off">
   <div class="wrap">
     <div class="ec-sec-hd gs">
@@ -184,12 +184,7 @@
       <p>Folders, apresentações e peças de comunicação para o seu dia a dia de vendas.</p>
     </div>
     <div class="ec-files">
-      <!-- Adicionar arquivos aqui — padrão:
-           <a href="assets/docs/corretor/nome-do-arquivo.pdf" target="_blank" class="ec-file gs">
-             <div class="ec-file__ico"><i class="pi pi-file-pdf"></i></div>
-             <div><strong>Título do material</strong><span>PDF · Download</span></div>
-           </a>
-      -->
+      
       <div class="ec-file ec-file--soon gs">
         <div class="ec-file__ico"><i class="pi pi-file-pdf"></i></div>
         <div><strong>Folder Klini 200</strong><span>Em atualização</span></div>
@@ -218,7 +213,7 @@
   </div>
 </section>
 
-<!-- ══ NORMATIVAS PME ═════════════════════════════════════════════════ -->
+
 <section class="sec">
   <div class="wrap">
     <div class="ec-sec-hd gs">
@@ -227,7 +222,7 @@
       <p>Documentos regulatórios essenciais para a comercialização de planos empresariais.</p>
     </div>
     <div class="ec-files">
-      <!-- Adicionar arquivos de normativas aqui -->
+      
       <div class="ec-file ec-file--soon gs">
         <div class="ec-file__ico"><i class="pi pi-file-pdf"></i></div>
         <div><strong>Manual de Vendas PME</strong><span>Em atualização</span></div>
@@ -248,7 +243,7 @@
   </div>
 </section>
 
-<!-- ══ PLANOS ══════════════════════════════════════════════════════════ -->
+
 <section class="sec sec--off">
   <div class="wrap">
     <div class="ec-sec-hd gs">
@@ -304,7 +299,7 @@
   </div>
 </section>
 
-<!-- ══ LINKS ÚTEIS ════════════════════════════════════════════════════ -->
+
 <section class="sec">
   <div class="wrap">
     <div class="ec-sec-hd gs">
@@ -324,7 +319,7 @@
   </div>
 </section>
 
-<!-- ══ FOOTER ═════════════════════════════════════════════════════════ -->
+
 </main>
 <footer>
   <div class="foot-arc" aria-hidden="true">
@@ -406,7 +401,7 @@
     barHamb.addEventListener('click', function(){ barNav.classList.toggle('open'); });
     barNav.querySelectorAll('.nav__item--drop .nav__link').forEach(function(btn){ btn.addEventListener('click', function(){ btn.closest('.nav__item--drop').classList.toggle('open'); }); });
   }
-  /* area dropdown */
+  
   (function(){
     var wrap = document.querySelector('.bar__area-wrap');
     if (!wrap) return;

@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
   <link rel="stylesheet" href="assets/klini.css" />
   <style>
-    /* ── Tabs Busca / Atualização ─────────────────────────────────── */
+    
     .rc-toggle{display:inline-flex;background:var(--off);border:1px solid var(--bd-l);border-radius:40px;padding:5px;gap:4px;margin:0 auto 38px;justify-content:center}
     .rc-toggle__btn{display:inline-flex;align-items:center;gap:8px;border:none;background:transparent;cursor:pointer;font-family:'Objective',sans-serif;font-weight:700;font-size:.88rem;color:var(--muted);padding:11px 22px;border-radius:30px;transition:all .25s}
     .rc-toggle__btn.active{background:#fff;color:var(--teal);box-shadow:0 6px 18px rgba(4,42,38,.1)}
@@ -32,7 +32,7 @@
     .rc-intro{text-align:center;max-width:640px;margin:0 auto 30px}
     .rc-intro p{color:var(--muted);font-size:.98rem;margin-top:12px}
 
-    /* card de filtros */
+    
     .rc-card{background:#fff;border:1.5px solid var(--bd-l);border-radius:var(--r);padding:34px;box-shadow:0 24px 60px rgba(4,42,38,.07);max-width:860px;margin:0 auto}
     .rc-form{display:grid;grid-template-columns:1fr 1fr;gap:18px}
     .rc-field{display:flex;flex-direction:column;gap:7px}
@@ -46,21 +46,21 @@
     .rc-note{font-size:.78rem;color:var(--muted);display:flex;align-items:center;gap:8px;max-width:420px;line-height:1.5}
     .rc-note i{color:var(--teal);flex-shrink:0}
 
-    /* o que você encontra */
+    
     .rc-types{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
     .rc-type{background:#fff;border:1.5px solid var(--bd-l);border-radius:14px;padding:22px 18px;text-align:center;transition:all .25s}
     .rc-type:hover{border-color:var(--teal);transform:translateY(-3px);box-shadow:0 16px 36px rgba(4,42,38,.08)}
     .rc-type__ico{width:50px;height:50px;border-radius:14px;background:rgba(37,149,145,.1);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin:0 auto 12px}
     .rc-type strong{display:block;font-family:'Objective',sans-serif;font-size:.9rem;color:var(--text)}
 
-    /* avisos atualização */
+    
     .rc-up-info{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:860px;margin:34px auto 0}
     .rc-up{background:var(--off);border:1px solid var(--bd-l);border-radius:14px;padding:24px}
     .rc-up__ico{width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--bd-l);color:var(--orange);display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:14px}
     .rc-up h4{font-family:'Objective',sans-serif;font-size:.95rem;color:var(--text);margin-bottom:6px}
     .rc-up p{font-size:.84rem;color:var(--muted);line-height:1.6}
 
-    /* mapa de unidades (rede própria) */
+    
     .map-section{display:grid;grid-template-columns:330px 1fr;height:580px;border:1px solid var(--bd-l);border-radius:22px;overflow:hidden;box-shadow:0 24px 60px rgba(4,42,38,.1);max-width:1040px;margin:0 auto}
     .sidebar{background:#fff;border-right:1px solid var(--bd-l);display:flex;flex-direction:column;overflow:hidden}
     .sidebar-head{padding:18px 18px 0;flex-shrink:0}
@@ -124,9 +124,9 @@
     .popup-maps--cmk{background:var(--orange)}
     @media(max-width:760px){.map-section{grid-template-columns:1fr;height:auto}.sidebar{border-right:none;border-bottom:1px solid var(--bd-l)}.unit-list{max-height:260px}.map-wrap{height:420px}}
 
-    /* timeline de alterações da rede */
+    
 
-    /* cross-link teleconsulta */
+    
     .rc-cross{position:relative;overflow:hidden;background:var(--grad-cool);border-radius:var(--r);padding:40px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:60px}
     .rc-cross h2{color:#fff;font-family:'Objective',sans-serif;font-weight:800;font-size:1.35rem;margin-bottom:8px}
     .rc-cross p{color:rgba(255,255,255,.9);font-size:.92rem;line-height:1.65;max-width:520px}
@@ -140,7 +140,7 @@
 <body>
 <a class="skip-link" href="#main">Pular para o conteúdo</a>
 
-<!-- ══ TOP BAR (padrão Klini) ═══════════════════════════════════════ -->
+
 <header class="bar" id="bar">
   <div class="bar__inner">
     <a href="index.html" class="bar__logo"><img src="assets/logo-klini.webp" alt="Klini Saúde" /></a>
@@ -206,7 +206,7 @@
 </header>
 <main id="main">
 
-<!-- ══ HERO ═════════════════════════════════════════════════════════ -->
+
 <section class="page-hero">
   <div class="wrap">
     <div class="ph-d-card">
@@ -218,7 +218,7 @@
   </div>
 </section>
 
-<!-- ══ BUSCA / ATUALIZAÇÃO (abas) ═══════════════════════════════════ -->
+
 <section class="sec">
   <div class="wrap" style="display:flex;flex-direction:column;align-items:center">
     <div class="rc-toggle" id="rcToggle">
@@ -226,7 +226,7 @@
       <button class="rc-toggle__btn" data-tab="atualizacoes"><i class="pi pi-sync"></i> Atualizações da rede</button>
     </div>
 
-    <!-- TAB: BUSCAR -->
+    
     <div class="rc-panel" data-panel="buscar" style="width:100%">
       <div class="rc-intro">
         <span class="eyebrow">busca de rede</span>
@@ -292,7 +292,7 @@
         <div class="rc-type"><div class="rc-type__ico"><i class="pi pi-shopping-bag"></i></div><strong>Farmácias conveniadas</strong></div>
       </div>
 
-      <!-- ── REDE PRÓPRIA — mapa interativo das unidades ──────────── -->
+      
       <div class="rc-intro" style="margin-top:64px">
         <span class="eyebrow">rede própria klini</span>
         <h2 class="h2">Encontre a unidade <strong style="color:var(--orange)">mais perto de você</strong></h2>
@@ -332,7 +332,7 @@
       </div>
     </div>
 
-    <!-- TAB: ATUALIZAÇÕES -->
+    
     <div class="rc-panel" data-panel="atualizacoes" hidden style="width:100%">
       <div class="rc-intro">
         <span class="eyebrow">atualização de rede</span>
@@ -355,7 +355,7 @@
   </div>
 </section>
 
-<!-- ══ CROSS-LINK TELECONSULTA (CTA contextual) ═════════════════════ -->
+
 <section class="sec sec--off">
   <div class="wrap">
     <div class="rc-cross">
@@ -368,7 +368,7 @@
   </div>
 </section>
 
-<!-- ══ FOOTER (padrão Klini) ════════════════════════════════════════ -->
+
 </main>
 <footer>
   <div class="foot-arc" aria-hidden="true">
@@ -443,7 +443,7 @@
 </div>
 
 <script>
-  /* header solid no scroll + menu mobile */
+  
   var bar = document.getElementById('bar');
   window.addEventListener('scroll', function(){ bar.classList.toggle('solid', window.scrollY > 50); }, { passive:true });
   var barHamb = document.getElementById('barHamb'), barNav = document.getElementById('barNav');
@@ -451,7 +451,7 @@
     barHamb.addEventListener('click', function(){ barNav.classList.toggle('open'); });
     barNav.querySelectorAll('.nav__item--drop .nav__link').forEach(function(btn){ btn.addEventListener('click', function(){ btn.closest('.nav__item--drop').classList.toggle('open'); }); });
   }
-  /* area dropdown */
+  
   (function(){
     var wrap = document.querySelector('.bar__area-wrap');
     if (!wrap) return;
@@ -460,7 +460,7 @@
     if (btn) btn.addEventListener('click', function(e){ e.stopPropagation(); var o=wrap.classList.toggle('open'); btn.setAttribute('aria-expanded', o?'true':'false'); });
   })();
 
-  /* abas Buscar / Atualizações */
+  
   (function(){
     var btns = document.querySelectorAll('#rcToggle .rc-toggle__btn');
     var panels = document.querySelectorAll('.rc-panel');
@@ -474,7 +474,7 @@
 </script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <script>
-/* ── Mapa de unidades — rede própria Klini ── */
+
 (function(){
   if(!document.getElementById('map')||typeof L==='undefined') return;
   var units = [

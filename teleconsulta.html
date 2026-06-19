@@ -20,12 +20,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons@7.0.0/primeicons.css" />
   <link rel="stylesheet" href="assets/klini.css" />
   <style>
-    /* ── HERO chips ─────────────────────────────────────────────── */
+    
     .tc-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
     .tc-chip{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);color:#fff;font-family:'Objective',sans-serif;font-weight:600;font-size:.75rem;padding:6px 12px;border-radius:40px;backdrop-filter:blur(4px)}
     .tc-chip i{font-size:.85rem;color:#FFE0B5}
 
-    /* ── COMO FUNCIONA: mockup interativo ──────────────────────────── */
+    
     #como{overflow:hidden}
     .tcomo{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
     .tcomo__side{position:relative;display:flex;justify-content:center;align-items:center;min-height:520px}
@@ -35,7 +35,7 @@
     .tphone__live{position:absolute;top:18px;left:50%;transform:translateX(-50%);z-index:3;display:inline-flex;align-items:center;gap:7px;background:rgba(10,10,10,.74);color:#fff;font-family:'Objective',sans-serif;font-weight:700;font-size:.62rem;letter-spacing:.08em;padding:6px 12px;border-radius:30px;backdrop-filter:blur(4px)}
     .tphone__live-dot{width:7px;height:7px;border-radius:50%;background:#E05759;box-shadow:0 0 0 0 rgba(224,87,89,.6);animation:tpulse 1.8s infinite}
     @keyframes tpulse{0%{box-shadow:0 0 0 0 rgba(224,87,89,.55)}70%{box-shadow:0 0 0 9px rgba(224,87,89,0)}100%{box-shadow:0 0 0 0 rgba(224,87,89,0)}}
-    /* balões que surgem em sequência simulando uso do app */
+    
     .tnotif{position:absolute;display:flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--bd-l);border-radius:13px;padding:9px 14px 9px 9px;box-shadow:0 14px 34px rgba(4,42,38,.16);z-index:4;min-width:158px;opacity:0;transform:translateY(16px) scale(.95);transition:opacity .55s cubic-bezier(.22,1,.36,1),transform .55s cubic-bezier(.22,1,.36,1)}
     .tnotif.show{opacity:1;transform:none}
     .tnotif strong{display:block;font-size:.78rem;font-weight:700;color:var(--text);line-height:1.2;font-family:'Objective',sans-serif}
@@ -54,7 +54,7 @@
     .tapp-btns{display:flex;gap:13px;flex-wrap:wrap;margin-top:26px}
     .tapp-btns img{height:46px}
 
-    /* ── MODALIDADES ──────────────────────────────────────────────── */
+    
     .tmodes{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:46px}
     .tmode{position:relative;background:#fff;border:1.5px solid var(--bd-l);border-radius:var(--r);padding:34px;overflow:hidden;transition:all .3s}
     .tmode::before{content:'';position:absolute;inset:0 0 auto 0;height:4px;background:var(--grad-cool)}
@@ -69,7 +69,7 @@
     .tmode li i{color:var(--teal);font-size:.95rem;margin-top:2px;flex-shrink:0}
     .tmode--warm li i{color:var(--orange)}
 
-    /* ── DOCUMENTOS (abas interativas) ─────────────────────────────── */
+    
     .tdocs{display:grid;grid-template-columns:.95fr 1.05fr;gap:56px;align-items:center;margin-top:44px}
     .tdoc-tabs{display:flex;flex-direction:column;gap:10px}
     .tdoc-tab{display:flex;gap:14px;align-items:center;width:100%;text-align:left;background:#fff;border:1.5px solid var(--bd-l);border-radius:14px;padding:16px 18px;cursor:pointer;transition:all .25s;font-family:'Objective',sans-serif}
@@ -79,7 +79,7 @@
     .tdoc-tab.active i{background:var(--grad-cool);color:#fff}
     .tdoc-tab strong{display:block;font-size:.95rem;font-weight:700;color:var(--text)}
     .tdoc-tab small{font-size:.78rem;color:var(--muted);font-weight:500}
-    /* preview "documento" */
+    
     .tdoc-preview{position:relative;min-height:300px;display:flex;justify-content:center;align-items:center}
     .tdoc-card{position:relative;width:100%;max-width:380px;background:#fff;border:1px solid var(--bd-l);border-radius:18px;box-shadow:0 26px 60px rgba(4,42,38,.12);padding:28px 28px 24px;opacity:0;transform:translateY(12px);transition:opacity .35s,transform .35s;display:none}
     .tdoc-card.show{opacity:1;transform:none;display:block}
@@ -94,7 +94,7 @@
     .tdoc-line{height:9px;border-radius:5px;background:var(--off);margin-bottom:9px}
     .tdoc-line:nth-child(1){width:88%}.tdoc-line:nth-child(2){width:70%}.tdoc-line:nth-child(3){width:80%}
 
-    /* ── ESPECIALIDADES ───────────────────────────────────────────── */
+    
     .espec__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:38px}
     .espec__tag{background:#fff;border:1.5px solid var(--bd-l);border-radius:13px;padding:16px;display:flex;align-items:center;gap:11px;font-size:.88rem;font-weight:700;color:var(--text);font-family:'Objective',sans-serif;transition:all .25s}
     .espec__tag:hover{border-color:var(--teal);background:rgba(37,149,145,.04);transform:translateY(-2px)}
@@ -109,7 +109,7 @@
     @media(max-width:760px){.tmodes{grid-template-columns:1fr}}
     @media(max-width:600px){.espec__grid{grid-template-columns:1fr 1fr}.tnotif{min-width:142px}.tnotif--2{right:-6px}}
 
-    /* ── hero overrides específicos (foto, wash, perninha) ── */
+    
     .page-hero--people .ph-photo{object-position:22% 40%}
     .page-hero--people .ph-wash{background:linear-gradient(270deg,rgba(4,20,18,.30) 0%,transparent 38%),radial-gradient(ellipse at 25% 50%,transparent 42%,rgba(4,20,18,.22) 100%)}
     .page-hero--people .wrap{justify-content:flex-end}
@@ -120,7 +120,7 @@
 <body>
 <a class="skip-link" href="#main">Pular para o conteúdo</a>
 
-<!-- ══ TOP BAR (padrão Klini) ═══════════════════════════════════════ -->
+
 <header class="bar" id="bar">
   <div class="bar__inner">
     <a href="index.html" class="bar__logo"><img src="assets/logo-klini.webp" alt="Klini Saúde" /></a>
@@ -186,7 +186,7 @@
 </header>
 <main id="main">
 
-<!-- ══ HERO ═════════════════════════════════════════════════════════ -->
+
 <section class="page-hero page-hero--people" style="--page-accent:#C8F5F3">
   <img class="ph-photo" src="assets/fotos%20headers/GettyImages-1390197865.webp" alt="Mãe com criança sendo atendida por médico via teleconsulta Klini" />
   <div class="ph-wash"></div>
@@ -207,7 +207,7 @@
 
 </section>
 
-<!-- ══ COMO FUNCIONA (mockup interativo) ════════════════════════════ -->
+
 <section class="sec" id="como">
   <div class="wrap">
     <div class="tcomo">
@@ -248,7 +248,7 @@
   </div>
 </section>
 
-<!-- ══ MODALIDADES ══════════════════════════════════════════════════ -->
+
 <section class="sec sec--off">
   <div class="wrap">
     <div style="text-align:center">
@@ -280,7 +280,7 @@
   </div>
 </section>
 
-<!-- ══ DOCUMENTOS (abas interativas) ════════════════════════════════ -->
+
 <section class="sec">
   <div class="wrap">
     <div style="text-align:center">
@@ -317,7 +317,7 @@
   </div>
 </section>
 
-<!-- ══ ESPECIALIDADES ═══════════════════════════════════════════════ -->
+
 <section class="sec sec--off">
   <div class="wrap">
     <div style="text-align:center">
@@ -338,7 +338,7 @@
   </div>
 </section>
 
-<!-- ══ CROSS-SELL (ainda nao e Klini) ═══════════════════════ -->
+
 <section class="sec">
   <div class="wrap">
     <div class="xs-cta">
@@ -351,7 +351,7 @@
   </div>
 </section>
 
-<!-- ══ FOOTER (padrão Klini) ════════════════════════════════════════ -->
+
 </main>
 <footer>
   <div class="foot-arc" aria-hidden="true">
@@ -426,7 +426,7 @@
 </div>
 
 <script>
-  /* header solid no scroll + menu mobile */
+  
   var bar = document.getElementById('bar');
   window.addEventListener('scroll', function(){ bar.classList.toggle('solid', window.scrollY > 50); }, { passive:true });
   var barHamb = document.getElementById('barHamb'), barNav = document.getElementById('barNav');
@@ -434,7 +434,7 @@
     barHamb.addEventListener('click', function(){ barNav.classList.toggle('open'); });
     barNav.querySelectorAll('.nav__item--drop .nav__link').forEach(function(btn){ btn.addEventListener('click', function(){ btn.closest('.nav__item--drop').classList.toggle('open'); }); });
   }
-  /* area dropdown */
+  
   (function(){
     var wrap = document.querySelector('.bar__area-wrap');
     if (!wrap) return;
@@ -443,13 +443,13 @@
     if (btn) btn.addEventListener('click', function(e){ e.stopPropagation(); var o=wrap.classList.toggle('open'); btn.setAttribute('aria-expanded', o?'true':'false'); });
   })();
 
-  /* balões de notificação — surgem em sequência (com fallback sempre-visível) */
+  
   (function(){
     var notifs = Array.prototype.slice.call(document.querySelectorAll('.tnotif'));
     notifs.forEach(function(n,i){ setTimeout(function(){ n.classList.add('show'); }, 500 + i*520); });
   })();
 
-  /* abas de documentos interativas */
+  
   (function(){
     var tabs = document.querySelectorAll('#tdocTabs .tdoc-tab');
     var cards = document.querySelectorAll('#tdocPreview .tdoc-card');

@@ -20,14 +20,14 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons@7.0.0/primeicons.css" />
   <link rel="stylesheet" href="assets/klini.css" />
   <style>
-    /* ── hero overrides específicos (foto — Dirceu à direita) ── */
+    
     .page-hero--people .ph-photo{object-position:68% 22%}
     .page-hero--people .ph-wash{background:linear-gradient(90deg,rgba(4,20,18,.30) 0%,transparent 38%),radial-gradient(ellipse at 78% 55%,transparent 42%,rgba(4,20,18,.18) 100%)}
     .page-hero--people .wrap{justify-content:flex-start}
     .ph-d-card{max-width:440px}
     .ph-d-card::after{content:'';position:absolute;right:-15px;top:36%;width:22px;height:30px;background:#259591;clip-path:polygon(0 0,0 100%,100% 42%);filter:drop-shadow(3px 2px 4px rgba(4,42,38,.18))}
     @media(max-width:760px){.page-hero--people .ph-photo{object-position:68% 22%}}
-    /* ── FLYERS (pôsteres dos planos) ── */
+    
     .flyers{display:flex;flex-wrap:wrap;gap:26px;justify-content:center;perspective:1400px}
     .flyer{width:238px;display:flex;flex-direction:column}
     .flyer__poster{position:relative;aspect-ratio:187/300;border-radius:18px;overflow:hidden;box-shadow:0 18px 44px rgba(4,42,38,.16);transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s;background:var(--grad-cool);transform-style:preserve-3d;will-change:transform}
@@ -41,10 +41,10 @@
     .flyer__body p{font-size:.82rem;color:var(--muted);line-height:1.6;margin-bottom:12px;min-height:42px}
     .flyer__cta{font-size:.84rem;font-weight:700;color:var(--teal);display:inline-flex;align-items:center;gap:6px;font-family:'Objective',sans-serif;transition:gap .2s}
     .flyer:hover .flyer__cta{gap:10px}
-    /* ── FLYER HOSPITALAR (composto em CSS — mesmo template, foto real) ── */
+    
     .flyer__poster--hosp{background:#259591}
     .flyer__poster--hosp .fh__photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 6%}
-    /* wash teal DS (#259591) diagonal — sem verde escuro */
+    
     .flyer__poster--hosp::before{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(118deg,rgba(37,149,145,.8) 0%,rgba(37,149,145,.34) 46%,rgba(37,149,145,.05) 72%),linear-gradient(0deg,rgba(37,149,145,.7),transparent 40%)}
     .fh__arc{position:absolute;top:-46px;left:-46px;width:140px;height:140px;z-index:2;opacity:.8;pointer-events:none}
     .flyer__poster--hosp .fh__logo{position:absolute;inset:auto 14px auto auto;top:14px;width:66px;height:auto;object-fit:contain;z-index:3;filter:drop-shadow(0 2px 9px rgba(4,42,38,.45))}
@@ -54,7 +54,7 @@
     .fh__badge b sup{font-size:.72rem;font-weight:700;top:-.6em}
     .fh__head{position:absolute;left:16px;right:14px;bottom:16px;z-index:3;font-family:'Objective',sans-serif;font-weight:800;font-size:1.2rem;line-height:1.06;color:#fff;letter-spacing:-.02em;text-shadow:0 2px 12px rgba(4,42,38,.45)}
     .fh__disc{display:block;font-family:'Objective',sans-serif;font-weight:400;font-size:.5rem;line-height:1.35;color:rgba(255,255,255,.82);margin-top:7px;letter-spacing:0}
-    /* ── SELETOR DE PERFIL ── */
+    
     .perfil{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:26px}
     .perfil__btn{background:#fff;border:1.5px solid var(--bd-l);border-radius:16px;padding:22px 18px;cursor:pointer;text-align:left;transition:all .25s;font-family:'Objective',sans-serif;display:flex;flex-direction:column;gap:9px}
     .perfil__btn i{font-size:1.5rem;color:var(--teal)}
@@ -68,14 +68,14 @@
     .perfil__result h3{color:#fff;font-size:1.35rem;margin:2px 0 6px}
     .perfil__result p{color:rgba(255,255,255,.9);font-size:.92rem;max-width:540px}
     .perfil__result .btn{background:#fff;color:var(--teal)}
-    /* ── DIFERENCIAIS ── */
+    
     .diffs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
     .diff{background:#fff;border:1.5px solid var(--bd-l);border-radius:var(--r);padding:28px;transition:all .3s}
     .diff:hover{border-color:var(--teal);transform:translateY(-3px);box-shadow:0 16px 32px rgba(37,149,145,.08)}
     .diff__ico{width:48px;height:48px;border-radius:13px;background:rgba(37,149,145,.1);border:1px solid rgba(37,149,145,.2);display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--teal);margin-bottom:14px}
     .diff h4{font-family:'Objective',sans-serif;font-weight:700;font-size:.98rem;margin-bottom:7px;color:var(--text)}
     .diff p{font-size:.85rem;color:var(--muted);line-height:1.7}
-    /* ── FORMULÁRIO "PRONTO PRA SER KLINI" ── */
+    
     .cta-form{background:var(--grad-cool);border-radius:26px;padding:48px;display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center;position:relative;overflow:hidden}
     .cta-form__txt h2{color:#fff}
     .cta-form__txt h2 strong{color:#FFE0B5}
@@ -91,7 +91,7 @@
     .cta-form__note{font-size:.72rem;color:var(--muted);text-align:center;font-family:'Objective',sans-serif}
     @media(max-width:880px){.cta-form{grid-template-columns:1fr;padding:32px}.perfil{grid-template-columns:1fr 1fr}.diffs{grid-template-columns:1fr 1fr}}
     @media(max-width:560px){.perfil{grid-template-columns:1fr}.diffs{grid-template-columns:1fr}.flyer{width:70%;min-width:200px}}
-      /* FAQ accordion (details nativo) */
+      
     .faq{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
     .faq__item{background:#fff;border:1.5px solid var(--bd-l);border-radius:14px;overflow:hidden;transition:border-color .25s}
     .faq__item[open]{border-color:var(--teal)}
@@ -105,7 +105,7 @@
 <body>
 <a class="skip-link" href="#main">Pular para o conteúdo</a>
 
-<!-- TOP BAR (padrão Klini) -->
+
 <header class="bar" id="bar">
   <div class="bar__inner">
     <a href="index.html" class="bar__logo"><img src="assets/logo-klini.webp" alt="Klini Saúde" /></a>
@@ -171,7 +171,7 @@
 </header>
 <main id="main">
 
-<!-- HERO -->
+
 <section class="page-hero page-hero--people">
   <img class="ph-photo" src="assets/campanha/hero-ouvidoria.webp" alt="Beneficiário Klini no Rio de Janeiro" />
   <div class="ph-wash"></div>
@@ -185,7 +185,7 @@
   </div>
 </section>
 
-<!-- FLYERS DOS PLANOS -->
+
 <section class="sec">
   <div class="wrap">
     <div style="text-align:center;margin-bottom:48px">
@@ -236,7 +236,7 @@
   </div>
 </section>
 
-<!-- QUAL PLANO COMBINA COM VOCÊ -->
+
 <section class="sec sec--off">
   <div class="wrap">
     <div style="text-align:center;margin-bottom:40px">
@@ -269,7 +269,7 @@
   </div>
 </section>
 
-<!-- MUITO MAIS QUE UM PLANO -->
+
 <section class="sec">
   <div class="wrap">
     <div style="margin-bottom:44px;text-align:center">
@@ -287,7 +287,7 @@
   </div>
 </section>
 
-<!-- FAQ — PERGUNTAS FREQUENTES -->
+
 <section class="sec sec--off" id="faq">
   <div class="wrap">
     <div style="text-align:center;margin-bottom:40px">
@@ -338,7 +338,7 @@
   </script>
 </section>
 
-<!-- PRONTO PRA SER KLINI — FORMULÁRIO -->
+
 <section class="sec" id="cotacao">
   <div class="wrap">
     <div class="cta-form">
@@ -372,7 +372,7 @@
   </div>
 </section>
 
-<!-- FOOTER (padrão Klini) -->
+
 </main>
 <footer>
   <div class="foot-arc" aria-hidden="true">
@@ -447,7 +447,7 @@
 </div>
 
 <script>
-  /* topbar + menu mobile */
+  
   var bar = document.getElementById('bar');
   window.addEventListener('scroll', function(){ bar.classList.toggle('solid', window.scrollY > 50); }, { passive:true });
   var barHamb = document.getElementById('barHamb'), barNav = document.getElementById('barNav');
@@ -455,7 +455,7 @@
     barHamb.addEventListener('click', function(){ barNav.classList.toggle('open'); });
     barNav.querySelectorAll('.nav__item--drop .nav__link').forEach(function(btn){ btn.addEventListener('click', function(){ btn.closest('.nav__item--drop').classList.toggle('open'); }); });
   }
-  /* area dropdown */
+  
   (function(){
     var wrap = document.querySelector('.bar__area-wrap');
     if (!wrap) return;
@@ -464,7 +464,7 @@
     if (btn) btn.addEventListener('click', function(e){ e.stopPropagation(); var o=wrap.classList.toggle('open'); btn.setAttribute('aria-expanded', o?'true':'false'); });
   })();
 
-  /* tilt 3D nos flyers (segue o cursor) */
+  
   document.querySelectorAll('.flyer').forEach(function(card){
     var poster = card.querySelector('.flyer__poster');
     card.addEventListener('pointermove', function(e){
@@ -475,7 +475,7 @@
     card.addEventListener('pointerleave', function(){ poster.style.transform = ''; });
   });
 
-  /* seletor "qual plano combina com você" */
+  
   var perfilResult = document.getElementById('perfilResult');
   document.querySelectorAll('#perfil .perfil__btn').forEach(function(btn){
     btn.addEventListener('click', function(){
@@ -488,14 +488,13 @@
     });
   });
 
-  /* formulário → registra o lead por e-mail e abre o WhatsApp */
-  var LEAD_EMAIL = 'comercial@klinisaude.com.br'; // destino dos leads (ativar no formsubmit.co no 1o envio)
+  
+  var LEAD_EMAIL = 'comercial@klinisaude.com.br';
   var form = document.getElementById('cotacaoForm');
   if (form) form.addEventListener('submit', function(e){
     e.preventDefault();
     var d = new FormData(form);
-    /* registra o lead por e-mail antes de abrir o WhatsApp.
-       Captura nao-bloqueante: se falhar, o WhatsApp abre do mesmo jeito. */
+    
     try {
       fetch('https://formsubmit.co/ajax/' + LEAD_EMAIL, {
         method: 'POST',
@@ -511,7 +510,7 @@
           origem: 'planos.html#cotacao'
         })
       }).catch(function(){});
-    } catch (err) { /* nunca bloqueia o fluxo */ }
+    } catch (err) {  }
     var txt = 'Ol\u00e1! Quero ser Klini.\n'
             + 'Nome: ' + (d.get('nome')||'') + '\n'
             + 'WhatsApp: ' + (d.get('whats')||'') + '\n'

@@ -24,7 +24,7 @@
     .df-chip{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);color:#fff;font-family:'Objective',sans-serif;font-weight:600;font-size:.84rem;padding:9px 16px;border-radius:40px}
     .df-chip i{color:#FFE0B5}
 
-    /* ── COMO USAR + CARTEIRINHA ───────────────────────────────────── */
+    
     .df-how{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
     .df-steps{display:flex;flex-direction:column;gap:8px;margin-top:6px}
     .df-step{display:flex;gap:18px;align-items:flex-start;padding:16px 0}
@@ -49,7 +49,7 @@
     .df-card__bar{height:7px;background:linear-gradient(90deg,#259591 0%,#6aa7ae 33%,#cd7925 67%,#e05759 100%)}
     .df-card-hint{text-align:center;font-size:.8rem;color:var(--muted);margin-top:16px}
 
-    /* ── REDES PARCEIRAS ───────────────────────────────────────────── */
+    
     .df-logos{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
     .df-logo{background:#fff;border:1.5px solid var(--bd-l);border-radius:16px;min-height:104px;display:flex;align-items:center;justify-content:center;padding:24px 18px;position:relative;overflow:hidden;transition:transform .35s cubic-bezier(.34,1.56,.64,1),box-shadow .3s,border-color .25s}
     .df-logo::before{content:'';position:absolute;top:0;left:-120%;width:55%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.6),transparent);transform:skewX(-18deg);pointer-events:none}
@@ -61,7 +61,7 @@
     .df-logo:hover img{transform:scale(1.08)}
     .df-logo__more{font-family:'Objective',sans-serif;font-weight:700;color:var(--teal);font-size:.92rem;text-align:center;line-height:1.4}
 
-    /* ── APP + CTA ─────────────────────────────────────────────────── */
+    
     .df-app{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
     .df-app__card{background:#fff;border:1.5px solid var(--bd-l);border-radius:20px;padding:32px;display:flex;gap:16px;align-items:flex-start}
     .df-app__card i{width:48px;height:48px;border-radius:13px;background:rgba(37,149,145,.1);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
@@ -73,12 +73,12 @@
     @media(max-width:900px){.df-how{grid-template-columns:1fr;gap:36px}.df-card-wrap{order:-1}.df-app{grid-template-columns:1fr;gap:20px}.df-logos{grid-template-columns:repeat(3,1fr)}}
     @media(max-width:560px){.df-logos{grid-template-columns:1fr 1fr}}
 
-    /* ── hero overrides específicos (foto, wash, perninha) ── */
+    
     .page-hero--people .ph-photo{object-position:28% 38%}
     .page-hero--people .ph-wash{background:linear-gradient(270deg,rgba(4,20,18,.30) 0%,transparent 38%),radial-gradient(ellipse at 25% 50%,transparent 42%,rgba(4,20,18,.22) 100%)}
     .page-hero--people .wrap{justify-content:flex-end}
     .ph-d-card::after{content:'';position:absolute;left:-15px;top:36%;width:22px;height:30px;background:#259591;clip-path:polygon(100% 0,100% 100%,0 42%);filter:drop-shadow(-3px 2px 4px rgba(4,42,38,.18))}
-    /* ── CHIPS calibrados pro card-balão ── */
+    
     .ph-d-card p{font-size:.87rem;margin-top:8px;line-height:1.6}
     .ph-d-card .df-chips{margin-top:14px;gap:7px}
     .ph-d-card .df-chip{font-size:.75rem;padding:6px 12px;gap:6px}
@@ -90,7 +90,7 @@
 <body>
 <a class="skip-link" href="#main">Pular para o conteúdo</a>
 
-<!-- ══ TOP BAR (padrão Klini) ═══════════════════════════════════════ -->
+
 <header class="bar" id="bar">
   <div class="bar__inner">
     <a href="index.html" class="bar__logo"><img src="assets/logo-klini.webp" alt="Klini Saúde" /></a>
@@ -156,7 +156,7 @@
 </header>
 <main id="main">
 
-<!-- ══ HERO ═════════════════════════════════════════════════════════ -->
+
 <section class="page-hero page-hero--people" style="--page-accent:#FFCDD2">
   <img class="ph-photo" src="assets/fotos%20headers/GettyImages-1479999063.webp" alt="Farmacêutica entregando medicamento a cliente Klini" />
   <div class="ph-wash"></div>
@@ -177,7 +177,7 @@
 
 </section>
 
-<!-- ══ COMO USAR + CARTEIRINHA ══════════════════════════════════════ -->
+
 <section class="sec">
   <div class="wrap">
     <div class="df-how">
@@ -220,7 +220,7 @@
   </div>
 </section>
 
-<!-- ══ REDES PARCEIRAS ══════════════════════════════════════════════ -->
+
 <section class="sec sec--off" id="redes">
   <div class="wrap">
     <div style="text-align:center">
@@ -241,7 +241,7 @@
   </div>
 </section>
 
-<!-- ══ APP / WHATSAPP ═══════════════════════════════════════════════ -->
+
 <section class="sec">
   <div class="wrap">
     <div style="text-align:center;margin-bottom:40px">
@@ -270,7 +270,7 @@
       </div>
     </div>
 
-    <!-- CTA contextual -->
+    
     <div class="df-cta">
       <div>
         <h2>Ainda não é Klini?</h2>
@@ -281,7 +281,7 @@
   </div>
 </section>
 
-<!-- ══ FOOTER (padrão Klini) ════════════════════════════════════════ -->
+
 </main>
 <footer>
   <div class="foot-arc" aria-hidden="true">
@@ -356,7 +356,7 @@
 </div>
 
 <script>
-  /* header solid + menu mobile */
+  
   var bar = document.getElementById('bar');
   window.addEventListener('scroll', function(){ bar.classList.toggle('solid', window.scrollY > 50); }, { passive:true });
   var barHamb = document.getElementById('barHamb'), barNav = document.getElementById('barNav');
@@ -364,7 +364,7 @@
     barHamb.addEventListener('click', function(){ barNav.classList.toggle('open'); });
     barNav.querySelectorAll('.nav__item--drop .nav__link').forEach(function(btn){ btn.addEventListener('click', function(){ btn.closest('.nav__item--drop').classList.toggle('open'); }); });
   }
-  /* area dropdown */
+  
   (function(){
     var wrap = document.querySelector('.bar__area-wrap');
     if (!wrap) return;
@@ -373,7 +373,7 @@
     if (btn) btn.addEventListener('click', function(e){ e.stopPropagation(); var o=wrap.classList.toggle('open'); btn.setAttribute('aria-expanded', o?'true':'false'); });
   })();
 
-  /* tilt 3D na carteirinha (segue o cursor) */
+  
   (function(){
     var card=document.getElementById('dfCard'); if(!card) return;
     var wrap=card.parentElement;
