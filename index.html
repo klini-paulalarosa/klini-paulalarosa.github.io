@@ -318,7 +318,7 @@ section .h2 strong{font-family:var(--serif);font-style:italic;font-weight:600;le
 /* ── LINHAS DE CUIDADO ───────────────────────────────────────── */
 .mv{background:var(--grad-soft);padding:100px 0}
 .mv__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:56px}
-.mv__card{background:#fff;border:1px solid var(--bd-l);border-radius:20px;padding:0;overflow:hidden;text-align:left;transition:all .3s;box-shadow:10px 10px 0 0 rgba(205,121,37,.2)}
+.mv__card{background:#fff;border:1px solid var(--bd-l);border-radius:20px;padding:0;overflow:hidden;text-align:left;transition:all .3s;box-shadow:10px 10px 0 0 rgba(37,149,145,.2)}
 .mv__card:hover{border-color:rgba(37,149,145,.32);transform:translateY(-5px);box-shadow:0 20px 52px rgba(37,149,145,.14)}
 .mv__card h4{font-family:'Objective',sans-serif;font-weight:700;font-size:.98rem;margin-bottom:6px;color:var(--text)}
 .mv__card p{font-size:.82rem;color:var(--muted);line-height:1.65;margin:0}
@@ -370,9 +370,6 @@ footer{background:#fff;color:var(--muted);padding:52px 0 28px;position:relative}
 .tele__img-wrap{position:relative;z-index:1;display:flex;justify-content:flex-end}
 .tele__screen-glow{position:absolute;top:10%;left:50%;transform:translateX(-50%);width:160px;height:240px;border-radius:40px;background:radial-gradient(ellipse,rgba(37,149,145,.22),transparent 70%);pointer-events:none;animation:tele-pulse 3s ease-in-out infinite 1.2s}
 @keyframes tele-pulse{0%,100%{opacity:.6;transform:translateX(-50%) scale(1)}50%{opacity:1;transform:translateX(-50%) scale(1.08)}}
-.tele__live{position:absolute;top:24px;left:50%;transform:translateX(-50%);z-index:3;display:inline-flex;align-items:center;gap:7px;background:rgba(17,17,17,.72);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.14);border-radius:50px;padding:6px 14px;font-size:.72rem;font-weight:700;color:#fff;letter-spacing:.04em}
-.tele__live-dot{width:8px;height:8px;border-radius:50%;background:#E05759;animation:live-blink 1.4s ease-in-out infinite;box-shadow:0 0 0 0 rgba(224,87,89,.6)}
-@keyframes live-blink{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(224,87,89,.6)}50%{opacity:.55;box-shadow:0 0 0 6px rgba(224,87,89,0)}}
 
 /* ── PLAN CARD IMAGE WRAPPER ──────────────────────────────────── */
 /* header com textura: arcos concêntricos da marca + pontilhado + gloss + shine */
@@ -789,7 +786,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 </section>
 
 
-<section class="sec" id="planos">
+<section class="sec sec--off" id="planos">
   <div class="wrap plans__layout">
     <div class="plans__aside">
       <div class="plans__head-txt">
@@ -950,30 +947,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 </section>
 
 
-<section class="sec sec--off" id="conheca">
-  <div class="wrap">
-    <div style="text-align:center;margin-bottom:40px">
-      <p class="eyebrow gs">klini + rede casa · um único time</p>
-      <h2 class="h2 gs">Veja a Klini <strong style="color:var(--teal)">por dentro</strong></h2>
-      <p class="gs" style="color:var(--muted);margin-top:12px;font-size:1.05rem;max-width:660px;margin-left:auto;margin-right:auto;line-height:1.8">Somos um único time pelo seu cuidado: rede própria, Rede Casa Hospitalar e telemedicina 24h. Veja no vídeo como a Klini acompanha você de ponta a ponta — do ambulatório ao hospital.</p>
-    </div>
-    <div class="gs" style="position:relative;max-width:920px;margin:0 auto;aspect-ratio:16/9;border-radius:22px;overflow:hidden;box-shadow:0 24px 60px rgba(4,42,38,.16);border:1px solid var(--bd-l);background:#000">
-      <iframe style="position:absolute;inset:0;width:100%;height:100%;border:0" src="https://www.youtube.com/embed/gqo3ChsNoqI" title="Conheça a Klini Saúde" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
-    </div>
-    <div class="gs" style="display:flex;flex-wrap:wrap;gap:40px 56px;justify-content:center;margin-top:42px">
-      <div style="text-align:center"><div style="font-family:'Objective',sans-serif;font-weight:800;font-size:2.2rem;line-height:1;background:linear-gradient(135deg,#259591,#6AA7AE);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">+150 mil</div><div style="font-size:.84rem;color:var(--muted);margin-top:6px">beneficiários confiam na Klini</div></div>
-      <div style="text-align:center"><div style="font-family:'Objective',sans-serif;font-weight:800;font-size:2.2rem;line-height:1;background:linear-gradient(135deg,#259591,#6AA7AE);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">9</div><div style="font-size:.84rem;color:var(--muted);margin-top:6px">hospitais Rede Casa</div></div>
-      <div style="text-align:center"><div style="font-family:'Objective',sans-serif;font-weight:800;font-size:2.2rem;line-height:1;background:linear-gradient(135deg,#259591,#6AA7AE);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">10</div><div style="font-size:.84rem;color:var(--muted);margin-top:6px">centros médicos Klini</div></div>
-      <div style="text-align:center"><div style="font-family:'Objective',sans-serif;font-weight:800;font-size:2.2rem;line-height:1;background:linear-gradient(135deg,#259591,#6AA7AE);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">+1.000</div><div style="font-size:.84rem;color:var(--muted);margin-top:6px">leitos no estado do RJ</div></div>
-    </div>
-    <div class="gs" style="text-align:center;margin-top:30px">
-      <a href="sobre.html#unidades" class="btn btn-outline"><i class="pi pi-map"></i> Ver endereços no mapa</a>
-    </div>
-  </div>
-</section>
 
-
-<section class="sec sec--off" id="teleconsulta">
+<section class="sec" id="teleconsulta">
   <div class="wrap">
     <div class="tele">
       <div class="gs">
@@ -1006,22 +981,16 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       <div class="tele__side gs">
         <div class="tele__glow"></div>
         <div class="tele__img-wrap">
-          <div class="tele__live"><span class="tele__live-dot"></span> CONSULTA AO VIVO</div>
           <img src="assets/app-mockup.webp" alt="App Klini Saúde" class="tele__img" loading="eager" />
           <div class="tele__screen-glow"></div>
 
-          
           <div class="tele__notif tele__notif--1">
             <span class="tele__notif-ico" style="background:rgba(37,149,145,.12);color:var(--teal)"><i class="pi pi-check"></i></span>
             <div><strong>Consulta confirmada</strong><span>Clínico geral · agora</span></div>
           </div>
-          <div class="tele__notif tele__notif--2">
-            <span class="tele__notif-ico" style="background:rgba(106,167,174,.16);color:var(--sea)"><i class="pi pi-file"></i></span>
-            <div><strong>Receita enviada</strong><span>PDF com validade legal</span></div>
-          </div>
           <div class="tele__notif tele__notif--3">
-            <span class="tele__notif-ico" style="background:rgba(205,121,37,.14);color:var(--orange)"><i class="pi pi-verified"></i></span>
-            <div><strong>Atestado pronto</strong><span>Disponível no app</span></div>
+            <span class="tele__notif-ico" style="background:rgba(224,87,89,.12);color:var(--coral)"><i class="pi pi-video"></i></span>
+            <div><strong>Consulta ao vivo</strong><span>médico disponível · agora</span></div>
           </div>
         </div>
       </div>
