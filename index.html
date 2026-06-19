@@ -193,7 +193,7 @@ section .h2 strong{font-family:var(--serif);font-style:italic;font-weight:600;le
 .plans__carousel-wrap{display:flex;flex-direction:column;min-width:0}
 .plans__arrows-top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:14px;padding:0 4px}
 .plans__viewport{overflow:hidden;padding:4px 2px 8px;position:relative}
-.plans__viewport::after{content:'';position:absolute;top:0;right:0;bottom:0;width:88px;background:linear-gradient(90deg,transparent,#fff 86%);pointer-events:none;z-index:3;opacity:1;transition:opacity .35s ease}
+.plans__viewport::after{content:'';position:absolute;top:0;right:0;bottom:0;width:88px;background:linear-gradient(90deg,transparent,#fdf8f4 86%);pointer-events:none;z-index:3;opacity:1;transition:opacity .35s ease}
 .plans__viewport.at-end::after{opacity:0}
 .plans__track{display:flex;gap:18px;transition:transform .5s cubic-bezier(.4,0,.2,1);will-change:transform}
 .pc{background:#fff;border:1.5px solid var(--bd-l);border-radius:var(--r);padding:24px;flex:0 0 calc((100% - 36px)/3);position:relative;overflow:hidden;transition:all .3s ease;display:flex;flex-direction:column}
@@ -229,20 +229,20 @@ section .h2 strong{font-family:var(--serif);font-style:italic;font-weight:600;le
 .vcard__in{position:relative;width:100%;height:100%;transition:transform .68s cubic-bezier(.4,0,.2,1);transform-style:preserve-3d;border-radius:22px;box-shadow:0 16px 40px rgba(4,42,38,.22)}
 .vcard:hover .vcard__in{box-shadow:0 26px 56px rgba(4,42,38,.36)}
 .vcard.flip .vcard__in{transform:rotateY(180deg)}
-.vcfeat .vcard__in{box-shadow:0 18px 46px rgba(37,149,145,.34),0 0 0 3px rgba(37,149,145,.2)!important}
+.vcfeat .vcard__in{box-shadow:0 22px 52px rgba(205,121,37,.38)!important}
 .vcface{position:absolute;inset:0;backface-visibility:hidden;border-radius:22px;overflow:hidden}
 .vc-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-.vcfront{background:radial-gradient(circle at 82% 14%,rgba(255,255,255,.18),transparent 48%),linear-gradient(160deg,#259591 0%,#6AA7AE 100%)}
-.vcwarm .vcfront{background:radial-gradient(circle at 82% 14%,rgba(255,255,255,.18),transparent 48%),linear-gradient(160deg,#CD7925 0%,#E05759 100%)}
-.vcfeat .vcfront{background:radial-gradient(circle at 82% 14%,rgba(255,255,255,.20),transparent 48%),linear-gradient(150deg,#259591 0%,#6AA7AE 46%,#CD7925 100%)}
+.vcfront{background:radial-gradient(circle at 82% 14%,rgba(255,255,255,.18),transparent 48%),linear-gradient(160deg,#CD7925 0%,#E05759 100%)}
+.vcwarm .vcfront{background:radial-gradient(circle at 82% 14%,rgba(255,255,255,.22),transparent 48%),linear-gradient(160deg,#b86a20 0%,#CD7925 100%)}
+.vcfeat .vcfront{background:radial-gradient(circle at 82% 14%,rgba(255,255,255,.20),transparent 48%),linear-gradient(155deg,#CD7925 0%,#E05759 55%,#cd4545 100%)}
 .vcfront::before{content:'';position:absolute;inset:0;z-index:0;background-image:radial-gradient(rgba(255,255,255,.20) 1px,transparent 1.6px);background-size:14px 14px;opacity:.45;-webkit-mask-image:linear-gradient(160deg,#000,transparent 60%);mask-image:linear-gradient(160deg,#000,transparent 60%);pointer-events:none}
 .vc-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%;transform:scale(.97);transform-origin:50% 100%;z-index:0}
-.vc-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(0deg,rgba(4,20,18,.92) 6%,rgba(37,149,145,.28) 55%,transparent)}
-.vcwarm .vc-scrim{background:linear-gradient(0deg,rgba(120,40,20,.9) 6%,rgba(176,80,40,.26) 55%,transparent)}
+.vc-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(0deg,rgba(120,40,20,.92) 6%,rgba(176,80,40,.26) 55%,transparent)}
+.vcwarm .vc-scrim{background:linear-gradient(0deg,rgba(90,28,14,.92) 6%,rgba(140,55,20,.22) 55%,transparent)}
 .vc-k{position:absolute;z-index:2;width:80px;top:20px;right:20px;opacity:.9;pointer-events:none;animation:vc-k-float 5s ease-in-out infinite}
 .vcard.flip .vc-k{animation-play-state:paused}
 @keyframes vc-k-float{0%,100%{transform:translateY(0) rotate(0deg)}45%{transform:translateY(-9px) rotate(3deg)}75%{transform:translateY(-4px) rotate(-1.5deg)}}
-.vc-tier{position:absolute;top:16px;left:16px;z-index:3;background:rgba(255,255,255,.15);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.5);color:#fff;font-family:'Objective',sans-serif;font-weight:800;font-size:.68rem;letter-spacing:.03em;padding:6px 13px;border-radius:50px}
+.vc-tier{position:absolute;top:16px;left:16px;z-index:3;background:#fff;border:none;color:var(--orange);font-family:'Objective',sans-serif;font-weight:800;font-size:.68rem;letter-spacing:.03em;padding:6px 13px;border-radius:50px}
 .vc-ribbon{position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:5;background:linear-gradient(135deg,#cd7925,#e05759);color:#fff;font-family:'Objective',sans-serif;font-weight:800;font-size:.76rem;letter-spacing:.04em;padding:10px 26px;border-radius:0 0 20px 20px;white-space:nowrap;box-shadow:0 8px 22px rgba(205,121,37,.5);animation:ribbon-pulse 2.2s ease-in-out infinite}
 @keyframes ribbon-pulse{0%,100%{box-shadow:0 8px 22px rgba(205,121,37,.5)}50%{box-shadow:0 10px 34px rgba(205,121,37,.8),0 0 18px rgba(205,121,37,.35)}}
 .vc-body{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:22px;display:flex;flex-direction:column;align-items:flex-start}
@@ -250,19 +250,17 @@ section .h2 strong{font-family:var(--serif);font-style:italic;font-weight:600;le
 .vc-tag{font-family:'Objective',sans-serif;font-size:.78rem;color:rgba(255,255,255,.82);display:block;margin:6px 0 14px;line-height:1.4}
 .vc-hint{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);border:1.5px solid rgba(255,255,255,.55);color:#fff;font-family:'Objective',sans-serif;font-weight:700;font-size:.78rem;padding:8px 16px;border-radius:50px;line-height:1}
 .vc-bar{position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--grad-brand);z-index:4}
-.vcback{transform:rotateY(180deg);background:radial-gradient(circle at 86% 10%,rgba(255,255,255,.18),transparent 46%),linear-gradient(150deg,#259591 0%,#6AA7AE 100%);color:#fff;padding:18px 20px 20px;display:flex;flex-direction:column;justify-content:space-between;gap:0}
-.vcwarm .vcback{background:radial-gradient(circle at 86% 10%,rgba(255,255,255,.18),transparent 46%),linear-gradient(150deg,#CD7925,#E05759)}
-.vcfeat .vcback{background:radial-gradient(circle at 86% 10%,rgba(255,255,255,.20),transparent 46%),linear-gradient(150deg,#259591 0%,#6AA7AE 46%,#CD7925 100%)}
+.vcback{transform:rotateY(180deg);background:radial-gradient(circle at 86% 10%,rgba(255,255,255,.18),transparent 46%),linear-gradient(150deg,#CD7925 0%,#E05759 100%);color:#fff;padding:18px 20px 20px;display:flex;flex-direction:column;justify-content:space-between;gap:0}
+.vcwarm .vcback{background:radial-gradient(circle at 86% 10%,rgba(255,255,255,.22),transparent 46%),linear-gradient(150deg,#b86a20 0%,#CD7925 100%)}
+.vcfeat .vcback{background:radial-gradient(circle at 86% 10%,rgba(255,255,255,.20),transparent 46%),linear-gradient(155deg,#CD7925 0%,#E05759 55%,#cd4545 100%)}
 .vcback::before{content:'';position:absolute;inset:0;z-index:0;background-image:radial-gradient(rgba(255,255,255,.16) 1px,transparent 1.6px);background-size:15px 15px;opacity:.5;-webkit-mask-image:linear-gradient(150deg,#000,transparent 70%);mask-image:linear-gradient(150deg,#000,transparent 70%);pointer-events:none}
 /* Klini 200 — teal profundo, identidade essencial */
-.vc200 .vcfront{background:radial-gradient(circle at 82% 14%,rgba(255,255,255,.18),transparent 48%),linear-gradient(155deg,#0e4f4d 0%,#1a7270 50%,#259591 100%)}
-.vc200 .vcback{background:radial-gradient(circle at 86% 10%,rgba(255,255,255,.18),transparent 46%),linear-gradient(150deg,#0e4f4d 0%,#1e7e7b 100%);color:#fff}
-.vc200 .vc-scrim{background:linear-gradient(0deg,rgba(4,28,26,.94) 6%,rgba(18,88,86,.26) 55%,transparent)}
-/* Klini 350 — sea / família, azul-verde mais claro e fresco */
-.vc350 .vcfront{background:radial-gradient(circle at 82% 14%,rgba(255,255,255,.24),transparent 50%),linear-gradient(155deg,#3e91a0 0%,#6AA7AE 55%,#92c3cc 100%)}
-.vc350 .vcback{background:radial-gradient(circle at 86% 10%,rgba(255,255,255,.22),transparent 46%),linear-gradient(150deg,#328898 0%,#6AA7AE 100%);color:#fff}
-.vc350 .vc-scrim{background:linear-gradient(0deg,rgba(4,32,52,.92) 6%,rgba(62,145,160,.22) 55%,transparent)}
-.vc350 .vcback .vccta{color:var(--sea)}
+.vc200 .vcfront{background:radial-gradient(circle at 82% 14%,rgba(255,255,255,.18),transparent 48%),linear-gradient(155deg,#a85c18 0%,#CD7925 60%,#d98a3c 100%)}
+.vc200 .vcback{background:radial-gradient(circle at 86% 10%,rgba(255,255,255,.18),transparent 46%),linear-gradient(150deg,#a85c18 0%,#CD7925 100%);color:#fff}
+.vc200 .vc-scrim{background:linear-gradient(0deg,rgba(80,35,8,.94) 6%,rgba(140,70,20,.24) 55%,transparent)}
+.vc350 .vcfront{background:radial-gradient(circle at 82% 14%,rgba(255,255,255,.22),transparent 50%),linear-gradient(155deg,#CD7925 0%,#d98a40 55%,#e8a055 100%)}
+.vc350 .vcback{background:radial-gradient(circle at 86% 10%,rgba(255,255,255,.20),transparent 46%),linear-gradient(150deg,#CD7925 0%,#d98a40 100%);color:#fff}
+.vc350 .vc-scrim{background:linear-gradient(0deg,rgba(100,50,10,.92) 6%,rgba(160,90,30,.22) 55%,transparent)}
 .vcarc{position:absolute;bottom:-46px;right:-46px;width:172px;height:172px;opacity:.22;z-index:0;pointer-events:none;transform-origin:50% 50%;animation:kln-spin 70s linear infinite}
 @media(prefers-reduced-motion:reduce){.vcarc{animation:none}}
 .vcback-top{display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1;margin-bottom:8px}
@@ -275,7 +273,7 @@ section .h2 strong{font-family:var(--serif);font-style:italic;font-weight:600;le
 .vcback li{display:flex;align-items:center;gap:11px;line-height:1.25;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.12)}
 .vcback li:last-child{border-bottom:none}
 .vcback li i{background:rgba(255,255,255,.24);width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.58rem;flex-shrink:0}
-.vcback .vccta{display:flex;align-items:center;justify-content:center;gap:8px;background:#fff;color:var(--teal);border-radius:12px;padding:13px;font-family:'Objective',sans-serif;font-weight:800;font-size:.88rem;text-decoration:none;box-shadow:0 8px 22px rgba(4,42,38,.22);position:relative;z-index:1;line-height:1;margin-top:10px}
+.vcback .vccta{display:flex;align-items:center;justify-content:center;gap:8px;background:#fff;color:var(--orange);border-radius:12px;padding:13px;font-family:'Objective',sans-serif;font-weight:800;font-size:.88rem;text-decoration:none;box-shadow:0 8px 22px rgba(4,42,38,.22);position:relative;z-index:1;line-height:1;margin-top:10px}
 .vcwarm .vcback .vccta{color:var(--orange)}
 
 @media(prefers-reduced-motion:reduce){.vcard__in{transition:none!important}.vc-k{transition:none}}
@@ -415,7 +413,7 @@ footer{background:#fff;color:var(--muted);padding:52px 0 28px;position:relative}
 .acess__arc2{position:absolute;bottom:-110px;left:-110px;width:300px;height:300px;opacity:.4;pointer-events:none;z-index:0}
 .acess>.wrap{position:relative;z-index:1}
 .acess__grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:48px}
-.acess__card{--mx:50%;--my:50%;background:#fff;border:1.5px solid var(--bd-l);border-radius:22px;padding:30px 20px 26px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:13px;transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s,border-color .3s;text-decoration:none;color:inherit;position:relative;overflow:hidden;isolation:isolate}
+.acess__card{--mx:50%;--my:50%;background:#fff;border:1.5px solid var(--bd-l);border-radius:22px;padding:30px 20px 26px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:13px;transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s,border-color .3s;text-decoration:none;color:inherit;position:relative;overflow:hidden;isolation:isolate;box-shadow:10px 10px 0 0 rgba(37,149,145,.18)}
 /* barra de acento que cresce no topo */
 .acess__card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--sea));transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.22,1,.36,1);z-index:2}
 /* spotlight que segue o cursor */
@@ -453,12 +451,19 @@ footer{background:#fff;color:var(--muted);padding:52px 0 28px;position:relative}
 @media(max-width:600px){.acess__grid{grid-template-columns:1fr 1fr}.canais__grid{grid-template-columns:1fr}}
 
 
-/* ── FARMÁCIA BENTO ──────────────────────────────────────────── */
-.farm-bento{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.farm-bento__info{grid-column:1/3;grid-row:1/3;background:#fff;border:1.5px solid var(--bd-l);border-radius:20px;padding:36px;display:flex;flex-direction:column;justify-content:center;gap:0}
-.farm-logo--far{grid-column:span 2}
-@media(max-width:900px){.farm-bento{grid-template-columns:1fr 1fr}.farm-bento__info{grid-column:1/3;grid-row:auto}}
-@media(max-width:540px){.farm-bento{grid-template-columns:1fr 1fr}.farm-bento__info{grid-column:1/3}}
+/* ── FARMÁCIA TICKER ──────────────────────────────────────────── */
+@keyframes farm-ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.farm__ticker-wrap{overflow:hidden;position:relative;margin-top:48px;padding:12px 0}
+.farm__ticker-wrap::before,.farm__ticker-wrap::after{content:'';position:absolute;top:0;bottom:0;width:100px;z-index:2;pointer-events:none}
+.farm__ticker-wrap::before{left:0;background:linear-gradient(90deg,#F5F9FF,transparent)}
+.farm__ticker-wrap::after{right:0;background:linear-gradient(270deg,#F5F9FF,transparent)}
+.farm__ticker-track{display:flex;align-items:center;width:max-content;animation:farm-ticker 26s linear infinite}
+.farm__ticker-track:hover{animation-play-state:paused}
+.farm__ticker-item{display:flex;align-items:center;justify-content:center;padding:18px 44px;flex-shrink:0;text-decoration:none}
+.farm__ticker-item img{height:42px;width:auto;object-fit:contain;opacity:.72;transition:opacity .25s,transform .25s}
+.farm__ticker-item:hover img{opacity:1;transform:scale(1.1)}
+.farm__steps--row{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:0}
+@media(max-width:640px){.farm__steps--row{grid-template-columns:1fr}}
 
 /* ── CANAIS BENTO ─────────────────────────────────────────────── */
 /* grid limpo 3×2 — alturas pelo conteúdo (sem row-span = sem espaço sobrando) */
@@ -786,7 +791,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 </section>
 
 
-<section class="sec sec--off" id="planos">
+<section class="sec" id="planos" style="background:rgba(205,121,37,.05)">
   <div class="wrap plans__layout">
     <div class="plans__aside">
       <div class="plans__head-txt">
@@ -1001,59 +1006,33 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
 <section class="sec sec--off" id="farmacia">
   <div class="wrap">
-    <div style="text-align:center;margin-bottom:56px">
+    <div style="text-align:left;margin-bottom:48px">
       <p class="eyebrow gs">desconto em farmácias</p>
       <h2 class="h2 gs">Economize em<br><strong style="color:var(--orange)">medicamentos</strong></h2>
       <p class="gs" style="color:var(--muted);margin-top:12px;font-size:1.05rem">Descontos especiais nas principais redes do Brasil — sem cadastro adicional.</p>
     </div>
-    <div class="farm-bento">
-
-      
-      <div class="farm-bento__info gs">
-        <p class="eyebrow" style="margin-bottom:10px">como usar</p>
-        <h3 class="h3" style="margin-bottom:22px;color:var(--text)">3 passos simples</h3>
-        <div class="farm__steps">
-          <div class="farm__step"><div class="farm__ico"><i class="pi pi-map-marker"></i></div><div><strong>Vá a uma farmácia parceira</strong><span>7 redes em todo o Brasil</span></div></div>
-          <div class="farm__step"><div class="farm__ico"><i class="pi pi-id-card"></i></div><div><strong>Apresente CPF ou carteirinha</strong><span>Acesse pelo app Klini</span></div></div>
-          <div class="farm__step"><div class="farm__ico"><i class="pi pi-tag"></i></div><div><strong>Desconto automático no caixa</strong><span>Instantâneo, sem etapas extras</span></div></div>
-        </div>
-      </div>
-
-      
-      <a class="farm__logo-card gs" href="https://www.drogasil.com.br" target="_blank" rel="noopener" aria-label="Drogasil">
-        <img class="farm__svg" src="assets/farm-drogasil.png" alt="Drogasil" loading="lazy" />
-      </a>
-
-      
-      <a class="farm__logo-card gs" href="https://www.raia.com.br" target="_blank" rel="noopener" aria-label="Droga Raia">
-        <img class="farm__svg" src="assets/farm-raia.png" alt="Droga Raia" loading="lazy" />
-      </a>
-
-      
-      <a class="farm__logo-card gs" href="https://www.drogariaspacheco.com.br" target="_blank" rel="noopener" aria-label="Drogarias Pacheco">
-        <img class="farm__svg" src="assets/farm-pacheco.png" alt="Drogarias Pacheco" loading="lazy" />
-      </a>
-
-      
-      <a class="farm__logo-card gs" href="https://www.drogariasaopaulo.com.br" target="_blank" rel="noopener" aria-label="Drogaria São Paulo">
-        <img class="farm__svg" src="assets/farm-saopaulo.png" alt="Drogaria São Paulo" loading="lazy" />
-      </a>
-
-      
-      <a class="farm__logo-card gs" href="https://www.drogariavenancio.com.br" target="_blank" rel="noopener" aria-label="Drogaria Venâncio">
-        <img class="farm__svg" src="assets/farm-venancio.png" alt="Drogaria Venâncio" loading="lazy" />
-      </a>
-
-      
-      <a class="farm__logo-card farm-logo--dml gs" href="https://www.drogasmil.com.br" target="_blank" rel="noopener" aria-label="Drogasmil">
-        <img class="farm__svg" src="assets/farm-drogasmil.png" alt="Drogasmil" loading="lazy" />
-      </a>
-
-      
-      <a class="farm__logo-card farm-logo--far farm-logo--fml gs" href="https://www.farmalife.com.br" target="_blank" rel="noopener" aria-label="Farmalife">
-        <img class="farm__svg" src="assets/farm-farmalife.png" alt="Farmalife" loading="lazy" />
-      </a>
-
+    <div class="farm__steps farm__steps--row gs">
+      <div class="farm__step"><div class="farm__ico"><i class="pi pi-map-marker"></i></div><div><strong>Vá a uma farmácia parceira</strong><span>7 redes em todo o Brasil</span></div></div>
+      <div class="farm__step"><div class="farm__ico"><i class="pi pi-id-card"></i></div><div><strong>Apresente CPF ou carteirinha</strong><span>Acesse pelo app Klini</span></div></div>
+      <div class="farm__step"><div class="farm__ico"><i class="pi pi-tag"></i></div><div><strong>Desconto automático no caixa</strong><span>Instantâneo, sem etapas extras</span></div></div>
+    </div>
+  </div>
+  <div class="farm__ticker-wrap">
+    <div class="farm__ticker-track">
+      <a class="farm__ticker-item" href="https://www.drogasil.com.br" target="_blank" rel="noopener" aria-label="Drogasil"><img src="assets/farm-drogasil.png" alt="Drogasil" loading="lazy" /></a>
+      <a class="farm__ticker-item" href="https://www.raia.com.br" target="_blank" rel="noopener" aria-label="Droga Raia"><img src="assets/farm-raia.png" alt="Droga Raia" loading="lazy" /></a>
+      <a class="farm__ticker-item" href="https://www.drogariaspacheco.com.br" target="_blank" rel="noopener" aria-label="Drogarias Pacheco"><img src="assets/farm-pacheco.png" alt="Drogarias Pacheco" loading="lazy" /></a>
+      <a class="farm__ticker-item" href="https://www.drogariasaopaulo.com.br" target="_blank" rel="noopener" aria-label="Drogaria São Paulo"><img src="assets/farm-saopaulo.png" alt="Drogaria São Paulo" loading="lazy" /></a>
+      <a class="farm__ticker-item" href="https://www.drogariavenancio.com.br" target="_blank" rel="noopener" aria-label="Drogaria Venâncio"><img src="assets/farm-venancio.png" alt="Drogaria Venâncio" loading="lazy" /></a>
+      <a class="farm__ticker-item" href="https://www.drogasmil.com.br" target="_blank" rel="noopener" aria-label="Drogasmil"><img src="assets/farm-drogasmil.png" alt="Drogasmil" loading="lazy" /></a>
+      <a class="farm__ticker-item" href="https://www.farmalife.com.br" target="_blank" rel="noopener" aria-label="Farmalife"><img src="assets/farm-farmalife.png" alt="Farmalife" loading="lazy" /></a>
+      <a class="farm__ticker-item" href="https://www.drogasil.com.br" target="_blank" rel="noopener" aria-label="Drogasil"><img src="assets/farm-drogasil.png" alt="" loading="lazy" /></a>
+      <a class="farm__ticker-item" href="https://www.raia.com.br" target="_blank" rel="noopener" aria-label="Droga Raia"><img src="assets/farm-raia.png" alt="" loading="lazy" /></a>
+      <a class="farm__ticker-item" href="https://www.drogariaspacheco.com.br" target="_blank" rel="noopener" aria-label="Drogarias Pacheco"><img src="assets/farm-pacheco.png" alt="" loading="lazy" /></a>
+      <a class="farm__ticker-item" href="https://www.drogariasaopaulo.com.br" target="_blank" rel="noopener" aria-label="Drogaria São Paulo"><img src="assets/farm-saopaulo.png" alt="" loading="lazy" /></a>
+      <a class="farm__ticker-item" href="https://www.drogariavenancio.com.br" target="_blank" rel="noopener" aria-label="Drogaria Venâncio"><img src="assets/farm-venancio.png" alt="" loading="lazy" /></a>
+      <a class="farm__ticker-item" href="https://www.drogasmil.com.br" target="_blank" rel="noopener" aria-label="Drogasmil"><img src="assets/farm-drogasmil.png" alt="" loading="lazy" /></a>
+      <a class="farm__ticker-item" href="https://www.farmalife.com.br" target="_blank" rel="noopener" aria-label="Farmalife"><img src="assets/farm-farmalife.png" alt="" loading="lazy" /></a>
     </div>
   </div>
 </section>
@@ -1121,7 +1100,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
 <section class="canais" id="canais-atendimento">
   <div class="wrap">
-    <div style="text-align:center;margin-bottom:8px">
+    <div style="text-align:left;margin-bottom:8px">
       <p class="eyebrow gs">fale com a gente</p>
       <h2 class="h2 gs">Canais de <strong style="color:var(--coral)">atendimento</strong></h2>
       <p class="gs" style="color:var(--muted);margin-top:12px;font-size:1.05rem">Escolha o canal mais conveniente para você.</p>
@@ -1273,7 +1252,7 @@ if (barHamb && barNav) {
 
 /* ── Stagger suave da entrada (estético; o conteúdo já é visível via CSS) ── */
 (function () {
-  document.querySelectorAll('.acess__grid, .plans__track, .mv__grid, .canais-bento, .farm-bento').forEach(grid => {
+  document.querySelectorAll('.acess__grid, .plans__track, .mv__grid, .canais-bento, .farm__steps--row').forEach(grid => {
     let i = 0;
     Array.prototype.forEach.call(grid.children, c => {
       if (c.classList && c.classList.contains('gs')) {
