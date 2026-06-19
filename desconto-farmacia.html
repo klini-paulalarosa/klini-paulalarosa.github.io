@@ -91,7 +91,7 @@
 <a class="skip-link" href="#main">Pular para o conteúdo</a>
 
 
-<header class="bar" id="bar">
+<header class="bar solid" id="bar">
   <div class="bar__inner">
     <a href="index.html" class="bar__logo"><img src="assets/logo-klini.webp" alt="Klini Saúde" /></a>
     <nav class="bar__nav" id="barNav">
@@ -157,24 +157,18 @@
 <main id="main">
 
 
-<section class="page-hero page-hero--people" style="--page-accent:#FFCDD2">
-  <img class="ph-photo" src="assets/fotos%20headers/GettyImages-1479999063.webp" alt="Farmacêutica entregando medicamento a cliente Klini" />
-  <div class="ph-wash"></div>
+<section class="page-hero page-hero--split">
+  <div class="phs-media">
+    <img class="ph-photo" src="assets/fotos%20headers/GettyImages-1479999063.webp" alt="Farmacêutica entregando medicamento a cliente Klini" />
+  </div>
   <div class="wrap">
-    <div class="ph-d-card">
-      <img class="ph-k-card" src="assets/k-mark.svg" alt=""/>
+    <div class="phs-text">
       <span class="eyebrow">desconto em farmácias</span>
-      <h1 class="h1">Economize em <strong>medicamentos</strong></h1>
-      <p>Descontos especiais nas principais redes de farmácias do Brasil — sem cadastro extra, direto no caixa.</p>
-      <div class="df-chips">
-        <span class="df-chip"><i class="pi pi-check"></i> Sem cadastro adicional</span>
-        <span class="df-chip"><i class="pi pi-bolt"></i> Desconto na hora</span>
-        <span class="df-chip"><i class="pi pi-map-marker"></i> Principais redes do Brasil</span>
-      </div>
+      <h1 class="h1">Desconto em farmácia para <strong>você e sua família</strong></h1>
+      <p>Descontos especiais em medicamentos nas principais redes de farmácias do Brasil. Basta apresentar seu CPF ou carteirinha no caixa.</p>
       <a href="#redes" class="ph-cta">Onde usar o desconto <i class="pi pi-arrow-right"></i></a>
     </div>
   </div>
-
 </section>
 
 
@@ -358,7 +352,7 @@
 <script>
   
   var bar = document.getElementById('bar');
-  window.addEventListener('scroll', function(){ bar.classList.toggle('solid', window.scrollY > 50); }, { passive:true });
+  bar.classList.add('solid');
   var barHamb = document.getElementById('barHamb'), barNav = document.getElementById('barNav');
   if (barHamb && barNav) {
     barHamb.addEventListener('click', function(){ barNav.classList.toggle('open'); });

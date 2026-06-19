@@ -207,7 +207,7 @@
 <a class="skip-link" href="#main">Pular para o conteúdo</a>
 
 
-<header class="bar" id="bar">
+<header class="bar solid" id="bar">
   <div class="bar__inner">
     <a href="index.html" class="bar__logo"><img src="assets/logo-klini.webp" alt="Klini Saúde" /></a>
     <nav class="bar__nav" id="barNav">
@@ -273,18 +273,18 @@
 <main id="main">
 
 
-<section class="page-hero page-hero--people">
-  <img class="ph-photo" src="assets/campanha/hero-sobre.webp" alt="Beneficiária Klini no Rio de Janeiro" />
-  <div class="ph-wash"></div>
+<section class="page-hero page-hero--split">
+  <div class="phs-media">
+    <img class="ph-photo" src="assets/campanha/hero-sobre.webp" alt="Beneficiária Klini no Rio de Janeiro" />
+  </div>
   <div class="wrap">
-    <div class="ph-d-card">
-      <img class="ph-k-card" src="assets/k-mark.svg" alt=""/>
+    <div class="phs-text">
       <span class="eyebrow">a klini</span>
-      <h1 class="h1">Cuidado integral.<br>Estrutura <strong>própria</strong>.</h1>
+      <h1 class="h1">Cuidado integral, estrutura <strong>própria</strong></h1>
+      <p>Centros médicos próprios, rede de hospitais parceiros e telemedicina 24h — estrutura completa para cuidar de você em cada momento da vida.</p>
       <a href="#essencia" class="ph-cta">Conhecer a Klini <i class="pi pi-arrow-right"></i></a>
     </div>
   </div>
-
 </section>
 
 
@@ -534,7 +534,7 @@
 <script>
   
   var bar = document.getElementById('bar');
-  window.addEventListener('scroll', function(){ bar.classList.toggle('solid', window.scrollY > 50); }, { passive:true });
+  bar.classList.add('solid');
   var barHamb = document.getElementById('barHamb'), barNav = document.getElementById('barNav');
   if (barHamb && barNav) {
     barHamb.addEventListener('click', function(){ barNav.classList.toggle('open'); });

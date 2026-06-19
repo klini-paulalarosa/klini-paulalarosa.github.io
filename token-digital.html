@@ -84,7 +84,7 @@
 <a class="skip-link" href="#main">Pular para o conteúdo</a>
 
 
-<header class="bar" id="bar">
+<header class="bar solid" id="bar">
   <div class="bar__inner">
     <a href="index.html" class="bar__logo"><img src="assets/logo-klini.webp" alt="Klini Saúde" /></a>
     <nav class="bar__nav" id="barNav">
@@ -150,24 +150,18 @@
 <main id="main">
 
 
-<section class="page-hero page-hero--people" style="--page-accent:#C8F5F3">
-  <img class="ph-photo" src="assets/fotos%20headers/hero-token.webp" alt="Beneficiária apresentando token digital Klini na recepção" />
-  <div class="ph-wash"></div>
+<section class="page-hero page-hero--split">
+  <div class="phs-media">
+    <img class="ph-photo" src="assets/fotos%20headers/hero-token.webp" alt="Beneficiária apresentando token digital Klini na recepção" />
+  </div>
   <div class="wrap">
-    <div class="ph-d-card">
-      <img class="ph-k-card" src="assets/k-mark.svg" alt=""/>
+    <div class="phs-text">
       <span class="eyebrow">token digital</span>
       <h1 class="h1">Sua chave digital de <strong>acesso seguro</strong></h1>
       <p>O código que autoriza, só com você, o seu atendimento — consultas, exames e procedimentos direto no app.</p>
-      <div class="tk-chips">
-        <span class="tk-chip"><i class="pi pi-hashtag"></i> código único</span>
-        <span class="tk-chip"><i class="pi pi-sync"></i> renova a cada 60s</span>
-        <span class="tk-chip"><i class="pi pi-lock"></i> 100% seguro</span>
-      </div>
       <a href="#veja-em-uso" class="ph-cta">Ver em uso <i class="pi pi-arrow-right"></i></a>
     </div>
   </div>
-
 </section>
 
 
@@ -329,7 +323,7 @@
 <script>
   
   var bar = document.getElementById('bar');
-  window.addEventListener('scroll', function(){ bar.classList.toggle('solid', window.scrollY > 50); }, { passive:true });
+  bar.classList.add('solid');
   var barHamb = document.getElementById('barHamb'), barNav = document.getElementById('barNav');
   if (barHamb && barNav) {
     barHamb.addEventListener('click', function(){ barNav.classList.toggle('open'); });
