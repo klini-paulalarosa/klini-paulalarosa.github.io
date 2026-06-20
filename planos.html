@@ -22,34 +22,7 @@
   <style>
     
     .page-hero--split .phs-media .ph-photo{object-position:68% 18%}
-    
-    .flyers{display:flex;flex-wrap:wrap;gap:26px;justify-content:center;perspective:1400px}
-    .flyer{width:238px;display:flex;flex-direction:column}
-    .flyer__poster{position:relative;aspect-ratio:187/300;border-radius:18px;overflow:hidden;box-shadow:0 18px 44px rgba(4,42,38,.16);transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s;background:var(--grad-cool);transform-style:preserve-3d;will-change:transform}
-    .flyer__poster img{width:100%;height:100%;object-fit:cover;display:block}
-    .flyer:hover .flyer__poster{box-shadow:0 34px 64px rgba(37,149,145,.28)}
-    .flyer__poster--senior{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;padding:24px}
-    .flyer__poster--senior img{width:84%;height:auto;max-height:140px;object-fit:contain}
-    .flyer__hot{position:absolute;top:12px;left:12px;background:var(--orange);color:#fff;font-size:.62rem;font-weight:800;padding:5px 12px;border-radius:50px;letter-spacing:.05em;text-transform:uppercase;z-index:2;box-shadow:0 6px 16px rgba(205,121,37,.4)}
-    .flyer__body{padding:18px 4px 0;text-align:center}
-    .flyer__body h3{font-size:1.06rem;color:var(--text);margin-bottom:4px}
-    .flyer__body p{font-size:.82rem;color:var(--muted);line-height:1.6;margin-bottom:12px;min-height:42px}
-    .flyer__cta{font-size:.84rem;font-weight:700;color:var(--teal);display:inline-flex;align-items:center;gap:6px;font-family:'Objective',sans-serif;transition:gap .2s}
-    .flyer:hover .flyer__cta{gap:10px}
-    
-    .flyer__poster--hosp{background:#259591}
-    .flyer__poster--hosp .fh__photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 6%}
-    
-    .flyer__poster--hosp::before{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(118deg,rgba(37,149,145,.8) 0%,rgba(37,149,145,.34) 46%,rgba(37,149,145,.05) 72%),linear-gradient(0deg,rgba(37,149,145,.7),transparent 40%)}
-    .fh__arc{position:absolute;top:-46px;left:-46px;width:140px;height:140px;z-index:2;opacity:.8;pointer-events:none}
-    .flyer__poster--hosp .fh__logo{position:absolute;inset:auto 14px auto auto;top:14px;width:66px;height:auto;object-fit:contain;z-index:3;filter:drop-shadow(0 2px 9px rgba(4,42,38,.45))}
-    .fh__badge{position:absolute;top:44%;right:14px;z-index:3;background:var(--teal);border-radius:14px;padding:11px 18px;text-align:center;box-shadow:0 12px 26px rgba(4,42,38,.34)}
-    .fh__badge small{display:block;font-family:'Objective',sans-serif;font-weight:700;font-size:.62rem;letter-spacing:.04em;color:rgba(255,255,255,.92);text-transform:uppercase}
-    .fh__badge b{font-family:'Objective',sans-serif;font-weight:800;font-size:1.55rem;color:#fff;line-height:1.05;display:block;margin-top:2px}
-    .fh__badge b sup{font-size:.72rem;font-weight:700;top:-.6em}
-    .fh__head{position:absolute;left:16px;right:14px;bottom:16px;z-index:3;font-family:'Objective',sans-serif;font-weight:800;font-size:1.2rem;line-height:1.06;color:#fff;letter-spacing:-.02em;text-shadow:0 2px 12px rgba(4,42,38,.45)}
-    .fh__disc{display:block;font-family:'Objective',sans-serif;font-weight:400;font-size:.5rem;line-height:1.35;color:rgba(255,255,255,.82);margin-top:7px;letter-spacing:0}
-    
+
     .perfil{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:26px}
     .perfil__btn{background:#fff;border:1.5px solid var(--bd-l);border-radius:16px;padding:22px 18px;cursor:pointer;text-align:left;transition:all .25s;font-family:'Objective',sans-serif;display:flex;flex-direction:column;gap:9px}
     .perfil__btn i{font-size:1.5rem;color:var(--teal)}
@@ -85,7 +58,7 @@
     .cta-form__card .btn{margin-top:4px;justify-content:center;width:100%}
     .cta-form__note{font-size:.72rem;color:var(--muted);text-align:center;font-family:'Objective',sans-serif}
     @media(max-width:880px){.cta-form{grid-template-columns:1fr;padding:32px}.perfil{grid-template-columns:1fr 1fr}.diffs{grid-template-columns:1fr 1fr}}
-    @media(max-width:560px){.perfil{grid-template-columns:1fr}.diffs{grid-template-columns:1fr}.flyer{width:70%;min-width:200px}}
+    @media(max-width:560px){.perfil{grid-template-columns:1fr}.diffs{grid-template-columns:1fr}}
       
     .faq{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
     .faq__item{background:#fff;border:1.5px solid var(--bd-l);border-radius:14px;overflow:hidden;transition:border-color .25s}
@@ -188,44 +161,45 @@
       <span class="eyebrow">nossos planos</span>
       <h2 class="h2">Um plano para <strong style="color:var(--orange)">cada história</strong></h2>
     </div>
-    <div class="flyers" id="flyers">
+    <div class="plans-acc" id="plansAcc">
 
-      <div class="flyer">
-        <div class="flyer__poster"><img src="assets/flyer-200.png" alt="Flyer Klini 200" loading="lazy" /></div>
-        <div class="flyer__body"><h3>Klini 200</h3><p>A porta de entrada para proteção ampla com custo equilibrado.</p><a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20200." class="flyer__cta" target="_blank" rel="noopener">Solicitar cotação <i class="pi pi-arrow-right"></i></a></div>
+      <div class="plans-acc__item" tabindex="0" aria-label="Klini 200" aria-expanded="false">
+        <div class="plans-acc__label"><span class="nm">Klini 200</span></div>
+        <div class="plans-acc__poster"><img src="assets/flyer-200.png" alt="Flyer Klini 200" loading="lazy" /></div>
+        <div class="plans-acc__foot"><a class="plans-acc__cta-btn" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20200." target="_blank" rel="noopener">Solicitar cotação <i class="pi pi-arrow-right"></i></a></div>
       </div>
 
-      <div class="flyer">
-        <div class="flyer__poster"><img src="assets/flyer-350.png" alt="Flyer Klini 350" loading="lazy" /></div>
-        <div class="flyer__body"><h3>Klini 350</h3><p>Acompanha o crescimento da sua família com rede mais ampla.</p><a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20350." class="flyer__cta" target="_blank" rel="noopener">Solicitar cotação <i class="pi pi-arrow-right"></i></a></div>
+      <div class="plans-acc__item" tabindex="0" aria-label="Klini 350" aria-expanded="false">
+        <div class="plans-acc__label"><span class="nm">Klini 350</span></div>
+        <div class="plans-acc__poster"><img src="assets/flyer-350.png" alt="Flyer Klini 350" loading="lazy" /></div>
+        <div class="plans-acc__foot"><a class="plans-acc__cta-btn" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20350." target="_blank" rel="noopener">Solicitar cotação <i class="pi pi-arrow-right"></i></a></div>
       </div>
 
-      <div class="flyer">
-        <div class="flyer__poster"><span class="flyer__hot">★ Mais escolhido</span><img src="assets/flyer-400.png" alt="Flyer Klini 400" loading="lazy" /></div>
-        <div class="flyer__body"><h3>Klini 400</h3><p>Rede ampliada com Linhas de Cuidados — o mais escolhido.</p><a href="https://wa.me/552130550790?text=Olá!%20Quero%20simular%20o%20Klini%20400." class="flyer__cta" target="_blank" rel="noopener">Solicitar cotação <i class="pi pi-arrow-right"></i></a></div>
+      <div class="plans-acc__item active" tabindex="0" aria-label="Klini 400 — Mais escolhido" aria-expanded="true">
+        <span class="plans-acc__badge">★ Mais escolhido</span>
+        <div class="plans-acc__label"><span class="nm">Klini 400</span></div>
+        <div class="plans-acc__poster"><img src="assets/flyer-400.png" alt="Flyer Klini 400" loading="eager" decoding="async" /></div>
+        <div class="plans-acc__foot"><a class="plans-acc__cta-btn" href="https://wa.me/552130550790?text=Olá!%20Quero%20simular%20o%20Klini%20400." target="_blank" rel="noopener">Solicitar cotação <i class="pi pi-arrow-right"></i></a></div>
       </div>
 
-      <div class="flyer">
-        <div class="flyer__poster"><img src="assets/flyer-600.png" alt="Flyer Klini 600" loading="lazy" /></div>
-        <div class="flyer__body"><h3>Klini 600</h3><p>O mais completo — máximo conforto, maior rede e cobertura total.</p><a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20600." class="flyer__cta" target="_blank" rel="noopener">Solicitar cotação <i class="pi pi-arrow-right"></i></a></div>
+      <div class="plans-acc__item" tabindex="0" aria-label="Klini 600" aria-expanded="false">
+        <div class="plans-acc__label"><span class="nm">Klini 600</span></div>
+        <div class="plans-acc__poster"><img src="assets/flyer-600.png" alt="Flyer Klini 600" loading="lazy" /></div>
+        <div class="plans-acc__foot"><a class="plans-acc__cta-btn" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20600." target="_blank" rel="noopener">Solicitar cotação <i class="pi pi-arrow-right"></i></a></div>
       </div>
 
-      <div class="flyer">
-        <div class="flyer__poster"><img src="assets/flyer-ambulatorial.png" alt="Flyer Klini Ambulatorial" loading="lazy" /></div>
-        <div class="flyer__body"><h3>Ambulatorial</h3><p>O seu plano acessível, ideal para cobertura essencial e ágil.</p><a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Ambulatorial." class="flyer__cta" target="_blank" rel="noopener">Solicitar cotação <i class="pi pi-arrow-right"></i></a></div>
+      <div class="plans-acc__item" tabindex="0" aria-label="Klini Ambulatorial" aria-expanded="false">
+        <div class="plans-acc__label"><span class="nm">Ambulatorial</span></div>
+        <div class="plans-acc__poster"><img src="assets/flyer-ambulatorial.png" alt="Flyer Klini Ambulatorial" loading="lazy" /></div>
+        <div class="plans-acc__foot"><a class="plans-acc__cta-btn" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Ambulatorial." target="_blank" rel="noopener">Solicitar cotação <i class="pi pi-arrow-right"></i></a></div>
       </div>
 
-      <div class="flyer">
-        <div class="flyer__poster flyer__poster--hosp">
-          <img class="fh__photo" src="assets/campanha/dirceu-flyer.webp" alt="Klini Hospitalar — beneficiário Dirceu Duarte" loading="lazy" />
-          <svg class="fh__arc" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M75 14 A61 61 0 0 1 75 136" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="19" stroke-linecap="square"/></svg>
-          <img class="fh__logo" src="assets/campanha/logo-hosp-w.webp" alt="Klini Rede Casa Hospitalar" />
-          <div class="fh__badge"><small>a partir de</small><b>R$ 72<sup>,32</sup></b></div>
-          <div class="fh__head">Segurança quando<br>mais importa
-            <span class="fh__disc">*Klini Hospitalar PME II, faixa etária 0–18 anos. Cobertura na Rede Casa: internações, urgência 24h, cirurgias e UTI.</span>
-          </div>
-        </div>
-        <div class="flyer__body"><h3>Klini Hospitalar</h3><p>Foco em internações, urgência e cirurgias na Rede Casa Hospitalar.</p><a href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Hospitalar." class="flyer__cta" target="_blank" rel="noopener">Solicitar cotação <i class="pi pi-arrow-right"></i></a></div>
+      <div class="plans-acc__item plans-acc__item--photo" tabindex="0" aria-label="Klini Hospitalar" aria-expanded="false">
+        <img class="plans-acc__photo" src="assets/campanha/dirceu-flyer.webp" alt="" loading="lazy" />
+        <div class="plans-acc__scrim"></div>
+        <span class="plans-acc__badge">a partir de R$ 72,32</span>
+        <div class="plans-acc__label"><span class="nm">Klini Hospitalar</span></div>
+        <div class="plans-acc__foot"><a class="plans-acc__cta-btn" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Hospitalar." target="_blank" rel="noopener">Solicitar cotação <i class="pi pi-arrow-right"></i></a></div>
       </div>
 
     </div>
@@ -461,15 +435,26 @@
   })();
 
   
-  document.querySelectorAll('.flyer').forEach(function(card){
-    var poster = card.querySelector('.flyer__poster');
-    card.addEventListener('pointermove', function(e){
-      var r = card.getBoundingClientRect();
-      var px = (e.clientX - r.left)/r.width - .5, py = (e.clientY - r.top)/r.height - .5;
-      poster.style.transform = 'rotateY(' + (px*10) + 'deg) rotateX(' + (-py*12) + 'deg) translateY(-6px) scale(1.03)';
+  (function () {
+    var acc = document.getElementById('plansAcc');
+    if (!acc) return;
+    var items = [].slice.call(acc.querySelectorAll('.plans-acc__item'));
+    var def = acc.querySelector('.plans-acc__item.active') || items[0];
+    function setActive(it) {
+      items.forEach(function (x) {
+        var on = x === it;
+        x.classList.toggle('active', on);
+        x.setAttribute('aria-expanded', on ? 'true' : 'false');
+      });
+    }
+    items.forEach(function (it) {
+      it.addEventListener('mouseenter', function () { setActive(it); });
+      it.addEventListener('focus', function () { setActive(it); });
+      it.addEventListener('click', function (e) { if (e.target.closest('a')) return; setActive(it); });
+      it.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setActive(it); } });
     });
-    card.addEventListener('pointerleave', function(){ poster.style.transform = ''; });
-  });
+    acc.addEventListener('mouseleave', function () { setActive(def); });
+  })();
 
   
   var perfilResult = document.getElementById('perfilResult');
