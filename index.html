@@ -230,9 +230,9 @@ section .h2 strong{font-family:var(--serif);font-style:italic;font-weight:600;le
 .vcfeat .vcard__in{box-shadow:0 22px 52px rgba(205,121,37,.38)!important}
 .vcface{position:absolute;inset:0;backface-visibility:hidden;border-radius:22px;overflow:hidden}
 .vc-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-.vcfront{background:radial-gradient(circle at 82% 14%,rgba(255,255,255,.18),transparent 48%),linear-gradient(160deg,#CD7925 0%,#E05759 100%)}
+.vcfront{background:radial-gradient(circle at 82% 14%,rgba(255,255,255,.18),transparent 48%),linear-gradient(160deg,#CD7925 0%,#e8a04a 100%)}
 .vcwarm .vcfront{background:radial-gradient(circle at 82% 14%,rgba(255,255,255,.22),transparent 48%),linear-gradient(160deg,#b86a20 0%,#CD7925 100%)}
-.vcfeat .vcfront{background:radial-gradient(circle at 82% 14%,rgba(255,255,255,.20),transparent 48%),linear-gradient(155deg,#CD7925 0%,#E05759 55%,#cd4545 100%)}
+.vcfeat .vcfront{background:radial-gradient(circle at 82% 14%,rgba(255,255,255,.20),transparent 48%),linear-gradient(155deg,#b86a20 0%,#CD7925 55%,#e8a04a 100%)}
 .vcfront::before{content:'';position:absolute;inset:0;z-index:0;background-image:radial-gradient(rgba(255,255,255,.20) 1px,transparent 1.6px);background-size:14px 14px;opacity:.45;-webkit-mask-image:linear-gradient(160deg,#000,transparent 60%);mask-image:linear-gradient(160deg,#000,transparent 60%);pointer-events:none}
 .vc-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%;transform:scale(.97);transform-origin:50% 100%;z-index:0}
 .vc-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(0deg,rgba(120,40,20,.92) 6%,rgba(176,80,40,.26) 55%,transparent)}
@@ -241,16 +241,16 @@ section .h2 strong{font-family:var(--serif);font-style:italic;font-weight:600;le
 .vcard.flip .vc-k{animation-play-state:paused}
 @keyframes vc-k-float{0%,100%{transform:translateY(0) rotate(0deg)}45%{transform:translateY(-9px) rotate(3deg)}75%{transform:translateY(-4px) rotate(-1.5deg)}}
 .vc-tier{position:absolute;top:16px;left:16px;z-index:3;background:#fff;border:none;color:var(--orange);font-family:'Objective',sans-serif;font-weight:800;font-size:.68rem;letter-spacing:.03em;padding:6px 13px;border-radius:50px}
-.vc-ribbon{position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:5;background:linear-gradient(135deg,#cd7925,#e05759);color:#fff;font-family:'Objective',sans-serif;font-weight:800;font-size:.76rem;letter-spacing:.04em;padding:10px 26px;border-radius:0 0 20px 20px;white-space:nowrap;box-shadow:0 8px 22px rgba(205,121,37,.5);animation:ribbon-pulse 2.2s ease-in-out infinite}
+.vc-ribbon{position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:5;background:linear-gradient(135deg,#b86a20,#e0963c);color:#fff;font-family:'Objective',sans-serif;font-weight:800;font-size:.76rem;letter-spacing:.04em;padding:10px 26px;border-radius:0 0 20px 20px;white-space:nowrap;box-shadow:0 8px 22px rgba(205,121,37,.5);animation:ribbon-pulse 2.2s ease-in-out infinite}
 @keyframes ribbon-pulse{0%,100%{box-shadow:0 8px 22px rgba(205,121,37,.5)}50%{box-shadow:0 10px 34px rgba(205,121,37,.8),0 0 18px rgba(205,121,37,.35)}}
 .vc-body{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:22px;display:flex;flex-direction:column;align-items:flex-start}
 .vc-name{font-family:'Objective',sans-serif;font-weight:800;font-size:1.52rem;letter-spacing:-.02em;color:#fff;line-height:1}
 .vc-tag{font-family:'Objective',sans-serif;font-size:.78rem;color:rgba(255,255,255,.82);display:block;margin:6px 0 14px;line-height:1.4}
 .vc-hint{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);border:1.5px solid rgba(255,255,255,.55);color:#fff;font-family:'Objective',sans-serif;font-weight:700;font-size:.78rem;padding:8px 16px;border-radius:50px;line-height:1}
 .vc-bar{position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--grad-brand);z-index:4}
-.vcback{transform:rotateY(180deg);background:radial-gradient(circle at 86% 10%,rgba(255,255,255,.18),transparent 46%),linear-gradient(150deg,#CD7925 0%,#E05759 100%);color:#fff;padding:18px 20px 20px;display:flex;flex-direction:column;justify-content:space-between;gap:0}
+.vcback{transform:rotateY(180deg);background:radial-gradient(circle at 86% 10%,rgba(255,255,255,.18),transparent 46%),linear-gradient(150deg,#CD7925 0%,#e8a04a 100%);color:#fff;padding:18px 20px 20px;display:flex;flex-direction:column;justify-content:space-between;gap:0}
 .vcwarm .vcback{background:radial-gradient(circle at 86% 10%,rgba(255,255,255,.22),transparent 46%),linear-gradient(150deg,#b86a20 0%,#CD7925 100%)}
-.vcfeat .vcback{background:radial-gradient(circle at 86% 10%,rgba(255,255,255,.20),transparent 46%),linear-gradient(155deg,#CD7925 0%,#E05759 55%,#cd4545 100%)}
+.vcfeat .vcback{background:radial-gradient(circle at 86% 10%,rgba(255,255,255,.20),transparent 46%),linear-gradient(155deg,#b86a20 0%,#CD7925 55%,#e8a04a 100%)}
 .vcback::before{content:'';position:absolute;inset:0;z-index:0;background-image:radial-gradient(rgba(255,255,255,.16) 1px,transparent 1.6px);background-size:15px 15px;opacity:.5;-webkit-mask-image:linear-gradient(150deg,#000,transparent 70%);mask-image:linear-gradient(150deg,#000,transparent 70%);pointer-events:none}
 
 .vc200 .vcfront{background:radial-gradient(circle at 82% 14%,rgba(255,255,255,.18),transparent 48%),linear-gradient(155deg,#a85c18 0%,#CD7925 60%,#d98a3c 100%)}
