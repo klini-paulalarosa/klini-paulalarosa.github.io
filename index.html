@@ -175,36 +175,106 @@ section .h2 strong{font-family:var(--serif);font-style:italic;font-weight:600;le
 
 
 
-.plans-acc__intro{max-width:640px;margin-bottom:42px}
-.plans-acc__intro .h2{font-size:clamp(1.6rem,3.4vw,2.6rem)}
-.plans-acc{display:flex;gap:10px;height:clamp(400px,50vw,470px)}
-.plans-acc__item{position:relative;flex:1 1 0;min-width:0;border-radius:20px;overflow:hidden;cursor:pointer;background:#7a2814;transition:flex-grow .55s cubic-bezier(.4,0,.2,1);outline:none}
-.plans-acc__item:focus-visible{box-shadow:0 0 0 3px var(--orange)}
-.plans-acc__item.active{flex:3.6}
-.plans-acc__photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 26%}
-.plans-acc__scrim{position:absolute;inset:0;background:linear-gradient(0deg,rgba(74,27,12,.94) 8%,rgba(74,27,12,.4) 46%,rgba(74,27,12,.05) 78%)}
-.plans-acc__tier{position:absolute;top:16px;left:16px;z-index:3;background:#fff;color:var(--orange);font-family:'Objective',sans-serif;font-weight:800;font-size:.66rem;letter-spacing:.04em;text-transform:uppercase;padding:6px 13px;border-radius:50px;white-space:nowrap}
-.plans-acc__item.vcfeat .plans-acc__tier{background:var(--orange);color:#fff}
-.plans-acc__label{position:absolute;left:0;right:0;bottom:0;z-index:2;display:flex;justify-content:center;padding:22px 0;transition:opacity .3s}
-.plans-acc__label .nm{writing-mode:vertical-rl;transform:rotate(180deg);color:#fff;font-family:'Objective',sans-serif;font-weight:800;font-size:1.15rem;letter-spacing:.02em;white-space:nowrap;text-shadow:0 2px 12px rgba(0,0,0,.45)}
-.plans-acc__item.active .plans-acc__label{opacity:0}
-.plans-acc__panel{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:26px 28px;width:clamp(280px,32vw,400px);opacity:0;transform:translateY(14px);transition:opacity .4s .1s,transform .4s .1s;pointer-events:none}
-.plans-acc__item.active .plans-acc__panel{opacity:1;transform:none;pointer-events:auto}
-.plans-acc__name{display:block;font-family:'Objective',sans-serif;font-weight:800;font-size:1.7rem;color:#fff;line-height:1;letter-spacing:-.02em}
-.plans-acc__line{font-family:var(--serif);font-style:italic;font-size:.92rem;color:rgba(255,255,255,.9);margin:8px 0 14px}
-.plans-acc__panel ul{list-style:none;margin:0 0 18px;padding:0;display:flex;flex-direction:column;gap:8px}
-.plans-acc__panel li{display:flex;align-items:center;gap:9px;color:#fff;font-size:.86rem;line-height:1.3}
-.plans-acc__panel li i{width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font-size:.56rem;flex-shrink:0}
-.plans-acc__cta-btn{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--orange);font-family:'Objective',sans-serif;font-weight:800;font-size:.86rem;padding:12px 22px;border-radius:50px;text-decoration:none;box-shadow:0 8px 22px rgba(0,0,0,.28);line-height:1}
-.plans-acc__cta{margin-top:34px}
-@media(max-width:760px){
-  .plans-acc{flex-direction:column;height:auto}
-  .plans-acc__item{flex:none;height:74px;border-radius:16px;transition:height .45s cubic-bezier(.4,0,.2,1)}
-  .plans-acc__item.active{height:404px}
-  .plans-acc__label{justify-content:flex-start;align-items:center;padding:0 22px;height:74px}
-  .plans-acc__label .nm{writing-mode:horizontal-tb;transform:none}
-  .plans-acc__panel{width:auto}
-}
+.plans__layout{display:grid;grid-template-columns:minmax(290px,330px) 1fr;gap:48px;align-items:center}
+.plans__aside{display:flex;flex-direction:column;align-items:flex-start}
+.plans__head-txt{max-width:420px}
+.plans__head-txt .h2{font-size:clamp(1.45rem,3vw,2.4rem)}
+.plans__cta{margin-top:26px}
+.plans__nav{display:flex;align-items:center;gap:10px;margin-top:28px}
+.plans__dots{display:flex;gap:6px;align-items:center}
+.plans__arrows-btns{display:flex;align-items:center;gap:8px}
+.plans__dot{width:8px;height:8px;border-radius:50%;background:var(--bd-l);border:none;padding:0;cursor:pointer;transition:all .3s}
+.plans__dot.active{background:var(--orange);width:22px;border-radius:4px}
+.plans__arrow{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--orange);background:var(--orange);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.95rem;transition:all .22s}
+.plans__arrow:hover{border-color:#b86e1f;background:#b86e1f}
+.plans__arrow:disabled{opacity:.3;cursor:default}
+.plans__carousel-wrap{display:flex;flex-direction:column;min-width:0}
+.plans__arrows-top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:14px;padding:0 4px}
+.plans__viewport{overflow:hidden;padding:4px 2px 8px;position:relative}
+.plans__viewport::after{content:'';position:absolute;top:0;right:0;bottom:0;width:88px;background:linear-gradient(90deg,transparent,#fdf8f4 86%);pointer-events:none;z-index:3;opacity:1;transition:opacity .35s ease}
+.plans__viewport.at-end::after{opacity:0}
+.plans__track{display:flex;gap:18px;transition:transform .5s cubic-bezier(.4,0,.2,1);will-change:transform}
+.pc{background:#fff;border:1.5px solid var(--bd-l);border-radius:var(--r);padding:24px;flex:0 0 calc((100% - 36px)/3);position:relative;overflow:hidden;transition:all .3s ease;display:flex;flex-direction:column}
+@media(max-width:980px){.pc{flex-basis:calc((100% - 18px)/2)}}
+@media(max-width:600px){.pc{flex-basis:100%}}
+.pc__more{margin-top:auto;display:inline-flex;align-items:center;gap:6px;font-size:.86rem;font-weight:700;color:var(--teal);text-decoration:none;transition:gap .2s}
+.pc__more:hover{gap:10px}
+.pc--feat .pc__more{color:#fff}
+.pc::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--teal-dim),transparent);opacity:0;transition:opacity .3s}
+.pc:hover{border-color:var(--teal);transform:translateY(-6px);box-shadow:0 24px 48px rgba(37,149,145,.1)}
+.pc:hover::before{opacity:1}
+.pc--feat{background:linear-gradient(150deg,#259591 0%,#6AA7AE 100%);border-color:rgba(37,149,145,.4);color:#fff;overflow:visible}
+.pc--feat:hover{box-shadow:0 24px 48px rgba(37,149,145,.3)}
+.pc__hot{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--orange);color:#fff;font-size:.66rem;font-weight:800;padding:5px 15px;border-radius:50px;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;box-shadow:0 8px 20px rgba(205,121,37,.42);z-index:5}
+.pc__img{height:76px;object-fit:contain;margin-bottom:18px}
+.pc__name{font-family:'Objective',sans-serif;font-weight:800;font-size:1.15rem;color:var(--text);margin-bottom:4px}
+.pc--feat .pc__name{color:#fff}
+.pc__tag{font-size:.8rem;color:var(--muted);margin-bottom:16px;line-height:1.5}
+.pc--feat .pc__tag{color:rgba(255,255,255,.5)}
+.pc__list{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:22px}
+.pc__list li{display:flex;align-items:center;gap:8px;font-size:.81rem;color:var(--text)}
+.pc--feat .pc__list li{color:rgba(255,255,255,.8)}
+.pc__ck{width:17px;height:17px;background:rgba(37,149,145,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:.58rem;flex-shrink:0}
+.pc__btn{width:100%;justify-content:center;padding:11px;border-radius:10px;font-size:.85rem;margin-top:auto}
+.pc__btn-feat{background:var(--orange);color:#fff;border:none}
+.pc__btn-out{border:1.5px solid var(--bd-l);background:transparent;color:var(--teal)}
+.pc--feat .pc__btn-out{border-color:rgba(255,255,255,.2);color:#fff}
+
+
+.vcard{flex:0 0 calc((100% - 36px)/2.5);height:430px;cursor:pointer;position:relative}
+@media(max-width:900px){.plans__layout{grid-template-columns:1fr;gap:30px}.plans__head-txt{max-width:100%}.plans__nav{margin-top:18px}.vcard{flex-basis:calc((100% - 22px)/1.6)}}
+@media(max-width:600px){.vcard{flex-basis:calc((100% - 16px)/1.12)}}
+.vcard__in{position:relative;width:100%;height:100%;transition:transform .68s cubic-bezier(.4,0,.2,1);transform-style:preserve-3d;border-radius:22px;box-shadow:0 16px 40px rgba(4,42,38,.22)}
+.vcard:hover .vcard__in{box-shadow:0 26px 56px rgba(4,42,38,.36)}
+.vcard.flip .vcard__in{transform:rotateY(180deg)}
+.vcfeat .vcard__in{box-shadow:0 22px 52px rgba(205,121,37,.38)!important}
+.vcface{position:absolute;inset:0;backface-visibility:hidden;border-radius:22px;overflow:hidden}
+.vc-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.vcfront{background:radial-gradient(circle at 82% 14%,rgba(255,255,255,.18),transparent 48%),linear-gradient(160deg,#CD7925 0%,#E05759 100%)}
+.vcwarm .vcfront{background:radial-gradient(circle at 82% 14%,rgba(255,255,255,.22),transparent 48%),linear-gradient(160deg,#b86a20 0%,#CD7925 100%)}
+.vcfeat .vcfront{background:radial-gradient(circle at 82% 14%,rgba(255,255,255,.20),transparent 48%),linear-gradient(155deg,#CD7925 0%,#E05759 55%,#cd4545 100%)}
+.vcfront::before{content:'';position:absolute;inset:0;z-index:0;background-image:radial-gradient(rgba(255,255,255,.20) 1px,transparent 1.6px);background-size:14px 14px;opacity:.45;-webkit-mask-image:linear-gradient(160deg,#000,transparent 60%);mask-image:linear-gradient(160deg,#000,transparent 60%);pointer-events:none}
+.vc-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%;transform:scale(.97);transform-origin:50% 100%;z-index:0}
+.vc-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(0deg,rgba(120,40,20,.92) 6%,rgba(176,80,40,.26) 55%,transparent)}
+.vcwarm .vc-scrim{background:linear-gradient(0deg,rgba(90,28,14,.92) 6%,rgba(140,55,20,.22) 55%,transparent)}
+.vc-k{position:absolute;z-index:2;width:80px;top:20px;right:20px;opacity:.9;pointer-events:none;animation:vc-k-float 5s ease-in-out infinite}
+.vcard.flip .vc-k{animation-play-state:paused}
+@keyframes vc-k-float{0%,100%{transform:translateY(0) rotate(0deg)}45%{transform:translateY(-9px) rotate(3deg)}75%{transform:translateY(-4px) rotate(-1.5deg)}}
+.vc-tier{position:absolute;top:16px;left:16px;z-index:3;background:#fff;border:none;color:var(--orange);font-family:'Objective',sans-serif;font-weight:800;font-size:.68rem;letter-spacing:.03em;padding:6px 13px;border-radius:50px}
+.vc-ribbon{position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:5;background:linear-gradient(135deg,#cd7925,#e05759);color:#fff;font-family:'Objective',sans-serif;font-weight:800;font-size:.76rem;letter-spacing:.04em;padding:10px 26px;border-radius:0 0 20px 20px;white-space:nowrap;box-shadow:0 8px 22px rgba(205,121,37,.5);animation:ribbon-pulse 2.2s ease-in-out infinite}
+@keyframes ribbon-pulse{0%,100%{box-shadow:0 8px 22px rgba(205,121,37,.5)}50%{box-shadow:0 10px 34px rgba(205,121,37,.8),0 0 18px rgba(205,121,37,.35)}}
+.vc-body{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:22px;display:flex;flex-direction:column;align-items:flex-start}
+.vc-name{font-family:'Objective',sans-serif;font-weight:800;font-size:1.52rem;letter-spacing:-.02em;color:#fff;line-height:1}
+.vc-tag{font-family:'Objective',sans-serif;font-size:.78rem;color:rgba(255,255,255,.82);display:block;margin:6px 0 14px;line-height:1.4}
+.vc-hint{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);border:1.5px solid rgba(255,255,255,.55);color:#fff;font-family:'Objective',sans-serif;font-weight:700;font-size:.78rem;padding:8px 16px;border-radius:50px;line-height:1}
+.vc-bar{position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--grad-brand);z-index:4}
+.vcback{transform:rotateY(180deg);background:radial-gradient(circle at 86% 10%,rgba(255,255,255,.18),transparent 46%),linear-gradient(150deg,#CD7925 0%,#E05759 100%);color:#fff;padding:18px 20px 20px;display:flex;flex-direction:column;justify-content:space-between;gap:0}
+.vcwarm .vcback{background:radial-gradient(circle at 86% 10%,rgba(255,255,255,.22),transparent 46%),linear-gradient(150deg,#b86a20 0%,#CD7925 100%)}
+.vcfeat .vcback{background:radial-gradient(circle at 86% 10%,rgba(255,255,255,.20),transparent 46%),linear-gradient(155deg,#CD7925 0%,#E05759 55%,#cd4545 100%)}
+.vcback::before{content:'';position:absolute;inset:0;z-index:0;background-image:radial-gradient(rgba(255,255,255,.16) 1px,transparent 1.6px);background-size:15px 15px;opacity:.5;-webkit-mask-image:linear-gradient(150deg,#000,transparent 70%);mask-image:linear-gradient(150deg,#000,transparent 70%);pointer-events:none}
+
+.vc200 .vcfront{background:radial-gradient(circle at 82% 14%,rgba(255,255,255,.18),transparent 48%),linear-gradient(155deg,#a85c18 0%,#CD7925 60%,#d98a3c 100%)}
+.vc200 .vcback{background:radial-gradient(circle at 86% 10%,rgba(255,255,255,.18),transparent 46%),linear-gradient(150deg,#a85c18 0%,#CD7925 100%);color:#fff}
+.vc200 .vc-scrim{background:linear-gradient(0deg,rgba(80,35,8,.94) 6%,rgba(140,70,20,.24) 55%,transparent)}
+.vc350 .vcfront{background:radial-gradient(circle at 82% 14%,rgba(255,255,255,.22),transparent 50%),linear-gradient(155deg,#CD7925 0%,#d98a40 55%,#e8a055 100%)}
+.vc350 .vcback{background:radial-gradient(circle at 86% 10%,rgba(255,255,255,.20),transparent 46%),linear-gradient(150deg,#CD7925 0%,#d98a40 100%);color:#fff}
+.vc350 .vc-scrim{background:linear-gradient(0deg,rgba(100,50,10,.92) 6%,rgba(160,90,30,.22) 55%,transparent)}
+.vcarc{position:absolute;bottom:-46px;right:-46px;width:172px;height:172px;opacity:.22;z-index:0;pointer-events:none;transform-origin:50% 50%;animation:kln-spin 70s linear infinite}
+@media(prefers-reduced-motion:reduce){.vcarc{animation:none}}
+.vcback-top{display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1;margin-bottom:8px}
+.vcback-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);border-radius:50px;padding:6px 12px 6px 8px;width:fit-content;position:relative;z-index:1}
+.vcback-badge-k{width:20px;height:20px;flex-shrink:0}
+.vcback-badge span{font-family:'Objective',sans-serif;font-weight:800;font-size:.65rem;letter-spacing:.04em;text-transform:uppercase}
+.vcback-tagline{font-family:var(--serif);font-style:italic;font-size:.88rem;color:rgba(255,255,255,.92);margin:0 0 10px;line-height:1.35;position:relative;z-index:1}
+.vcback h4{font-family:'Objective',sans-serif;font-weight:800;font-size:1rem;margin:0 0 8px;position:relative;z-index:1}
+.vcback ul{list-style:none;display:flex;flex-direction:column;justify-content:space-evenly;font-size:.84rem;margin:0;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:6px 14px;position:relative;z-index:1;flex:1}
+.vcback li{display:flex;align-items:center;gap:11px;line-height:1.25;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.vcback li:last-child{border-bottom:none}
+.vcback li i{background:rgba(255,255,255,.24);width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.58rem;flex-shrink:0}
+.vcback .vccta{display:flex;align-items:center;justify-content:center;gap:8px;background:#fff;color:var(--orange);border-radius:12px;padding:13px;font-family:'Objective',sans-serif;font-weight:800;font-size:.88rem;text-decoration:none;box-shadow:0 8px 22px rgba(4,42,38,.22);position:relative;z-index:1;line-height:1;margin-top:10px}
+.vcwarm .vcback .vccta{color:var(--orange)}
+
+@media(prefers-reduced-motion:reduce){.vcard__in{transition:none!important}.vc-k{transition:none}}
 
 
 
@@ -299,6 +369,39 @@ footer{background:#fff;color:var(--muted);padding:52px 0 28px;position:relative}
 
 
 
+.pc__img-wrap{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 100% 0%, transparent 46px, rgba(255,255,255,.14) 47px 60px, transparent 61px),
+    radial-gradient(circle at 100% 0%, transparent 74px, rgba(255,255,255,.10) 75px 86px, transparent 87px),
+    radial-gradient(circle at 22% 88%, rgba(255,255,255,.12), transparent 42%),
+    radial-gradient(circle at 78% 16%, rgba(255,255,255,.30), transparent 50%),
+    linear-gradient(135deg,#259591 0%,#51aaa7 48%,#6AA7AE 100%);
+  border-radius:var(--r) var(--r) 0 0;margin:-26px -26px 20px;padding:28px 20px 24px;
+  display:flex;align-items:center;justify-content:center;min-height:104px
+}
+
+.pc__img-wrap::before{content:'';position:absolute;top:0;left:-130%;width:58%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.38),transparent);transform:skewX(-18deg);pointer-events:none;z-index:1}
+.pc:hover .pc__img-wrap::before{animation:pc-shine .95s ease}
+@keyframes pc-shine{to{left:165%}}
+
+.pc__img-wrap::after{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.16) 1px,transparent 1.5px);background-size:13px 13px;opacity:.5;pointer-events:none;-webkit-mask-image:linear-gradient(125deg,#000,transparent 70%);mask-image:linear-gradient(125deg,#000,transparent 70%)}
+.pc__img{position:relative;z-index:2;height:60px;object-fit:contain;margin:0;filter:drop-shadow(0 5px 12px rgba(0,0,0,.22))}
+@media(prefers-reduced-motion:reduce){.pc:hover .pc__img-wrap::before{animation:none}}
+
+
+.pc{background:radial-gradient(circle at 100% 100%, rgba(37,149,145,.055), transparent 40%),#fff;box-shadow:0 6px 22px rgba(4,42,38,.05)}
+
+.pc--feat .pc__img-wrap{
+  background:
+    radial-gradient(circle at 100% 0%, transparent 46px, rgba(255,255,255,.22) 47px 60px, transparent 61px),
+    radial-gradient(circle at 100% 0%, transparent 74px, rgba(255,255,255,.14) 75px 86px, transparent 87px),
+    radial-gradient(circle at 78% 16%, rgba(255,255,255,.16), transparent 52%),
+    rgba(255,255,255,.10);
+  border-radius:var(--r) var(--r) 0 0;margin:-26px -26px 20px;padding:28px 20px 24px;min-height:104px
+}
+.pc--feat{background:radial-gradient(circle at 16% 96%, rgba(255,255,255,.12), transparent 46%),linear-gradient(150deg,#259591 0%,#6AA7AE 100%)}
+.pc--feat .pc__img{filter:drop-shadow(0 5px 14px rgba(0,0,0,.28))}
 
 
 
@@ -461,12 +564,25 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 @media(max-width:900px){
   .nav__link{padding:14px 16px}
   .bar__hamburger{padding:10px 8px}
+  .plans__cta{margin-top:18px}
+  .plans__layout{gap:24px}
 }
 
 @media(max-width:768px){
   .acess{padding:70px 0}
   .hero__sub{margin-bottom:28px}
+  .vcard{height:415px}
   .canais{padding:70px 0}
+}
+
+@media(max-width:600px){
+  .vcard{height:400px}
+  .vcback{padding:15px 16px 16px}
+  .vcback ul{padding:5px 10px}
+  .vcback li{padding:7px 0}
+  .plans__layout{gap:20px}
+  .plans__aside{text-align:center;align-items:center}
+  .plans__head-txt{text-align:left}
 }
 
 @media(max-width:480px){
@@ -483,8 +599,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .acess__card h3{font-size:.88rem}
   .acess__card p{font-size:.75rem}
   .acess__cta{font-size:.72rem;padding:6px 12px}
+  .vcard{height:385px}
   .foot__cols{gap:22px}
+  .farm-bento__info{padding:24px 20px}
   .tele__img{width:100%;max-width:260px}
+  .plans__layout{gap:18px}
+  .vcback-badge span{font-size:.8rem}
 }
 
 @media(max-width:360px){
@@ -494,6 +614,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .acess__card{padding:16px 10px 14px;gap:8px}
   .acess__ico{width:44px;height:44px;font-size:1.1rem;border-radius:12px}
   .acess__card h3{font-size:.84rem}
+  .vcard{height:365px}
   .wrap{padding:0 16px}
 }
   </style>
@@ -669,135 +790,162 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
 
 <section class="sec" id="planos" style="background:rgba(205,121,37,.05)">
-  <div class="wrap">
-    <div class="plans-acc__intro gs">
-      <p class="eyebrow" style="color:var(--orange)">nossos planos</p>
-      <h2 class="h2">O plano certo para cada <strong style="color:var(--orange)">momento da vida</strong></h2>
-      <p style="color:var(--muted);margin-top:12px;font-size:1.05rem">Do essencial ao completo — todos com telemedicina 24h inclusos. Passe o mouse (ou toque) para ver as coberturas.</p>
-    </div>
-    <div class="plans-acc gs" id="plansAcc">
-
-      
-      <div class="plans-acc__item" tabindex="0" aria-label="Plano Klini 200 — Essencial" aria-expanded="false">
-        <img class="plans-acc__photo" src="assets/campanha/pc-200.webp" alt="" loading="lazy" decoding="async" />
-        <div class="plans-acc__scrim"></div>
-        <span class="plans-acc__tier">Essencial</span>
-        <div class="plans-acc__label"><span class="nm">Klini 200</span></div>
-        <div class="plans-acc__panel">
-          <span class="plans-acc__name">Klini 200</span>
-          <p class="plans-acc__line">A primeira proteção de verdade</p>
-          <ul>
-            <li><i class="pi pi-check"></i>Ambulatorial + Hospitalar</li>
-            <li><i class="pi pi-check"></i>Obstetrícia inclusa</li>
-            <li><i class="pi pi-check"></i>Rede regional RJ</li>
-            <li><i class="pi pi-check"></i>Teleconsulta 24h</li>
-            <li><i class="pi pi-check"></i>Urgência e emergência</li>
-          </ul>
-          <a class="plans-acc__cta-btn" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20200." target="_blank" rel="noopener"><i class="pi pi-whatsapp"></i> Solicitar cotação</a>
-        </div>
-      </div>
-
-      
-      <div class="plans-acc__item" tabindex="0" aria-label="Plano Klini 350 — Família" aria-expanded="false">
-        <img class="plans-acc__photo" src="assets/campanha/pc-350.webp" alt="" loading="lazy" decoding="async" />
-        <div class="plans-acc__scrim"></div>
-        <span class="plans-acc__tier">Família</span>
-        <div class="plans-acc__label"><span class="nm">Klini 350</span></div>
-        <div class="plans-acc__panel">
-          <span class="plans-acc__name">Klini 350</span>
-          <p class="plans-acc__line">Para toda a família crescer</p>
-          <ul>
-            <li><i class="pi pi-check"></i>Ampla rede credenciada</li>
-            <li><i class="pi pi-check"></i>Hospitais de referência</li>
-            <li><i class="pi pi-check"></i>Obstetrícia inclusa</li>
-            <li><i class="pi pi-check"></i>Telemedicina 24h</li>
-            <li><i class="pi pi-check"></i>Atendimento pediátrico</li>
-          </ul>
-          <a class="plans-acc__cta-btn" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20350." target="_blank" rel="noopener"><i class="pi pi-whatsapp"></i> Solicitar cotação</a>
-        </div>
-      </div>
-
-      
-      <div class="plans-acc__item vcfeat active" tabindex="0" aria-label="Plano Klini 400 — Mais escolhido" aria-expanded="true">
-        <img class="plans-acc__photo" src="assets/campanha/pc-400.webp" alt="" loading="lazy" decoding="async" />
-        <div class="plans-acc__scrim"></div>
-        <span class="plans-acc__tier">Mais escolhido</span>
-        <div class="plans-acc__label"><span class="nm">Klini 400</span></div>
-        <div class="plans-acc__panel">
-          <span class="plans-acc__name">Klini 400</span>
-          <p class="plans-acc__line">Rede ampliada, cuidado completo</p>
-          <ul>
-            <li><i class="pi pi-check"></i>Ambulatorial + Hospitalar</li>
-            <li><i class="pi pi-check"></i>Rede ampliada premium</li>
-            <li><i class="pi pi-check"></i>Linhas de Cuidado (LCA)</li>
-            <li><i class="pi pi-check"></i>Teleconsulta 24h</li>
-            <li><i class="pi pi-check"></i>Acesso a especialistas</li>
-          </ul>
-          <a class="plans-acc__cta-btn" href="https://wa.me/552130550790?text=Olá!%20Quero%20simular%20o%20Klini%20400." target="_blank" rel="noopener"><i class="pi pi-whatsapp"></i> Simular agora</a>
-        </div>
-      </div>
-
-      
-      <div class="plans-acc__item" tabindex="0" aria-label="Plano Klini 600 — Completo" aria-expanded="false">
-        <img class="plans-acc__photo" src="assets/campanha/pc-600.webp" alt="" loading="lazy" decoding="async" />
-        <div class="plans-acc__scrim"></div>
-        <span class="plans-acc__tier">Completo</span>
-        <div class="plans-acc__label"><span class="nm">Klini 600</span></div>
-        <div class="plans-acc__panel">
-          <span class="plans-acc__name">Klini 600</span>
-          <p class="plans-acc__line">Sem concessões. O melhor da Klini.</p>
-          <ul>
-            <li><i class="pi pi-check"></i>Hospitais de excelência</li>
-            <li><i class="pi pi-check"></i>Maior rede credenciada</li>
-            <li><i class="pi pi-check"></i>Alto reembolso</li>
-            <li><i class="pi pi-check"></i>LCA ao extremo</li>
-            <li><i class="pi pi-check"></i>Especialistas sem fila</li>
-          </ul>
-          <a class="plans-acc__cta-btn" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20600." target="_blank" rel="noopener"><i class="pi pi-whatsapp"></i> Solicitar cotação</a>
-        </div>
-      </div>
-
-      
-      <div class="plans-acc__item" tabindex="0" aria-label="Plano Ambulatorial — Acessível" aria-expanded="false">
-        <img class="plans-acc__photo" src="assets/campanha/pc-amb.webp" alt="" loading="lazy" decoding="async" />
-        <div class="plans-acc__scrim"></div>
-        <span class="plans-acc__tier">Acessível</span>
-        <div class="plans-acc__label"><span class="nm">Ambulatorial</span></div>
-        <div class="plans-acc__panel">
-          <span class="plans-acc__name">Ambulatorial</span>
-          <p class="plans-acc__line">Consultas e exames, simples assim</p>
-          <ul>
-            <li><i class="pi pi-check"></i>Cobertura ambulatorial completa</li>
-            <li><i class="pi pi-check"></i>Consultas e exames</li>
-            <li><i class="pi pi-check"></i>Teleconsulta 24h inclusa</li>
-            <li><i class="pi pi-check"></i>Desconto em farmácias</li>
-            <li><i class="pi pi-check"></i>Urgência ambulatorial</li>
-          </ul>
-          <a class="plans-acc__cta-btn" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Ambulatorial." target="_blank" rel="noopener"><i class="pi pi-whatsapp"></i> Solicitar cotação</a>
-        </div>
-      </div>
-
-      
-      <div class="plans-acc__item" tabindex="0" aria-label="Plano Hospitalar — Rede Casa" aria-expanded="false">
-        <img class="plans-acc__photo" src="assets/campanha/pc-hosp.webp" alt="" loading="lazy" decoding="async" />
-        <div class="plans-acc__scrim"></div>
-        <span class="plans-acc__tier">Rede Casa</span>
-        <div class="plans-acc__label"><span class="nm">Hospitalar</span></div>
-        <div class="plans-acc__panel">
-          <span class="plans-acc__name">Hospitalar</span>
-          <p class="plans-acc__line">Quando importa, a Rede Casa cuida</p>
-          <ul>
-            <li><i class="pi pi-check"></i>Internação na Rede Casa</li>
-            <li><i class="pi pi-check"></i>Urgência e emergência 24h</li>
-            <li><i class="pi pi-check"></i>Cirurgias e UTI</li>
-            <li><i class="pi pi-check"></i>Teleconsulta 24h inclusa</li>
-            <li><i class="pi pi-check"></i>9 hospitais no estado do RJ</li>
-          </ul>
-          <a class="plans-acc__cta-btn" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Hospitalar." target="_blank" rel="noopener"><i class="pi pi-whatsapp"></i> Solicitar cotação</a>
-        </div>
+  <div class="wrap plans__layout">
+    <div class="plans__aside">
+      <div class="plans__head-txt">
+        <p class="eyebrow gs" style="color:var(--orange)">nossos planos</p>
+        <h2 class="h2 gs">O plano certo para cada <strong style="color:var(--orange)">momento da vida</strong></h2>
+        <p class="gs" style="color:var(--muted);margin-top:12px;font-size:1.05rem">Do essencial ao completo — todos com telemedicina 24h inclusos.</p>
+        <a href="planos.html" class="btn btn-teal plans__cta gs">Comparar planos <i class="pi pi-arrow-right"></i></a>
       </div>
     </div>
-    <a href="planos.html" class="btn btn-teal plans-acc__cta gs">Comparar todos os planos <i class="pi pi-arrow-right"></i></a>
+
+    <div class="plans__carousel-wrap">
+      <div class="plans__arrows-top gs">
+        <div class="plans__dots" id="plansDots"></div>
+        <div class="plans__arrows-btns">
+          <button class="plans__arrow" id="plansPrev" aria-label="Planos anteriores"><i class="pi pi-angle-left"></i></button>
+          <button class="plans__arrow" id="plansNext" aria-label="Próximos planos"><i class="pi pi-angle-right"></i></button>
+        </div>
+      </div>
+    <div class="plans__viewport">
+      <div class="plans__track" id="plansTrack">
+
+      
+      <div class="vcard gs vc200"><div class="vcard__in">
+        <div class="vcface vcfront">
+          <img class="vc-photo" src="assets/campanha/pc-200.webp" alt="Beneficiário Klini" loading="eager" decoding="async" />
+          <div class="vc-scrim"></div>
+          <svg class="vc-k" viewBox="0 0 858.5 789" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect fill="rgba(255,255,255,.92)" x="298.4" y="199.02" width="96.05" height="390.96"/><polygon fill="rgba(255,255,255,.72)" points="560.1 303.23 456.72 303.23 378.66 446.6 456.72 589.98 560.1 589.98 481.96 446.6 560.1 303.23"/></svg>
+          <span class="vc-tier">Essencial</span>
+          <div class="vc-body"><div class="vc-name">Klini 200</div><span class="vc-tag">A porta de entrada para proteção ampla</span><span class="vc-hint">Ver coberturas <i class="pi pi-arrow-right"></i></span></div>
+          <div class="vc-bar"></div>
+        </div>
+        <div class="vcface vcback">
+          <svg class="vcarc" viewBox="0 0 140 140" aria-hidden="true"><path d="M70 14 A56 56 0 0 1 70 126" fill="none" stroke="#fff" stroke-width="18" stroke-linecap="butt"/></svg>
+          <div class="vcback-top">
+            <div class="vcback-badge"><svg class="vcback-badge-k" viewBox="0 0 858.5 789" xmlns="http://www.w3.org/2000/svg"><rect fill="#fff" x="298.4" y="199.02" width="96.05" height="390.96"/><polygon fill="rgba(255,255,255,.65)" points="560.1 303.23 456.72 303.23 378.66 446.6 456.72 589.98 560.1 589.98 481.96 446.6 560.1 303.23"/></svg><span>Essencial</span></div>
+
+          </div>
+          <p class="vcback-tagline">A primeira proteção de verdade</p>
+          <ul><li><i class="pi pi-check"></i>Ambulatorial + Hospitalar</li><li><i class="pi pi-check"></i>Obstetrícia inclusa</li><li><i class="pi pi-check"></i>Rede regional RJ</li><li><i class="pi pi-check"></i>Teleconsulta 24h</li><li><i class="pi pi-check"></i>Urgência e emergência</li></ul>
+          <a class="vccta" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20200." target="_blank" rel="noopener"><i class="pi pi-whatsapp"></i> Solicitar cotação</a>
+        </div>
+      </div></div>
+
+      
+      <div class="vcard gs vc350"><div class="vcard__in">
+        <div class="vcface vcfront">
+          <img class="vc-photo" src="assets/campanha/pc-350.webp" alt="Beneficiário Klini" loading="eager" decoding="async" />
+          <div class="vc-scrim"></div>
+          <svg class="vc-k" viewBox="0 0 858.5 789" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect fill="rgba(255,255,255,.92)" x="298.4" y="199.02" width="96.05" height="390.96"/><polygon fill="rgba(255,255,255,.72)" points="560.1 303.23 456.72 303.23 378.66 446.6 456.72 589.98 560.1 589.98 481.96 446.6 560.1 303.23"/></svg>
+          <span class="vc-tier">Família</span>
+          <div class="vc-body"><div class="vc-name">Klini 350</div><span class="vc-tag">Acompanha o crescimento da sua família</span><span class="vc-hint">Ver coberturas <i class="pi pi-arrow-right"></i></span></div>
+          <div class="vc-bar"></div>
+        </div>
+        <div class="vcface vcback">
+          <svg class="vcarc" viewBox="0 0 140 140" aria-hidden="true"><path d="M70 14 A56 56 0 0 1 70 126" fill="none" stroke="#fff" stroke-width="18" stroke-linecap="butt"/></svg>
+          <div class="vcback-top">
+            <div class="vcback-badge"><svg class="vcback-badge-k" viewBox="0 0 858.5 789" xmlns="http://www.w3.org/2000/svg"><rect fill="#fff" x="298.4" y="199.02" width="96.05" height="390.96"/><polygon fill="rgba(255,255,255,.65)" points="560.1 303.23 456.72 303.23 378.66 446.6 456.72 589.98 560.1 589.98 481.96 446.6 560.1 303.23"/></svg><span>Família</span></div>
+
+          </div>
+          <p class="vcback-tagline">Para toda a família crescer</p>
+          <ul><li><i class="pi pi-check"></i>Ampla rede credenciada</li><li><i class="pi pi-check"></i>Hospitais de referência</li><li><i class="pi pi-check"></i>Obstetrícia inclusa</li><li><i class="pi pi-check"></i>Telemedicina 24h</li><li><i class="pi pi-check"></i>Atendimento pediátrico</li></ul>
+          <a class="vccta" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20350." target="_blank" rel="noopener"><i class="pi pi-whatsapp"></i> Solicitar cotação</a>
+        </div>
+      </div></div>
+
+      
+      <div class="vcard gs vcfeat"><div class="vcard__in">
+        <div class="vcface vcfront">
+          <span class="vc-ribbon">✦ Mais escolhido</span>
+          <img class="vc-photo" src="assets/campanha/pc-400.webp" alt="Beneficiário Klini" loading="eager" decoding="async" />
+          <div class="vc-scrim"></div>
+          <svg class="vc-k" viewBox="0 0 858.5 789" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect fill="rgba(255,255,255,.92)" x="298.4" y="199.02" width="96.05" height="390.96"/><polygon fill="rgba(255,255,255,.72)" points="560.1 303.23 456.72 303.23 378.66 446.6 456.72 589.98 560.1 589.98 481.96 446.6 560.1 303.23"/></svg>
+          <div class="vc-body"><div class="vc-name">Klini 400</div><span class="vc-tag">Rede ampliada com Linhas de Cuidado</span><span class="vc-hint">Ver coberturas <i class="pi pi-arrow-right"></i></span></div>
+          <div class="vc-bar"></div>
+        </div>
+        <div class="vcface vcback">
+          <svg class="vcarc" viewBox="0 0 140 140" aria-hidden="true"><path d="M70 14 A56 56 0 0 1 70 126" fill="none" stroke="#fff" stroke-width="18" stroke-linecap="butt"/></svg>
+          <div class="vcback-top">
+            <div class="vcback-badge"><svg class="vcback-badge-k" viewBox="0 0 858.5 789" xmlns="http://www.w3.org/2000/svg"><rect fill="#fff" x="298.4" y="199.02" width="96.05" height="390.96"/><polygon fill="rgba(255,255,255,.65)" points="560.1 303.23 456.72 303.23 378.66 446.6 456.72 589.98 560.1 589.98 481.96 446.6 560.1 303.23"/></svg><span>Mais escolhido</span></div>
+
+          </div>
+          <p class="vcback-tagline">Rede ampliada, cuidado completo</p>
+          <ul><li><i class="pi pi-check"></i>Ambulatorial + Hospitalar</li><li><i class="pi pi-check"></i>Rede ampliada premium</li><li><i class="pi pi-check"></i>Linhas de Cuidado (LCA)</li><li><i class="pi pi-check"></i>Teleconsulta 24h</li><li><i class="pi pi-check"></i>Acesso a especialistas</li></ul>
+          <a class="vccta" href="https://wa.me/552130550790?text=Olá!%20Quero%20simular%20o%20Klini%20400." target="_blank" rel="noopener"><i class="pi pi-whatsapp"></i> Simular agora</a>
+        </div>
+      </div></div>
+
+      
+      <div class="vcard gs vcwarm"><div class="vcard__in">
+        <div class="vcface vcfront">
+          <img class="vc-photo" src="assets/campanha/pc-600.webp" alt="Beneficiário Klini" loading="eager" decoding="async" />
+          <div class="vc-scrim"></div>
+          <svg class="vc-k" viewBox="0 0 858.5 789" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect fill="rgba(255,255,255,.92)" x="298.4" y="199.02" width="96.05" height="390.96"/><polygon fill="rgba(255,255,255,.72)" points="560.1 303.23 456.72 303.23 378.66 446.6 456.72 589.98 560.1 589.98 481.96 446.6 560.1 303.23"/></svg>
+          <span class="vc-tier">Completo</span>
+          <div class="vc-body"><div class="vc-name">Klini 600</div><span class="vc-tag">Cobertura total, tranquilidade completa</span><span class="vc-hint">Ver coberturas <i class="pi pi-arrow-right"></i></span></div>
+          <div class="vc-bar"></div>
+        </div>
+        <div class="vcface vcback">
+          <svg class="vcarc" viewBox="0 0 140 140" aria-hidden="true"><path d="M70 14 A56 56 0 0 1 70 126" fill="none" stroke="#fff" stroke-width="18" stroke-linecap="butt"/></svg>
+          <div class="vcback-top">
+            <div class="vcback-badge"><svg class="vcback-badge-k" viewBox="0 0 858.5 789" xmlns="http://www.w3.org/2000/svg"><rect fill="#fff" x="298.4" y="199.02" width="96.05" height="390.96"/><polygon fill="rgba(255,255,255,.65)" points="560.1 303.23 456.72 303.23 378.66 446.6 456.72 589.98 560.1 589.98 481.96 446.6 560.1 303.23"/></svg><span>Completo</span></div>
+
+          </div>
+          <p class="vcback-tagline">Sem concessões. O melhor da Klini.</p>
+          <ul><li><i class="pi pi-check"></i>Hospitais de excelência</li><li><i class="pi pi-check"></i>Maior rede credenciada</li><li><i class="pi pi-check"></i>Alto reembolso</li><li><i class="pi pi-check"></i>LCA ao extremo</li><li><i class="pi pi-check"></i>Especialistas sem fila</li></ul>
+          <a class="vccta" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20600." target="_blank" rel="noopener"><i class="pi pi-whatsapp"></i> Solicitar cotação</a>
+        </div>
+      </div></div>
+
+      
+      <div class="vcard gs"><div class="vcard__in">
+        <div class="vcface vcfront">
+          <img class="vc-photo" src="assets/campanha/pc-amb.webp" alt="Beneficiária Klini com bebê" loading="eager" decoding="async" />
+          <div class="vc-scrim"></div>
+          <svg class="vc-k" viewBox="0 0 858.5 789" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect fill="rgba(255,255,255,.92)" x="298.4" y="199.02" width="96.05" height="390.96"/><polygon fill="rgba(255,255,255,.72)" points="560.1 303.23 456.72 303.23 378.66 446.6 456.72 589.98 560.1 589.98 481.96 446.6 560.1 303.23"/></svg>
+          <span class="vc-tier">Acessível</span>
+          <div class="vc-body"><div class="vc-name">Ambulatorial</div><span class="vc-tag">Cobertura essencial, consultas e exames</span><span class="vc-hint">Ver coberturas <i class="pi pi-arrow-right"></i></span></div>
+          <div class="vc-bar"></div>
+        </div>
+        <div class="vcface vcback">
+          <svg class="vcarc" viewBox="0 0 140 140" aria-hidden="true"><path d="M70 14 A56 56 0 0 1 70 126" fill="none" stroke="#fff" stroke-width="18" stroke-linecap="butt"/></svg>
+          <div class="vcback-top">
+            <div class="vcback-badge"><svg class="vcback-badge-k" viewBox="0 0 858.5 789" xmlns="http://www.w3.org/2000/svg"><rect fill="#fff" x="298.4" y="199.02" width="96.05" height="390.96"/><polygon fill="rgba(255,255,255,.65)" points="560.1 303.23 456.72 303.23 378.66 446.6 456.72 589.98 560.1 589.98 481.96 446.6 560.1 303.23"/></svg><span>Acessível</span></div>
+
+          </div>
+          <p class="vcback-tagline">Consultas e exames, simples assim</p>
+          <ul><li><i class="pi pi-check"></i>Cobertura ambulatorial completa</li><li><i class="pi pi-check"></i>Consultas e exames</li><li><i class="pi pi-check"></i>Teleconsulta 24h inclusa</li><li><i class="pi pi-check"></i>Desconto em farmácias</li><li><i class="pi pi-check"></i>Urgência ambulatorial</li></ul>
+          <a class="vccta" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Ambulatorial." target="_blank" rel="noopener"><i class="pi pi-whatsapp"></i> Solicitar cotação</a>
+        </div>
+      </div></div>
+
+      
+      <div class="vcard gs vcwarm"><div class="vcard__in">
+        <div class="vcface vcfront">
+          <img class="vc-photo" src="assets/campanha/pc-hosp.webp" alt="Beneficiário Klini" loading="eager" decoding="async" />
+          <div class="vc-scrim"></div>
+          <svg class="vc-k" viewBox="0 0 858.5 789" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect fill="rgba(255,255,255,.92)" x="298.4" y="199.02" width="96.05" height="390.96"/><polygon fill="rgba(255,255,255,.72)" points="560.1 303.23 456.72 303.23 378.66 446.6 456.72 589.98 560.1 589.98 481.96 446.6 560.1 303.23"/></svg>
+          <span class="vc-tier">Rede Casa</span>
+          <div class="vc-body"><div class="vc-name">Hospitalar</div><span class="vc-tag">Foco em internações, urgência e cirurgias</span><span class="vc-hint">Ver coberturas <i class="pi pi-arrow-right"></i></span></div>
+          <div class="vc-bar"></div>
+        </div>
+        <div class="vcface vcback">
+          <svg class="vcarc" viewBox="0 0 140 140" aria-hidden="true"><path d="M70 14 A56 56 0 0 1 70 126" fill="none" stroke="#fff" stroke-width="18" stroke-linecap="butt"/></svg>
+          <div class="vcback-top">
+            <div class="vcback-badge"><svg class="vcback-badge-k" viewBox="0 0 858.5 789" xmlns="http://www.w3.org/2000/svg"><rect fill="#fff" x="298.4" y="199.02" width="96.05" height="390.96"/><polygon fill="rgba(255,255,255,.65)" points="560.1 303.23 456.72 303.23 378.66 446.6 456.72 589.98 560.1 589.98 481.96 446.6 560.1 303.23"/></svg><span>Rede Casa</span></div>
+
+          </div>
+          <p class="vcback-tagline">Quando importa, a Rede Casa cuida</p>
+          <ul><li><i class="pi pi-check"></i>Internação na Rede Casa</li><li><i class="pi pi-check"></i>Urgência e emergência 24h</li><li><i class="pi pi-check"></i>Cirurgias e UTI</li><li><i class="pi pi-check"></i>Teleconsulta 24h inclusa</li><li><i class="pi pi-check"></i>9 hospitais no estado do RJ</li></ul>
+          <a class="vccta" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Hospitalar." target="_blank" rel="noopener"><i class="pi pi-whatsapp"></i> Solicitar cotação</a>
+        </div>
+      </div></div>
+      </div></div>
+    </div>
+
+    </div>
   </div>
 </section>
 
@@ -1102,7 +1250,7 @@ if (barHamb && barNav) {
 
 
 (function () {
-  document.querySelectorAll('.acess__grid, .mv__grid, .canais-bento, .farm__steps--row').forEach(grid => {
+  document.querySelectorAll('.acess__grid, .plans__track, .mv__grid, .canais-bento, .farm__steps--row').forEach(grid => {
     let i = 0;
     Array.prototype.forEach.call(grid.children, c => {
       if (c.classList && c.classList.contains('gs')) {
@@ -1145,24 +1293,52 @@ document.querySelectorAll('.acess__card').forEach(card => {
 
 
 (function () {
-  var acc = document.getElementById('plansAcc');
-  if (!acc) return;
-  var items = [].slice.call(acc.querySelectorAll('.plans-acc__item'));
-  var def = acc.querySelector('.plans-acc__item.active') || items[0];
-  function setActive(it) {
-    items.forEach(function (x) {
-      var on = x === it;
-      x.classList.toggle('active', on);
-      x.setAttribute('aria-expanded', on ? 'true' : 'false');
-    });
+  var track = document.getElementById('plansTrack');
+  if (!track) return;
+  var prev = document.getElementById('plansPrev'), next = document.getElementById('plansNext'),
+      dotsWrap = document.getElementById('plansDots');
+  var cards = track.children, total = cards.length, idx = 0, GAP = 18;
+  function perView() { return window.innerWidth <= 900 ? 1 : 2; }
+  function maxIdx() { return Math.max(0, total - perView()); }
+  function step() { return cards[0].getBoundingClientRect().width + GAP; }
+  function buildDots() {
+    if (!dotsWrap) return; dotsWrap.innerHTML = '';
+    for (var i = 0; i <= maxIdx(); i++) {
+      var b = document.createElement('button');
+      b.className = 'plans__dot' + (i === idx ? ' active' : '');
+      b.setAttribute('aria-label', 'Página ' + (i + 1));
+      (function (n) { b.addEventListener('click', function () { idx = n; render(); }); })(i);
+      dotsWrap.appendChild(b);
+    }
   }
-  items.forEach(function (it) {
-    it.addEventListener('mouseenter', function () { setActive(it); });
-    it.addEventListener('focus', function () { setActive(it); });
-    it.addEventListener('click', function (e) { if (e.target.closest('a')) return; setActive(it); });
-    it.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setActive(it); } });
+  function render() {
+    if (idx > maxIdx()) idx = maxIdx(); if (idx < 0) idx = 0;
+    var maxShift = Math.max(0, track.scrollWidth - track.parentElement.clientWidth);
+    var shift = Math.min(idx * step(), maxShift);
+    track.style.transform = 'translateX(-' + shift + 'px)';
+    if (dotsWrap) { var d = dotsWrap.children; for (var i = 0; i < d.length; i++) d[i].classList.toggle('active', i === idx); }
+    if (prev) prev.disabled = idx <= 0;
+    if (next) next.disabled = idx >= maxIdx();
+
+    var vp = track.parentElement; if (vp) vp.classList.toggle('at-end', idx >= maxIdx());
+  }
+  if (prev) prev.addEventListener('click', function () { idx--; render(); });
+  if (next) next.addEventListener('click', function () { idx++; render(); });
+  var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { buildDots(); render(); }, 160); });
+
+  var sx = 0; track.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', function (e) { var dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 40) { idx += dx > 0 ? -1 : 1; render(); } }, { passive: true });
+  buildDots(); render();
+})();
+
+
+
+(function(){
+  var track=document.getElementById('plansTrack'); if(!track) return;
+  track.addEventListener('click',function(e){
+    if(e.target.closest('a')) return;
+    var c=e.target.closest('.vcard'); if(c) c.classList.toggle('flip');
   });
-  acc.addEventListener('mouseleave', function () { setActive(def); });
 })();
 
 
@@ -1242,6 +1418,14 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   }
 
   
+
+  
+  var plansAside = document.querySelector('#planos .plans__aside');
+  if (plansAside) {
+    gsap.to(plansAside, { y: -50, ease: 'none',
+      scrollTrigger: { trigger: '#planos', start: 'top bottom', end: 'bottom top', scrub: true }
+    });
+  }
 
   
   var ytWrap = document.querySelector('#conheca [style*="aspect-ratio"]');
