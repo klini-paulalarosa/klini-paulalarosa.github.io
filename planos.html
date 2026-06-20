@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Descubra o plano de saúde Klini exato para o seu momento — do Ambulatorial ao 600 e o Hospitalar. Telemedicina 24h, medicina preventiva e rede própria no RJ." />
+  <meta name="description" content="Descubra o plano de saúde Klini exato para o seu momento — do Ambulatorial ao 600 e o Hospitalar. Telemedicina 24h, rede própria no RJ e desconto em farmácias." />
   <title>Planos de Saúde | Klini Saúde</title>
   <link rel="canonical" href="https://klini-paulalarosa.github.io/planos.html" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="pt_BR" />
   <meta property="og:site_name" content="Klini Saúde" />
   <meta property="og:title" content="Planos de Saúde | Klini Saúde" />
-  <meta property="og:description" content="Descubra o plano de saúde Klini exato para o seu momento — do Ambulatorial ao 600 e o Hospitalar. Telemedicina 24h, medicina preventiva e rede própria no RJ." />
+  <meta property="og:description" content="Descubra o plano de saúde Klini exato para o seu momento — do Ambulatorial ao 600 e o Hospitalar. Telemedicina 24h, rede própria no RJ e desconto em farmácias." />
   <meta property="og:url" content="https://klini-paulalarosa.github.io/planos.html" />
   <meta property="og:image" content="https://klini-paulalarosa.github.io/assets/fotos%20headers/GettyImages-1344733616.webp" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -21,12 +21,7 @@
   <link rel="stylesheet" href="assets/klini.css" />
   <style>
     
-    .page-hero--people .ph-photo{object-position:68% 22%}
-    .page-hero--people .ph-wash{background:linear-gradient(90deg,rgba(4,20,18,.30) 0%,transparent 38%),radial-gradient(ellipse at 78% 55%,transparent 42%,rgba(4,20,18,.18) 100%)}
-    .page-hero--people .wrap{justify-content:flex-start}
-    .ph-d-card{max-width:440px}
-    .ph-d-card::after{content:'';position:absolute;right:-15px;top:36%;width:22px;height:30px;background:#259591;clip-path:polygon(0 0,0 100%,100% 42%);filter:drop-shadow(3px 2px 4px rgba(4,42,38,.18))}
-    @media(max-width:760px){.page-hero--people .ph-photo{object-position:68% 22%}}
+    .page-hero--split .phs-media .ph-photo{object-position:68% 18%}
     
     .flyers{display:flex;flex-wrap:wrap;gap:26px;justify-content:center;perspective:1400px}
     .flyer{width:238px;display:flex;flex-direction:column}
@@ -106,7 +101,7 @@
 <a class="skip-link" href="#main">Pular para o conteúdo</a>
 
 
-<header class="bar" id="bar">
+<header class="bar solid" id="bar">
   <div class="bar__inner">
     <a href="index.html" class="bar__logo"><img src="assets/logo-klini.webp" alt="Klini Saúde" /></a>
     <nav class="bar__nav" id="barNav">
@@ -172,14 +167,15 @@
 <main id="main">
 
 
-<section class="page-hero page-hero--people">
-  <img class="ph-photo" src="assets/campanha/hero-ouvidoria.webp" alt="Beneficiário Klini no Rio de Janeiro" />
-  <div class="ph-wash"></div>
+<section class="page-hero page-hero--split">
+  <div class="phs-media">
+    <img class="ph-photo" src="assets/campanha/hero-ouvidoria.webp" alt="Beneficiário Klini no Rio de Janeiro" />
+  </div>
   <div class="wrap">
-    <div class="ph-d-card">
-      <img class="ph-k-card" src="assets/k-mark.svg" alt=""/>
+    <div class="phs-text">
       <span class="eyebrow">planos klini</span>
       <h1 class="h1">Descubra o plano exato para o seu <strong>momento</strong></h1>
+      <p>Do essencial ao completo — encontre a cobertura que combina com a sua vida, toda com telemedicina 24h inclusa.</p>
       <a href="#cotacao" class="ph-cta">Simular meu plano <i class="pi pi-arrow-right"></i></a>
     </div>
   </div>
@@ -279,7 +275,7 @@
     <div class="diffs">
       <div class="diff"><div class="diff__ico"><i class="pi pi-video"></i></div><h4>Teleconsulta 24h</h4><p>Consultas online em diversas especialidades, sem sair de casa — em todos os planos.</p></div>
       <div class="diff"><div class="diff__ico"><i class="pi pi-tag"></i></div><h4>Desconto em Farmácias</h4><p>Rede conveniada com descontos reais em medicamentos nas maiores farmácias do Brasil.</p></div>
-      <div class="diff"><div class="diff__ico"><i class="pi pi-heart"></i></div><h4>Medicina Preventiva</h4><p>Programas de acompanhamento e promoção de saúde com o Núcleo Mais Vida.</p></div>
+      <div class="diff"><div class="diff__ico"><i class="pi pi-heart"></i></div><h4>Urgência e Emergência 24h</h4><p>Pronto atendimento e emergências cobertos 24 horas em toda a rede credenciada.</p></div>
       <div class="diff"><div class="diff__ico"><i class="pi pi-map-marker"></i></div><h4>Rede Própria no RJ</h4><p>Hospitais e Centros Médicos próprios em 3 regiões — RJ, Baixada e Costa Verde.</p></div>
       <div class="diff"><div class="diff__ico"><i class="pi pi-mobile"></i></div><h4>App com Carteirinha Digital</h4><p>Token digital, agendamentos, resultados de exames e busca de rede no app Klini.</p></div>
       <div class="diff"><div class="diff__ico"><i class="pi pi-phone"></i></div><h4>SAC 24h</h4><p>Atendimento pelo WhatsApp, SAC e canais exclusivos, com fila prioritária.</p></div>
@@ -449,7 +445,7 @@
 <script>
   
   var bar = document.getElementById('bar');
-  window.addEventListener('scroll', function(){ bar.classList.toggle('solid', window.scrollY > 50); }, { passive:true });
+  bar.classList.add('solid');
   var barHamb = document.getElementById('barHamb'), barNav = document.getElementById('barNav');
   if (barHamb && barNav) {
     barHamb.addEventListener('click', function(){ barNav.classList.toggle('open'); });
