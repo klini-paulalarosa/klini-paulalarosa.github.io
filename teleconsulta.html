@@ -32,18 +32,17 @@
     .tcomo__glow{position:absolute;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(37,149,145,.18),transparent 68%);pointer-events:none}
     .tphone{position:relative;z-index:1}
     .tphone__img{width:316px;max-width:80vw;display:block;filter:drop-shadow(0 28px 60px rgba(37,149,145,.26))}
-    .tphone__live{position:absolute;top:18px;left:50%;transform:translateX(-50%);z-index:3;display:inline-flex;align-items:center;gap:7px;background:rgba(10,10,10,.74);color:#fff;font-family:'Objective',sans-serif;font-weight:700;font-size:.62rem;letter-spacing:.08em;padding:6px 12px;border-radius:30px;backdrop-filter:blur(4px)}
-    .tphone__live-dot{width:7px;height:7px;border-radius:50%;background:#E05759;box-shadow:0 0 0 0 rgba(224,87,89,.6);animation:tpulse 1.8s infinite}
-    @keyframes tpulse{0%{box-shadow:0 0 0 0 rgba(224,87,89,.55)}70%{box-shadow:0 0 0 9px rgba(224,87,89,0)}100%{box-shadow:0 0 0 0 rgba(224,87,89,0)}}
     
-    .tnotif{position:absolute;display:flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--bd-l);border-radius:13px;padding:9px 14px 9px 9px;box-shadow:0 14px 34px rgba(4,42,38,.16);z-index:4;min-width:158px;opacity:0;transform:translateY(16px) scale(.95);transition:opacity .55s cubic-bezier(.22,1,.36,1),transform .55s cubic-bezier(.22,1,.36,1)}
-    .tnotif.show{opacity:1;transform:none}
-    .tnotif strong{display:block;font-size:.78rem;font-weight:700;color:var(--text);line-height:1.2;font-family:'Objective',sans-serif}
-    .tnotif span{font-size:.68rem;color:var(--muted)}
-    .tnotif-ico{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0}
-    .tnotif--1{top:8%;left:-10px}
-    .tnotif--2{top:43%;right:-18px}
-    .tnotif--3{top:82%;left:0}
+    .tnotif{position:absolute;display:flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--bd-l);border-radius:12px;padding:8px 14px 8px 9px;box-shadow:0 12px 30px rgba(4,42,38,.14);z-index:4;white-space:nowrap;opacity:0;transform:translateY(14px) scale(.96);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)}
+    @keyframes tnotif-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+    .tnotif.show{opacity:1;transform:none;animation:tnotif-float 4s ease-in-out .5s infinite}
+    .tnotif--2.show{animation-duration:4.8s;animation-delay:.7s}
+    @media(prefers-reduced-motion:reduce){.tnotif.show{animation:none}}
+    .tnotif strong{display:block;font-size:.74rem;font-weight:700;color:var(--text);line-height:1.2;font-family:'Objective',sans-serif}
+    .tnotif span{font-size:.63rem;color:var(--muted)}
+    .tnotif-ico{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.78rem;flex-shrink:0}
+    .tnotif--1{top:22%;left:-10px}
+    .tnotif--2{top:62%;right:-18px}
 
     .tsteps{display:flex;flex-direction:column;gap:8px;margin-top:30px;position:relative}
     .tstep{display:flex;gap:18px;align-items:flex-start;padding:14px 0}
@@ -107,7 +106,7 @@
       .tdoc-preview{order:-1;min-height:0}
     }
     @media(max-width:760px){.tmodes{grid-template-columns:1fr}}
-    @media(max-width:600px){.espec__grid{grid-template-columns:1fr 1fr}.tnotif{min-width:142px}.tnotif--2{right:-6px}}
+    @media(max-width:600px){.espec__grid{grid-template-columns:1fr 1fr}.tnotif{white-space:normal;max-width:60%}.tnotif strong,.tnotif span{white-space:normal}.tnotif--2{right:-6px}}
 
     
     .page-hero--people .ph-photo{object-position:22% 40%}
@@ -208,19 +207,14 @@
       <div class="tcomo__side">
         <div class="tcomo__glow"></div>
         <div class="tphone">
-          <span class="tphone__live"><span class="tphone__live-dot"></span> CONSULTA AO VIVO</span>
           <img src="assets/app-mockup.webp" alt="App Klini Saúde — teleconsulta em andamento" class="tphone__img" loading="eager" />
           <div class="tnotif tnotif--1">
             <span class="tnotif-ico" style="background:rgba(37,149,145,.12);color:var(--teal)"><i class="pi pi-check"></i></span>
             <div><strong>Consulta confirmada</strong><span>Clínico geral · agora</span></div>
           </div>
           <div class="tnotif tnotif--2">
-            <span class="tnotif-ico" style="background:rgba(106,167,174,.16);color:var(--sea)"><i class="pi pi-file"></i></span>
-            <div><strong>Receita enviada</strong><span>PDF com validade legal</span></div>
-          </div>
-          <div class="tnotif tnotif--3">
-            <span class="tnotif-ico" style="background:rgba(205,121,37,.14);color:var(--orange)"><i class="pi pi-verified"></i></span>
-            <div><strong>Atestado pronto</strong><span>Disponível no app</span></div>
+            <span class="tnotif-ico" style="background:rgba(224,87,89,.12);color:var(--coral)"><i class="pi pi-video"></i></span>
+            <div><strong>Consulta ao vivo</strong><span>médico disponível · agora</span></div>
           </div>
         </div>
       </div>

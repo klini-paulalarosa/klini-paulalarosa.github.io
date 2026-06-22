@@ -22,31 +22,32 @@
   <style>
     
     .page-hero--split .phs-media .ph-photo{object-position:68% 18%}
+    .eyebrow,.phs-text .eyebrow{color:var(--orange)}
 
     .perfil{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:26px}
     .perfil__btn{background:#fff;border:1.5px solid var(--bd-l);border-radius:16px;padding:22px 18px;cursor:pointer;text-align:left;transition:all .25s;font-family:'Objective',sans-serif;display:flex;flex-direction:column;gap:9px}
-    .perfil__btn i{font-size:1.5rem;color:var(--teal)}
+    .perfil__btn i{font-size:1.5rem;color:var(--orange)}
     .perfil__btn strong{font-size:.96rem;color:var(--text)}
     .perfil__btn small{font-size:.8rem;color:var(--muted);font-family:'Objective',sans-serif;line-height:1.5}
-    .perfil__btn:hover{border-color:var(--teal);transform:translateY(-3px);box-shadow:0 12px 28px rgba(37,149,145,.1)}
-    .perfil__btn.active{border-color:var(--teal);background:rgba(37,149,145,.06);box-shadow:0 12px 28px rgba(37,149,145,.14)}
-    .perfil__result{background:var(--grad-cool);border-radius:20px;padding:28px 34px;color:#fff;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;opacity:0;transform:translateY(10px);transition:all .35s;pointer-events:none}
+    .perfil__btn:hover{border-color:var(--orange);transform:translateY(-3px);box-shadow:0 12px 28px rgba(205,121,37,.1)}
+    .perfil__btn.active{border-color:var(--orange);background:rgba(205,121,37,.06);box-shadow:0 12px 28px rgba(205,121,37,.14)}
+    .perfil__result{background:var(--grad-warm);border-radius:20px;padding:28px 34px;color:#fff;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;opacity:0;transform:translateY(10px);transition:all .35s;pointer-events:none}
     .perfil__result.show{opacity:1;transform:none;pointer-events:auto}
     .perfil__result .eyebrow{color:rgba(255,255,255,.8)}
     .perfil__result h3{color:#fff;font-size:1.35rem;margin:2px 0 6px}
     .perfil__result p{color:rgba(255,255,255,.9);font-size:.92rem;max-width:540px}
-    .perfil__result .btn{background:#fff;color:var(--teal)}
+    .perfil__result .btn{background:#fff;color:var(--orange)}
     
     .diffs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
     .diff{background:#fff;border:1.5px solid var(--bd-l);border-radius:var(--r);padding:28px;transition:all .3s}
-    .diff:hover{border-color:var(--teal);transform:translateY(-3px);box-shadow:0 16px 32px rgba(37,149,145,.08)}
-    .diff__ico{width:48px;height:48px;border-radius:13px;background:rgba(37,149,145,.1);border:1px solid rgba(37,149,145,.2);display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--teal);margin-bottom:14px}
+    .diff:hover{border-color:var(--orange);transform:translateY(-3px);box-shadow:0 16px 32px rgba(205,121,37,.08)}
+    .diff__ico{width:48px;height:48px;border-radius:13px;background:rgba(205,121,37,.1);border:1px solid rgba(205,121,37,.18);display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--orange);margin-bottom:14px}
     .diff h4{font-family:'Objective',sans-serif;font-weight:700;font-size:.98rem;margin-bottom:7px;color:var(--text)}
     .diff p{font-size:.85rem;color:var(--muted);line-height:1.7}
     
-    .cta-form{background:var(--grad-cool);border-radius:26px;padding:48px;display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center;position:relative;overflow:hidden}
+    .cta-form{background:var(--grad-warm);border-radius:26px;padding:48px;display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center;position:relative;overflow:hidden}
     .cta-form__txt h2{color:#fff}
-    .cta-form__txt h2 strong{color:#FFE0B5}
+    .cta-form__txt h2 strong{color:#fff}
     .cta-form__txt p{color:rgba(255,255,255,.9);margin-top:12px;font-size:1rem}
     .cta-form__list{list-style:none;margin-top:22px;display:flex;flex-direction:column;gap:11px}
     .cta-form__list li{display:flex;gap:10px;align-items:center;font-family:'Objective',sans-serif;font-size:.92rem;color:rgba(255,255,255,.94)}
@@ -60,14 +61,6 @@
     @media(max-width:880px){.cta-form{grid-template-columns:1fr;padding:32px}.perfil{grid-template-columns:1fr 1fr}.diffs{grid-template-columns:1fr 1fr}}
     @media(max-width:560px){.perfil{grid-template-columns:1fr}.diffs{grid-template-columns:1fr}}
       
-    .faq{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
-    .faq__item{background:#fff;border:1.5px solid var(--bd-l);border-radius:14px;overflow:hidden;transition:border-color .25s}
-    .faq__item[open]{border-color:var(--teal)}
-    .faq__item summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 22px;font-family:'Objective',sans-serif;font-weight:700;font-size:.95rem;color:var(--text)}
-    .faq__item summary::-webkit-details-marker{display:none}
-    .faq__item summary::after{content:'+';font-size:1.3rem;font-weight:400;color:var(--teal);flex-shrink:0;transition:transform .25s;line-height:1}
-    .faq__item[open] summary::after{transform:rotate(45deg)}
-    .faq__item p{padding:0 22px 20px;font-size:.9rem;color:var(--muted);line-height:1.75}
     .h1 strong,.h2 strong,.phs-text .h1 strong{color:var(--orange)}
   </style>
 </head>
@@ -259,62 +252,13 @@
 </section>
 
 
-<section class="sec sec--off" id="faq">
-  <div class="wrap">
-    <div style="text-align:center;margin-bottom:40px">
-      <span class="eyebrow">tire suas dúvidas</span>
-      <h2 class="h2">Perguntas <strong>frequentes</strong></h2>
-    </div>
-    <div class="faq">
-      <details class="faq__item">
-        <summary>Como funciona a carência dos planos?</summary>
-        <p>Carência é o período entre a contratação e a liberação de cada cobertura. Os prazos máximos previstos em lei são: 24 horas para urgência e emergência, 300 dias para parto a termo e 180 dias para os demais procedimentos. Os prazos do seu plano constam no contrato — fale com a gente no WhatsApp para conhecer as condições vigentes.</p>
-      </details>
-      <details class="faq__item">
-        <summary>Posso trazer meu plano de outra operadora (portabilidade)?</summary>
-        <p>Sim. A portabilidade de carências, regulamentada pela ANS, permite trocar de operadora sem cumprir novas carências, desde que atendidos os requisitos — como prazo mínimo de permanência no plano de origem e compatibilidade entre os planos. Nossa equipe verifica sua elegibilidade sem compromisso.</p>
-      </details>
-      <details class="faq__item">
-        <summary>Quem posso incluir como dependente?</summary>
-        <p>Em geral, cônjuge ou companheiro(a) e filhos podem ser incluídos como dependentes, conforme as regras do contrato. Na cotação, informe quantas pessoas serão incluídas que a proposta já vem completa.</p>
-      </details>
-      <details class="faq__item">
-        <summary>Como funciona o reajuste do plano?</summary>
-        <p>Os planos têm reajuste anual na data de aniversário do contrato — nos planos individuais, limitado ao teto definido pela ANS — além das variações por mudança de faixa etária previstas em contrato e na regulamentação.</p>
-      </details>
-      <details class="faq__item">
-        <summary>Posso cancelar quando quiser?</summary>
-        <p>Sim, o cancelamento pode ser solicitado a qualquer momento pelos nossos canais de atendimento, observadas as condições contratuais. Antes de cancelar, vale falar com a gente — muitas vezes um plano de outra faixa resolve melhor.</p>
-      </details>
-      <details class="faq__item">
-        <summary>A teleconsulta está inclusa em todos os planos?</summary>
-        <p>Sim. Todos os planos Klini incluem teleconsulta 24h em diversas especialidades, além do desconto em farmácias conveniadas e do app com carteirinha digital.</p>
-      </details>
-    </div>
-    <p style="text-align:center;font-size:.76rem;color:var(--muted);margin-top:22px;line-height:1.6">Conteúdo informativo — as condições válidas são as do seu contrato e da regulamentação da ANS.</p>
-  </div>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {"@type": "Question", "name": "Como funciona a carência dos planos?", "acceptedAnswer": {"@type": "Answer", "text": "Carência é o período entre a contratação e a liberação de cada cobertura. Os prazos máximos previstos em lei são: 24 horas para urgência e emergência, 300 dias para parto a termo e 180 dias para os demais procedimentos. Os prazos do seu plano constam no contrato."}},
-      {"@type": "Question", "name": "Posso trazer meu plano de outra operadora (portabilidade)?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. A portabilidade de carências, regulamentada pela ANS, permite trocar de operadora sem cumprir novas carências, desde que atendidos os requisitos, como prazo mínimo de permanência no plano de origem e compatibilidade entre os planos."}},
-      {"@type": "Question", "name": "Quem posso incluir como dependente?", "acceptedAnswer": {"@type": "Answer", "text": "Em geral, cônjuge ou companheiro(a) e filhos podem ser incluídos como dependentes, conforme as regras do contrato."}},
-      {"@type": "Question", "name": "Como funciona o reajuste do plano?", "acceptedAnswer": {"@type": "Answer", "text": "Os planos têm reajuste anual na data de aniversário do contrato — nos planos individuais, limitado ao teto definido pela ANS — além das variações por mudança de faixa etária previstas em contrato e na regulamentação."}},
-      {"@type": "Question", "name": "Posso cancelar quando quiser?", "acceptedAnswer": {"@type": "Answer", "text": "Sim, o cancelamento pode ser solicitado a qualquer momento pelos canais de atendimento, observadas as condições contratuais."}},
-      {"@type": "Question", "name": "A teleconsulta está inclusa em todos os planos?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. Todos os planos Klini incluem teleconsulta 24h em diversas especialidades, além do desconto em farmácias conveniadas e do app com carteirinha digital."}}
-    ]
-  }
-  </script>
-</section>
 
 
 <section class="sec" id="cotacao">
   <div class="wrap">
     <div class="cta-form">
       <div class="cta-form__txt">
-        <span class="eyebrow" style="color:rgba(255,255,255,.85)">cotação gratuita</span>
+        <span class="eyebrow" style="color:rgba(255,255,255,.85)">cotação</span>
         <h2 class="h2">Pronto pra <strong>ser Klini?</strong></h2>
         <p>Deixe seus dados que um especialista monta a proposta ideal e fala com você pelo WhatsApp — sem compromisso.</p>
         <ul class="cta-form__list">
