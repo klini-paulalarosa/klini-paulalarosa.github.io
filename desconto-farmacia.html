@@ -50,8 +50,8 @@
     .df-card-hint{text-align:center;font-size:.8rem;color:var(--muted);margin-top:16px}
 
     
-    .df-logos{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
-    .df-logo{background:#fff;border:1.5px solid var(--bd-l);border-radius:16px;min-height:104px;display:flex;align-items:center;justify-content:center;padding:24px 18px;position:relative;overflow:hidden;transition:transform .35s cubic-bezier(.34,1.56,.64,1),box-shadow .3s,border-color .25s}
+    .df-logos{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-top:40px}
+    .df-logo{flex:0 0 calc(25% - 12px);background:#fff;border:1.5px solid var(--bd-l);border-radius:16px;min-height:104px;display:flex;align-items:center;justify-content:center;padding:24px 18px;position:relative;overflow:hidden;transition:transform .35s cubic-bezier(.34,1.56,.64,1),box-shadow .3s,border-color .25s}
     .df-logo::before{content:'';position:absolute;top:0;left:-120%;width:55%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.6),transparent);transform:skewX(-18deg);pointer-events:none}
     .df-logo:hover{border-color:var(--teal);transform:translateY(-5px);box-shadow:0 20px 44px rgba(37,149,145,.14)}
     .df-logo:hover::before{animation:df-shine .9s ease}
@@ -70,8 +70,8 @@
     .df-app__card .lk{font-family:'Objective',sans-serif;font-weight:700;font-size:.84rem;color:var(--teal);display:inline-flex;align-items:center;gap:6px}
     .df-badges{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
     .df-badges img{height:44px}
-    @media(max-width:900px){.df-how{grid-template-columns:1fr;gap:36px}.df-card-wrap{order:-1}.df-app{grid-template-columns:1fr;gap:20px}.df-logos{grid-template-columns:repeat(3,1fr)}}
-    @media(max-width:560px){.df-logos{grid-template-columns:1fr 1fr}}
+    @media(max-width:900px){.df-how{grid-template-columns:1fr;gap:36px}.df-card-wrap{order:-1}.df-app{grid-template-columns:1fr;gap:20px}.df-logo{flex-basis:calc(33.33% - 11px)}}
+    @media(max-width:560px){.df-logo{flex-basis:calc(50% - 9px)}}
 
     
     .page-hero--people .ph-photo{object-position:28% 38%}
@@ -230,7 +230,6 @@
       <div class="df-logo df-logo--tall"><img src="assets/farm-drogasmil.png" alt="Drogasmil" loading="lazy" /></div>
       <div class="df-logo df-logo--tall"><img src="assets/farm-farmalife.png" alt="Farmalife" loading="lazy" /></div>
       <div class="df-logo"><img src="assets/farm-venancio.png" alt="Drogaria Venâncio" loading="lazy" /></div>
-      <div class="df-logo"><span class="df-logo__more"><i class="pi pi-plus-circle"></i><br>e outras redes</span></div>
     </div>
   </div>
 </section>
