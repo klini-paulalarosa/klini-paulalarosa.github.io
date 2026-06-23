@@ -33,6 +33,9 @@
     .tk-tl__dot{width:40px;height:40px;border-radius:50%;border:2px solid var(--bd-l);background:#fff;color:var(--muted);display:flex;align-items:center;justify-content:center;font-family:'Objective',sans-serif;font-weight:800;font-size:.9rem;flex-shrink:0;z-index:1;transition:all .45s}
     .tk-tl__item.active .tk-tl__dot{border-color:transparent;background:var(--grad-cool);color:#fff;box-shadow:0 10px 24px rgba(37,149,145,.3)}
     .tk-tl__item.done .tk-tl__dot{border-color:var(--teal);color:var(--teal)}
+    .tk-tl__item{cursor:pointer}
+    .tk-tl__item:not(.active):not(.done):hover{opacity:.7}
+    .tk-tl__item:hover .tk-tl__dot{border-color:var(--sea);color:var(--sea)}
     .tk-tl__item:not(:last-child)::before{content:'';position:absolute;left:19px;top:48px;bottom:-7px;width:2px;background:var(--bd-l);transition:background .45s}
     .tk-tl__item.done:not(:last-child)::before{background:var(--teal)}
     .tk-tl__c strong{display:block;font-family:'Objective',sans-serif;font-size:.98rem;color:var(--text);margin-bottom:3px}
@@ -347,9 +350,9 @@
     var tlItems=document.querySelectorAll('#tkTl .tk-tl__item');
     var tap=document.getElementById('tkTap');
     var stages=[
-      {key:'login',    step:2, icon:'pi-lock',         status:'Entrando com segurança…', dur:2600},
-      {key:'tokens',   step:3, icon:'pi-shield',       status:'Token gerado',            dur:4000, countdown:true},
-      {key:'validado', step:4, icon:'pi-check-circle', status:'Atendimento autorizado',  dur:2600}
+      {key:'login',    step:2, icon:'pi-lock',         status:'Entrando com segurança…', dur:3800},
+      {key:'tokens',   step:3, icon:'pi-shield',       status:'Token gerado',            dur:5500, countdown:true},
+      {key:'validado', step:4, icon:'pi-check-circle', status:'Atendimento autorizado',  dur:2200}
     ];
     var idx=0, mainT=null, cdT=null, paused=false;
     function setStatus(icon,text){ statusEl.innerHTML='<i class="pi '+icon+'"></i> <span>'+text+'</span>'; }
@@ -361,12 +364,19 @@
       if(tap){ tap.classList.remove('go'); void tap.offsetWidth; tap.classList.add('go'); }
       clearInterval(cdT);
       if(s.countdown){
-        var sec=60; setStatus(s.icon,'Token gerado · expira em '+sec+'s');
-        cdT=setInterval(function(){ sec=sec<=1?60:sec-1; setStatus(s.icon,'Token gerado · expira em '+sec+'s'); },1000);
+        var sec=30; setStatus(s.icon,'Token gerado · expira em '+sec+'s');
+        cdT=setInterval(function(){ sec=sec<=1?30:sec-1; setStatus(s.icon,'Token gerado · expira em '+sec+'s'); },1000);
       } else { setStatus(s.icon, s.status); }
     }
+    function goTo(newIdx){ clearTimeout(mainT); clearInterval(cdT); idx=newIdx; paused=false; render(); schedule(); }
     function schedule(){ clearTimeout(mainT); if(!paused) mainT=setTimeout(function(){ idx=(idx+1)%stages.length; render(); schedule(); }, stages[idx].dur); }
     render(); schedule();
+    tlItems.forEach(function(it){
+      it.addEventListener('click', function(){
+        var st=+it.getAttribute('data-st');
+        goTo(st<=2?0:st-2);
+      });
+    });
     var stage=document.querySelector('.tk-stage');
     stage.addEventListener('mouseenter', function(){ paused=true; clearTimeout(mainT); });
     stage.addEventListener('mouseleave', function(){ paused=false; schedule(); });
