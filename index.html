@@ -33,8 +33,9 @@
   --ink:#111111;  --ink2:#1C1C1E;                       
   --teal:#259591; --teal-dim:rgba(37,149,145,.22);     
   --sea:#6AA7AE;  --sea-dim:rgba(106,167,174,.22);     
-  --orange:#CD7925;                                     
-  --coral:#E05759;                                      
+  --orange:#CD7925;
+  --coral:#E05759;
+  --orange-ink:#9E5A11; --coral-ink:#BC3B2D;  /* tons acessíveis (AA ~5:1) p/ texto pequeno */
   --white:#fff; --off:#F5F9FF;
   --serif:'Newsreader',Georgia,serif;                   
   --text:#333333; --muted:#666666;                      
@@ -311,9 +312,9 @@ section .h2 strong{font-family:var(--serif);font-style:italic;font-weight:600;le
 #farmacia.sec--off{background-color:rgba(224,87,89,.04);background-image:radial-gradient(rgba(224,87,89,.14) 1.1px,transparent 1.1px);background-size:26px 26px}
 #farmacia .farm__logo-card:hover{border-color:var(--coral);box-shadow:0 22px 50px rgba(224,87,89,.14)}
 #farmacia .farm__logo-card::after{background:linear-gradient(135deg,rgba(224,87,89,.08),transparent 65%)}
-#teleconsulta .eyebrow{color:var(--orange)}
-#farmacia .eyebrow{color:var(--coral)}
-#canais-atendimento .eyebrow{color:var(--coral)}
+#teleconsulta .eyebrow{color:var(--orange-ink)}
+#farmacia .eyebrow{color:var(--coral-ink)}
+#canais-atendimento .eyebrow{color:var(--coral-ink)}
 .farm__step strong{display:block;font-size:.92rem;font-weight:600;margin-bottom:3px}
 .farm__step span{font-size:.82rem;color:var(--muted)}
 
@@ -514,7 +515,7 @@ footer{background:#fff;color:var(--muted);padding:52px 0 28px;position:relative}
 
 html.sr .gs{opacity:0!important;transform:translateY(22px);transition:opacity .55s cubic-bezier(.4,0,.2,1),transform .55s cubic-bezier(.4,0,.2,1)}
 html.sr .gs.vis{opacity:1!important;transform:none!important}
-@media(prefers-reduced-motion:reduce){html.sr .gs{transition:none!important}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}html.sr .gs{transition:none!important}}
 
 
 @keyframes hero-in{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
@@ -661,7 +662,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     <nav class="bar__nav" id="barNav">
       <a href="sobre.html" class="nav__link nav__item">A Klini</a>
       <div class="nav__item nav__item--drop">
-        <span class="nav__link">Serviços <i class="pi pi-chevron-down nav__chev"></i></span>
+        <span class="nav__link">Serviços <i aria-hidden="true" class="pi pi-chevron-down nav__chev"></i></span>
         <div class="nav__drop">
           <a href="token-digital.html">Token digital</a>
           <a href="desconto-farmacia.html">Desconto farmácia</a>
@@ -671,7 +672,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       </div>
       <a href="planos.html" class="nav__link nav__item">Planos</a>
       <div class="nav__item nav__item--drop">
-        <span class="nav__link">Transparência <i class="pi pi-chevron-down nav__chev"></i></span>
+        <span class="nav__link">Transparência <i aria-hidden="true" class="pi pi-chevron-down nav__chev"></i></span>
         <div class="nav__drop">
           <a href="transparencia.html">Portal da transparência</a>
           <a href="politica-de-privacidade.html">Política de privacidade</a>
@@ -681,7 +682,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         </div>
       </div>
       <div class="nav__item nav__item--drop">
-        <span class="nav__link">Atendimento <i class="pi pi-chevron-down nav__chev"></i></span>
+        <span class="nav__link">Atendimento <i aria-hidden="true" class="pi pi-chevron-down nav__chev"></i></span>
         <div class="nav__drop">
           <a href="ouvidoria.html">Ouvidoria</a>
           <a href="negocie-sua-divida.html">Negocie sua dívida</a>
@@ -694,23 +695,23 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       <a href="planos.html#cotacao" class="btn-klini">Quero ser Klini</a>
       <div class="bar__area-wrap">
         <button class="btn-area" type="button" aria-expanded="false" aria-haspopup="true">
-          <i class="pi pi-user"></i> Acesse sua área <i class="pi pi-chevron-down area__chev"></i>
+          <i aria-hidden="true" class="pi pi-user"></i> Acesse sua área <i aria-hidden="true" class="pi pi-chevron-down area__chev"></i>
         </button>
         <div class="area-drop">
           <a href="https://beneficiario.klinisaude.com.br/" target="_blank" rel="noopener" class="area-drop__item">
-            <div class="area-drop__ico"><i class="pi pi-user"></i></div>
+            <div class="area-drop__ico"><i aria-hidden="true" class="pi pi-user"></i></div>
             <div><strong>Beneficiário</strong><span>Plano, autorizações e app</span></div>
           </a>
           <a href="https://portalplano.klinisaude.com.br/" target="_blank" rel="noopener" class="area-drop__item">
-            <div class="area-drop__ico"><i class="pi pi-building"></i></div>
+            <div class="area-drop__ico"><i aria-hidden="true" class="pi pi-building"></i></div>
             <div><strong>Empresa</strong><span>Contratos e cobranças</span></div>
           </a>
           <a href="portal-prestador.html" class="area-drop__item">
-            <div class="area-drop__ico"><i class="pi pi-id-card"></i></div>
+            <div class="area-drop__ico"><i aria-hidden="true" class="pi pi-id-card"></i></div>
             <div><strong>Prestador</strong><span>TISS, guias e faturamento</span></div>
           </a>
           <a href="espaco-corretor.html" class="area-drop__item">
-            <div class="area-drop__ico"><i class="pi pi-briefcase"></i></div>
+            <div class="area-drop__ico"><i aria-hidden="true" class="pi pi-briefcase"></i></div>
             <div><strong>Corretor</strong><span>Materiais e portal de vendas</span></div>
           </a>
         </div>
@@ -738,10 +739,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <p class="hero__sub">Rede própria, telemedicina 24h e Linhas de Cuidado para cada fase da sua vida.</p>
         <div class="hero__actions">
           <a href="planos.html" class="hero__btn-primary">
-            Conheça nossos planos <i class="pi pi-arrow-right"></i>
+            Conheça nossos planos <i aria-hidden="true" class="pi pi-arrow-right"></i>
           </a>
           <a href="https://beneficiario.klinisaude.com.br/" class="hero__btn-ghost" target="_blank" rel="noopener">
-            <i class="pi pi-user"></i> Acesse sua área
+            <i aria-hidden="true" class="pi pi-user"></i> Acesse sua área
           </a>
         </div>
       </div>
@@ -766,38 +767,38 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     <div class="acess__grid">
 
       <a class="acess__card gs" href="rede-credenciada.html">
-        <div class="acess__ico" style="background:rgba(37,149,145,.1);color:var(--teal)"><i class="pi pi-search"></i></div>
+        <div class="acess__ico" style="background:rgba(37,149,145,.1);color:var(--teal)"><i aria-hidden="true" class="pi pi-search"></i></div>
         <h3>Busca de Rede</h3>
         <p>Encontre a rede de atendimento do seu plano de um jeito prático.</p>
-        <span class="acess__cta">Acessar <i class="pi pi-arrow-right"></i></span>
+        <span class="acess__cta">Acessar <i aria-hidden="true" class="pi pi-arrow-right"></i></span>
       </a>
 
       <a class="acess__card gs" href="https://beneficiario.klinisaude.com.br/" target="_blank" rel="noopener">
-        <div class="acess__ico" style="background:rgba(205,121,37,.1);color:var(--orange)"><i class="pi pi-user"></i></div>
+        <div class="acess__ico" style="background:rgba(205,121,37,.1);color:var(--orange)"><i aria-hidden="true" class="pi pi-user"></i></div>
         <h3>Portal do Beneficiário</h3>
         <p>Acesse os dados do seu contrato, acompanhe autorizações e mais.</p>
-        <span class="acess__cta">Acessar <i class="pi pi-arrow-right"></i></span>
+        <span class="acess__cta">Acessar <i aria-hidden="true" class="pi pi-arrow-right"></i></span>
       </a>
 
       <a class="acess__card gs" href="transparencia.html">
-        <div class="acess__ico" style="background:rgba(106,167,174,.12);color:var(--sea)"><i class="pi pi-file"></i></div>
+        <div class="acess__ico" style="background:rgba(106,167,174,.12);color:var(--sea)"><i aria-hidden="true" class="pi pi-file"></i></div>
         <h3>Portal da Transparência</h3>
         <p>Tudo sobre a Klini de forma clara e transparente.</p>
-        <span class="acess__cta">Acessar <i class="pi pi-arrow-right"></i></span>
+        <span class="acess__cta">Acessar <i aria-hidden="true" class="pi pi-arrow-right"></i></span>
       </a>
 
       <a class="acess__card gs" href="teleconsulta.html">
-        <div class="acess__ico" style="background:rgba(224,87,89,.1);color:var(--coral)"><i class="pi pi-video"></i></div>
+        <div class="acess__ico" style="background:rgba(224,87,89,.1);color:var(--coral)"><i aria-hidden="true" class="pi pi-video"></i></div>
         <h3>Teleconsulta</h3>
         <p>Consultas online 24h com médicos capacitados.</p>
-        <span class="acess__cta">Acessar <i class="pi pi-arrow-right"></i></span>
+        <span class="acess__cta">Acessar <i aria-hidden="true" class="pi pi-arrow-right"></i></span>
       </a>
 
       <a class="acess__card gs" href="https://beneficiario.klinisaude.com.br/" target="_blank" rel="noopener">
-        <div class="acess__ico" style="background:rgba(205,121,37,.08);color:var(--orange)"><i class="pi pi-key"></i></div>
+        <div class="acess__ico" style="background:rgba(205,121,37,.08);color:var(--orange)"><i aria-hidden="true" class="pi pi-key"></i></div>
         <h3>Token Digital</h3>
         <p>Gere o seu token digital de maneira rápida e prática pelo app.</p>
-        <span class="acess__cta">Acessar <i class="pi pi-arrow-right"></i></span>
+        <span class="acess__cta">Acessar <i aria-hidden="true" class="pi pi-arrow-right"></i></span>
       </a>
 
     </div>
@@ -809,10 +810,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   <div class="wrap plans__layout">
     <div class="plans__aside">
       <div class="plans__head-txt">
-        <p class="eyebrow gs" style="color:var(--orange)">nossos planos</p>
+        <p class="eyebrow gs" style="color:var(--orange-ink)">nossos planos</p>
         <h2 class="h2 gs">O plano certo para cada <strong style="color:var(--orange)">momento da vida</strong></h2>
         <p class="gs" style="color:var(--muted);margin-top:12px;font-size:1.05rem">Do essencial ao completo — todos com telemedicina 24h inclusos.</p>
-        <a href="planos.html" class="btn btn-teal plans__cta gs">Comparar planos <i class="pi pi-arrow-right"></i></a>
+        <a href="planos.html" class="btn btn-teal plans__cta gs">Comparar planos <i aria-hidden="true" class="pi pi-arrow-right"></i></a>
       </div>
     </div>
 
@@ -820,8 +821,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       <div class="plans__arrows-top gs">
         <div class="plans__dots" id="plansDots"></div>
         <div class="plans__arrows-btns">
-          <button class="plans__arrow" id="plansPrev" aria-label="Planos anteriores"><i class="pi pi-angle-left"></i></button>
-          <button class="plans__arrow" id="plansNext" aria-label="Próximos planos"><i class="pi pi-angle-right"></i></button>
+          <button class="plans__arrow" id="plansPrev" aria-label="Planos anteriores"><i aria-hidden="true" class="pi pi-angle-left"></i></button>
+          <button class="plans__arrow" id="plansNext" aria-label="Próximos planos"><i aria-hidden="true" class="pi pi-angle-right"></i></button>
         </div>
       </div>
     <div class="plans__viewport">
@@ -834,7 +835,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
           <div class="vc-scrim"></div>
           <svg class="vc-k" viewBox="0 0 858.5 789" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect fill="rgba(255,255,255,.92)" x="298.4" y="199.02" width="96.05" height="390.96"/><polygon fill="rgba(255,255,255,.72)" points="560.1 303.23 456.72 303.23 378.66 446.6 456.72 589.98 560.1 589.98 481.96 446.6 560.1 303.23"/></svg>
           <span class="vc-tier">Essencial</span>
-          <div class="vc-body"><div class="vc-name">Klini 200</div><span class="vc-tag">A porta de entrada para proteção ampla</span><span class="vc-hint">Ver coberturas <i class="pi pi-arrow-right"></i></span></div>
+          <div class="vc-body"><div class="vc-name">Klini 200</div><span class="vc-tag">A porta de entrada para proteção ampla</span><span class="vc-hint">Ver coberturas <i aria-hidden="true" class="pi pi-arrow-right"></i></span></div>
           <div class="vc-bar"></div>
         </div>
         <div class="vcface vcback">
@@ -844,8 +845,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
           </div>
           <p class="vcback-tagline">A primeira proteção de verdade</p>
-          <ul><li><i class="pi pi-check"></i>Ambulatorial + Hospitalar</li><li><i class="pi pi-check"></i>Obstetrícia inclusa</li><li><i class="pi pi-check"></i>Rede regional RJ</li><li><i class="pi pi-check"></i>Teleconsulta 24h</li><li><i class="pi pi-check"></i>Urgência e emergência</li></ul>
-          <a class="vccta" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20200." target="_blank" rel="noopener"><i class="pi pi-whatsapp"></i> Solicitar cotação</a>
+          <ul><li><i aria-hidden="true" class="pi pi-check"></i>Ambulatorial + Hospitalar</li><li><i aria-hidden="true" class="pi pi-check"></i>Obstetrícia inclusa</li><li><i aria-hidden="true" class="pi pi-check"></i>Rede regional RJ</li><li><i aria-hidden="true" class="pi pi-check"></i>Teleconsulta 24h</li><li><i aria-hidden="true" class="pi pi-check"></i>Urgência e emergência</li></ul>
+          <a class="vccta" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20200." target="_blank" rel="noopener"><i aria-hidden="true" class="pi pi-whatsapp"></i> Solicitar cotação</a>
         </div>
       </div></div>
 
@@ -856,7 +857,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
           <div class="vc-scrim"></div>
           <svg class="vc-k" viewBox="0 0 858.5 789" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect fill="rgba(255,255,255,.92)" x="298.4" y="199.02" width="96.05" height="390.96"/><polygon fill="rgba(255,255,255,.72)" points="560.1 303.23 456.72 303.23 378.66 446.6 456.72 589.98 560.1 589.98 481.96 446.6 560.1 303.23"/></svg>
           <span class="vc-tier">Família</span>
-          <div class="vc-body"><div class="vc-name">Klini 350</div><span class="vc-tag">Acompanha o crescimento da sua família</span><span class="vc-hint">Ver coberturas <i class="pi pi-arrow-right"></i></span></div>
+          <div class="vc-body"><div class="vc-name">Klini 350</div><span class="vc-tag">Acompanha o crescimento da sua família</span><span class="vc-hint">Ver coberturas <i aria-hidden="true" class="pi pi-arrow-right"></i></span></div>
           <div class="vc-bar"></div>
         </div>
         <div class="vcface vcback">
@@ -866,8 +867,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
           </div>
           <p class="vcback-tagline">Para toda a família crescer</p>
-          <ul><li><i class="pi pi-check"></i>Ampla rede credenciada</li><li><i class="pi pi-check"></i>Hospitais de referência</li><li><i class="pi pi-check"></i>Obstetrícia inclusa</li><li><i class="pi pi-check"></i>Telemedicina 24h</li><li><i class="pi pi-check"></i>Atendimento pediátrico</li></ul>
-          <a class="vccta" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20350." target="_blank" rel="noopener"><i class="pi pi-whatsapp"></i> Solicitar cotação</a>
+          <ul><li><i aria-hidden="true" class="pi pi-check"></i>Ampla rede credenciada</li><li><i aria-hidden="true" class="pi pi-check"></i>Hospitais de referência</li><li><i aria-hidden="true" class="pi pi-check"></i>Obstetrícia inclusa</li><li><i aria-hidden="true" class="pi pi-check"></i>Telemedicina 24h</li><li><i aria-hidden="true" class="pi pi-check"></i>Atendimento pediátrico</li></ul>
+          <a class="vccta" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20350." target="_blank" rel="noopener"><i aria-hidden="true" class="pi pi-whatsapp"></i> Solicitar cotação</a>
         </div>
       </div></div>
 
@@ -878,7 +879,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
           <img class="vc-photo" src="assets/campanha/pc-400.webp" alt="Beneficiário Klini" loading="eager" decoding="async" />
           <div class="vc-scrim"></div>
           <svg class="vc-k" viewBox="0 0 858.5 789" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect fill="rgba(255,255,255,.92)" x="298.4" y="199.02" width="96.05" height="390.96"/><polygon fill="rgba(255,255,255,.72)" points="560.1 303.23 456.72 303.23 378.66 446.6 456.72 589.98 560.1 589.98 481.96 446.6 560.1 303.23"/></svg>
-          <div class="vc-body"><div class="vc-name">Klini 400</div><span class="vc-tag">Rede ampliada com Linhas de Cuidado</span><span class="vc-hint">Ver coberturas <i class="pi pi-arrow-right"></i></span></div>
+          <div class="vc-body"><div class="vc-name">Klini 400</div><span class="vc-tag">Rede ampliada com Linhas de Cuidado</span><span class="vc-hint">Ver coberturas <i aria-hidden="true" class="pi pi-arrow-right"></i></span></div>
           <div class="vc-bar"></div>
         </div>
         <div class="vcface vcback">
@@ -888,8 +889,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
           </div>
           <p class="vcback-tagline">Rede ampliada, cuidado completo</p>
-          <ul><li><i class="pi pi-check"></i>Ambulatorial + Hospitalar</li><li><i class="pi pi-check"></i>Rede ampliada premium</li><li><i class="pi pi-check"></i>Linhas de Cuidado (LCA)</li><li><i class="pi pi-check"></i>Teleconsulta 24h</li><li><i class="pi pi-check"></i>Acesso a especialistas</li></ul>
-          <a class="vccta" href="https://wa.me/552130550790?text=Olá!%20Quero%20simular%20o%20Klini%20400." target="_blank" rel="noopener"><i class="pi pi-whatsapp"></i> Simular agora</a>
+          <ul><li><i aria-hidden="true" class="pi pi-check"></i>Ambulatorial + Hospitalar</li><li><i aria-hidden="true" class="pi pi-check"></i>Rede ampliada premium</li><li><i aria-hidden="true" class="pi pi-check"></i>Linhas de Cuidado (LCA)</li><li><i aria-hidden="true" class="pi pi-check"></i>Teleconsulta 24h</li><li><i aria-hidden="true" class="pi pi-check"></i>Acesso a especialistas</li></ul>
+          <a class="vccta" href="https://wa.me/552130550790?text=Olá!%20Quero%20simular%20o%20Klini%20400." target="_blank" rel="noopener"><i aria-hidden="true" class="pi pi-whatsapp"></i> Simular agora</a>
         </div>
       </div></div>
 
@@ -900,7 +901,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
           <div class="vc-scrim"></div>
           <svg class="vc-k" viewBox="0 0 858.5 789" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect fill="rgba(255,255,255,.92)" x="298.4" y="199.02" width="96.05" height="390.96"/><polygon fill="rgba(255,255,255,.72)" points="560.1 303.23 456.72 303.23 378.66 446.6 456.72 589.98 560.1 589.98 481.96 446.6 560.1 303.23"/></svg>
           <span class="vc-tier">Completo</span>
-          <div class="vc-body"><div class="vc-name">Klini 600</div><span class="vc-tag">Cobertura total, tranquilidade completa</span><span class="vc-hint">Ver coberturas <i class="pi pi-arrow-right"></i></span></div>
+          <div class="vc-body"><div class="vc-name">Klini 600</div><span class="vc-tag">Cobertura total, tranquilidade completa</span><span class="vc-hint">Ver coberturas <i aria-hidden="true" class="pi pi-arrow-right"></i></span></div>
           <div class="vc-bar"></div>
         </div>
         <div class="vcface vcback">
@@ -910,8 +911,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
           </div>
           <p class="vcback-tagline">Sem concessões. O melhor da Klini.</p>
-          <ul><li><i class="pi pi-check"></i>Hospitais de excelência</li><li><i class="pi pi-check"></i>Maior rede credenciada</li><li><i class="pi pi-check"></i>Alto reembolso</li><li><i class="pi pi-check"></i>LCA ao extremo</li><li><i class="pi pi-check"></i>Especialistas sem fila</li></ul>
-          <a class="vccta" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20600." target="_blank" rel="noopener"><i class="pi pi-whatsapp"></i> Solicitar cotação</a>
+          <ul><li><i aria-hidden="true" class="pi pi-check"></i>Hospitais de excelência</li><li><i aria-hidden="true" class="pi pi-check"></i>Maior rede credenciada</li><li><i aria-hidden="true" class="pi pi-check"></i>Alto reembolso</li><li><i aria-hidden="true" class="pi pi-check"></i>LCA ao extremo</li><li><i aria-hidden="true" class="pi pi-check"></i>Especialistas sem fila</li></ul>
+          <a class="vccta" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20600." target="_blank" rel="noopener"><i aria-hidden="true" class="pi pi-whatsapp"></i> Solicitar cotação</a>
         </div>
       </div></div>
 
@@ -922,7 +923,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
           <div class="vc-scrim"></div>
           <svg class="vc-k" viewBox="0 0 858.5 789" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect fill="rgba(255,255,255,.92)" x="298.4" y="199.02" width="96.05" height="390.96"/><polygon fill="rgba(255,255,255,.72)" points="560.1 303.23 456.72 303.23 378.66 446.6 456.72 589.98 560.1 589.98 481.96 446.6 560.1 303.23"/></svg>
           <span class="vc-tier">Acessível</span>
-          <div class="vc-body"><div class="vc-name">Ambulatorial</div><span class="vc-tag">Cobertura essencial, consultas e exames</span><span class="vc-hint">Ver coberturas <i class="pi pi-arrow-right"></i></span></div>
+          <div class="vc-body"><div class="vc-name">Ambulatorial</div><span class="vc-tag">Cobertura essencial, consultas e exames</span><span class="vc-hint">Ver coberturas <i aria-hidden="true" class="pi pi-arrow-right"></i></span></div>
           <div class="vc-bar"></div>
         </div>
         <div class="vcface vcback">
@@ -932,8 +933,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
           </div>
           <p class="vcback-tagline">Consultas e exames, simples assim</p>
-          <ul><li><i class="pi pi-check"></i>Cobertura ambulatorial completa</li><li><i class="pi pi-check"></i>Consultas e exames</li><li><i class="pi pi-check"></i>Teleconsulta 24h inclusa</li><li><i class="pi pi-check"></i>Desconto em farmácias</li><li><i class="pi pi-check"></i>Urgência ambulatorial</li></ul>
-          <a class="vccta" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Ambulatorial." target="_blank" rel="noopener"><i class="pi pi-whatsapp"></i> Solicitar cotação</a>
+          <ul><li><i aria-hidden="true" class="pi pi-check"></i>Cobertura ambulatorial completa</li><li><i aria-hidden="true" class="pi pi-check"></i>Consultas e exames</li><li><i aria-hidden="true" class="pi pi-check"></i>Teleconsulta 24h inclusa</li><li><i aria-hidden="true" class="pi pi-check"></i>Desconto em farmácias</li><li><i aria-hidden="true" class="pi pi-check"></i>Urgência ambulatorial</li></ul>
+          <a class="vccta" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Ambulatorial." target="_blank" rel="noopener"><i aria-hidden="true" class="pi pi-whatsapp"></i> Solicitar cotação</a>
         </div>
       </div></div>
 
@@ -944,7 +945,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
           <div class="vc-scrim"></div>
           <svg class="vc-k" viewBox="0 0 858.5 789" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect fill="rgba(255,255,255,.92)" x="298.4" y="199.02" width="96.05" height="390.96"/><polygon fill="rgba(255,255,255,.72)" points="560.1 303.23 456.72 303.23 378.66 446.6 456.72 589.98 560.1 589.98 481.96 446.6 560.1 303.23"/></svg>
           <span class="vc-tier">Rede Casa</span>
-          <div class="vc-body"><div class="vc-name">Hospitalar</div><span class="vc-tag">Foco em internações, urgência e cirurgias</span><span class="vc-hint">Ver coberturas <i class="pi pi-arrow-right"></i></span></div>
+          <div class="vc-body"><div class="vc-name">Hospitalar</div><span class="vc-tag">Foco em internações, urgência e cirurgias</span><span class="vc-hint">Ver coberturas <i aria-hidden="true" class="pi pi-arrow-right"></i></span></div>
           <div class="vc-bar"></div>
         </div>
         <div class="vcface vcback">
@@ -954,8 +955,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
           </div>
           <p class="vcback-tagline">Quando importa, a Rede Casa cuida</p>
-          <ul><li><i class="pi pi-check"></i>Internação na Rede Casa</li><li><i class="pi pi-check"></i>Urgência e emergência 24h</li><li><i class="pi pi-check"></i>Cirurgias e UTI</li><li><i class="pi pi-check"></i>Teleconsulta 24h inclusa</li><li><i class="pi pi-check"></i>9 hospitais no estado do RJ</li></ul>
-          <a class="vccta" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Hospitalar." target="_blank" rel="noopener"><i class="pi pi-whatsapp"></i> Solicitar cotação</a>
+          <ul><li><i aria-hidden="true" class="pi pi-check"></i>Internação na Rede Casa</li><li><i aria-hidden="true" class="pi pi-check"></i>Urgência e emergência 24h</li><li><i aria-hidden="true" class="pi pi-check"></i>Cirurgias e UTI</li><li><i aria-hidden="true" class="pi pi-check"></i>Teleconsulta 24h inclusa</li><li><i aria-hidden="true" class="pi pi-check"></i>9 hospitais no estado do RJ</li></ul>
+          <a class="vccta" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Hospitalar." target="_blank" rel="noopener"><i aria-hidden="true" class="pi pi-whatsapp"></i> Solicitar cotação</a>
         </div>
       </div></div>
       </div></div>
@@ -1004,11 +1005,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
           <div class="tele__screen-glow"></div>
 
           <div class="tele__notif tele__notif--1">
-            <span class="tele__notif-ico" style="background:rgba(37,149,145,.12);color:var(--teal)"><i class="pi pi-check"></i></span>
+            <span class="tele__notif-ico" style="background:rgba(37,149,145,.12);color:var(--teal)"><i aria-hidden="true" class="pi pi-check"></i></span>
             <div><strong>Consulta confirmada</strong><span>Clínico geral · agora</span></div>
           </div>
           <div class="tele__notif tele__notif--3">
-            <span class="tele__notif-ico" style="background:rgba(224,87,89,.12);color:var(--coral)"><i class="pi pi-video"></i></span>
+            <span class="tele__notif-ico" style="background:rgba(224,87,89,.12);color:var(--coral)"><i aria-hidden="true" class="pi pi-video"></i></span>
             <div><strong>Consulta ao vivo</strong><span>médico disponível · agora</span></div>
           </div>
         </div>
@@ -1026,9 +1027,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       <p class="gs" style="color:var(--muted);margin-top:12px;font-size:1.05rem">Descontos especiais nas principais redes do Brasil — sem cadastro adicional.</p>
     </div>
     <div class="farm__steps farm__steps--row gs">
-      <div class="farm__step"><div class="farm__ico"><i class="pi pi-map-marker"></i></div><div><strong>Vá a uma farmácia parceira</strong><span>7 redes em todo o Brasil</span></div></div>
-      <div class="farm__step"><div class="farm__ico"><i class="pi pi-id-card"></i></div><div><strong>Apresente CPF ou carteirinha</strong><span>Acesse pelo app Klini</span></div></div>
-      <div class="farm__step"><div class="farm__ico"><i class="pi pi-tag"></i></div><div><strong>Desconto automático no caixa</strong><span>Instantâneo, sem etapas extras</span></div></div>
+      <div class="farm__step"><div class="farm__ico"><i aria-hidden="true" class="pi pi-map-marker"></i></div><div><strong>Vá a uma farmácia parceira</strong><span>7 redes em todo o Brasil</span></div></div>
+      <div class="farm__step"><div class="farm__ico"><i aria-hidden="true" class="pi pi-id-card"></i></div><div><strong>Apresente CPF ou carteirinha</strong><span>Acesse pelo app Klini</span></div></div>
+      <div class="farm__step"><div class="farm__ico"><i aria-hidden="true" class="pi pi-tag"></i></div><div><strong>Desconto automático no caixa</strong><span>Instantâneo, sem etapas extras</span></div></div>
     </div>
   </div>
   <div class="farm__ticker-wrap">
@@ -1100,7 +1101,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
     
     <div class="ldc__entry gs">
-      <div class="ldc__entry-icon"><i class="pi pi-building"></i></div>
+      <div class="ldc__entry-icon"><i aria-hidden="true" class="pi pi-building"></i></div>
       <div>
         <h4>Consultório de Enfermagem — Porta de Entrada</h4>
         <p>Todo paciente com doença crônica ou em investigação oncológica é encaminhado para avaliação de elegibilidade, estratificação de risco e inserção na linha de cuidado adequada — com coordenação contínua por enfermagem especializada.</p>
@@ -1124,19 +1125,19 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       
       <div class="canal canal--wa gs">
         <div class="canal__head">
-          <div class="canal__ico" style="background:rgba(37,211,102,.12);color:#1da851"><i class="pi pi-whatsapp"></i></div>
+          <div class="canal__ico" style="background:rgba(37,211,102,.12);color:#1da851"><i aria-hidden="true" class="pi pi-whatsapp"></i></div>
           <span class="canal__name">WhatsApp</span>
         </div>
         <a href="https://wa.me/552130550790" target="_blank" rel="noopener" class="canal__info">(21) 3055-0790</a>
         <p class="canal__desc">Canal principal — resposta imediata, 24 horas por dia, todos os dias.</p>
-        <span class="canal__badge canal__badge--green"><i class="pi pi-circle-fill" style="font-size:.45rem"></i> Disponível 24h</span>
-        <a href="https://wa.me/552130550790?text=Olá!%20Gostaria%20de%20conhecer%20os%20planos%20Klini%20Saúde." target="_blank" rel="noopener" class="btn btn-teal" style="display:flex;font-size:.85rem;padding:11px 24px;margin-top:auto"><i class="pi pi-whatsapp"></i> Falar agora</a>
+        <span class="canal__badge canal__badge--green"><i aria-hidden="true" class="pi pi-circle-fill" style="font-size:.45rem"></i> Disponível 24h</span>
+        <a href="https://wa.me/552130550790?text=Olá!%20Gostaria%20de%20conhecer%20os%20planos%20Klini%20Saúde." target="_blank" rel="noopener" class="btn btn-teal" style="display:flex;font-size:.85rem;padding:11px 24px;margin-top:auto"><i aria-hidden="true" class="pi pi-whatsapp"></i> Falar agora</a>
       </div>
 
       
       <div class="canal canal--sac gs">
         <div class="canal__head">
-          <div class="canal__ico" style="background:rgba(106,167,174,.12);color:var(--sea)"><i class="pi pi-phone"></i></div>
+          <div class="canal__ico" style="background:rgba(106,167,174,.12);color:var(--sea)"><i aria-hidden="true" class="pi pi-phone"></i></div>
           <span class="canal__name">SAC</span>
         </div>
         <div class="canal__nums">
@@ -1153,30 +1154,30 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
             <span class="canal__num-desc">Exclusivo para deficientes auditivos</span>
           </div>
         </div>
-        <span class="canal__badge canal__badge--green" style="margin-top:12px"><i class="pi pi-circle-fill" style="font-size:.45rem"></i> Disponível 24h</span>
+        <span class="canal__badge canal__badge--green" style="margin-top:12px"><i aria-hidden="true" class="pi pi-circle-fill" style="font-size:.45rem"></i> Disponível 24h</span>
       </div>
 
 
       <div class="canal canal--pres gs">
         <div class="canal__head">
-          <div class="canal__ico" style="background:rgba(37,149,145,.1);color:var(--teal)"><i class="pi pi-map-marker"></i></div>
+          <div class="canal__ico" style="background:rgba(37,149,145,.1);color:var(--teal)"><i aria-hidden="true" class="pi pi-map-marker"></i></div>
           <span class="canal__name">Presencial</span>
         </div>
         <div class="canal__body">
           <p class="canal__addr" style="margin-bottom:8px">Av. das Américas, 3200 – Sala 114<br>Barra da Tijuca, Rio de Janeiro – RJ</p>
-          <span class="canal__badge canal__badge--orange"><i class="pi pi-clock"></i> SEG a SEX, 8h às 17h</span>
+          <span class="canal__badge canal__badge--orange"><i aria-hidden="true" class="pi pi-clock"></i> SEG a SEX, 8h às 17h</span>
         </div>
       </div>
 
       
       <div class="canal canal--ouv gs">
         <div class="canal__head">
-          <div class="canal__ico" style="background:rgba(224,87,89,.1);color:var(--coral)"><i class="pi pi-flag"></i></div>
+          <div class="canal__ico" style="background:rgba(224,87,89,.1);color:var(--coral)"><i aria-hidden="true" class="pi pi-flag"></i></div>
           <span class="canal__name">Ouvidoria</span>
         </div>
         <div class="canal__body">
           <p class="canal__desc" style="margin-bottom:6px">Para demandas não resolvidas pelos canais regulares de atendimento.</p>
-          <a href="ouvidoria.html" class="canal__info" style="margin-bottom:0">Acessar Ouvidoria <i class="pi pi-arrow-right" style="font-size:.75rem"></i></a>
+          <a href="ouvidoria.html" class="canal__info" style="margin-bottom:0">Acessar Ouvidoria <i aria-hidden="true" class="pi pi-arrow-right" style="font-size:.75rem"></i></a>
         </div>
       </div>
 
@@ -1233,10 +1234,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         </nav>
       </div>
       <div class="foot__socials">
-        <a href="https://www.instagram.com/klinisaude/" class="soc" target="_blank" rel="noopener" aria-label="Instagram"><i class="pi pi-instagram"></i></a>
-        <a href="https://www.facebook.com/klinisaudematriz" class="soc" target="_blank" rel="noopener" aria-label="Facebook"><i class="pi pi-facebook"></i></a>
-        <a href="https://br.linkedin.com/company/klinisaude" class="soc" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="pi pi-linkedin"></i></a>
-        <a href="https://www.youtube.com/@KliniSaude" class="soc" target="_blank" rel="noopener" aria-label="YouTube"><i class="pi pi-youtube"></i></a>
+        <a href="https://www.instagram.com/klinisaude/" class="soc" target="_blank" rel="noopener" aria-label="Instagram"><i aria-hidden="true" class="pi pi-instagram"></i></a>
+        <a href="https://www.facebook.com/klinisaudematriz" class="soc" target="_blank" rel="noopener" aria-label="Facebook"><i aria-hidden="true" class="pi pi-facebook"></i></a>
+        <a href="https://br.linkedin.com/company/klinisaude" class="soc" target="_blank" rel="noopener" aria-label="LinkedIn"><i aria-hidden="true" class="pi pi-linkedin"></i></a>
+        <a href="https://www.youtube.com/@KliniSaude" class="soc" target="_blank" rel="noopener" aria-label="YouTube"><i aria-hidden="true" class="pi pi-youtube"></i></a>
       </div>
       <div class="foot__apps">
         <a href="https://apps.apple.com/br/app/klini-saude/id6447484649" target="_blank" rel="noopener" aria-label="App Store"><img src="assets/btn-appstore.png" alt="App Store" class="foot__app-btn" /></a>
@@ -1256,7 +1257,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
 <div class="wa-f">
   <span class="wa-tip">Falar com especialista</span>
-  <a href="https://wa.me/552130550790?text=Olá!%20Gostaria%20de%20conhecer%20os%20planos%20Klini%20Saúde." class="wa-btn" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="pi pi-whatsapp" style="font-size:1.5rem;color:#fff;line-height:1"></i></a>
+  <a href="https://wa.me/552130550790?text=Olá!%20Gostaria%20de%20conhecer%20os%20planos%20Klini%20Saúde." class="wa-btn" target="_blank" rel="noopener" aria-label="WhatsApp"><i aria-hidden="true" class="pi pi-whatsapp" style="font-size:1.5rem;color:#fff;line-height:1"></i></a>
 </div>
 
 
