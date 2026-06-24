@@ -390,7 +390,6 @@
 
 <script>
   var bar = document.getElementById('bar');
-  window.addEventListener('scroll', function(){ bar.classList.toggle('solid', window.scrollY > 50); }, { passive:true });
   var barHamb = document.getElementById('barHamb'), barNav = document.getElementById('barNav');
   if (barHamb && barNav) {
     barHamb.addEventListener('click', function(){ barNav.classList.toggle('open'); });
