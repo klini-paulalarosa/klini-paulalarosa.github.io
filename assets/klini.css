@@ -153,7 +153,7 @@ p{font-family:'Objective',sans-serif;line-height:1.7}
 
 .page-hero--split{background:#fff;padding:0;overflow:hidden}
 .page-hero--split::before{display:none}
-.page-hero--split .wrap{max-width:1200px;display:flex;align-items:center;min-height:clamp(560px,58vw,720px);padding-right:clamp(430px,56vw,720px)}
+.page-hero--split .wrap{max-width:1200px;display:flex;align-items:center;min-height:clamp(440px,46vw,560px);padding-right:clamp(430px,56vw,720px)}
 .phs-text{max-width:520px;padding:96px 0}
 .phs-text .eyebrow{color:var(--teal)}
 .phs-text .h1{color:var(--text);font-size:clamp(2rem,4vw,3.2rem);line-height:1.06;letter-spacing:-.025em;margin:0 0 18px}
