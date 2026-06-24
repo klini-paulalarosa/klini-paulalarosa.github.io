@@ -186,7 +186,7 @@ p{font-family:'Objective',sans-serif;line-height:1.7}
 
 .plan__photo{position:absolute;right:-14%;top:0;height:110%;width:auto;max-width:none;object-fit:contain;object-position:top right;z-index:2;opacity:0;transform:translateX(26px) scale(.98);transition:opacity .5s .16s,transform .65s .16s;filter:drop-shadow(0 20px 34px rgba(0,0,0,.3));pointer-events:none}
 .plans-acc__item.active .plan__photo{opacity:1;transform:none}
-.plan--hosp .plan__photo{-webkit-mask-image:linear-gradient(to bottom,black 46%,transparent 74%);mask-image:linear-gradient(to bottom,black 46%,transparent 74%)}
+.plan--hosp .plan__photo{-webkit-mask-image:linear-gradient(to bottom,black 36%,transparent 58%);mask-image:linear-gradient(to bottom,black 36%,transparent 58%)}
 
 .plan__spine{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:4;transition:opacity .3s}
 .plan__spine .nm{writing-mode:vertical-rl;transform:rotate(180deg);font-family:'Objective',sans-serif;font-weight:800;font-size:1.2rem;letter-spacing:.02em;white-space:nowrap;text-shadow:0 2px 12px rgba(0,0,0,.4)}
