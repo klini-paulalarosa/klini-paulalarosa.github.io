@@ -62,6 +62,8 @@
     @media(max-width:560px){.perfil{grid-template-columns:1fr}.diffs{grid-template-columns:1fr}}
       
     .h1 strong,.h2 strong,.phs-text .h1 strong{color:var(--orange)}
+    .phs-text .ph-cta{background:var(--grad-warm);color:#fff;box-shadow:0 12px 30px rgba(205,121,37,.32)}
+    .phs-text .ph-cta:hover{background:var(--grad-warm);filter:brightness(1.04);transform:translateY(-2px);box-shadow:0 16px 38px rgba(205,121,37,.4)}
   </style>
 </head>
 <body>
@@ -157,46 +159,75 @@
     </div>
     <div class="plans-acc" id="plansAcc">
 
-      <div class="plans-acc__item" tabindex="0" aria-label="Klini 200" aria-expanded="false">
-        <div class="plans-acc__label"><span class="nm">Klini 200</span></div>
-        <div class="plans-acc__poster"><img src="assets/flyer-200.png" alt="Flyer Klini 200" loading="lazy" /></div>
-        <div class="plans-acc__foot"><a class="plans-acc__cta-btn" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20200." target="_blank" rel="noopener">Solicitar cotação <i class="pi pi-arrow-right"></i></a></div>
-      </div>
+      <article class="plans-acc__item plan--amb" tabindex="0" aria-label="Klini Ambulatorial" aria-expanded="false">
+        <img class="plan__photo" src="assets/campanha/pc-amb.webp" alt="" loading="lazy" />
+        <span class="plan__spine"><span class="nm">Ambulatorial</span></span>
+        <div class="plan__body">
+          <h3 class="plan__name">Klini <strong>Ambulatorial</strong></h3>
+          <p class="plan__tag">O seu plano acessível</p>
+          <div class="plan__price"><span class="plan__from">a partir de</span><span class="plan__val">R$ 79<sup>,31</sup></span><span class="plan__per">/mês</span></div>
+          <a class="plan__cta" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Ambulatorial." target="_blank" rel="noopener">Solicitar cotação <i class="pi pi-arrow-right"></i></a>
+        </div>
+      </article>
 
-      <div class="plans-acc__item" tabindex="0" aria-label="Klini 350" aria-expanded="false">
-        <div class="plans-acc__label"><span class="nm">Klini 350</span></div>
-        <div class="plans-acc__poster"><img src="assets/flyer-350.png" alt="Flyer Klini 350" loading="lazy" /></div>
-        <div class="plans-acc__foot"><a class="plans-acc__cta-btn" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20350." target="_blank" rel="noopener">Solicitar cotação <i class="pi pi-arrow-right"></i></a></div>
-      </div>
+      <article class="plans-acc__item plan--200" tabindex="0" aria-label="Klini 200" aria-expanded="false">
+        <img class="plan__photo" src="assets/campanha/pc-200.webp" alt="" loading="lazy" />
+        <span class="plan__spine"><span class="nm">Klini 200</span></span>
+        <div class="plan__body">
+          <h3 class="plan__name">Klini <strong>200</strong></h3>
+          <p class="plan__tag">A porta de entrada para sua saúde</p>
+          <div class="plan__price"><span class="plan__from">a partir de</span><span class="plan__val">R$ 89<sup>,90</sup></span><span class="plan__per">/mês</span></div>
+          <a class="plan__cta" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20200." target="_blank" rel="noopener">Solicitar cotação <i class="pi pi-arrow-right"></i></a>
+        </div>
+      </article>
 
-      <div class="plans-acc__item active" tabindex="0" aria-label="Klini 400 — Mais escolhido" aria-expanded="true">
-        <span class="plans-acc__badge">★ Mais escolhido</span>
-        <div class="plans-acc__label"><span class="nm">Klini 400</span></div>
-        <div class="plans-acc__poster"><img src="assets/flyer-400.png" alt="Flyer Klini 400" loading="eager" decoding="async" /></div>
-        <div class="plans-acc__foot"><a class="plans-acc__cta-btn" href="https://wa.me/552130550790?text=Olá!%20Quero%20simular%20o%20Klini%20400." target="_blank" rel="noopener">Solicitar cotação <i class="pi pi-arrow-right"></i></a></div>
-      </div>
+      <article class="plans-acc__item plan--350" tabindex="0" aria-label="Klini 350" aria-expanded="false">
+        <img class="plan__photo" src="assets/campanha/pc-350.webp" alt="" loading="lazy" />
+        <span class="plan__spine"><span class="nm">Klini 350</span></span>
+        <div class="plan__body">
+          <h3 class="plan__name">Klini <strong>350</strong></h3>
+          <p class="plan__tag">O plano que acompanha o crescimento do seu filho</p>
+          <div class="plan__price"><span class="plan__from">a partir de</span><span class="plan__val">R$ 324<sup>,25</sup></span><span class="plan__per">/mês</span></div>
+          <a class="plan__cta" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20350." target="_blank" rel="noopener">Solicitar cotação <i class="pi pi-arrow-right"></i></a>
+        </div>
+      </article>
 
-      <div class="plans-acc__item" tabindex="0" aria-label="Klini 600" aria-expanded="false">
-        <div class="plans-acc__label"><span class="nm">Klini 600</span></div>
-        <div class="plans-acc__poster"><img src="assets/flyer-600.png" alt="Flyer Klini 600" loading="lazy" /></div>
-        <div class="plans-acc__foot"><a class="plans-acc__cta-btn" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20600." target="_blank" rel="noopener">Solicitar cotação <i class="pi pi-arrow-right"></i></a></div>
-      </div>
+      <article class="plans-acc__item plan--400 active" tabindex="0" aria-label="Klini 400 — Mais escolhido" aria-expanded="true">
+        <img class="plan__photo" src="assets/campanha/pc-400.webp" alt="" loading="eager" decoding="async" />
+        <span class="plan__spine"><span class="nm">Klini 400</span></span>
+        <div class="plan__body">
+          <span class="plan__tier"><i class="pi pi-star-fill"></i> Mais escolhido</span>
+          <h3 class="plan__name">Klini <strong>400</strong></h3>
+          <p class="plan__tag">Mais escolhas, mais cuidado</p>
+          <div class="plan__price"><span class="plan__from">a partir de</span><span class="plan__val">R$ 145<sup>,00</sup></span><span class="plan__per">/mês</span></div>
+          <a class="plan__cta" href="https://wa.me/552130550790?text=Olá!%20Quero%20simular%20o%20Klini%20400." target="_blank" rel="noopener">Solicitar cotação <i class="pi pi-arrow-right"></i></a>
+        </div>
+      </article>
 
-      <div class="plans-acc__item" tabindex="0" aria-label="Klini Ambulatorial" aria-expanded="false">
-        <div class="plans-acc__label"><span class="nm">Ambulatorial</span></div>
-        <div class="plans-acc__poster"><img src="assets/flyer-ambulatorial.png" alt="Flyer Klini Ambulatorial" loading="lazy" /></div>
-        <div class="plans-acc__foot"><a class="plans-acc__cta-btn" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Ambulatorial." target="_blank" rel="noopener">Solicitar cotação <i class="pi pi-arrow-right"></i></a></div>
-      </div>
+      <article class="plans-acc__item plan--600" tabindex="0" aria-label="Klini 600" aria-expanded="false">
+        <img class="plan__photo" src="assets/campanha/pc-600.webp" alt="" loading="lazy" />
+        <span class="plan__spine"><span class="nm">Klini 600</span></span>
+        <div class="plan__body">
+          <h3 class="plan__name">Klini <strong>600</strong></h3>
+          <p class="plan__tag">Cobertura total, tranquilidade completa</p>
+          <div class="plan__price"><span class="plan__from">a partir de</span><span class="plan__val">R$ 221<sup>,12</sup></span><span class="plan__per">/mês</span></div>
+          <a class="plan__cta" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20600." target="_blank" rel="noopener">Solicitar cotação <i class="pi pi-arrow-right"></i></a>
+        </div>
+      </article>
 
-      <div class="plans-acc__item plans-acc__item--photo" tabindex="0" aria-label="Klini Hospitalar" aria-expanded="false">
-        <img class="plans-acc__photo" src="assets/campanha/dirceu-flyer.webp" alt="" loading="lazy" />
-        <div class="plans-acc__scrim"></div>
-        <span class="plans-acc__badge">a partir de R$ 72,32</span>
-        <div class="plans-acc__label"><span class="nm">Klini Hospitalar</span></div>
-        <div class="plans-acc__foot"><a class="plans-acc__cta-btn" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Hospitalar." target="_blank" rel="noopener">Solicitar cotação <i class="pi pi-arrow-right"></i></a></div>
-      </div>
+      <article class="plans-acc__item plan--hosp" tabindex="0" aria-label="Klini Hospitalar" aria-expanded="false">
+        <img class="plan__photo" src="assets/campanha/pc-hosp.webp" alt="" loading="lazy" />
+        <span class="plan__spine"><span class="nm">Klini Hospitalar</span></span>
+        <div class="plan__body">
+          <h3 class="plan__name">Klini <strong>Hospitalar</strong></h3>
+          <p class="plan__tag">Foco em internações, urgência e cirurgias</p>
+          <div class="plan__price"><span class="plan__from">a partir de</span><span class="plan__val">R$ 72<sup>,32</sup></span><span class="plan__per">/mês</span></div>
+          <a class="plan__cta" href="https://wa.me/552130550790?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Klini%20Hospitalar." target="_blank" rel="noopener">Solicitar cotação <i class="pi pi-arrow-right"></i></a>
+        </div>
+      </article>
 
     </div>
+    <p style="text-align:center;font-size:.74rem;color:var(--muted);margin-top:22px;line-height:1.6;max-width:760px;margin-left:auto;margin-right:auto">*Valores "a partir de", referentes à faixa etária de 0 a 18 anos, quarto coletivo, plano coletivo por adesão com coparticipação. Consulte as condições de cada produto.</p>
   </div>
 </section>
 
