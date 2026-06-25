@@ -42,6 +42,10 @@
     .rc-field select,.rc-field input{width:100%;font-family:'Objective',sans-serif;font-size:.9rem;color:var(--text);background:var(--off);border:1.5px solid var(--bd-l);border-radius:11px;padding:13px 14px;transition:all .2s;-webkit-appearance:none;appearance:none}
     .rc-field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23637585' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;background-size:16px;padding-right:38px;cursor:pointer}
     .rc-field select:focus,.rc-field input:focus{outline:none;border-color:var(--teal);background-color:#fff;box-shadow:0 0 0 3px rgba(37,149,145,.12)}
+    .rc-field select:disabled,.rc-field input:disabled{opacity:.55;cursor:not-allowed;background-color:#eef1f4;color:var(--muted)}
+    .rc-req{color:var(--coral-ink);font-weight:700;margin-left:1px}
+    .rc-legend{grid-column:1/-1;font-size:.78rem;color:var(--muted);margin:2px 0 0}
+    .rc-actions .btn:disabled{opacity:.5;cursor:not-allowed;pointer-events:none}
     .rc-actions{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:24px}
     .rc-note{font-size:.78rem;color:var(--muted);display:flex;align-items:center;gap:8px;max-width:420px;line-height:1.5}
     .rc-note i{color:var(--teal);flex-shrink:0}
@@ -228,54 +232,77 @@
       <div class="rc-intro">
         <span class="eyebrow">busca de rede</span>
         <h2 class="h2">Encontre prestadores <strong>perto de você</strong></h2>
-        <p>Filtre por tipo de serviço, especialidade e localização. A busca completa e sempre atualizada abre no portal oficial da Klini.</p>
+        <p>Filtre por produto, rede do plano, tipo de serviço, especialidade e localização. A busca completa e sempre atualizada abre no portal oficial da Klini.</p>
       </div>
       <form class="rc-card" id="rcBuscar" target="_blank" rel="noopener" action="https://klinisaude.com.br/rede-credenciada/" method="get">
         <div class="rc-form">
           <div class="rc-field">
-            <label><i aria-hidden="true" class="pi pi-th-large"></i> Tipo de serviço</label>
-            <select name="servico">
-              <option value="">Todos os serviços</option>
-              <option>Hospital / Pronto-socorro</option>
-              <option>Clínica médica</option>
-              <option>Laboratório de análises</option>
-              <option>Diagnóstico por imagem</option>
-              <option>Odontologia</option>
-              <option>Fisioterapia e reabilitação</option>
-              <option>Saúde mental e psicologia</option>
+            <label><i aria-hidden="true" class="pi pi-tag"></i> Tipo de produto <span class="rc-req" aria-hidden="true">*</span></label>
+            <select name="produto" required>
+              <option value="" disabled selected>Selecione…</option>
+              <option>Médico</option>
+              <option>Odontológico</option>
             </select>
           </div>
           <div class="rc-field">
-            <label><i aria-hidden="true" class="pi pi-heart"></i> Especialidade</label>
-            <select name="especialidade">
-              <option value="">Todas as especialidades</option>
-              <option>Clínica geral</option>
-              <option>Pediatria</option>
-              <option>Ginecologia e obstetrícia</option>
-              <option>Cardiologia</option>
-              <option>Ortopedia</option>
-              <option>Dermatologia</option>
-              <option>Psiquiatria</option>
-              <option>Neurologia</option>
+            <label><i aria-hidden="true" class="pi pi-sitemap"></i> Rede <span class="rc-req" aria-hidden="true">*</span></label>
+            <select name="rede" required disabled>
+              <option value="" disabled selected>Selecione…</option>
             </select>
           </div>
           <div class="rc-field">
-            <label><i aria-hidden="true" class="pi pi-map-marker"></i> Estado</label>
-            <select name="estado"><option>Rio de Janeiro (RJ)</option></select>
+            <label><i aria-hidden="true" class="pi pi-th-large"></i> Tipo de serviço <span class="rc-req" aria-hidden="true">*</span></label>
+            <select name="servico" required disabled>
+              <option value="" disabled selected>Selecione…</option>
+              <option>Consulta</option>
+              <option>Exame</option>
+              <option>Pronto atendimento 12h</option>
+              <option>Pronto atendimento / emergência 24h</option>
+            </select>
           </div>
           <div class="rc-field">
-            <label><i aria-hidden="true" class="pi pi-compass"></i> Cidade ou bairro</label>
-            <input type="text" name="local" placeholder="Ex.: Campos, Itaperuna, Nova Iguaçu…" />
+            <label><i aria-hidden="true" class="pi pi-heart"></i> Especialidade <span class="rc-req" aria-hidden="true">*</span></label>
+            <select name="especialidade" required disabled>
+              <option value="" disabled selected>Selecione…</option>
+            </select>
+          </div>
+          <div class="rc-field">
+            <label><i aria-hidden="true" class="pi pi-map-marker"></i> Estado (UF) <span class="rc-req" aria-hidden="true">*</span></label>
+            <select name="estado" required disabled>
+              <option value="" disabled selected>Selecione…</option>
+              <option>Rio de Janeiro (RJ)</option>
+            </select>
+          </div>
+          <div class="rc-field">
+            <label><i aria-hidden="true" class="pi pi-building"></i> Município <span class="rc-req" aria-hidden="true">*</span></label>
+            <select name="municipio" required disabled>
+              <option value="" disabled selected>Selecione…</option>
+              <option>Rio de Janeiro</option>
+              <option>Nova Iguaçu</option>
+              <option>Campos dos Goytacazes</option>
+              <option>Itaperuna</option>
+            </select>
+          </div>
+          <div class="rc-field rc-field--full">
+            <label><i aria-hidden="true" class="pi pi-compass"></i> Bairro <span style="color:var(--muted);font-weight:500">(opcional)</span></label>
+            <select name="bairro" disabled>
+              <option value="" disabled selected>Selecione…</option>
+              <option>Centro</option>
+              <option>Tijuca</option>
+              <option>Copacabana</option>
+              <option>Barra da Tijuca</option>
+              <option>Madureira</option>
+              <option>Campo Grande</option>
+            </select>
           </div>
         </div>
         <div class="rc-actions">
-          <span class="rc-note"><i aria-hidden="true" class="pi pi-info-circle"></i> A rede é dinâmica. Os resultados completos e atualizados são exibidos no portal oficial da Klini.</span>
-          <button type="submit" class="btn btn-teal"><i aria-hidden="true" class="pi pi-search"></i> Buscar na rede</button>
+          <button type="submit" class="btn btn-teal" disabled><i aria-hidden="true" class="pi pi-search"></i> Buscar na rede</button>
         </div>
       </form>
 
       <div class="rc-intro" style="margin-top:64px">
-        <span class="eyebrow">cobertura</span>
+        <span class="eyebrow" style="color:var(--orange-ink)">cobertura</span>
         <h2 class="h2">O que você <strong style="color:var(--orange)">encontra na rede</strong></h2>
       </div>
       <div class="rc-types">
@@ -291,9 +318,9 @@
 
       
       <div class="rc-intro" style="margin-top:64px">
-        <span class="eyebrow">rede própria klini</span>
+        <span class="eyebrow" style="color:var(--orange-ink)">rede própria klini</span>
         <h2 class="h2">Encontre a unidade <strong style="color:var(--orange)">mais perto de você</strong></h2>
-        <p>10 Centros Médicos Klini (CMK) e 9 Hospitais da Rede Casa (HC) no mapa — filtre, busque por bairro e trace a rota. Para a rede credenciada completa, use o <a href="https://klinisaude.com.br/rede-credenciada/" target="_blank" rel="noopener" style="color:var(--teal);font-weight:600">portal oficial</a>.</p>
+        <p>10 Centros Médicos Klini (CMK) e 9 Hospitais da Rede Casa (HC) no mapa. Filtre, busque por bairro e trace a rota. Para a rede credenciada completa, use o <a href="https://klinisaude.com.br/rede-credenciada/" target="_blank" rel="noopener" style="color:var(--teal);font-weight:600">portal oficial</a>.</p>
       </div>
       <div class="map-section">
         <aside class="sidebar">
@@ -457,6 +484,60 @@
     btns.forEach(function(b){ b.addEventListener('click', function(){ activate(b.getAttribute('data-tab')); }); });
     if (location.hash === '#atualizacoes') activate('atualizacoes');
   })();
+
+
+  (function(){
+    var form = document.getElementById('rcBuscar');
+    if (!form) return;
+
+    /* Exemplo — na integração, estas listas vêm da API da base, dependentes do campo anterior. */
+    var REDE_POR_PRODUTO = {
+      'Médico': ['Klini 180','Klini 200','Klini 350 QC','Klini 350 QP','Klini 400','Klini 600 QC','Klini 600 QP','Klini Ambulatorial','Klini Clean','Klini Costa Verde','Klini Essencial','Klini Essencial PZC','Klini Fácil','Klini Nacional G100','Klini Nacional G100 Plus','Klini Nacional G600','Klini Pop','Klini Prime','Klini Prime 100','Klini Prime 200','Klini Rede Hospitalar Casa','Klini Referência','Klini Rio','Klini Rioserv','Klini Sênior 50+','Klini Senior 50+ PF','Klini Start','Klini Start Plus','Klini Start Plus ZS','Klini Tech','Klini Total QC','Klini Total QP'],
+      'Odontológico': ['Klini Dental Fácil','Klini Dental Prime','Klini Rioserv']
+    };
+    var ESPEC_POR_SERVICO = {
+      'Consulta': ['Clínica geral','Pediatria','Ginecologia e obstetrícia','Cardiologia','Dermatologia','Ortopedia'],
+      'Exame': ['Análises clínicas','Diagnóstico por imagem','Ultrassonografia','Endoscopia','Cardiologia (ECG/Eco)'],
+      'Pronto atendimento 12h': ['Clínica médica','Pediatria','Ortopedia'],
+      'Pronto atendimento / emergência 24h': ['Clínica médica','Pediatria','Cardiologia','Ortopedia','Cirurgia geral']
+    };
+
+    var ctrls = Array.prototype.slice.call(form.querySelectorAll('.rc-field select'));
+    var submit = form.querySelector('button[type="submit"]');
+    function byName(n){ return form.querySelector('select[name="' + n + '"]'); }
+    function filled(c){ return c.value && c.value.trim() !== ''; }
+    function reset(c){ c.selectedIndex = 0; }
+    function populate(sel, items){
+      sel.innerHTML = '';
+      var ph = document.createElement('option');
+      ph.value = ''; ph.disabled = true; ph.selected = true; ph.textContent = 'Selecione…';
+      sel.appendChild(ph);
+      (items || []).forEach(function(t){ var o = document.createElement('option'); o.textContent = t; sel.appendChild(o); });
+    }
+    function update(){
+      var ok = true;
+      ctrls.forEach(function(c, i){
+        if (i === 0) { c.disabled = false; }
+        else if (ok) { c.disabled = false; }
+        else { if (!c.disabled || filled(c)) reset(c); c.disabled = true; }
+        ok = ok && filled(c);
+      });
+      var muni = byName('municipio');
+      if (submit) submit.disabled = !(muni && filled(muni));
+    }
+    function onChange(i){
+      var c = ctrls[i];
+      if (c.name === 'produto') populate(byName('rede'), REDE_POR_PRODUTO[c.value]);
+      if (c.name === 'servico') populate(byName('especialidade'), ESPEC_POR_SERVICO[c.value]);
+      for (var j = i + 1; j < ctrls.length; j++) reset(ctrls[j]);
+      update();
+    }
+    ctrls.forEach(function(c, i){ c.addEventListener('change', function(){ onChange(i); }); });
+
+    ctrls.forEach(function(c, i){ if (i > 0) { reset(c); c.disabled = true; } });
+    if (submit) submit.disabled = true;
+    update();
+  })();
 </script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <script>
@@ -464,25 +545,25 @@
 (function(){
   if(!document.getElementById('map')||typeof L==='undefined') return;
   var units = [
-    { id:'cmk-nova-iguacu', type:'cmk', name:'CMK Nova Iguaçu', addr:'Rua Dom Walmor, 383, 4º andar — Centro', city:'Nova Iguaçu', lat:-22.7574, lng:-43.4524, spec:'Centro Médico' },
-    { id:'cmk-ilha', type:'cmk', name:'CMK Ilha do Governador', addr:'Estrada do Dendê, 1086 — Tauá', city:'Rio de Janeiro', lat:-22.7882, lng:-43.1741, spec:'Centro Médico' },
-    { id:'cmk-bangu', type:'cmk', name:'CMK Bangu', addr:'Rua Fonseca, 580, 5º andar — Bangu', city:'Rio de Janeiro', lat:-22.8783, lng:-43.4637, spec:'Centro Médico' },
-    { id:'cmk-madureira', type:'cmk', name:'CMK Madureira', addr:'Rua Guarapari, 25 — Madureira', city:'Rio de Janeiro', lat:-22.8765, lng:-43.3395, spec:'Centro Médico' },
-    { id:'cmk-santa-cruz', type:'cmk', name:'CMK Santa Cruz', addr:'Rua Visconde de Sepetiba, 22C — Santa Cruz', city:'Rio de Janeiro', lat:-22.9063, lng:-43.6966, spec:'Centro Médico' },
-    { id:'cmk-campo-grande', type:'cmk', name:'CMK Campo Grande', addr:'Rua Ivo do Prado, 79 — Campo Grande', city:'Rio de Janeiro', lat:-22.9019, lng:-43.5529, spec:'Centro Médico' },
-    { id:'cmk-centro', type:'cmk', name:'CMK Centro', addr:'Rua Riachuelo, 350 — Centro', city:'Rio de Janeiro', lat:-22.9073, lng:-43.1813, spec:'Centro Médico' },
-    { id:'cmk-tijuca', type:'cmk', name:'CMK Tijuca', addr:'Rua Major Ávila, 260, 8º andar — Tijuca', city:'Rio de Janeiro', lat:-22.9265, lng:-43.2497, spec:'Centro Médico' },
-    { id:'cmk-angra', type:'cmk', name:'CMK Angra dos Reis', addr:'Rua Ilha dos Coqueiros, 571 — Ribeira', city:'Angra dos Reis', lat:-23.0062, lng:-44.3174, spec:'Centro Médico' },
-    { id:'cmk-barra', type:'cmk', name:'CMK Barra da Tijuca', addr:'Av. das Américas, 3200 — Barra da Tijuca', city:'Rio de Janeiro', lat:-23.0003, lng:-43.3623, spec:'Centro Médico' },
-    { id:'hc-ilha', type:'hc', name:'HC Ilha do Governador', addr:'Estrada do Dendê, 668 — Tauá', city:'Rio de Janeiro', lat:-22.7893, lng:-43.1808, spec:'Geral' },
-    { id:'hc-santa-cruz', type:'hc', name:'HC Santa Cruz', addr:'Rua Nestor, 131 — Santa Cruz', city:'Rio de Janeiro', lat:-22.9075, lng:-43.6973, spec:'Pronto Atendimento 24h' },
-    { id:'hc-menssana', type:'hc', name:'HC Menssana', addr:'Rua Marechal Jofre, 30 — Grajaú', city:'Rio de Janeiro', lat:-22.9139, lng:-43.2914, spec:'Saúde Mental' },
-    { id:'hc-evangelico', type:'hc', name:'HC Evangélico', addr:'Rua Bom Pastor, 295 — Tijuca', city:'Rio de Janeiro', lat:-22.9237, lng:-43.2417, spec:'Alta Complexidade' },
-    { id:'hc-portugal', type:'hc', name:'HC de Portugal', addr:'Rua do Bispo, 72 — Rio Comprido', city:'Rio de Janeiro', lat:-22.9113, lng:-43.1916, spec:'Clínico & Cirúrgico' },
-    { id:'hc-premium', type:'hc', name:'HC Premium', addr:'Rua do Bispo, 18 — Rio Comprido', city:'Rio de Janeiro', lat:-22.9110, lng:-43.1912, spec:'Oncologia' },
-    { id:'hc-laranjeiras', type:'hc', name:'HC Rio Laranjeiras', addr:'Rua das Laranjeiras, 72 — Laranjeiras', city:'Rio de Janeiro', lat:-22.9299, lng:-43.1833, spec:'Cirúrgico' },
-    { id:'hc-sao-bernardo', type:'hc', name:'HC São Bernardo', addr:'Av. das Américas, 3250 — Barra da Tijuca', city:'Rio de Janeiro', lat:-23.0009, lng:-43.3618, spec:'UTI Especializada' },
-    { id:'hc-oftalmocasa', type:'hc', name:'Oftalmocasa', addr:'Av. das Américas, 3200 — Barra da Tijuca', city:'Rio de Janeiro', lat:-23.0003, lng:-43.3625, spec:'Oftalmologia' }
+    { id:'cmk-nova-iguacu', type:'cmk', name:'CMK Nova Iguaçu', addr:'Rua Dom Walmor, 383, 4º andar, Centro', city:'Nova Iguaçu', lat:-22.7574, lng:-43.4524, spec:'Centro Médico' },
+    { id:'cmk-ilha', type:'cmk', name:'CMK Ilha do Governador', addr:'Estrada do Dendê, 1086, Tauá', city:'Rio de Janeiro', lat:-22.7882, lng:-43.1741, spec:'Centro Médico' },
+    { id:'cmk-bangu', type:'cmk', name:'CMK Bangu', addr:'Rua Fonseca, 580, 5º andar, Bangu', city:'Rio de Janeiro', lat:-22.8783, lng:-43.4637, spec:'Centro Médico' },
+    { id:'cmk-madureira', type:'cmk', name:'CMK Madureira', addr:'Rua Guarapari, 25, Madureira', city:'Rio de Janeiro', lat:-22.8765, lng:-43.3395, spec:'Centro Médico' },
+    { id:'cmk-santa-cruz', type:'cmk', name:'CMK Santa Cruz', addr:'Rua Visconde de Sepetiba, 22C, Santa Cruz', city:'Rio de Janeiro', lat:-22.9063, lng:-43.6966, spec:'Centro Médico' },
+    { id:'cmk-campo-grande', type:'cmk', name:'CMK Campo Grande', addr:'Rua Ivo do Prado, 79, Campo Grande', city:'Rio de Janeiro', lat:-22.9019, lng:-43.5529, spec:'Centro Médico' },
+    { id:'cmk-centro', type:'cmk', name:'CMK Centro', addr:'Rua Riachuelo, 350, Centro', city:'Rio de Janeiro', lat:-22.9073, lng:-43.1813, spec:'Centro Médico' },
+    { id:'cmk-tijuca', type:'cmk', name:'CMK Tijuca', addr:'Rua Major Ávila, 260, 8º andar, Tijuca', city:'Rio de Janeiro', lat:-22.9265, lng:-43.2497, spec:'Centro Médico' },
+    { id:'cmk-angra', type:'cmk', name:'CMK Angra dos Reis', addr:'Rua Ilha dos Coqueiros, 571, Ribeira', city:'Angra dos Reis', lat:-23.0062, lng:-44.3174, spec:'Centro Médico' },
+    { id:'cmk-barra', type:'cmk', name:'CMK Barra da Tijuca', addr:'Av. das Américas, 3200, Barra da Tijuca', city:'Rio de Janeiro', lat:-23.0003, lng:-43.3623, spec:'Centro Médico' },
+    { id:'hc-ilha', type:'hc', name:'HC Ilha do Governador', addr:'Estrada do Dendê, 668, Tauá', city:'Rio de Janeiro', lat:-22.7893, lng:-43.1808, spec:'Geral' },
+    { id:'hc-santa-cruz', type:'hc', name:'HC Santa Cruz', addr:'Rua Nestor, 131, Santa Cruz', city:'Rio de Janeiro', lat:-22.9075, lng:-43.6973, spec:'Pronto Atendimento 24h' },
+    { id:'hc-menssana', type:'hc', name:'HC Menssana', addr:'Rua Marechal Jofre, 30, Grajaú', city:'Rio de Janeiro', lat:-22.9139, lng:-43.2914, spec:'Saúde Mental' },
+    { id:'hc-evangelico', type:'hc', name:'HC Evangélico', addr:'Rua Bom Pastor, 295, Tijuca', city:'Rio de Janeiro', lat:-22.9237, lng:-43.2417, spec:'Alta Complexidade' },
+    { id:'hc-portugal', type:'hc', name:'HC de Portugal', addr:'Rua do Bispo, 72, Rio Comprido', city:'Rio de Janeiro', lat:-22.9113, lng:-43.1916, spec:'Clínico & Cirúrgico' },
+    { id:'hc-premium', type:'hc', name:'HC Premium', addr:'Rua do Bispo, 18, Rio Comprido', city:'Rio de Janeiro', lat:-22.9110, lng:-43.1912, spec:'Oncologia' },
+    { id:'hc-laranjeiras', type:'hc', name:'HC Rio Laranjeiras', addr:'Rua das Laranjeiras, 72, Laranjeiras', city:'Rio de Janeiro', lat:-22.9299, lng:-43.1833, spec:'Cirúrgico' },
+    { id:'hc-sao-bernardo', type:'hc', name:'HC São Bernardo', addr:'Av. das Américas, 3250, Barra da Tijuca', city:'Rio de Janeiro', lat:-23.0009, lng:-43.3618, spec:'UTI Especializada' },
+    { id:'hc-oftalmocasa', type:'hc', name:'Oftalmocasa', addr:'Av. das Américas, 3200, Barra da Tijuca', city:'Rio de Janeiro', lat:-23.0003, lng:-43.3625, spec:'Oftalmologia' }
   ];
 
   var map = L.map('map', { center:[-22.88,-43.55], zoom:10, zoomControl:false, scrollWheelZoom:false });
@@ -545,7 +626,7 @@
       var matchSearch=!q||u.name.toLowerCase().indexOf(q)>-1||u.addr.toLowerCase().indexOf(q)>-1||u.city.toLowerCase().indexOf(q)>-1;
       var show=matchFilter&&matchSearch; if(show) visible++;
       var item=document.createElement('button');
-      item.type='button'; item.setAttribute('aria-label', u.name+' — '+u.addr);
+      item.type='button'; item.setAttribute('aria-label', u.name+', '+u.addr);
       item.className='unit-item '+u.type+(show?'':' hidden'); item.id='item-'+u.id;
       item.innerHTML='<div class="unit-dot unit-dot--'+u.type+'"></div><div><div class="unit-name">'+u.name+'</div><div class="unit-addr">'+u.addr+' · '+u.city+'</div><span class="unit-tag">'+u.spec+'</span></div>';
       item.addEventListener('click',function(){ selectUnit(u); });
