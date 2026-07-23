@@ -18,7 +18,7 @@
   --teal:#259591; --teal-dim:rgba(37,149,145,.22);
   --sea:#6AA7AE;  --sea-dim:rgba(106,167,174,.22);
   --orange:#CD7925; --coral:#E05759;
-  --orange-ink:#9E5A11; --coral-ink:#BC3B2D;   /* tons acessíveis (AA ~5:1) p/ texto pequeno; coral/orange vivos só em fundo ou texto grande */
+  --orange-ink:#9E5A11; --coral-ink:#BC3B2D;
   --white:#fff; --off:#F5F9FF;
   --serif:'Newsreader',Georgia,serif;        
   --text:#333333; --muted:#666666;
