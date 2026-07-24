@@ -348,6 +348,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .btn-teal:hover,.btn-klini:hover,.btn-area:hover,.page-hero .ph-cta:hover,.phs-text .ph-cta:hover,.plan__cta:hover,.soc:hover,.rc-unit:hover{transform:none}
   .wa-btn:hover{transform:none!important}
 }
+
+/* Ícones Lucide (sprite SVG self-hosted) — 1em segue o font-size do contexto, igual o PrimeIcons antigo */
+.lc{width:1em;height:1em;display:inline-block;vertical-align:-.125em;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.lc--fill{fill:currentColor;stroke:none}
 .ouv-form__body,.cred-form__body{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.4,0,.2,1),opacity .3s ease;opacity:0}
 .ouv-form--open .ouv-form__body,.cred-form--open .cred-form__body{max-height:3200px;opacity:1}
 .ouv-form--open .ouv-form__hd,.cred-form--open .cred-form__hd{padding-bottom:18px;border-bottom:1.5px solid var(--bd-l);margin-bottom:2px}
